@@ -1,3 +1,11 @@
+/*背景画像固定用*/
+body, html, body {
+    /* important */
+    height: 100%;
+}
+
+
+
 p {
 	font-size: 16px;
 }
@@ -152,17 +160,31 @@ hr {
 	font-size: 23px;
 }
 /* Services Section */
-#services {
+/*#services {
 	padding: 140px 0 90px 0;
-	/*background: url(../../img/aus.jpg);*/
 	background: url(../../img/aus.jpg) no-repeat center;
 	background-size: cover;
 	background-attachment: fixed;
     position: relative;
     height:100%;
+}*/
+
+#services {
+  /*background: none;*/
+  padding: 0 0 0 0;
+}
+#services .overlay {
+  background: url(../../img/aus.jpg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ddd;
+  padding: 140px 0 90px 0;
+  position: relative;
+  height:100%;
 }
 
-#services::before{
+/*#services::before{*/
+.overlay::before{
   /* 透過した黒を重ねる */
   background-color: rgba(0,0,0,0.5);
   /* どの範囲に重ねるかを指定 */
@@ -494,6 +516,84 @@ li.active.none::after {
 
 
 
+/*ご利用の流れ4STEP（四角い箱のみバージョン）----------------------------------------------------*/
+.msr_flow04 {
+  /*color: #333333;*/
+  color: #777;
+  counter-reset: section;
+  /*list-style: none;
+  overflow: hidden;*/
+  margin: 0 auto;
+}
+.msr_flow04 li {
+  background:#FFFFFF;
+  border-top:1px solid #ffffff;
+  border-left:1px solid #ffffff;
+  border-bottom:1px solid #ffffff;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /*color: #333333;*/
+  color: #777;
+  display: inline-block;
+  font-size: 18px;
+  height:300px;
+  margin: 5px 10px;
+  min-width: 250px;
+  padding: 18px 0 0 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  z-index:1;
+}
+.msr_flow04 li span{
+  padding:0 0 4px
+  font-weight:900;
+  margin-bottom: 10px;
+}
+
+.msr_flow04 li:before {
+  color:#CCCCCC;
+  content:counters(section, ".") " ";
+  counter-increment: section;
+  font-size:32px;
+  left:8px;
+  line-height:1;
+  margin:-16px 0 0;
+  position:absolute;
+  top:50%;
+}
+
+/*アイコンの箱の中の位置を指定した*/
+.msr_flow04 i {
+  position: absolute;
+  top: 30px;
+  left: 75px;
+}
+/*アイコンの大きさなど*/
+#testimonials i.fa {
+    font-size: 110px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    color: #00cc99;
+    width: 100px;
+    height: 100px;
+    padding: 30px 0;
+    /*background: #00cc99;*/
+    border-radius: 50%;
+}
+
+/*pの位置を指定*/
+.msr_flow04 p {
+  margin-top: 90px;
+  margin-left: -5px;
+}
+
+.fa-calendar-check-o:before {
+    content: "\f274";
+    margin-left: 5px;
+}
 
 
 
@@ -502,22 +602,7 @@ li.active.none::after {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Team Section */
+/* Team Section ------------------------------------------------------------------------*/
 #team {
 	/*padding: 140px 0;*/
 	padding: 130px 0 80px 0;
@@ -532,17 +617,30 @@ img.img-thumbnail.team-img {
 }
 
 /* Testimonials Section */
+/*#testimonials {
+  background: url(../../img/newzealand.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ddd;
+  padding: 140px 0 90px 0;
+  position: relative;
+  height:100%;
+}*/
 #testimonials {
+  /*background: none;*/
+  padding: 0 0 0 0;
+}
+#testimonials .overlay {
 	background: url(../../img/newzealand.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 	color: #ddd;
 	padding: 140px 0 90px 0;
 	position: relative;
-    height:100%;
+  height:100%;
 }
-
-#testimonials::before{
+/*#testimonials::before{*/
+.overlay::before{
   /* 透過した黒を重ねる */
   background-color: rgba(0,0,0,0.5);
   /* どの範囲に重ねるかを指定 */
@@ -565,8 +663,6 @@ img.img-thumbnail.team-img {
 }*/
 
 
-
-
 #testimonials h2 {
 	color: #f6f6f6;
 }
@@ -579,7 +675,12 @@ img.img-thumbnail.team-img {
 	color: #ffffff;
 }
 
-/* Contact Section */
+#testimonials ul{
+  display: inline-block;
+}
+
+
+/* Contact Section ----------------------------------------------------*/
 #contact {
 	/*padding: 120px 0 40px 0;*/
 	background: #f6f6f6;
