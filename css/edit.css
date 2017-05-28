@@ -1,0 +1,24 @@
+label {
+	font-size: 18px;
+}
+
+label.add-question-text{
+	font-size: 18px;
+}
+
+.form-group{
+	display: block;
+}
+
+.questions {
+	padding-top: 30px;
+}
+
+.each-quetion {
+	text-align: left;
+}
+
+#add-question {
+    padding: 140px 0;
+    background: #e6e6e6;
+}

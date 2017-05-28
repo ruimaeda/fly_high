@@ -1,0 +1,149 @@
+/* style.cssへの変更*/
+
+#style {
+	padding: 100px 0;
+	background: #f6f6f6;
+}
+
+#country {
+	padding-top: 30px;
+	padding-bottom: 140px;
+	background: #f6f6f6;
+}
+
+.navbar-brand img {
+	display: inline;
+}
+
+.navbar-logo {
+	padding-bottom: -5px;
+}
+
+/* Additional */
+#country-name {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.centering {
+	text-align: center;
+}
+
+.float {
+	display: float;
+}
+
+.input-group {
+	padding: 5px 0;
+}
+
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(240, 173, 78);
+    border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
+
+.agree {
+	padding-top: 30px;
+}
+
+img .header-logo {
+	padding-bottom: -5px;
+}
+
+.img-margin {
+	margin: 0;
+}
+
+hr .account-have {
+	margin: 0;
+}
+
+.style-photo {
+  height: 175px;
+  width: 260px;
+}
+
+.style-photo-circle {
+  height: 175px;
+  width: 175px;
+}
+
+.country-photo {
+  height: 110px;
+  width: 165px;
+}
+
+/* 選択したスタイルや国のCSS変更用 */
+.check{
+	/*border: 5px solid #888;*/
+}
+.checked{
+	border: 5px solid #00cc99;
+}
+
+/* boostrap.cssへの変更*/
+
+.btn-clear {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-clear:hover,
+.btn-clear:focus,
+.btn-clear.focus,
+.btn-clear:active,
+.btn-clear.active,
+.open > .dropdown-toggle.btn-clear {
+  color: #333;
+  border-color: #adadad;
+}
+.btn-clear:active,
+.btn-clear.active,
+.open > .dropdown-toggle.btn-clear {
+  background-image: none;
+}
+.btn-clear.disabled,
+.btn-cleart[disabled],
+fieldset[disabled] .btn-clear,
+.btn-clear.disabled:hover,
+.btn-clear[disabled]:hover,
+fieldset[disabled] .btn-clear:hover,
+.btn-clear.disabled:focus,
+.btn-clear[disabled]:focus,
+fieldset[disabled] .btn-clear:focus,
+.btn-clear.disabled.focus,
+.btn-clear[disabled].focus,
+fieldset[disabled] .btn-default.focus,
+.btn-clear.disabled:active,
+.btn-clear[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-clear.disabled.active,
+.btn-clear[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-clear .badge {
+  color: #fff;
+}
