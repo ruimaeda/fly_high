@@ -20,6 +20,7 @@ h3 {
 	font-weight: 700;
 	color: #555;
 	text-align: center;
+	margin-bottom: 25px;
 }
 
 p {
@@ -71,6 +72,11 @@ hr {
 }
 
 
+/*TOPの文字の色*/
+#intro .intro-body .brand-heading {
+    color: #ffffff;
+    text-shadow: none;
+}
 
 /* Home Section */
 #intro {
@@ -139,7 +145,7 @@ hr {
 
 
 
-/*Styleのチェックボックス*/
+/*Styleのチェックボックス------------------------------------------------------------------------*/
 label.radio-inline, label.checkbox-inline {
   background-color: #dcdfd4;
   cursor: pointer;
@@ -210,10 +216,22 @@ label.checkbox.checked {
     text-shadow:#000 1px 1px 2px!important
 }
 
+/*colに対するlabelの位置を真ん中に。*/
+#about label{
+	margin: 0 23%;
+}
 
 
 
-/* About Section */
+
+
+
+
+
+
+
+
+/* About Section ----------------------------------------------------------------*/
 #about .about-text {
 	margin-left: 10px;
 	text-align: center;
@@ -227,13 +245,63 @@ label.checkbox.checked {
 	margin-bottom: 0px;
 	font-size: 23px;
 }
-/* Services Section */
-#services {
+
+
+
+
+
+
+/* Services Section -------------------------------------------------------------*/
+/*#services {
 	padding: 140px 0 90px 0;
 	background: url(../../img/aus.jpg);
 	background-size: cover;
 	background-attachment: fixed;
+}*/
+#services {
+	display: table;
+	width: 100%;
+	height: auto;
+	padding: 100px 0;
+	/*text-align: center;*/
+	/*color: #fff;*/
+	background: url(../../img/aus.jpg) no-repeat center center fixed;
+	background-color: #000;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	/*padding: 140px 0 90px 0;*/
+	/*background-attachment: fixed;*/
+    position: relative;
+    /*height:100%;*/
+    z-index:-5;
 }
+
+#services::before{
+  /* 透過した黒を重ねる */
+  background-color: rgba(0,0,0,0.5);
+  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+  z-index:-1;
+}
+
+#services h2{
+	line-height: 30px;
+	margin-bottom: 20px;
+	color: #ffffff;
+	z-index:50;
+}
+
+
+
+
+
 
 #services p {
 	/*color: rgba(255,255,255,0.7);*/
@@ -263,9 +331,38 @@ ol.type li a:hover {
 }
 
 
+/*colに対する国のlabelの位置を真ん中に。*/
+#services label{
+	margin: 0 14%;
+}
 
 
-/* Team Section */
+
+/*国のcolumnsにmarginをつける*/
+#services .columns{
+	 margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Team Section -----------------------------------------------------------------*/
 #team {
 	/*padding: 140px 0;*/
 	padding: 130px 0 80px 0;
@@ -281,7 +378,7 @@ img.img-thumbnail.team-img {
 
 
 
-/* Testimonials Section */
+/* Testimonials Section ---------------------------------------------------------------*/
 #testimonials {
 	background: url(../../img/newzealand.jpg);
 	background-size: cover;
@@ -303,7 +400,7 @@ img.img-thumbnail.team-img {
 
 
 
-/* Contact Section */
+/* Contact Section -----------------------------------------------------------------------*/
 #contact {
 	/*padding: 120px 0 40px 0;*/
 	padding: 120px 0 0 0;
@@ -357,8 +454,13 @@ img.img-thumbnail.team-img {
     /*background: #f6f6f6;*/
 }
 
+.form-control{
+	color: #999;
+	margin-bottom: 10px;
+}
 
-/* Footer Section*/
+
+/* Footer Section------------------------------------------------------------------------*/
 #footer a:hover, a:focus {
 	/*color: #e75926;*/
 	color: #00cc99;
@@ -367,7 +469,7 @@ img.img-thumbnail.team-img {
 
 
 
-/*to-topのフローティングボタン*/
+/*to-topのフローティングボタン---------------------------------------------------------------*/
 #to-top{
 	position: fixed;
 	bottom: 7px;
@@ -378,6 +480,13 @@ img.img-thumbnail.team-img {
 #footer .btn-dark {
 	color: #fff;
 }
+
+
+
+
+
+
+
 
 
 
