@@ -68,7 +68,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <img src="../img/flyhigh_logo_white.png" alt="..." class="" width="180px" height="180px">
+          <img src="img/flyhigh_logo_white.png" alt="..." class="" width="180px" height="180px">
           <h1><span class="brand-heading">FLY HIGH</span></h1>
           <p class="intro-text">There’s no better way to fly.</p>
           <a href="#" class="btn btn-default page-scroll">sign up</a>
@@ -138,7 +138,7 @@
 <div id="works">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
-      <h2>Sample</h2>
+      <h2>Country</h2>
       <hr>
       <div class="clearfix"></div>
       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p> -->
@@ -147,14 +147,11 @@
       <ul class="cat">
         <li>
           <ol class="type">
-            <li><a href="#" data-filter="*" class="active">All</a></li>
-            <!-- <li><a href="#" data-filter=".lorem">Web Design</a></li> -->
-            <li><a href="#" data-filter=".lorem">Asia</a></li>
-            <!-- <li><a href="#" data-filter=".consectetur">Web Development</a></li> -->
-            <li><a href="#" data-filter=".consectetur">Oceania</a></li>
-            <!-- <li><a href="#" data-filter=".dapibus">Branding</a></li> -->
-            <li><a href="#" data-filter=".dapibus">Europe</a></li>
-            <li><a href="#" data-filter=".dapibus">North_America</a></li>
+            <li><a href="#" data-filter="*" class="active">全て</a></li>
+            <li><a href="#" data-filter=".asia">アジア</a></li>
+            <li><a href="#" data-filter=".oceania">オセアニア</a></li>
+            <li><a href="#" data-filter=".europe">ヨーロッパ</a></li>
+            <li><a href="#" data-filter=".north_america">北米</a></li>
           </ol>
         </li>
       </ul>
@@ -164,141 +161,128 @@
       <div class="portfolio-items">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
-            <div class="hover-bg"> 
-              <a href="../img/korea.jpg" title="Korea" rel="prettyPhoto">
+            <div class="hover-bg">
               <div class="hover-text">
                 <h4>Korea</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/korea.jpg" class="img-responsive" ></a> </div>
+              <img src="img/country/korea.jpg" class="img-responsive" ></a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 consectetur">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/india.jpg" title="India" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>India</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/india.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/india.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/taiwan.jpg" title="Taiwan" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>Taiwan</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/taiwan.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/taiwan.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/thailand.jpg" title="Thailand" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>Thailand</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/thailand.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/thailand.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 consectetur">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/china.jpg" title="China" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>China</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/china.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/china.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 dapibus">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/dubai.jpg" title="Dubai" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>Dubai</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/dubai.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/uae.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 dapibus consectetur">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/indonesia.jpg" title="Indonesia" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>Indonesia</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/indonesia.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/indonesia.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/vietnumlantan.jpg" title="Vietnum" rel="prettyPhoto">
               <div class="hover-text">
-                <h4>Vietnum</h4>
+                <h4>Vietnam</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/vietnumlantan.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/vietnumlantan.jpg" title="Vietnum" rel="prettyPhoto">
               <div class="hover-text">
-                <h4>Vietnum</h4>
+                <h4>Vietnam</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/vietnumlantan.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/vietnumlantan.jpg" title="Vietnum" rel="prettyPhoto">
               <div class="hover-text">
-                <h4>Vietnum</h4>
+                <h4>Vietnam</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/vietnumlantan.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/vietnumlantan.jpg" title="Vietnum" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>Vietnum</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/vietnumlantan.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <a href="../img/vietnumlantan.jpg" title="Vietnum" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>Vietnum</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="../img/vietnumlantan.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-<!-- </div>
- -->
+</div>
 
 
 <!-- 4STEP三角ありバージョン -->
@@ -404,7 +388,7 @@
     <div id="row">
       <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <div class="thumbnail"> <img src="../img/louis.jpg" alt="..." class="img-thumbnail team-img">
+        <div class="thumbnail"> <img src="img/team/louis.jpg" alt="..." class="img-thumbnail team-img">
           <div class="caption">
             <h3>LOUIS</h3>
             <!-- <p>Founder / CEO</p> -->
@@ -414,7 +398,7 @@
       </div>
       <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <div class="thumbnail"> <img src="../img/yuuki.jpg" alt="..." class="img-thumbnail team-img">
+        <div class="thumbnail"> <img src="img/team/yuuki.jpg" alt="..." class="img-thumbnail team-img">
           <div class="caption">
             <h3>YUUKI</h3>
             <!-- <p>Web Designer</p> -->
@@ -424,7 +408,7 @@
       </div>
       <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <div class="thumbnail"> <img src="../img/manato.jpg" alt="..." class="img-thumbnail team-img">
+        <div class="thumbnail"> <img src="img/team/manato.jpg" alt="..." class="img-thumbnail team-img">
           <div class="caption">
             <h3>MANATO</h3>
             <!-- <p>Creative Director</p> -->
