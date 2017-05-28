@@ -1,0 +1,679 @@
+p {
+	font-size: 16px;
+}
+
+
+.testimonials p{
+	font-size: 25px;
+	font-weight: 600;
+}
+
+hr {
+	height: 4px;
+	width: 70px;
+	text-align: center;
+	position: relative;
+	/*background: #E75926;*/
+	background: #00cc99;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	border: 0;
+}
+
+.navbar-custom .navbar-brand i.fa {
+	/*color: #E75926;*/
+	color: #00cc99;
+}
+
+.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
+	/*background-color: #E75926;*/
+	background-color: #00cc99;
+	color: #ffffff;
+}
+
+.navbar-custom .nav li a:hover {
+	outline: 0;
+	/*color: #E75926;*/
+	color: #00cc99;
+	background-color: transparent;
+}
+.navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
+	outline: 0;
+	background-color: transparent;
+	/*color: #E75926;*/
+	color: #00cc99;
+}
+
+/* Home Section */
+#intro {
+	display: table;
+	width: 100%;
+	height: auto;
+	padding: 100px 0;
+	text-align: center;
+	color: #fff;
+	background: url(../../img/elnido.jpg) no-repeat center center fixed;
+	background-color: #000;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+
+	background-size: cover;
+	position: relative;
+	height:100%;
+}
+
+.bg::before{
+	/* 透過した黒を重ねる */
+	background-color: rgba(0,0,0,0.30);
+	/* どの範囲に重ねるかを指定 */
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	content: ' ';
+}
+
+
+
+
+#intro .intro-body H1 {
+	/*font-size: 76px;*/
+	font-size: 90px;
+	font-weight: 700;
+	/*color: rgba(255,255,255,0.8);*/
+	color: #ffffff;
+	text-transform: uppercase;
+	margin-top: -25px;
+}
+
+/*TOPの文字の色*/
+#intro .intro-body .brand-heading {
+    /*color: #E75926;*/
+    color: #ffffff;
+    /*text-shadow: 0 4px #a13e1a;*/
+    /*text-shadow: 0 4px #a9a9a9;*/
+    text-shadow: none;
+    /*text-shadow: 0 4px 0 4px #a9a9a9;*/
+}
+
+#intro .intro-body .intro-text {
+	font-size: 25px;
+	letter-spacing: 1px;
+	margin-bottom: 80px;
+	color: rgba(255,255,255,0.9);
+}
+}
+.btn-default {
+	color: #f6f6f6;
+	/*background: #cf5022;*/
+	background: #00cc99;
+	border: 0;
+	padding: 12px 24px;
+	/*margin: 0 8px;*/
+	margin: 0 15px;
+	font-size: 18px;
+	transition: all 0.5s;
+	width: 110px;
+}
+
+#intro .btn {
+	background: #00cc99;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+	color: #f6f6f6;
+	/*background-color: #a13e1a;*/
+	background-color: #00947a;
+}
+.section-title.center {
+	padding: 0 0;
+}
+
+
+
+
+
+
+
+#about .about-text {
+	margin-left: 10px;
+	text-align: center;
+}
+#about H4 {
+	font-size: 30px;
+}
+
+#about p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 23px;
+}
+/* Services Section */
+#services {
+	padding: 140px 0 90px 0;
+	/*background: url(../../img/aus.jpg);*/
+	background: url(../../img/aus.jpg) no-repeat center;
+	background-size: cover;
+	background-attachment: fixed;
+    position: relative;
+    height:100%;
+}
+
+#services::before{
+  /* 透過した黒を重ねる */
+  background-color: rgba(0,0,0,0.5);
+  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+.box{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+/*h1,p{
+  color: #fff;
+
+}*/
+h3{
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+#services i.fa {
+    font-size: 50px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    color: #fff;
+    width: 100px;
+    height: 100px;
+    padding: 25px 0;
+    background: #00cc99;
+    border-radius: 50%;
+    /*position: relative;*/
+}
+/*#services .fa {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}*/
+#services p {
+	/*color: rgba(255,255,255,0.7);*/
+	color: rgb(255,255,255);
+	font-weight: 600;
+	margin-top: 10px;
+}
+
+ul.cat li {
+	display: inline-block;
+	/*ALL,Asia..ボタンが重ならないように追加*/
+	height: 50px;
+}
+
+ol.type li a.active {
+	color: #f6f6f6;
+	/*border: 1px solid #cf5022;*/
+	border: 1px solid #00cc99;
+	/*background: #cf5022;*/
+	background: #00cc99;
+}
+ol.type li a:hover {
+	color: #f6f6f6;
+	/*border: 1px solid #cf5022;*/
+	border: 1px solid #00947a;
+	/*background: #cf5022;*/
+	background: #00947a;
+}
+
+
+
+/*ご利用の流れ（白い箱）---------------------------------------------------------------------------*/
+.msr_flow05 {
+  color: #333333;
+  counter-reset: section;
+  list-style: none;
+  overflow: hidden;
+}
+.msr_flow05 li {
+  background:#FFFFFF;
+  /*background:#999999;*/
+  border-top:1px solid #ffffff;
+  border-left:1px solid #ffffff;
+  border-bottom:1px solid #ffffff;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #333333;
+  display: inline-block;
+  font-size: 18px;
+  /*height:60px;*/
+  height:300px;
+  margin:0 32px 0 0;
+  /*min-width: 200px;*/
+  min-width: 280px;
+  padding: 18px 0 0 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  z-index:1;
+}
+.msr_flow05 li span{
+  padding:0 0 4px
+}
+.msr_flow05 li:after {
+  content: "";
+  background:#FFFFFF;
+  display: inline-block;
+  /*height:56px;*/
+  height:300px;
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  vertical-align: middle;
+  /*width:56px;*/
+  width:300px;
+  position:absolute;
+  top:0;
+  /*right:-19px;*/
+  right:-95px;
+  /*z-index:-1;*/
+  z-index:-1;
+}
+.msr_flow05 li:before {
+  color:#CCCCCC;
+  content:counters(section, ".") " ";
+  counter-increment: section;
+  font-size:32px;
+  left:8px;
+  line-height:1;
+  margin:-16px 0 0;
+  position:absolute;
+  top:50%;
+}
+/* アクティブ */
+.msr_flow05 .active span{
+  /*border-bottom:1px solid #999999;*/
+  border-bottom:1px solid #00cc99;
+}
+
+/*STEP3だけ四角のみにしたい*/
+li.active.none::after {
+  content: "";
+  /*background:#FFFFFF;*/
+  display: inline-block;
+  height:0px;
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  vertical-align: middle;
+  width:0px;
+  position:absolute;
+  top:0;
+  right:-88px;
+  z-index:-10;
+  opacity: 1.0;
+}
+
+
+
+
+/*アイコンの箱の中の位置を指定した*/
+.msr_flow05 i {
+	position: absolute;
+	top: 30px;
+	left: 100px;
+}
+/*アイコンの大きさなど*/
+#testimonials i.fa {
+    font-size: 120px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    color: #00cc99;
+    width: 100px;
+    height: 100px;
+    padding: 30px 0;
+    /*background: #00cc99;*/
+    border-radius: 50%;
+}
+
+/*pの位置を指定*/
+.msr_flow05 p {
+	margin-top: 90px;
+}
+
+
+
+
+
+
+
+/*フラットのやつ（青の箱）----------------------------------------------------------------------*/
+
+.msr_flow02 {
+  color: #333333;
+  list-style: none;
+  overflow: hidden;
+  padding-top: 20px;
+  margin-left: 50px;
+  /*overflow: hidden;*/
+  z-index:0;
+}
+.msr_flow02 li {
+  background-color: #1B73BA;
+  line-height: 100px;
+  color: #FFFFFF;
+  display: block;
+  float: left;
+  font-size: 20px;
+  min-width: 280px;
+  padding: 0 70px 0 80px;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  /*z-index:0;*/
+}
+.msr_flow02 li:first-child {
+  padding-left: 20px;
+  max-width: 230px;
+}
+
+/* 三角形下部 */
+.msr_flow02 li::after {
+  background-color: #1B73BA;
+  border-right: 1px solid #FFFFFF;
+  content: " ";
+  display: block;
+  height: 170px;
+  margin-left: auto;
+  margin-right: -60px;
+  margin-top: -30px;
+  position: relative;
+  transform: skew(-30deg);
+  -o-transform: skew(-30deg);
+  -ms-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  width: 100px;
+  z-index:1;
+}
+
+/* 三角形上部 */
+.msr_flow02 li::before {
+  background-color: #1B73BA;
+  border-right: 1px solid #FFFFFF;
+  content: " ";
+  display: block;
+  float: right;
+  height: 170px;
+  margin-bottom: -30px;
+  margin-left: auto;
+  margin-right: -60px;
+  transform: skew(30deg);
+  -o-transform: skew(30deg);
+  -ms-transform: skew(30deg);
+  -moz-transform: skew(30deg);
+  -webkit-transform: skew(30deg);
+  width: 100px;
+  z-index:20;
+}
+
+/* 右端の設定 */
+/*.msr_flow02 .active {
+  background-color: #17619C;
+  color: #FFFFFF;
+}
+.msr_flow02 .active::before, .msr_flow02 .active::after {
+  background-color: #17619C;
+}*/
+
+
+/*アイコンの箱の中の位置を指定した*/
+.msr_flow02 i {
+  position: absolute;
+  top: 30px;
+  left: 90px;
+}
+/*アイコンの大きさなど*/
+/*#testimonials i.fa {*/
+#works i.fa {
+    font-size: 120px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    color: #00cc99;
+    width: 100px;
+    height: 100px;
+    padding: 30px 0;
+    /*background: #00cc99;*/
+    border-radius: 50%;
+}
+
+/*pの位置を指定*/
+.msr_flow02 p {
+    margin-top: 100px;
+    position: absolute;
+    top: 90px;
+    left: 70px;
+    line-height: 30px;
+    z-index:50;
+}
+
+.msr_flow02 span {
+    position: absolute;
+    top: -10px;
+    left: 115px;
+    z-index:10;
+}
+
+/*#short{
+  max-width: 230px;
+  padding-left: 10px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Team Section */
+#team {
+	/*padding: 140px 0;*/
+	padding: 130px 0 80px 0;
+	background: #e6e6e6;
+}
+img.img-thumbnail.team-img {
+	width: 200px;
+	height: 200px;
+	border: 0;
+	border-radius: 50%;
+	background-color: #f6f6f6;
+}
+
+/* Testimonials Section */
+#testimonials {
+	background: url(../../img/newzealand.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	color: #ddd;
+	padding: 140px 0 90px 0;
+	position: relative;
+    height:100%;
+}
+
+#testimonials::before{
+  /* 透過した黒を重ねる */
+  background-color: rgba(0,0,0,0.5);
+  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+.box{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+/*h1,p{
+  color: #fff;
+
+}*/
+
+
+
+
+#testimonials h2 {
+	color: #f6f6f6;
+}
+#testimonials blockquote {
+	position: relative;
+	margin-top: 20px;
+	border: 0;
+	text-align: center;
+	/*color: rgba(255,255,255,0.8);*/
+	color: #ffffff;
+}
+
+/* Contact Section */
+#contact {
+	/*padding: 120px 0 40px 0;*/
+	background: #f6f6f6;
+}
+#contact i.fa {
+	font-size: 22px;
+	/*color: #e75926;*/
+	color: #ffffff;
+	/*margin-bottom: 10px;*/
+	margin-bottom: 5px;
+}
+
+#contact .btn-default {
+	/*background: #cf5022;*/
+	background: #00cc99;
+	border: 0;
+	border-radius: 4px;
+	padding: 10px 20px;
+	color: #f6f6f6;
+	margin-top: 15px;
+	font-size: 15px;
+}
+#contact .btn-default:hover, #contact .btn-default:focus {
+	color: #f6f6f6;
+	/*background: #a13e1a;*/
+	background: #00947a;
+}
+
+#contact .social ul {
+	/*margin-top: 30px;*/
+	margin-top: 80px;
+}
+#contact .social ul li {
+	display: inline-block;
+	margin: 0 20px;
+}
+#contact .social i.fa {
+	font-size: 24px;
+	padding-top: 8px;
+	/*color: #cf5022;*/
+	color: #00cc99;
+	border-radius: 4px;
+	transition: all 0.3s;
+}
+#contact .social i.fa:hover {
+	/*color: #a13e1a;*/
+	color: #00947a;
+}
+/* Footer Section*/
+#footer {
+	background: #333;
+	color: #777;
+	padding: 20px 0;
+	text-align: center;
+}
+#footer a {
+	color: #999999;
+}
+#footer a:hover, a:focus {
+	/*color: #e75926;*/
+	color: #00cc99;
+}
+#footer p {
+	font-size: 13px;
+	margin-top: 10px;
+}
+
+/*to-topのフローティングボタン*/
+#to-top{
+	position: fixed;
+	bottom: 7px;
+	right: 7px;
+	background-color: rgba(0,0,0,0.4);
+}
+
+#footer .btn-dark {
+	color: #fff;
+}
+
+
+@media(min-width:768px) {
+#intro {
+	height: 100%;
+	padding: 0;
+}
+
+@media (max-width: 768px) {
+.hover-bg .hover-text {
+	padding: 20%;
+}
+}
+
+@media (max-width: 640px) {
+#intro .intro-body H1 {
+	font-size: 5em;
+}
+}

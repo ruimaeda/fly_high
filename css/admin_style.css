@@ -1,0 +1,384 @@
+body, html {
+	font-family: 'Open Sans', sans-serif;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+	color: #777;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+h2 {
+	text-transform: uppercase;
+	line-height: 20px;
+	font-weight: 600;
+	margin: 0;
+	color: #555;
+	text-align: center;
+}
+h3 {
+	font-size: 16px;
+	font-weight: 700;
+	color: #555;
+	text-align: center;
+}
+
+p {
+	font-size: 16px;
+}
+
+
+.testimonials p{
+	font-size: 25px;
+	font-weight: 600;
+}
+
+hr {
+	height: 4px;
+	width: 70px;
+	text-align: center;
+	position: relative;
+	background: #00cc99 /*#E75926*/ ;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	border: 0;
+}
+
+
+
+/* Navigation */
+.navbar-custom .navbar-brand i.fa {
+	/*color: #E75926;*/
+	color: #00cc99;
+}
+
+.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
+	/*background-color: #E75926;*/
+	background-color: #00cc99;
+	color: #ffffff;
+}
+
+.navbar-custom .nav li a:hover {
+	outline: 0;
+	/*color: #E75926;*/
+	color: #00cc99;
+	background-color: transparent;
+}
+.navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
+	outline: 0;
+	background-color: transparent;
+	/*color: #E75926;*/
+	color: #00cc99;
+}
+
+
+
+/* Home Section */
+#intro {
+	display: table;
+	width: 100%;
+	height: auto;
+	padding: 100px 0;
+	text-align: center;
+	color: #fff;
+	background: url(../../img/dubai.jpg) no-repeat center center fixed;
+	background-color: #000;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+#intro .intro-body H1 {
+	font-size: 76px;
+	font-weight: 700;
+	/*color: rgba(255,255,255,0.8);*/
+	color: #ffffff;
+	text-transform: uppercase;
+}
+#intro .intro-body .brand-heading {
+	color: #ffffff
+	 /*#E75926;*/
+	text-shadow: 0 4px #a9a9a9 /*#a13e1a*/ ;
+}
+
+@media(min-width:768px) {
+#intro {
+	height: 100%;
+	padding: 0;
+}
+#intro .intro-body .intro-text {
+	font-size: 25px;
+	letter-spacing: 1px;
+	margin-bottom: 80px;
+	color: rgba(255,255,255,0.9);
+}
+}
+.btn-default {
+	color: #f6f6f6;
+	background: #00cc99 /*#cf5022*/ ;
+	border: 0;
+	padding: 12px 24px;
+	margin: 0 15px;
+	font-size: 18px;
+	transition: all 0.5s;
+	width: 110px;
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+	color: #f6f6f6;
+	/*background-color: #a13e1a;*/
+	background-color: #00947a;
+}
+.section-title.center {
+	padding: 0 0;
+}
+.section-title h2, .section-title.center h2 {
+	margin-bottom: 30px;
+}
+
+
+
+
+
+/*Styleのチェックボックス*/
+label.radio-inline, label.checkbox-inline {
+  background-color: #dcdfd4;
+  cursor: pointer;
+  font-weight: 400;
+  margin-bottom: 10px !important;
+  margin-right: 2%;
+  margin-left:0;
+  padding: 10px 10px 10px 30px;
+}
+label.radio-inline.checked, label.checkbox-inline.checked {
+  background-color: #266c8e;
+  color: #fff !important;
+  text-shadow: 1px 1px 2px #000 !important;
+}
+.checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline {
+  margin-left: 0;
+}
+.columns label.radio-inline, .columns label.checkbox-inline {
+  min-width: 190px;
+  vertical-align: top;
+  width: 30%;
+}
+.additional-info-wrap {
+  display: inline-block;
+  margin: 0 2% 0 0;
+  min-width: 190px;
+  position: relative;
+  vertical-align: top;
+  width: 30%;
+}
+.additional-info-wrap label.checkbox-inline, .additional-info-wrap label.radio-inline {
+  width: 100% !important;
+}
+.additional-info-wrap .additional-info {
+  background-color: #266c8e;
+  clear: both;
+  color: #fff !important;
+  margin-top: -10px;
+  padding: 0 10px 10px;
+  text-shadow: 1px 1px 2px #000 !important;
+  width: 100%;
+}
+
+
+.ui-sortable tr {
+    cursor:pointer;
+}
+.ui-sortable tr:hover {
+    background:rgba(244,251,17,0.45);
+}label.radio-inline,
+label.checkbox-inline,
+label.radio,
+label.checkbox {
+    margin-right:2%;
+    cursor:pointer;
+    font-weight:400;
+    padding:10px 10px 10px 30px;
+    background-color:#dcdfd4;
+    margin-bottom:10px!important
+}
+label.radio-inline.checked,
+label.checkbox-inline.checked,
+label.radio.checked,
+label.checkbox.checked {
+    /*background-color:#266c8e;*/
+    background-color:#00cc99;
+    color:#fff!important;
+    text-shadow:#000 1px 1px 2px!important
+}
+
+
+
+
+/* About Section */
+#about .about-text {
+	margin-left: 10px;
+	text-align: center;
+}
+#about H4 {
+	font-size: 30px;
+}
+
+#about p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 23px;
+}
+/* Services Section */
+#services {
+	padding: 140px 0 90px 0;
+	background: url(../../img/aus.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+#services p {
+	/*color: rgba(255,255,255,0.7);*/
+	color: rgb(255,255,255);
+	font-weight: 600;
+}
+
+ul.cat li {
+	display: inline-block;
+	/*ALL,Asia..ボタンが重ならないように追加*/
+	height: 50px;
+}
+
+ol.type li a.active {
+	color: #f6f6f6;
+	/*border: 1px solid #cf5022;*/
+	border: 1px solid #00cc99;
+	/*background: #cf5022;*/
+	background: #00cc99;
+}
+ol.type li a:hover {
+	color: #f6f6f6;
+	/*border: 1px solid #cf5022;*/
+	border: 1px solid #00947a;
+	/*background: #cf5022;*/
+	background: #00947a;
+}
+
+
+
+
+/* Team Section */
+#team {
+	/*padding: 140px 0;*/
+	padding: 130px 0 80px 0;
+	background: #e6e6e6;
+}
+img.img-thumbnail.team-img {
+	width: 200px;
+	height: 200px;
+	border: 0;
+	border-radius: 50%;
+	background-color: #f6f6f6;
+}
+
+
+
+/* Testimonials Section */
+#testimonials {
+	background: url(../../img/newzealand.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	color: #ddd;
+	padding: 140px 0 90px 0;
+}
+#testimonials h2 {
+	color: #f6f6f6;
+}
+#testimonials blockquote {
+	position: relative;
+	margin-top: 20px;
+	border: 0;
+	text-align: center;
+	/*color: rgba(255,255,255,0.8);*/
+	color: #ffffff;
+}
+
+
+
+/* Contact Section */
+#contact {
+	/*padding: 120px 0 40px 0;*/
+	padding: 120px 0 0 0;
+	background: #f6f6f6;
+}
+
+#contact i.fa {
+	font-size: 22px;
+	/*color: #e75926;*/
+	color: #ffffff;
+	/*margin-bottom: 10px;*/
+	margin-bottom: 5px;
+}
+
+#contact .btn-default {
+	/*background: #cf5022;*/
+	background: #00cc99;
+	border: 0;
+	border-radius: 4px;
+	padding: 10px 20px;
+	color: #f6f6f6;
+	margin-top: 15px;
+	font-size: 15px;
+}
+#contact .btn-default:hover, #contact .btn-default:focus {
+	color: #f6f6f6;
+	/*background: #a13e1a;*/
+	background: #00947a;
+}
+
+#contact .social ul {
+	/*margin-top: 30px;*/
+	margin-top: 80px;
+}
+
+#contact .social i.fa {
+	font-size: 24px;
+	padding-top: 8px;
+	/*color: #cf5022;*/
+	color: #00cc99;
+	border-radius: 4px;
+	transition: all 0.3s;
+}
+#contact .social i.fa:hover {
+	/*color: #a13e1a;*/
+	color: #00947a;
+}
+
+#works {
+    padding: 120px 0 100px 0;
+    /*background: #f6f6f6;*/
+}
+
+
+/* Footer Section*/
+#footer a:hover, a:focus {
+	/*color: #e75926;*/
+	color: #00cc99;
+}
+
+
+
+
+/*to-topのフローティングボタン*/
+#to-top{
+	position: fixed;
+	bottom: 7px;
+	right: 7px;
+	background-color: rgba(0,0,0,0.4);
+}
+
+#footer .btn-dark {
+	color: #fff;
+}
+
+
+
+

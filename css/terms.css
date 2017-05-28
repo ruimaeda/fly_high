@@ -1,0 +1,16 @@
+ol {
+  padding-left: 17px;
+  list-style:decimal
+}
+
+li {
+	padding-top: 15px;
+}
+
+p .term-intro {
+	padding: 0;
+}
+
+.button-section {
+	padding-top: 30px;
+}
