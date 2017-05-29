@@ -1,0 +1,165 @@
+
+#style {
+	padding: 100px 0;
+	background: #f6f6f6;
+}
+#country {
+	padding: 30px 0;
+	background: #f6f6f6;
+}
+
+/* Additional */
+#country-name {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.centering {
+	text-align: center;
+}
+
+.float {
+	display: float;
+}
+
+.input-group {
+	padding: 5px 0;
+}
+
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(240, 173, 78);
+    border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
+
+.agree {
+	padding-top: 30px;
+}
+
+.img-margin {
+	margin: 0;
+}
+
+hr .account-have {
+	margin: 0;
+}
+
+/* 選択したスタイルや国のCSS変更用 */
+.portfolio-items ul li{
+    width:200px;
+        /* リストマーカー画像切れ防止。最低高さを確保 */
+    min-height:20px;
+    height:auto!important;
+    height:20px;
+    padding:0 0 0 25px;
+    margin:5px 0 0 0;
+    cursor:pointer;
+}
+.portfolio-items .check{
+    background:transparent url('img/maru.gif') no-repeat left 0.1em scroll;
+}
+.portfolio-items .checked{
+	padding-top: 10px;
+    /*background:transparent url('img/batu.gif') no-repeat left 0.1em scroll;*/
+}
+
+/* boostrap.cssへの変更*/
+
+.btn-clear {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-clear:hover,
+.btn-clear:focus,
+.btn-clear.focus,
+.btn-clear:active,
+.btn-clear.active,
+.open > .dropdown-toggle.btn-clear {
+  color: #333;
+  border-color: #adadad;
+}
+.btn-clear:active,
+.btn-clear.active,
+.open > .dropdown-toggle.btn-clear {
+  background-image: none;
+}
+.btn-clear.disabled,
+.btn-cleart[disabled],
+fieldset[disabled] .btn-clear,
+.btn-clear.disabled:hover,
+.btn-clear[disabled]:hover,
+fieldset[disabled] .btn-clear:hover,
+.btn-clear.disabled:focus,
+.btn-clear[disabled]:focus,
+fieldset[disabled] .btn-clear:focus,
+.btn-clear.disabled.focus,
+.btn-clear[disabled].focus,
+fieldset[disabled] .btn-default.focus,
+.btn-clear.disabled:active,
+.btn-clear[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-clear.disabled.active,
+.btn-clear[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-clear .badge {
+  color: #fff;
+}
+
+/*追加*/
+.btn-pass {
+    margin: 15px;
+}
+
+/*背景透過*/
+.bg{
+  background: url(../img/intro-bg.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  height:100%;
+}
+
+.bg::before{
+  /* 透過した黒を重ねる */
+  background-color: rgba(0,0,0,0.5);
+  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+.box{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+h1,p{
+  color: #fff;
+
+}
