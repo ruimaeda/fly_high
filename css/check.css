@@ -1,0 +1,39 @@
+#works {
+	padding: 20px 0;
+}
+.btn-default {
+	
+	margin: 0 80px;
+}
+
+#about {
+	padding: 20px 0;
+	background: #fff;
+}
+
+#contact {
+	background:#fff;
+}
+
+.btn2 {
+	float: right;
+}
+
+
+
+#question p {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	text-align: left;
+}
+
+#question p{
+    border: 3px solid #82636b;
+    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+    margin: 2em 0;
+    padding: 1.5em;
+}
+
+h2 {
+	padding-top: 50px;
+}
