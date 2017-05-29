@@ -5,10 +5,9 @@
 }
 
 /* Home Section */
-#intro {
+/*#intro {
 	display: table;
 	width: 100%;
-	/*height: auto;*/
 	padding: 100px 0;
 	text-align: center;
 	color: #fff;
@@ -18,22 +17,18 @@
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
-	/*padding: 140px 0 90px 0;*/
-	/*background-attachment: fixed;*/
     position: relative;
     height:100%;
 }
 #intro::before{
-  /* 透過した黒を重ねる */
   background-color: rgba(0,0,0,0.5);
-  /* どの範囲に重ねるかを指定 */
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   content: ' ';
-}
+}*/
 
 .intro-check{
 	font-size: 40px;
@@ -42,34 +37,61 @@
 	font-size: 55px;
 }
 
+#about h1{
+  text-align: center;
+  margin: 0 0 100px 0;
+}
 
-
+#about{
+  padding: 60px 0 0 0;
+}
 
 
 /* Services Section -------------------------------------------------------------*/
-#services {
+/*#services {
 	display: table;
 	width: 100%;
 	height: auto;
 	padding: 100px 0;
-	/*text-align: center;*/
-	/*color: #fff;*/
 	background: url(../../img/aus.jpg) no-repeat center center fixed;
 	background-color: #000;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
-	/*padding: 140px 0 90px 0;*/
-	/*background-attachment: fixed;*/
-    position: relative;
-    /*height:100%;*/
-    z-index:-5;
+  position: relative;
+  z-index:-5;
 }
 #services::before{
-  /* 透過した黒を重ねる */
   background-color: rgba(0,0,0,0.5);
-  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+  z-index:-1;
+}*/
+
+
+#services {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  background: none;
+  background-color: #f6f6f6;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  position: relative;
+  /*z-index:-5;*/
+}
+
+#services::before{
+  /*background-color: rgba(0,0,0,0.0);*/
+  background-color: #f6f6f6;
   position: absolute;
   top: 0;
   right: 0;
@@ -78,6 +100,26 @@
   content: ' ';
   z-index:-1;
 }
+
+
+#services h2{
+  color: #555;
+}
+#services h3{
+  color: #555;
+}
+
+
+
+/*Send-----------------------------------------------------------------------------*/
+#works {
+    padding: 20px 0 100px 0;
+    /* background: #f6f6f6; */
+}
+
+
+
+
 
 
 

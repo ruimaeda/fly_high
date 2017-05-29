@@ -45,17 +45,9 @@
       <ul class="nav navbar-nav">
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"> <a href="#page-top"></a> </li>
-        <li> <a class="page-scroll" href="#about">About</a> </li>
-        <!-- <li> <a class="page-scroll" href="#services">Services</a> </li> -->
-        <li> <a class="page-scroll" href="#services">Merit</a> </li>
-        <!-- <li> <a class="page-scroll" href="#works">Works</a> </li> -->
-        <li> <a class="page-scroll" href="#works">Sample</a> </li>
-        <!-- <li> <a class="page-scroll" href="#testimonials">Testimonials</a> </li> -->
-        <li> <a class="page-scroll" href="#testimonials">How To</a> </li>
-        <!-- <li> <a class="page-scroll" href="#team">Team</a> </li> -->
-        <li> <a class="page-scroll" href="#team">Us</a> </li>
-        <!-- <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
-        <li> <a class="page-scroll" href="#contact">Sogn Up</a> </li>
+        <li> <a class="page-scroll" href="#about">選択したStyle</a> </li>
+        <li> <a class="page-scroll" href="#services">選択したCountry</a> </li>
+        <li> <a class="page-scroll" href="#works">メール</a> </li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -63,24 +55,26 @@
   <!-- /.container --> 
 </nav>
 
-<!-- Header -->
-<div id="intro">
+<!-- Headerはなくした -->
+<!-- <div id="intro">
   <div class="intro-body">
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <!-- <h1><span class="brand-heading">送信内容に間違いはありませんか？</span></h1> -->
           <h1><span class="brand-heading">送信内容に間違いはありませんか？</span></h1>
           <p class="intro-check">Admin_Check</p>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- About Section -->
+<!-- <div class="container_all"> -->
 <div id="about">
+<p class="intro-check text-center center">Admin_Check</p>
   <div class="container">
+    <h1><span class="brand-heading text-center center">送信内容に間違いはありませんか？</span></h1>
     <div class="section-title text-center center">
       <h2>選択したStyle</h2>
       <hr>
@@ -151,6 +145,8 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>
 
 <!-- Services Section -->
@@ -375,6 +371,7 @@
 </div>
 
 
+</div>
 
 
 
