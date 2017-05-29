@@ -159,7 +159,7 @@
     </div>
     <div class="row">
       <div class="portfolio-items">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -169,7 +169,7 @@
               <img src="img/country/korea.jpg" class="img-responsive" ></a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 consectetur">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -179,7 +179,7 @@
               <img src="img/country/india.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -189,7 +189,7 @@
               <img src="img/country/taiwan.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -199,7 +199,7 @@
               <img src="img/country/thailand.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 consectetur">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -209,7 +209,7 @@
               <img src="img/country/china.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 dapibus">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -219,7 +219,7 @@
               <img src="img/country/uae.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 dapibus consectetur">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -229,7 +229,7 @@
               <img src="img/country/indonesia.jpg" class="img-responsive"> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -239,7 +239,7 @@
               <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -249,7 +249,7 @@
               <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
@@ -259,21 +259,21 @@
               <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>Vietnum</h4>
+                <h4>Vietnam</h4>
                 <p>¥10,000</p>
               </div>
               <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>Vietnum</h4>
+                <h4>Vietnam</h4>
                 <p>¥10,000</p>
               </div>
               <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
