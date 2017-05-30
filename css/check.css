@@ -37,3 +37,12 @@
 h2 {
 	padding-top: 50px;
 }
+
+.row {
+	text-align: center;
+}
+
+.text-center {
+	font-size: 60px;
+	margin-top: 50px;
+}
