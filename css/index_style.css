@@ -4,17 +4,24 @@ body, html, body {
     height: 100%;
 }
 
-
-
-p {
-	font-size: 16px;
+/*nav .container{
+    box-sizing: border-box;
 }
 
+nav{
+  box-sizing: border-box;
+}
+*/
 
-.testimonials p{
+/*メリットの下の文*/
+p {
+	font-size: 15px;
+}
+
+/*.testimonials p{
 	font-size: 25px;
 	font-weight: 600;
-}
+}*/
 
 hr {
 	height: 4px;
@@ -29,33 +36,29 @@ hr {
 }
 
 .navbar-custom .navbar-brand i.fa {
-	/*color: #E75926;*/
 	color: #00cc99;
 }
 
-.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
-	/*background-color: #E75926;*/
+/*.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
 	background-color: #00cc99;
 	color: #ffffff;
-}
+}*/
 
 .navbar-custom .nav li a:hover {
 	outline: 0;
-	/*color: #E75926;*/
 	color: #00cc99;
 	background-color: transparent;
 }
 .navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
 	outline: 0;
 	background-color: transparent;
-	/*color: #E75926;*/
 	color: #00cc99;
 }
 
-/* Home Section */
+/* Home Section --------------------------------------------------------------*/
 #intro {
 	display: table;
-	width: 100%;
+	/*width: 100%;*/
 	height: auto;
 	padding: 100px 0;
 	text-align: center;
@@ -85,8 +88,6 @@ hr {
 }
 
 
-
-
 #intro .intro-body H1 {
 	/*font-size: 76px;*/
 	font-size: 90px;
@@ -99,12 +100,8 @@ hr {
 
 /*TOPの文字の色*/
 #intro .intro-body .brand-heading {
-    /*color: #E75926;*/
     color: #ffffff;
-    /*text-shadow: 0 4px #a13e1a;*/
-    /*text-shadow: 0 4px #a9a9a9;*/
     text-shadow: none;
-    /*text-shadow: 0 4px 0 4px #a9a9a9;*/
 }
 
 #intro .intro-body .intro-text {
@@ -113,27 +110,24 @@ hr {
 	margin-bottom: 80px;
 	color: rgba(255,255,255,0.9);
 }
-}
+
 .btn-default {
 	color: #f6f6f6;
-	/*background: #cf5022;*/
 	background: #00cc99;
 	border: 0;
 	padding: 12px 24px;
-	/*margin: 0 8px;*/
 	margin: 0 15px;
 	font-size: 18px;
 	transition: all 0.5s;
 	width: 110px;
 }
 
-#intro .btn {
+/*#intro .btn {
 	background: #00cc99;
-}
+}*/
 
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
 	color: #f6f6f6;
-	/*background-color: #a13e1a;*/
 	background-color: #00947a;
 }
 .section-title.center {
@@ -141,25 +135,23 @@ hr {
 }
 
 
-
-
-
-
-
 #about .about-text {
 	margin-left: 10px;
 	text-align: center;
 }
-#about H4 {
+/*#about H4 {
 	font-size: 30px;
-}
+}*/
 
 #about p {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	font-size: 23px;
 }
-/* Services Section */
+
+/* Services Section ------------------------------------------------------------------*/
+
+/*背景一緒に動くver*/
 /*#services {
 	padding: 140px 0 90px 0;
 	background: url(../../img/aus.jpg) no-repeat center;
@@ -173,8 +165,9 @@ hr {
   /*background: none;*/
   padding: 0 0 0 0;
 }
+/*背景を固定させた*/
 #services .overlay {
-  background: url(../../img/aus.jpg) no-repeat center;
+  background: url(../img/country/hawaii.jpg) no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   color: #ddd;
@@ -197,7 +190,7 @@ hr {
 }
 .box{
   position: relative;
-  width: 100%;
+  /*width: 100%;*/
   text-align: center;
   margin-bottom: 50px;
 }
@@ -205,18 +198,11 @@ hr {
   color: #fff;
 
 }*/
+
 h3{
 	line-height: 30px;
 	margin-bottom: 20px;
 }
-
-
-
-
-
-
-
-
 
 #services i.fa {
     font-size: 50px;
@@ -236,37 +222,32 @@ h3{
 	right: 10px;
 }*/
 #services p {
-	/*color: rgba(255,255,255,0.7);*/
 	color: rgb(255,255,255);
 	font-weight: 600;
 	margin-top: 10px;
 }
 
 ul.cat li {
-	display: inline-block;
+	/*display: inline-block;*/
 	/*ALL,Asia..ボタンが重ならないように追加*/
 	height: 50px;
 }
 
 ol.type li a.active {
 	color: #f6f6f6;
-	/*border: 1px solid #cf5022;*/
 	border: 1px solid #00cc99;
-	/*background: #cf5022;*/
 	background: #00cc99;
 }
 ol.type li a:hover {
 	color: #f6f6f6;
-	/*border: 1px solid #cf5022;*/
 	border: 1px solid #00947a;
-	/*background: #cf5022;*/
 	background: #00947a;
 }
 
 
 
 /*ご利用の流れ（白い箱）---------------------------------------------------------------------------*/
-.msr_flow05 {
+/*.msr_flow05 {
   color: #333333;
   counter-reset: section;
   list-style: none;
@@ -274,7 +255,6 @@ ol.type li a:hover {
 }
 .msr_flow05 li {
   background:#FFFFFF;
-  /*background:#999999;*/
   border-top:1px solid #ffffff;
   border-left:1px solid #ffffff;
   border-bottom:1px solid #ffffff;
@@ -284,10 +264,8 @@ ol.type li a:hover {
   color: #333333;
   display: inline-block;
   font-size: 18px;
-  /*height:60px;*/
   height:300px;
   margin:0 32px 0 0;
-  /*min-width: 200px;*/
   min-width: 280px;
   padding: 18px 0 0 16px;
   position: relative;
@@ -302,20 +280,16 @@ ol.type li a:hover {
   content: "";
   background:#FFFFFF;
   display: inline-block;
-  /*height:56px;*/
   height:300px;
   border-top: 1px solid #ffffff;
   border-right: 1px solid #ffffff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   vertical-align: middle;
-  /*width:56px;*/
   width:300px;
   position:absolute;
   top:0;
-  /*right:-19px;*/
   right:-95px;
-  /*z-index:-1;*/
   z-index:-1;
 }
 .msr_flow05 li:before {
@@ -328,17 +302,16 @@ ol.type li a:hover {
   margin:-16px 0 0;
   position:absolute;
   top:50%;
-}
+}*/
+
 /* アクティブ */
-.msr_flow05 .active span{
-  /*border-bottom:1px solid #999999;*/
+/*.msr_flow05 .active span{
   border-bottom:1px solid #00cc99;
-}
+}*/
 
 /*STEP3だけ四角のみにしたい*/
-li.active.none::after {
+/*li.active.none::after {
   content: "";
-  /*background:#FFFFFF;*/
   display: inline-block;
   height:0px;
   border-top: 1px solid #ffffff;
@@ -352,19 +325,19 @@ li.active.none::after {
   right:-88px;
   z-index:-10;
   opacity: 1.0;
-}
+}*/
 
 
 
 
 /*アイコンの箱の中の位置を指定した*/
-.msr_flow05 i {
+/*.msr_flow05 i {
 	position: absolute;
 	top: 30px;
 	left: 100px;
-}
+}*/
 /*アイコンの大きさなど*/
-#testimonials i.fa {
+/*#testimonials i.fa {
     font-size: 120px;
     margin-bottom: 20px;
     transition: all 0.5s;
@@ -372,16 +345,13 @@ li.active.none::after {
     width: 100px;
     height: 100px;
     padding: 30px 0;
-    /*background: #00cc99;*/
     border-radius: 50%;
-}
+}*/
 
 /*pの位置を指定*/
-.msr_flow05 p {
+/*.msr_flow05 p {
 	margin-top: 90px;
-}
-
-
+}*/
 
 
 
@@ -389,13 +359,12 @@ li.active.none::after {
 
 /*フラットのやつ（青の箱）----------------------------------------------------------------------*/
 
-.msr_flow02 {
+/*.msr_flow02 {
   color: #333333;
   list-style: none;
   overflow: hidden;
   padding-top: 20px;
   margin-left: 50px;
-  /*overflow: hidden;*/
   z-index:0;
 }
 .msr_flow02 li {
@@ -410,15 +379,14 @@ li.active.none::after {
   text-align: center;
   text-decoration: none;
   position: relative;
-  /*z-index:0;*/
 }
 .msr_flow02 li:first-child {
   padding-left: 20px;
   max-width: 230px;
-}
+}*/
 
 /* 三角形下部 */
-.msr_flow02 li::after {
+/*.msr_flow02 li::after {
   background-color: #1B73BA;
   border-right: 1px solid #FFFFFF;
   content: " ";
@@ -435,10 +403,10 @@ li.active.none::after {
   -webkit-transform: skew(-30deg);
   width: 100px;
   z-index:1;
-}
+}*/
 
 /* 三角形上部 */
-.msr_flow02 li::before {
+/*.msr_flow02 li::before {
   background-color: #1B73BA;
   border-right: 1px solid #FFFFFF;
   content: " ";
@@ -455,7 +423,7 @@ li.active.none::after {
   -webkit-transform: skew(30deg);
   width: 100px;
   z-index:20;
-}
+}*/
 
 /* 右端の設定 */
 /*.msr_flow02 .active {
@@ -468,14 +436,15 @@ li.active.none::after {
 
 
 /*アイコンの箱の中の位置を指定した*/
-.msr_flow02 i {
+/*.msr_flow02 i {
   position: absolute;
   top: 30px;
   left: 90px;
-}
+}*/
+
 /*アイコンの大きさなど*/
 /*#testimonials i.fa {*/
-#works i.fa {
+/*#works i.fa {
     font-size: 120px;
     margin-bottom: 20px;
     transition: all 0.5s;
@@ -483,12 +452,11 @@ li.active.none::after {
     width: 100px;
     height: 100px;
     padding: 30px 0;
-    /*background: #00cc99;*/
     border-radius: 50%;
-}
+}*/
 
 /*pの位置を指定*/
-.msr_flow02 p {
+/*.msr_flow02 p {
     margin-top: 100px;
     position: absolute;
     top: 90px;
@@ -502,7 +470,7 @@ li.active.none::after {
     top: -10px;
     left: 115px;
     z-index:10;
-}
+}*/
 
 /*#short{
   max-width: 230px;
@@ -616,7 +584,9 @@ img.img-thumbnail.team-img {
 	background-color: #f6f6f6;
 }
 
-/* Testimonials Section */
+/* Testimonials Section -----------------------------------------------------------------*/
+
+/*背景一緒に動くver*/
 /*#testimonials {
   background: url(../../img/newzealand.jpg);
   background-size: cover;
@@ -626,12 +596,14 @@ img.img-thumbnail.team-img {
   position: relative;
   height:100%;
 }*/
+
 #testimonials {
   /*background: none;*/
   padding: 0 0 0 0;
 }
+/*背景を固定させた*/
 #testimonials .overlay {
-	background: url(../../img/newzealand.jpg);
+	background: url(../img/country/newzealand.jpg);
 	background-size: cover;
 	background-attachment: fixed;
 	color: #ddd;
@@ -653,7 +625,7 @@ img.img-thumbnail.team-img {
 }
 .box{
   position: relative;
-  width: 100%;
+  /*width: 100%;*/
   text-align: center;
   margin-bottom: 50px;
 }
@@ -671,7 +643,6 @@ img.img-thumbnail.team-img {
 	margin-top: 20px;
 	border: 0;
 	text-align: center;
-	/*color: rgba(255,255,255,0.8);*/
 	color: #ffffff;
 }
 
@@ -687,14 +658,11 @@ img.img-thumbnail.team-img {
 }
 #contact i.fa {
 	font-size: 22px;
-	/*color: #e75926;*/
 	color: #ffffff;
-	/*margin-bottom: 10px;*/
 	margin-bottom: 5px;
 }
 
 #contact .btn-default {
-	/*background: #cf5022;*/
 	background: #00cc99;
 	border: 0;
 	border-radius: 4px;
@@ -705,12 +673,10 @@ img.img-thumbnail.team-img {
 }
 #contact .btn-default:hover, #contact .btn-default:focus {
 	color: #f6f6f6;
-	/*background: #a13e1a;*/
 	background: #00947a;
 }
 
 #contact .social ul {
-	/*margin-top: 30px;*/
 	margin-top: 80px;
 }
 #contact .social ul li {
@@ -720,16 +686,16 @@ img.img-thumbnail.team-img {
 #contact .social i.fa {
 	font-size: 24px;
 	padding-top: 8px;
-	/*color: #cf5022;*/
 	color: #00cc99;
 	border-radius: 4px;
 	transition: all 0.3s;
 }
 #contact .social i.fa:hover {
-	/*color: #a13e1a;*/
 	color: #00947a;
 }
-/* Footer Section*/
+
+
+/* Footer Section------------------------------------*/
 #footer {
 	background: #333;
 	color: #777;
@@ -740,7 +706,6 @@ img.img-thumbnail.team-img {
 	color: #999999;
 }
 #footer a:hover, a:focus {
-	/*color: #e75926;*/
 	color: #00cc99;
 }
 #footer p {
@@ -748,12 +713,13 @@ img.img-thumbnail.team-img {
 	margin-top: 10px;
 }
 
-/*to-topのフローティングボタン*/
+/*to-topのフローティングボタン--------------------------*/
 #to-top{
 	position: fixed;
 	bottom: 7px;
 	right: 7px;
 	background-color: rgba(0,0,0,0.4);
+  box-sizing: border-box;
 }
 
 #footer .btn-dark {

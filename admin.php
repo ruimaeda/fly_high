@@ -86,7 +86,7 @@
     </div>
     <div class="row">
       <div class="col-md-12 columns">
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box">
+          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
               <label class="checkbox-inline" for="alone">
                 <input type="checkbox" name="Checkboxes" id="alone" value="alone">
                 ひとり旅
@@ -141,226 +141,235 @@
               </label>
           </div>
       </div>
-
     </div>
+  </div>
   </div>
 </div>
 
 <!-- Services Section -->
 <!-- <div id="services" class="text-center"> -->
 <div id="services" class="">
-  <div class="container">
+<div class="overlay">
+  <div class="container box">
     <div class="section-title center">
       <h2>Countryを選択</h2>
       <hr>
     </div>
     <div class="row">
-      <div class="col-md-12 columns">
-          <h3>Asia</h3>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="uae">
-                <input type="checkbox" name="Checkboxes" id="uae" value="uae">
-                アラブ首長国連邦
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="india">
-                <input type="checkbox" name="Checkboxes" id="india" value="india">
-                インド
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="indonesia">
-                <input type="checkbox" name="Checkboxes" id="indonesia" value="indonesia">
-                インドネシア
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="qatar">
-                <input type="checkbox" name="Checkboxes" id="qatar" value="qatar">
-                カタール
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="korea">
-                <input type="checkbox" name="Checkboxes" id="korea" value="korea">
-                韓国
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="cambodia">
-                <input type="checkbox" name="Checkboxes" id="cambodia" value="cambodia">
-                カンボジア
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="singapore">
-                <input type="checkbox" name="Checkboxes" id="singapore" value="singapore">
-                シンガポール
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="thailand">
-                <input type="checkbox" name="Checkboxes" id="thailand" value="thailand">
-                タイ
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="taiwan">
-                <input type="checkbox" name="Checkboxes" id="taiwan" value="taiwan">
-                台湾
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="china">
-                <input type="checkbox" name="Checkboxes" id="china" value="china">
-                中国
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="turkey">
-                <input type="checkbox" name="Checkboxes" id="turkey" value="turkey">
-                トルコ
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="philippines">
-                <input type="checkbox" name="Checkboxes" id="philippines" value="philippines">
-                フィリピン
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="vietnam">
-                <input type="checkbox" name="Checkboxes" id="vietnam" value="vietnam">
-                ベトナム
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="hongkong_macao">
-                <input type="checkbox" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
-                香港・マカオ
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="malaysia">
-                <input type="checkbox" name="Checkboxes" id="malaysia" value="malaysia">
-                マレーシア
-              </label><br><br>
-            </div>
+      <div class="row">
+        <div class="col-md-12 columns">
+            <h3>Asia</h3>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="uae">
+                  <input type="checkbox" name="Checkboxes" id="uae" value="uae">
+                  アラブ首長国連邦
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="india">
+                  <input type="checkbox" name="Checkboxes" id="india" value="india">
+                  インド
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="indonesia">
+                  <input type="checkbox" name="Checkboxes" id="indonesia" value="indonesia">
+                  インドネシア
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="qatar">
+                  <input type="checkbox" name="Checkboxes" id="qatar" value="qatar">
+                  カタール
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="korea">
+                  <input type="checkbox" name="Checkboxes" id="korea" value="korea">
+                  韓国
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="cambodia">
+                  <input type="checkbox" name="Checkboxes" id="cambodia" value="cambodia">
+                  カンボジア
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="singapore">
+                  <input type="checkbox" name="Checkboxes" id="singapore" value="singapore">
+                  シンガポール
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="thailand">
+                  <input type="checkbox" name="Checkboxes" id="thailand" value="thailand">
+                  タイ
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="taiwan">
+                  <input type="checkbox" name="Checkboxes" id="taiwan" value="taiwan">
+                  台湾
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="china">
+                  <input type="checkbox" name="Checkboxes" id="china" value="china">
+                  中国
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="turkey">
+                  <input type="checkbox" name="Checkboxes" id="turkey" value="turkey">
+                  トルコ
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="philippines">
+                  <input type="checkbox" name="Checkboxes" id="philippines" value="philippines">
+                  フィリピン
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="vietnam">
+                  <input type="checkbox" name="Checkboxes" id="vietnam" value="vietnam">
+                  ベトナム
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="hongkong_macao">
+                  <input type="checkbox" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
+                  香港・マカオ
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="malaysia">
+                  <input type="checkbox" name="Checkboxes" id="malaysia" value="malaysia">
+                  マレーシア
+                </label><br><br>
+              </div>
+        </div>
       </div>
 
-      <div class="col-md-12 columns">
-          <h3>Oceania</h3>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="austraria">
-                <input type="checkbox" name="Checkboxes" id="austraria" value="austraria">
-                オーストラリア
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="guam">
-                <input type="checkbox" name="Checkboxes" id="guam" value="guam">
-                グアム
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="saipan">
-                <input type="checkbox" name="Checkboxes" id="saipan" value="saipan">
-                サイパン
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="newcaledonia">
-                <input type="checkbox" name="Checkboxes" id="newcaledonia" value="newcaledonia">
-                ニューカレドニア
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="newzealand">
-                <input type="checkbox" name="Checkboxes" id="newzealand" value="newzealand">
-                ニュージーランド
-              </label><br><br>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="hawaii">
-                <input type="checkbox" name="Checkboxes" id="hawaii" value="hawaii">
-                ハワイ
-              </label><br><br>
-            </div>
+      <div class="row">
+        <div class="col-md-12 columns">
+            <h3>Oceania</h3>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="austraria">
+                  <input type="checkbox" name="Checkboxes" id="austraria" value="austraria">
+                  オーストラリア
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="guam">
+                  <input type="checkbox" name="Checkboxes" id="guam" value="guam">
+                  グアム
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="saipan">
+                  <input type="checkbox" name="Checkboxes" id="saipan" value="saipan">
+                  サイパン
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="newcaledonia">
+                  <input type="checkbox" name="Checkboxes" id="newcaledonia" value="newcaledonia">
+                  ニューカレドニア
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="newzealand">
+                  <input type="checkbox" name="Checkboxes" id="newzealand" value="newzealand">
+                  ニュージーランド
+                </label><br><br>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="hawaii">
+                  <input type="checkbox" name="Checkboxes" id="hawaii" value="hawaii">
+                  ハワイ
+                </label><br><br>
+              </div>
+        </div>
       </div>
 
-      <div class="col-md-12 columns">
-          <h3>Europe</h3>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="ireland">
-                <input type="checkbox" name="Checkboxes" id="ireland" value="ireland">
-                アイルランド
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="uk">
-                <input type="checkbox" name="Checkboxes" id="uk" value="uk">
-                イギリス
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="italy">
-                <input type="checkbox" name="Checkboxes" id="italy" value="italy">
-                イタリア
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="netherland">
-                <input type="checkbox" name="Checkboxes" id="netherland" value="netherland">
-                オランダ
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="spain">
-                <input type="checkbox" name="Checkboxes" id="spain" value="spain">
-                スペイン
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="finland">
-                <input type="checkbox" name="Checkboxes" id="finland" value="finland">
-                フィンランド
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="france">
-                <input type="checkbox" name="Checkboxes" id="france" value="france">
-                フランス
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="russia">
-                <input type="checkbox" name="Checkboxes" id="russia" value="russia">
-                ロシア
-              </label><br><br>
-            </div>
+      <div class="row">
+        <div class="col-md-12 columns">
+            <h3>Europe</h3>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="ireland">
+                  <input type="checkbox" name="Checkboxes" id="ireland" value="ireland">
+                  アイルランド
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="uk">
+                  <input type="checkbox" name="Checkboxes" id="uk" value="uk">
+                  イギリス
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="italy">
+                  <input type="checkbox" name="Checkboxes" id="italy" value="italy">
+                  イタリア
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="netherland">
+                  <input type="checkbox" name="Checkboxes" id="netherland" value="netherland">
+                  オランダ
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="spain">
+                  <input type="checkbox" name="Checkboxes" id="spain" value="spain">
+                  スペイン
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="finland">
+                  <input type="checkbox" name="Checkboxes" id="finland" value="finland">
+                  フィンランド
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="france">
+                  <input type="checkbox" name="Checkboxes" id="france" value="france">
+                  フランス
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="russia">
+                  <input type="checkbox" name="Checkboxes" id="russia" value="russia">
+                  ロシア
+                </label><br><br>
+              </div>
+        </div>
       </div>
 
-      <div class="col-md-12 columns">
-          <h3>North_America</h3>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="usa">
-                <input type="checkbox" name="Checkboxes" id="usa" value="usa">
-                アメリカ
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="canada">
-                <input type="checkbox" name="Checkboxes" id="canada" value="canada">
-                カナダ
-              </label>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="mexico">
-                <input type="checkbox" name="Checkboxes" id="mexico" value="mexico">
-                メキシコ
-              </label>
-            </div>
+      <div class="row">
+        <div class="col-md-12 columns">
+            <h3>North_America</h3>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="usa">
+                  <input type="checkbox" name="Checkboxes" id="usa" value="usa">
+                  アメリカ
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="canada">
+                  <input type="checkbox" name="Checkboxes" id="canada" value="canada">
+                  カナダ
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="mexico">
+                  <input type="checkbox" name="Checkboxes" id="mexico" value="mexico">
+                  メキシコ
+                </label>
+              </div>
+        </div>
       </div>
     </div>
   </div>
