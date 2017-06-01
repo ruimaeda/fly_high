@@ -38,7 +38,7 @@ hr {
 	width: 70px;
 	text-align: center;
 	position: relative;
-	background: #00cc99 /*#E75926*/ ;
+	background: #00cc99;
 	margin: 0 auto;
 	margin-bottom: 30px;
 	border: 0;
@@ -48,26 +48,22 @@ hr {
 
 /* Navigation */
 .navbar-custom .navbar-brand i.fa {
-	/*color: #E75926;*/
 	color: #00cc99;
 }
 
 .navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
-	/*background-color: #E75926;*/
 	background-color: #00cc99;
 	color: #ffffff;
 }
 
 .navbar-custom .nav li a:hover {
 	outline: 0;
-	/*color: #E75926;*/
 	color: #00cc99;
 	background-color: transparent;
 }
 .navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
 	outline: 0;
 	background-color: transparent;
-	/*color: #E75926;*/
 	color: #00cc99;
 }
 
@@ -86,7 +82,7 @@ hr {
 	padding: 100px 0;
 	text-align: center;
 	color: #fff;
-	background: url(../../img/dubai.jpg) no-repeat center center fixed;
+	background: url(../img/country/uae.jpg) no-repeat center center fixed;
 	background-color: #000;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -97,14 +93,12 @@ hr {
 #intro .intro-body H1 {
 	font-size: 76px;
 	font-weight: 700;
-	/*color: rgba(255,255,255,0.8);*/
 	color: #ffffff;
 	text-transform: uppercase;
 }
 #intro .intro-body .brand-heading {
 	color: #ffffff
-	 /*#E75926;*/
-	text-shadow: 0 4px #a9a9a9 /*#a13e1a*/ ;
+	text-shadow: 0 4px #a9a9a9;
 }
 
 @media(min-width:768px) {
@@ -121,7 +115,7 @@ hr {
 }
 .btn-default {
 	color: #f6f6f6;
-	background: #00cc99 /*#cf5022*/ ;
+	background: #00cc99;
 	border: 0;
 	padding: 12px 24px;
 	margin: 0 15px;
@@ -131,7 +125,6 @@ hr {
 }
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
 	color: #f6f6f6;
-	/*background-color: #a13e1a;*/
 	background-color: #00947a;
 }
 .section-title.center {
@@ -259,26 +252,43 @@ label.checkbox.checked {
 	background-attachment: fixed;
 }*/
 #services {
-	display: table;
+	/*display: table;
 	width: 100%;
 	height: auto;
-	padding: 100px 0;
+	padding: 100px 0;*/
 	/*text-align: center;*/
 	/*color: #fff;*/
-	background: url(../../img/aus.jpg) no-repeat center center fixed;
+	/*background: url(../img/country/hawaii.jpg) no-repeat center center fixed;
 	background-color: #000;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
-	-o-background-size: cover;
+	-o-background-size: cover;*/
 	/*padding: 140px 0 90px 0;*/
 	/*background-attachment: fixed;*/
-    position: relative;
+    /*position: relative;*/
     /*height:100%;*/
-    z-index:-5;
+    /*z-index:-5;*/
 }
 
-#services::before{
+#services {
+  /*background: none;*/
+  padding: 0 0 0 0;
+}
+
+#services .overlay {
+	background: url(../img/country/hawaii.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	/*color: #ddd;*/
+	padding: 140px 0 90px 0;
+	position: relative;
+  height:100%;
+}
+
+
+/*#services::before{*/
+.overlay::before{
   /* 透過した黒を重ねる */
   background-color: rgba(0,0,0,0.5);
   /* どの範囲に重ねるかを指定 */
@@ -288,23 +298,41 @@ label.checkbox.checked {
   bottom: 0;
   left: 0;
   content: ' ';
-  z-index:-1;
+  /*z-index:-1;*/
 }
 
-#services h2{
+.box{
+  position: relative;
+  margin-bottom: 50px;
+}
+
+
+/*#services h2{
 	line-height: 30px;
 	margin-bottom: 20px;
 	color: #ffffff;
 	z-index:50;
+}*/
+
+
+#services h2 {
+	color: #555;
+}
+/*#services blockquote {
+	position: relative;
+	margin-top: 20px;
+	border: 0;
+	text-align: center;
+	color: #ffffff;
+}*/
+
+#services ul{
+  display: inline-block;
 }
 
 
 
-
-
-
 #services p {
-	/*color: rgba(255,255,255,0.7);*/
 	color: rgb(255,255,255);
 	font-weight: 600;
 }
@@ -317,16 +345,12 @@ ul.cat li {
 
 ol.type li a.active {
 	color: #f6f6f6;
-	/*border: 1px solid #cf5022;*/
 	border: 1px solid #00cc99;
-	/*background: #cf5022;*/
 	background: #00cc99;
 }
 ol.type li a:hover {
 	color: #f6f6f6;
-	/*border: 1px solid #cf5022;*/
 	border: 1px solid #00947a;
-	/*background: #cf5022;*/
 	background: #00947a;
 }
 
@@ -335,8 +359,6 @@ ol.type li a:hover {
 #services label{
 	margin: 0 14%;
 }
-
-
 
 /*国のcolumnsにmarginをつける*/
 #services .columns{
@@ -394,7 +416,6 @@ img.img-thumbnail.team-img {
 	margin-top: 20px;
 	border: 0;
 	text-align: center;
-	/*color: rgba(255,255,255,0.8);*/
 	color: #ffffff;
 }
 
@@ -402,21 +423,17 @@ img.img-thumbnail.team-img {
 
 /* Contact Section -----------------------------------------------------------------------*/
 #contact {
-	/*padding: 120px 0 40px 0;*/
 	padding: 120px 0 0 0;
 	background: #f6f6f6;
 }
 
 #contact i.fa {
 	font-size: 22px;
-	/*color: #e75926;*/
 	color: #ffffff;
-	/*margin-bottom: 10px;*/
 	margin-bottom: 5px;
 }
 
 #contact .btn-default {
-	/*background: #cf5022;*/
 	background: #00cc99;
 	border: 0;
 	border-radius: 4px;
@@ -427,25 +444,21 @@ img.img-thumbnail.team-img {
 }
 #contact .btn-default:hover, #contact .btn-default:focus {
 	color: #f6f6f6;
-	/*background: #a13e1a;*/
 	background: #00947a;
 }
 
 #contact .social ul {
-	/*margin-top: 30px;*/
 	margin-top: 80px;
 }
 
 #contact .social i.fa {
 	font-size: 24px;
 	padding-top: 8px;
-	/*color: #cf5022;*/
 	color: #00cc99;
 	border-radius: 4px;
 	transition: all 0.3s;
 }
 #contact .social i.fa:hover {
-	/*color: #a13e1a;*/
 	color: #00947a;
 }
 
@@ -462,7 +475,6 @@ img.img-thumbnail.team-img {
 
 /* Footer Section------------------------------------------------------------------------*/
 #footer a:hover, a:focus {
-	/*color: #e75926;*/
 	color: #00cc99;
 }
 
@@ -481,7 +493,11 @@ img.img-thumbnail.team-img {
 	color: #fff;
 }
 
-
+#services i.fa {
+    font-size: 36px;
+    color: #ffffff;
+    transition: all 0.5s;
+}
 
 
 

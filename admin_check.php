@@ -47,7 +47,7 @@
         <li class="hidden"> <a href="#page-top"></a> </li>
         <li> <a class="page-scroll" href="#about">選択したStyle</a> </li>
         <li> <a class="page-scroll" href="#services">選択したCountry</a> </li>
-        <li> <a class="page-scroll" href="#works">メール</a> </li>
+        <li> <a class="page-scroll" href="#mail">メール</a> </li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -86,7 +86,7 @@
 
         <div class="row">
           <div class="col-md-12 columns">
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
                   <input type="checkbox" name="Checkboxes" id="alone" value="alone">
                   ひとり旅
@@ -377,7 +377,7 @@
 
 <!-- Contact Section -->
 <!-- <div id="contact" class="text-center"> -->
-<div id="works" class="text-center">
+<div id="mail" class="text-center">
   <div class="container">
     <div class="section-title center">
       <h2>送信内容に間違いはありませんか？</h2>

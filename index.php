@@ -38,23 +38,17 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i> FLY HIGH</a> </div>
-    
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"> <a href="#page-top"></a> </li>
         <li> <a class="page-scroll" href="#about">About</a> </li>
-        <!-- <li> <a class="page-scroll" href="#services">Services</a> </li> -->
         <li> <a class="page-scroll" href="#services">Merit</a> </li>
-        <!-- <li> <a class="page-scroll" href="#works">Works</a> </li> -->
         <li> <a class="page-scroll" href="#works">Sample</a> </li>
-        <!-- <li> <a class="page-scroll" href="#testimonials">Testimonials</a> </li> -->
         <li> <a class="page-scroll" href="#testimonials">How To</a> </li>
-        <!-- <li> <a class="page-scroll" href="#team">Team</a> </li> -->
         <li> <a class="page-scroll" href="#team">Team</a> </li>
-        <!-- <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
-        <!-- <li> <a class="page-scroll" href="#contact">Sogn Up</a> </li> -->
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -88,7 +82,6 @@
       <!-- <div class="col-md-4"><img src="img/about.jpg" class="img-responsive"></div> -->
       <div class="col-md-12">
         <div class="about-text">
-          <!-- <h4>Who We Are</h4> -->
           <p>Flyhigh [フライハイ] は海外航空券のセール情報を配信するサービスです。<br>旅のスタイルや行き先に合わせて、セール開始前にメールにてご連絡します。</p>
         </div>
       </div>
