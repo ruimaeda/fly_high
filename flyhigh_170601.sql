@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2017 年 6 月 01 日 10:11
+-- Generation Time: 2017 年 6 月 01 日 15:05
 -- サーバのバージョン： 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -288,7 +288,8 @@ INSERT INTO `countries` (`country_id`, `country_name`, `country_code`, `country_
 (246, 'Lesotho', 'LS', 'africa', 1),
 (247, 'Lebanon', 'LB', 'asia', 1),
 (248, 'Reunion', 'RE', 'oceania', 1),
-(249, 'Russia', 'RU', 'europe', 1);
+(249, 'Russia', 'RU', 'europe', 1),
+(250, 'Hawaii', 'HW', 'north_america', 0);
 
 -- --------------------------------------------------------
 
@@ -298,9 +299,56 @@ INSERT INTO `countries` (`country_id`, `country_name`, `country_code`, `country_
 
 CREATE TABLE `country_styles` (
   `country_style_id` int(11) NOT NULL,
-  `country_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL
+  `style_id` int(11) NOT NULL,
+  `country_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- テーブルのデータのダンプ `country_styles`
+--
+
+INSERT INTO `country_styles` (`country_style_id`, `style_id`, `country_id`) VALUES
+(1, 1, 21),
+(2, 1, 56),
+(3, 1, 124),
+(4, 1, 2),
+(5, 2, 5),
+(6, 2, 24),
+(7, 2, 68),
+(8, 2, 57),
+(9, 2, 250),
+(10, 2, 188),
+(11, 3, 5),
+(12, 3, 20),
+(13, 3, 40),
+(14, 3, 100),
+(15, 3, 250),
+(16, 3, 181),
+(17, 4, 125),
+(18, 4, 107),
+(19, 4, 126),
+(20, 4, 145),
+(21, 4, 196),
+(22, 5, 68),
+(23, 5, 57),
+(24, 5, 124),
+(25, 5, 180),
+(26, 5, 156),
+(27, 5, 250),
+(28, 6, 5),
+(29, 6, 8),
+(30, 6, 28),
+(31, 6, 52),
+(32, 6, 132),
+(33, 7, 56),
+(34, 7, 132),
+(35, 7, 225),
+(36, 7, 249),
+(37, 8, 8),
+(38, 8, 107),
+(39, 8, 188),
+(40, 8, 126),
+(41, 8, 249);
 
 -- --------------------------------------------------------
 
@@ -322,7 +370,10 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`sale_id`, `sale_text`, `sale_title`, `sale_category`, `picture_path`, `sale_created`) VALUES
-(1, 'test sale', 'why dont you go cebu?', 'sale', 'none', '2017-05-29 00:00:00');
+(1, 'test sale', 'why dont you go cebu?', 'sale', '', '2017-05-29 00:00:00'),
+(2, 'セブと日本往復が100円だったらいいよね', 'セブ行きのセールです', 'sale', '', '2017-06-01 00:00:00'),
+(3, 'testセール3の本文です', 'testセール3のタイトル', 'sale', '', '2017-06-01 20:20:00'),
+(4, 'testセール4の本文', 'testセール4のタイトル', 'sale', '', '2017-06-01 20:26:00');
 
 -- --------------------------------------------------------
 
@@ -383,9 +434,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `nick_name`, `email`, `password`, `role`, `gender`, `age`, `address`, `income`, `travel_purpose`, `travel_budget`, `travel_period`, `travel_country`, `travel_time`, `know_flyhigh`, `demand`, `delete_flag`, `created`, `modified`) VALUES
-(1, 'tabippo', 'tabippo@gmail', '29a8d928ecdcf7f8b0835ebd2a65c3f8509a62c2', 1, '', '', '', '', '', '', '', '', '', '', '', 0, '2017-05-29 20:17:56', '2017-05-29 12:18:31'),
-(2, 'yuki', 'yuki@gmail', '29a8d928ecdcf7f8b0835ebd2a65c3f8509a62c2', 0, '', '', '', '', '', '', '', '', '', '', '', 0, '2017-05-29 20:19:04', '2017-05-29 12:19:45'),
-(3, 'manato', 'manato@gmail', '29a8d928ecdcf7f8b0835ebd2a65c3f8509a62c2', 0, '', '', '', '', '', '', '', '', '', '', '', 0, '2017-05-29 20:23:26', '2017-05-29 12:23:54');
+(1, 'tabippo', 'tabippo@gmail', '29a8d928ecdcf7f8b0835ebd2a65c3f8509a62c2', 1, '男性', '10代', '関東', '1000万円〜', '自然', '40万円〜', '9日〜', '31ヶ国〜', '11回〜', '友人・知人', 'これからも頑張ってください', 0, '2017-05-29 20:17:56', '2017-06-01 08:44:02'),
+(2, 'yuki', 'yuki@gmail', '29a8d928ecdcf7f8b0835ebd2a65c3f8509a62c2', 0, '女性', '10代', '関西', '700〜1000万円', 'イベント', '30万円〜40万円', '7日〜9日', '21〜30ヶ国', '6〜10回', 'その他', 'これからも頑張ります！これからも頑張ります！これからも頑張ります！これからも頑張ります！これからも頑張ります！これからも頑張ります！', 0, '2017-05-29 20:19:04', '2017-06-01 08:44:10'),
+(3, 'manato', 'manato@gmail', '29a8d928ecdcf7f8b0835ebd2a65c3f8509a62c2', 0, '男性', '20代', '関西', '300〜500万円', 'グルメ', '5万円〜10万円', '5日〜7日', '1〜5ヶ国', '1回', '開発メンバー', '', 0, '2017-05-29 20:23:26', '2017-06-01 08:43:53');
 
 -- --------------------------------------------------------
 
@@ -407,9 +458,21 @@ CREATE TABLE `user_countries` (
 
 CREATE TABLE `user_sales` (
   `user_sale_id` int(11) NOT NULL,
-  `member_id` int(11) NOT NULL,
-  `sale_id` int(11) NOT NULL
+  `sale_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- テーブルのデータのダンプ `user_sales`
+--
+
+INSERT INTO `user_sales` (`user_sale_id`, `sale_id`, `member_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 1),
+(5, 2, 3),
+(6, 3, 3);
 
 --
 -- Indexes for dumped tables
@@ -465,12 +528,12 @@ ALTER TABLE `user_sales`
 -- AUTO_INCREMENT for table `country_styles`
 --
 ALTER TABLE `country_styles`
-  MODIFY `country_style_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `country_style_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `styles`
 --
@@ -490,7 +553,7 @@ ALTER TABLE `user_countries`
 -- AUTO_INCREMENT for table `user_sales`
 --
 ALTER TABLE `user_sales`
-  MODIFY `user_sale_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_sale_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
