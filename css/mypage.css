@@ -113,3 +113,10 @@ h2 {
 .row {
 	text-align: center;
 }
+
+.mypage {
+	text-align: center;
+	font-size: 60px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}

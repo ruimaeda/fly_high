@@ -72,9 +72,10 @@
 </div> -->
 <!-- About Section -->
 <div id="about">
+<h2 class='mypage'>MY PAGE</h2>
 <a href="#about" class="btn btn-default page-scroll btn2">編集する</a>
   <div class="container">
-    <div class="section-title text-center center">
+      <div class="section-title text-center center">
       <h2>About You</h2>
       <hr>
     </div>
