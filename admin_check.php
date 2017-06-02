@@ -88,7 +88,7 @@
           <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
-                  <input type="checkbox" name="Checkboxes" id="alone" value="alone">
+                  <!-- <input type="checkbox" name="Checkboxes" id="alone" value="alone"> -->
                   ひとり旅
                 </label>
             </div>
