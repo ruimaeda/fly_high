@@ -16,7 +16,7 @@
     setcookie('email', '', time() - 3600);
     setcookie('password', '', time() - 3600);
 
-
+    //adminからでもindex.phpに飛ばす仕様
     header("location: index.php");
     exit();
 
