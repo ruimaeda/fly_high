@@ -1,3 +1,26 @@
+<?php
+  //セッションを開始
+  session_start();
+
+  //ログイン状態をチェックする→強制ログアウトを作る
+  //ログインしていると判断できる条件
+  // 1.セッションにidが入っていること
+  // 2.最後の行動から1時間以内であること
+  // if(isset($_SESSION['login_member_id']) && ($_SESSION['time'] + 3600 > time()) ){
+  //   //ログインしている and 最後の行動から1時間以内
+  //   //セッションの時間を更新
+  //   $_SESSION['time'] = time();
+
+  // } else {
+  //   //ログインしていない or 最後の行動から1時間以上経った
+  //   header('Location: admin_login.php');
+  //   exit();
+
+  // }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -425,11 +448,7 @@
 
 
 
-<!-- Contact Section -->
-<div id="footer">
-  <div class="container">
-    <p>Copyright &copy; FLY HIGH. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
-  </div>
+<?php include('footer.php'); ?>
 
   <!-- to-topのフローティングボタンを付け加える -->
   <a id="to-top" href="#top" class="btn btn-dark btn-lg">

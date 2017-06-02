@@ -1,3 +1,25 @@
+<?php
+  //セッションを開始
+  session_start();
+
+  //ログイン状態をチェックする→強制ログアウトを作る
+  //ログインしていると判断できる条件
+  // 1.セッションにidが入っていること
+  // 2.最後の行動から1時間以内であること
+  // if(isset($_SESSION['login_member_id']) && ($_SESSION['time'] + 3600 > time()) ){
+  //   //ログインしている and 最後の行動から1時間以内
+  //   //セッションの時間を更新
+  //   $_SESSION['time'] = time();
+
+  // } else {
+  //   //ログインしていない or 最後の行動から1時間以上経った
+  //   header('Location: admin_login.php');
+  //   exit();
+
+  // }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,17 +65,9 @@
       <ul class="nav navbar-nav">
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"> <a href="#page-top"></a> </li>
-        <li> <a class="page-scroll" href="#about">About</a> </li>
-        <!-- <li> <a class="page-scroll" href="#services">Services</a> </li> -->
-        <li> <a class="page-scroll" href="#services">Merit</a> </li>
-        <!-- <li> <a class="page-scroll" href="#works">Works</a> </li> -->
-        <li> <a class="page-scroll" href="#works">Sample</a> </li>
-        <!-- <li> <a class="page-scroll" href="#testimonials">Testimonials</a> </li> -->
-        <li> <a class="page-scroll" href="#testimonials">How To</a> </li>
-        <!-- <li> <a class="page-scroll" href="#team">Team</a> </li> -->
-        <li> <a class="page-scroll" href="#team">Us</a> </li>
-        <!-- <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
-        <li> <a class="page-scroll" href="#contact">Sogn Up</a> </li>
+        <li> <a class="page-scroll" href="#about">Style</a> </li>
+        <li> <a class="page-scroll" href="#services">Country</a> </li>
+        <li> <a class="page-scroll" href="#contact">Form</a> </li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -382,12 +396,12 @@
 <div id="works" class="text-center">
   <div class="container">
     <div class="section-title center">
-      <h2>Fill Out the Form</h2>
+      <h2>セール内容を入力</h2>
       <hr>
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-      <form name="sentMessage" id="contactForm" novalidate>
+      <form type="post" action="" name="sentMessage" id="contactForm" novalidate>
         <!-- タイトル -->
         <div class="row">
             <div class="col-md-12">
@@ -420,7 +434,6 @@
             <p class="help-block text-danger"></p>
         </div>
 
-
         <div id="success"></div>
         <!-- <button type="submit" class="btn btn-custom btn-lg">Send Message</button> -->
         <button type="submit" class="btn btn-custom btn-lg2">LOG OUT</button>
@@ -433,12 +446,8 @@
 
 
 
-
-<!-- Contact Section -->
-<div id="footer">
-  <div class="container">
-    <p>Copyright &copy; FLY HIGH. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
-  </div>
+<!-- フッターの外部読み込みはできたが、字が白くなっている -->
+<?php include('footer.php'); ?>
 
   <!-- to-topのフローティングボタンを付け加える -->
   <a id="to-top" href="#top" class="btn btn-dark btn-lg">
@@ -447,24 +456,24 @@
 
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script type="text/javascript" src="js/bootstrap.js"></script> 
-<script type="text/javascript" src="js/admin_bootstrap.js"></script> 
-<script type="text/javascript" src="js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/admin_bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
 <!-- contact_me.jsはメールが送信されました表示の分。これはadmin_checkで表示するため一旦コメントアウト。 -->
 <!-- <script type="text/javascript" src="js/contact_me.js"></script>  -->
 
 
 
 <!-- Javascripts
-    ================================================== --> 
+    ================================================== -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
