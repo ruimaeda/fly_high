@@ -34,6 +34,7 @@
 <div id="preloader">
   <div id="status"> <img src="img/preloader.gif" height="64" width="64" alt=""> </div>
 </div>
+
 <!-- Navigation -->
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
   <div class="container">
@@ -64,24 +65,32 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
               <form method="post">
+
+                <!-- ニックネーム -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="お名前を入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
+
+                <!-- メールアドレス -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="メールアドレスを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
+
+                <!-- パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
+
+                <!-- 確認用パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードをもう一度入力してください" required>
@@ -94,6 +103,7 @@
     </div>
   </div>
 </div>
+
 <!-- Style Section -->
 <div id="style">
   <div class="container"> <!-- Container -->
@@ -156,6 +166,7 @@
     </div>
   </div>
 </div>
+
 <!-- Country Section -->
 <div id="country">
   <div class="container"> <!-- Container -->
