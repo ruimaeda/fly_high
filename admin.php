@@ -61,6 +61,12 @@
       }
     }
 
+  //書き直しの処理
+  if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
+    $_POST = $_SESSION['admin'];
+    $error['rewrite'] = true;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -448,8 +454,13 @@
         <div class="row">
             <div class="col-md-12">
               <!-- <div class="form-group"> -->
+              <?php if(isset($_POST['title'])) { ?>
+                <input type="title" id="title" name="title" class="form-control" placeholder="タイトルを入力" value="<?php echo htmlspecialchars($_POST['title'], ENT_QUOTES, 'utf-8'); ?>">
+                <p class="help-block text-danger"></p>
+              <?php }else{ ?>
                 <input type="title" id="title" name="title" class="form-control" placeholder="タイトルを入力">
                 <p class="help-block text-danger"></p>
+              <?php } ?>
               <!-- </div> -->
             </div>
         </div>
@@ -458,8 +469,13 @@
         <div class="row">
             <div class="col-md-12">
               <!-- <div class="form-group"> -->
-                <textarea name="message" id="message" name="title" class="form-control" rows="10" placeholder="本文を入力"></textarea>
+              <?php if(isset($_POST['message'])) { ?>
+                <textarea type="message" id="message" name="message" class="form-control" rows="10" placeholder="本文を入力"><?php echo htmlspecialchars($_POST['message'], ENT_QUOTES, 'utf-8'); ?></textarea>
                 <p class="help-block text-danger"></p>
+              <?php }else{ ?>
+                <textarea type="message" id="message" name="message" class="form-control" rows="10" placeholder="本文を入力"></textarea>
+                <p class="help-block text-danger"></p>
+              <?php } ?>
               <!-- </div> -->
             </div>
         </div>
