@@ -79,7 +79,6 @@
 </nav>
 
 <!-- Header -->
-
 <!-- <div id="intro">
   <div class="intro-body">
     <div class="container">
@@ -93,6 +92,8 @@
     </div>
   </div>
 </div> -->
+
+<!-- 登録内容を表示 -->
 <!-- About Section -->
 <div id="about">
   <div class="container">
@@ -117,6 +118,7 @@
     </div>
   </div>
 </div>
+
 <!-- Style Section -->
 <div id="style">
   <div class="container"> <!-- Container -->
@@ -179,6 +181,7 @@
     </div>
   </div>
 </div>
+
 <!-- Country Section -->
 <div id="country">
   <div class="container"> <!-- Container -->
