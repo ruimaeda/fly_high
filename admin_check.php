@@ -28,19 +28,18 @@
   }
 
   // //DB登録処理
-  // if (!empty($_POST)){
-  //   $sql = sprintf('INSERT INTO `members`(`nick_name`, `email`, `password`, `picture_path`, `created`, `modified`) VALUES ("%s","%s","%s","%s", now(), now());',
-  //     mysqli_real_escape_string($db,$_SESSION['join']['nick_name']),
-  //     mysqli_real_escape_string($db,$_SESSION['join']['email']),
-  //     mysqli_real_escape_string($db,sha1($_SESSION['join']['password'])),
-  //     mysqli_real_escape_string($db,$_SESSION['join']['picture_path'])
-  //     );
+  if (!empty($_POST)){
+    $sql = sprintf('INSERT INTO `sales`(`sale_title`, `sale_text`, `picture_path`, `sale_created`) VALUES ("%s","%s","%s", now());',
+      mysqli_real_escape_string($db,$_SESSION['admin']['title']),
+      mysqli_real_escape_string($db,$_SESSION['admin']['message']),
+      mysqli_real_escape_string($db,$_SESSION['admin']['picture_path'])
+      );
 
-  //   //SQL文を実行する処理
-  //   mysqli_query($db,$sql) or die(mysqli_error($db));
-  //   header("location: thanks.php");
-  //   exit();
-  // }
+    //SQL文を実行する処理
+    mysqli_query($db,$sql) or die(mysqli_error($db));
+    header("location: admin.php");
+    exit();
+  }
 
 
 ?>
@@ -597,35 +596,38 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-    <table class="table table-striped table-condensed">
-      <tbody>
-        <!-- 登録内容を表示 -->
-        <tr>
-          <td><div class="text-center">タイトル</div></td>
-          <?php if(isset($_SESSION['admin']['title'])): ?>
-            <td><div class="text-center"><?php echo $_SESSION['admin']['title']; ?></div></td>
-          <?php else: ?>
-            <td><div class="text-center">セールのタイトル</div></td>
-          <?php endif; ?>
-        </tr>
-        <tr>
-          <td><div class="text-center">本文</div></td>
-          <?php if(isset($_SESSION['admin']['message'])): ?>
-            <td><div class="text-center"><?php echo $_SESSION['admin']['message']; ?></div></td>
-          <?php else: ?>
-            <td><div class="text-center">セールの本文</div></td>
-          <?php endif; ?>
-        </tr>
-        <!-- <tr>
-          <td><div class="text-center">プロフィール画像</div></td>
-          <?php if(isset($_SESSION['join']['picture_path'])): ?>
-            <td><div class="text-center"><?php echo '<img src="../member_picture/' . $_SESSION['join']['picture_path'] . '" width=50% height=50%>'; ?></div></td>
-          <?php else: ?>
-            <td><div class="text-center"><img src="http://c85c7a.medialib.glogster.com/taniaarca/media/71/71c8671f98761a43f6f50a282e20f0b82bdb1f8c/blog-images-1349202732-fondo-steve-jobs-ipad.jpg" width="100" height="100"></div></td>
-          <?php endif; ?>
-        </tr> -->
-      </tbody>
-    </table>
+      <form method="post" action="" class="form-horizontal">
+        <input type="hidden" name="action" value="submit">
+        <table class="table table-striped table-condensed">
+          <tbody>
+            <tr>
+              <td><div class="text-center">タイトル</div></td>
+              <?php if(isset($_SESSION['admin']['title'])): ?>
+                <td><div class="text-center"><?php echo $_SESSION['admin']['title']; ?></div></td>
+              <?php else: ?>
+                <td><div class="text-center">セールのタイトル</div></td>
+              <?php endif; ?>
+            </tr>
+            <tr>
+              <td><div class="text-center">本文</div></td>
+              <?php if(isset($_SESSION['admin']['message'])): ?>
+                <td><div class="text-center"><?php echo $_SESSION['admin']['message']; ?></div></td>
+              <?php else: ?>
+                <td><div class="text-center">セールの本文</div></td>
+              <?php endif; ?>
+            </tr>
+            <?php /* ?>
+            <tr>
+              <td><div class="text-center">プロフィール画像</div></td>
+              <?php if(isset($_SESSION['join']['picture_path'])): ?>
+                <td><div class="text-center"><?php echo '<img src="../member_picture/' . $_SESSION['join']['picture_path'] . '" width=50% height=50%>'; ?></div></td>
+              <?php else: ?>
+                <td><div class="text-center"><img src="http://c85c7a.medialib.glogster.com/taniaarca/media/71/71c8671f98761a43f6f50a282e20f0b82bdb1f8c/blog-images-1349202732-fondo-steve-jobs-ipad.jpg" width="100" height="100"></div></td>
+              <?php endif; ?>
+            </tr>
+            <?php */ ?>
+          </tbody>
+        </table>
     </div>
 
 <?php /* ?>
@@ -657,8 +659,8 @@
         </div>
 <?php */ ?>
 
-        <div id="success"></div>
-        <button type="submit" class="btn btn-custom btn-lg2" src="admin.php">戻る</button>
+        <!-- <div id="success"></div> -->
+        <a href="admin.php?action=rewrite"><button type="button" class="btn btn-custom btn-lg2" >戻る</button></a>
         <button type="submit" class="btn btn-custom btn-lg2">送信する</button>
       </form>
     </div>
@@ -688,8 +690,8 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
-<script type="text/javascript" src="js/admin_contact_me.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
+<!-- <script type="text/javascript" src="js/admin_contact_me.js"></script> -->
 
 
 
