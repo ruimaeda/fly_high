@@ -143,62 +143,64 @@
       <hr>
     </div>
     <div class="row">
-      <div class="col-md-12 columns">
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="alone">
-                <input type="checkbox" name="Checkboxes" id="alone" value="alone">
-                ひとり旅
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="couple">
-                <input type="checkbox" name="Checkboxes" id="couple" value="couple">
-                カップル・夫婦
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="family">
-                <input type="checkbox" name="Checkboxes" id="family" value="family">
-                家族旅行
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="food">
-                <input type="checkbox" name="Checkboxes" id="food" value="food">
-                グルメ
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="resort">
-                <input type="checkbox" name="Checkboxes" id="resort" value="resort">
-                リゾート
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="nature">
-                <input type="checkbox" name="Checkboxes" id="nature" value="nature">
-                自然
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="ruins">
-                <input type="checkbox" name="Checkboxes" id="ruins" value="ruins">
-                遺跡
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="shopping">
-                <input type="checkbox" name="Checkboxes" id="shopping" value="shopping">
-                ショッピング
-              </label>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-              <label class="checkbox-inline" for="all">
-                <input type="checkbox" name="Checkboxes" id="all" value="all">
-                全てのスタイルに送る
-              </label>
-          </div>
-      </div>
+      <form method="post" action="">
+        <div class="col-md-12 columns">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="alone">
+                  <input type="checkbox" name="style[]" value="alone">
+                  ひとり旅
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="couple">
+                  <input type="checkbox" name="style[]" value="couple">
+                  カップル・夫婦
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="family">
+                  <input type="checkbox" name="Checkboxes" id="family" value="family">
+                  家族旅行
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="food">
+                  <input type="checkbox" name="Checkboxes" id="food" value="food">
+                  グルメ
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="resort">
+                  <input type="checkbox" name="Checkboxes" id="resort" value="resort">
+                  リゾート
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="nature">
+                  <input type="checkbox" name="Checkboxes" id="nature" value="nature">
+                  自然
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="ruins">
+                  <input type="checkbox" name="Checkboxes" id="ruins" value="ruins">
+                  遺跡
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="shopping">
+                  <input type="checkbox" name="Checkboxes" id="shopping" value="shopping">
+                  ショッピング
+                </label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                <label class="checkbox-inline" for="all">
+                  <input type="checkbox" name="Checkboxes" id="all" value="all">
+                  全てのスタイルに送る
+                </label>
+            </div>
+        </div>
+      </form>
     </div>
   </div>
   </div>
@@ -433,14 +435,10 @@
   </div>
 </div>
 
-
-
-<!-- Contact Section スタンダウトから取って来たフォームのやつ -->
-<!-- <div id="contact" class="text-center"> -->
 <div id="works" class="text-center">
   <div class="container">
     <div class="section-title center">
-      <h2>セール内容を入力</h2>
+      <h2>送信内容を入力</h2>
       <hr>
     </div>
 
