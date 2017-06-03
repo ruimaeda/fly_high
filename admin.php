@@ -25,14 +25,14 @@
   if (!empty($_POST)) {
     //エラー項目の確認
     //タイトルが入力されていない場合に$error'blank'を代入
-    // if ($_POST['title'] == '') {
-    //   $error['title'] = 'blank';
-    // }
+    if ($_POST['title'] == '') {
+      $error['title'] = 'blank';
+    }
 
     //本文が入力されていない場合に$error'blank'を代入
-    // if ($_POST['message'] == '') {
-    //   $error['message'] = 'blank';
-    // }
+    if ($_POST['message'] == '') {
+      $error['message'] = 'blank';
+    }
 
     //画像ファイルの拡張子チェック（$_FILES）
     // $fileName = $_FILES['picture_path']['name'];
@@ -68,7 +68,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLY HIGH-Modus</title>
+<title>FLY HIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -450,7 +450,7 @@
         <div class="row">
             <div class="col-md-12">
               <!-- <div class="form-group"> -->
-                <input type="title" id="title" class="form-control" placeholder="タイトルを入力">
+                <input type="title" id="title" name="title" class="form-control" placeholder="タイトルを入力">
                 <p class="help-block text-danger"></p>
               <!-- </div> -->
             </div>
@@ -460,7 +460,7 @@
         <div class="row">
             <div class="col-md-12">
               <!-- <div class="form-group"> -->
-                <textarea name="message" id="message" class="form-control" rows="10" placeholder="本文を入力"></textarea>
+                <textarea name="message" id="message" name="title" class="form-control" rows="10" placeholder="本文を入力"></textarea>
                 <p class="help-block text-danger"></p>
               <!-- </div> -->
             </div>
@@ -482,6 +482,12 @@
               <!-- </div> -->
             </div>
         </div>
+        <?php if(isset($error['title']) && $error['title'] == 'blank'){ ?>
+          <p class="error">タイトルが入力されていません</p>
+        <?php } ?>
+        <?php if(isset($error['message']) && $error['message'] == 'blank'){ ?>
+          <p class="error">本文が入力されていません</p>
+        <?php } ?>
 
         <!-- <div id="success"></div> -->
         <!-- <button type="submit" class="btn btn-custom btn-lg">Send Message</button> -->
