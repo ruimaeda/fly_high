@@ -26,35 +26,36 @@
     //エラーがない場合
     if (empty($error)) {
 
-    //ログイン処理を開始
-    //入力されたemail,passwordでDBから会員情報を取得できたら、正常ログイン、取得できなかったら、$error['login']にfaildを代入して、
-    //パスワードの下に「ログインに失敗しました。正しくご記入ください」とメッセージを表示する
-    $sql = sprintf('SELECT `email`, `password`, `user_id` FROM `users` WHERE `email` = "%s" AND `password` = "%s"',
-    mysqli_real_escape_string($db,$_POST['email']),
-    mysqli_real_escape_string($db,sha1($_POST['password']))
-    );
+        //ログイン処理を開始
+        //入力されたemail,passwordでDBから会員情報を取得できたら、正常ログイン、取得できなかったら、$error['login']にfaildを代入して、
+        //パスワードの下に「ログインに失敗しました。正しくご記入ください」とメッセージを表示する
+        $sql = sprintf('SELECT `email`, `password`, `user_id` FROM `users` WHERE `email` = "%s" AND `password` = "%s"',
+        mysqli_real_escape_string($db,$_POST['email']),
+        mysqli_real_escape_string($db,sha1($_POST['password']))
+        );
 
-    //SQLを実行
-    $record = mysqli_query($db,$sql) or die(mysqli_error($db));
-    if ($table = mysqli_fetch_assoc($record)) {
-    //ログイン成功
-    //SESSION変数に会員IDを保存
-    $_SESSION['login_user_id'] = $table['user_id'];
-    //SESSION変数にログイン時間を記録
-    $_SESSION['time'] = time();
+        //SQLを実行
+        $record = mysqli_query($db,$sql) or die(mysqli_error($db));
+        if ($table = mysqli_fetch_assoc($record)) {
+          //ログイン成功
+          //SESSION変数に会員IDを保存
+          $_SESSION['login_user_id'] = $table['user_id'];
+          //SESSION変数にログイン時間を記録
+          $_SESSION['time'] = time();
 
-    //自動ログインをONにしてたら、cookieにログイン情報を保存する
-    if($_POST['save'] == 'on'){
-      //setcookie(保存するキー,保存する値,保存する期間(秒数))
-      setcookie('email',$_POST['email'],time() + 60*60*24*14);
-      setcookie('password',$_POST['password'],time() + 60*60*24*14);
-    }
+          //自動ログインをONにしてたら、cookieにログイン情報を保存する
+          if($_POST['save'] == 'on'){
+            //setcookie(保存するキー,保存する値,保存する期間(秒数))
+            setcookie('email',$_POST['email'],time() + 60*60*24*14);
+            setcookie('password',$_POST['password'],time() + 60*60*24*14);
+          }
 
-    //ログイン後のadmin.php（トップページ）に遷移
-    header("location: mypage.php");
+          //ログイン後のadmin.php（トップページ）に遷移
+          header("location: mypage.php");
 
-      exit();
-    }else{
+          exit();
+
+        }else{
           //ログイン失敗
           $error['login'] = 'faild';
         }
@@ -64,14 +65,12 @@
 ?>
 
 
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>Flyhigh</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -106,25 +105,30 @@
   <div class="intro-body bg">
     <div class="container box">
       <h1>login</h1>
-      <div class="card card-container">
-                  <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-                  <img id="profile-img" class="profile-img-card" src="img/flyhigh_logo.png" />
-                  <form class="form-signin">
-                      <span id="reauth-email" class="reauth-email"></span>
-                      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                      <div id="remember" class="checkbox">
-                          <label>
-                              <input type="checkbox" value="remember-me"><span class="auto-login">自動ログインする</span>
-                          </label>
-                      </div>
-                      <div class="login-btn-field">
-                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">サインイン</button>
-                      </div>
-                  </form><!-- /form -->
-                  <a href="#" class="forgot-password">
-                      パスワードを忘れましたか？
-                  </a>
+        <div class="card card-container">
+              <img id="profile-img" class="profile-img-card" src="img/flyhigh_logo.png" />
+              <form method="post" action="" class="form-signin">
+                  <span id="reauth-email" class="reauth-email"></span>
+                  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
+                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
+                  <div id="remember" class="checkbox">
+                      <label>
+                          <input type="checkbox" name="save" value="remember-me"><span class="auto-login">自動ログインする</span>
+                      </label>
+                  </div>
+                  <div class="login-btn-field">
+                    <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信">サインイン</input>
+                  </div>
+                  <?php if(isset($error['login']) && $error['login'] == 'blank'){ ?>
+                    <p class="error">メールアドレスとパスワードを入力してください(๑•̀ㅂ•́)و✧</p>
+                  <?php } ?>
+                  <?php if(isset($error['login']) && $error['login'] == 'faild'){ ?>
+                    <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
+                  <?php } ?>
+              </form>
+              <a href="#" class="forgot-password">
+                  パスワードを忘れましたか？
+              </a>
               </div><!-- /card-container -->
     </div>
   </div>
@@ -139,9 +143,9 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
-<script type="text/javascript" src="js/signup.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
+<!-- <script type="text/javascript" src="js/signup.js"></script> -->
+<!-- <script type="text/javascript" src="js/login.js"></script> -->
 
 <!-- Javascripts
     ================================================== -->
