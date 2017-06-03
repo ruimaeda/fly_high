@@ -21,15 +21,37 @@
 
   // }
 
+  //セッションにデータがなかったらindex.phpに移動する
+  if(!isset($_SESSION['admin'])) {
+    header('Location: index.php');
+    exit();
+  }
+
+  // //DB登録処理
+  // if (!empty($_POST)){
+  //   $sql = sprintf('INSERT INTO `members`(`nick_name`, `email`, `password`, `picture_path`, `created`, `modified`) VALUES ("%s","%s","%s","%s", now(), now());',
+  //     mysqli_real_escape_string($db,$_SESSION['join']['nick_name']),
+  //     mysqli_real_escape_string($db,$_SESSION['join']['email']),
+  //     mysqli_real_escape_string($db,sha1($_SESSION['join']['password'])),
+  //     mysqli_real_escape_string($db,$_SESSION['join']['picture_path'])
+  //     );
+
+  //   //SQL文を実行する処理
+  //   mysqli_query($db,$sql) or die(mysqli_error($db));
+  //   header("location: thanks.php");
+  //   exit();
+  // }
+
+
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLY HIGH-Modus</title>
+<title>FLY HIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -65,7 +87,7 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i> FLY HIGH</a> </div>
-    
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -73,12 +95,13 @@
         <li class="hidden"> <a href="#page-top"></a> </li>
         <li> <a class="page-scroll" href="#about">選択したStyle</a> </li>
         <li> <a class="page-scroll" href="#services">選択したCountry</a> </li>
-        <li> <a class="page-scroll" href="#mail">メール</a> </li>
+        <li> <a class="page-scroll" href="#mail">Form</a> </li>
+        <li> <a class="page-scroll" href="logout.php">Logout</a> </li>
       </ul>
     </div>
-    <!-- /.navbar-collapse --> 
+    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </nav>
 
 <!-- Headerはなくした -->
@@ -98,7 +121,6 @@
 <!-- About Section -->
 <!-- <div class="container_all"> -->
 <div id="about">
-<p class="intro-check text-center center">Admin_Check</p>
   <div class="container">
     <h1><span class="brand-heading text-center center">送信内容に間違いはありませんか？</span></h1>
     <div class="section-title text-center center">
@@ -567,13 +589,46 @@
 
 <!-- Contact Section -->
 <!-- <div id="contact" class="text-center"> -->
-<div id="mail" class="text-center">
+<div id="works" class="text-center">
   <div class="container">
     <div class="section-title center">
       <h2>送信内容に間違いはありませんか？</h2>
       <hr>
     </div>
 
+    <div class="col-md-8 col-md-offset-2">
+    <table class="table table-striped table-condensed">
+      <tbody>
+        <!-- 登録内容を表示 -->
+        <tr>
+          <td><div class="text-center">タイトル</div></td>
+          <?php if(isset($_SESSION['admin']['title'])): ?>
+            <td><div class="text-center"><?php echo $_SESSION['admin']['title']; ?></div></td>
+          <?php else: ?>
+            <td><div class="text-center">セールのタイトル</div></td>
+          <?php endif; ?>
+        </tr>
+        <tr>
+          <td><div class="text-center">本文</div></td>
+          <?php if(isset($_SESSION['admin']['message'])): ?>
+            <td><div class="text-center"><?php echo $_SESSION['admin']['message']; ?></div></td>
+          <?php else: ?>
+            <td><div class="text-center">セールの本文</div></td>
+          <?php endif; ?>
+        </tr>
+        <!-- <tr>
+          <td><div class="text-center">プロフィール画像</div></td>
+          <?php if(isset($_SESSION['join']['picture_path'])): ?>
+            <td><div class="text-center"><?php echo '<img src="../member_picture/' . $_SESSION['join']['picture_path'] . '" width=50% height=50%>'; ?></div></td>
+          <?php else: ?>
+            <td><div class="text-center"><img src="http://c85c7a.medialib.glogster.com/taniaarca/media/71/71c8671f98761a43f6f50a282e20f0b82bdb1f8c/blog-images-1349202732-fondo-steve-jobs-ipad.jpg" width="100" height="100"></div></td>
+          <?php endif; ?>
+        </tr> -->
+      </tbody>
+    </table>
+    </div>
+
+<?php /* ?>
     <div class="col-md-8 col-md-offset-2">
       <form name="sentMessage" id="contactForm" novalidate>
         <!-- タイトル -->
@@ -600,19 +655,17 @@
             <textarea name="message" id="message" class="form-control" rows="10" placeholder="Message" required></textarea>
             <p class="help-block text-danger"></p>
         </div>
-
+<?php */ ?>
 
         <div id="success"></div>
-        <!-- <button type="submit" class="btn btn-custom btn-lg">Send Message</button> -->
-        <button type="submit" class="btn btn-custom btn-lg2">Back</button>
-        <button type="submit" class="btn btn-custom btn-lg2">Send Message</button>
+        <button type="submit" class="btn btn-custom btn-lg2" src="admin.php">戻る</button>
+        <button type="submit" class="btn btn-custom btn-lg2">送信する</button>
       </form>
-
     </div>
+
+
   </div>
 </div>
-
-
 
 
 <?php include('footer.php'); ?>
@@ -624,24 +677,24 @@
 
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script type="text/javascript" src="js/bootstrap.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
 <!-- <script type="text/javascript" src="js/admin_bootstrap.js"></script>  -->
-<script type="text/javascript" src="js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="js/contact_me.js"></script> 
-<script type="text/javascript" src="js/admin_contact_me.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/admin_contact_me.js"></script>
 
 
 
 <!-- Javascripts
-    ================================================== --> 
+    ================================================== -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
