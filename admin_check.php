@@ -111,56 +111,92 @@
           <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
-                  <!-- <input type="checkbox" name="Checkboxes" id="alone" value="alone"> -->
-                  ひとり旅
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="alone" value="alone">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">ひとり旅OFF</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="alone" value="alone">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ひとり旅ON</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="couple">
-                  <input type="checkbox" name="Checkboxes" id="couple" value="couple">
-                  カップル・夫婦
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="couple" value="couple">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">カップル・夫婦</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="couple" value="couple">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カップル・夫婦</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="family">
-                  <input type="checkbox" name="Checkboxes" id="family" value="family">
-                  家族旅行
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="family" value="family">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">家族旅行</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="family" value="family">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">家族旅行</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="food">
-                  <input type="checkbox" name="Checkboxes" id="food" value="food">
-                  グルメ
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="food" value="food">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">グルメ</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="food" value="food">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">グルメ</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="resort">
-                  <input type="checkbox" name="Checkboxes" id="resort" value="resort">
-                  リゾート
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="resort" value="resort">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">リゾート</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="resort" value="resort">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">リゾート</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="nature">
-                  <input type="checkbox" name="Checkboxes" id="nature" value="nature">
-                  自然
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="nature" value="nature">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">自然</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="nature" value="nature">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">自然</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="ruins">
-                  <input type="checkbox" name="Checkboxes" id="ruins" value="ruins">
-                  遺跡
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="ruins" value="ruins">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">遺跡</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="ruins" value="ruins">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">遺跡</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="shopping">
-                  <input type="checkbox" name="Checkboxes" id="shopping" value="shopping">
-                  ショッピング
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="shopping" value="shopping">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">ショッピング</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="shopping" value="shopping">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ショッピング</label>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="all">
-                  <input type="checkbox" name="Checkboxes" id="all" value="all">
-                  運営のおすすめ（全て）
+                  <!-- チェックがなかったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="all" value="all">
+                  <input type="checkbox" id='checkoff' disabled='disabled'> <label for='checkoff' class="text">運営のおすすめ（全て）</label>
+                  <!-- チェックがあったら表示 -->
+                  <input type="hidden" name="Checkboxes" id="all" value="all">
+                  <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">運営のおすすめ（全て）</label>
                 </label>
             </div>
           </div>
@@ -186,92 +222,152 @@
           <h3>Asia</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="uae">
-                <input type="checkbox" name="Checkboxes" id="uae" value="uae">
-                アラブ首長国連邦
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="uae" value="uae">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アラブ首長国連邦</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="uae" value="uae">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">アラブ首長国連邦</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="india">
-                <input type="checkbox" name="Checkboxes" id="india" value="india">
-                インド
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="india" value="india">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">インド</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="india" value="india">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">インド</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="indonesia">
-                <input type="checkbox" name="Checkboxes" id="indonesia" value="indonesia">
-                インドネシア
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="indonesia" value="indonesia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">インドネシア</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="indonesia" value="indonesia">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">インドネシア</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="qatar">
-                <input type="checkbox" name="Checkboxes" id="qatar" value="qatar">
-                カタール
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="qatar" value="qatar">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カタール</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="qatar" value="qatar">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カタール</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="korea">
-                <input type="checkbox" name="Checkboxes" id="korea" value="korea">
-                韓国
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="korea" value="korea">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">韓国</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="korea" value="korea">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">韓国</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="cambodia">
-                <input type="checkbox" name="Checkboxes" id="cambodia" value="cambodia">
-                カンボジア
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="cambodia" value="cambodia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カンボジア</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="cambodia" value="cambodia">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カンボジア</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="singapore">
-                <input type="checkbox" name="Checkboxes" id="singapore" value="singapore">
-                シンガポール
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="singapore" value="singapore">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">シンガポール</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="singapore" value="singapore">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">シンガポール</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="thailand">
-                <input type="checkbox" name="Checkboxes" id="thailand" value="thailand">
-                タイ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="thailand" value="thailand">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">タイ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="thailand" value="thailand">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">タイ</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="taiwan">
-                <input type="checkbox" name="Checkboxes" id="taiwan" value="taiwan">
-                台湾
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="taiwan" value="taiwan">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">台湾</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="taiwan" value="taiwan">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">台湾</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="china">
-                <input type="checkbox" name="Checkboxes" id="china" value="china">
-                中国
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="china" value="china">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">中国</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="china" value="china">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">中国</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="turkey">
-                <input type="checkbox" name="Checkboxes" id="turkey" value="turkey">
-                トルコ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="turkey" value="turkey">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">トルコ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="turkey" value="turkey">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">トルコ</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="philippines">
-                <input type="checkbox" name="Checkboxes" id="philippines" value="philippines">
-                フィリピン
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="philippines" value="philippines">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フィリピン</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="philippines" value="philippines">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">フィリピン</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="vietnam">
-                <input type="checkbox" name="Checkboxes" id="vietnam" value="vietnam">
-                ベトナム
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="vietnam" value="vietnam">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ベトナム</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="vietnam" value="vietnam">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ベトナム</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="hongkong_macao">
-                <input type="checkbox" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
-                香港・マカオ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">香港・マカオ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">香港・マカオ</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="malaysia">
-                <input type="checkbox" name="Checkboxes" id="malaysia" value="malaysia">
-                マレーシア
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="malaysia" value="malaysia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">マレーシア</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="malaysia" value="malaysia">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">マレーシア</label>
               </label><br><br>
             </div>
       </div>
@@ -280,38 +376,62 @@
           <h3>Oceania</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="austraria">
-                <input type="checkbox" name="Checkboxes" id="austraria" value="austraria">
-                オーストラリア
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="austraria" value="austraria">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">オーストラリア</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="austraria" value="austraria">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">オーストラリア</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="guam">
-                <input type="checkbox" name="Checkboxes" id="guam" value="guam">
-                グアム
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="guam" value="guam">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">グアム</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="guam" value="guam">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">グアム</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="saipan">
-                <input type="checkbox" name="Checkboxes" id="saipan" value="saipan">
-                サイパン
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="saipan" value="saipan">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">サイパン</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="saipan" value="saipan">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">サイパン</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="newcaledonia">
-                <input type="checkbox" name="Checkboxes" id="newcaledonia" value="newcaledonia">
-                ニューカレドニア
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="newcaledonia" value="newcaledonia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ニューカレドニア</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="newcaledonia" value="newcaledonia">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ニューカレドニア</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="newzealand">
-                <input type="checkbox" name="Checkboxes" id="newzealand" value="newzealand">
-                ニュージーランド
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="newzealand" value="newzealand">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ニュージーランド</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="newzealand" value="newzealand">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ニュージーランド</label>
               </label><br><br>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="hawaii">
-                <input type="checkbox" name="Checkboxes" id="hawaii" value="hawaii">
-                ハワイ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="hawaii" value="hawaii">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ハワイ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="hawaii" value="hawaii">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ハワイ</label>
               </label><br><br>
             </div>
       </div>
@@ -320,50 +440,82 @@
           <h3>Europe</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="ireland">
-                <input type="checkbox" name="Checkboxes" id="ireland" value="ireland">
-                アイルランド
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="ireland" value="ireland">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アイルランド</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="ireland" value="ireland">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">アイルランド</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="uk">
-                <input type="checkbox" name="Checkboxes" id="uk" value="uk">
-                イギリス
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="uk" value="uk">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">イギリス</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="uk" value="uk">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">イギリス</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="italy">
-                <input type="checkbox" name="Checkboxes" id="italy" value="italy">
-                イタリア
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="italy" value="italy">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">イタリア</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="italy" value="italy">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">イタリア</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="netherland">
-                <input type="checkbox" name="Checkboxes" id="netherland" value="netherland">
-                オランダ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="netherland" value="netherland">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">オランダ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="netherland" value="netherland">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">オランダ</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="spain">
-                <input type="checkbox" name="Checkboxes" id="spain" value="spain">
-                スペイン
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="spain" value="spain">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">スペイン</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="spain" value="spain">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">スペイン</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="finland">
-                <input type="checkbox" name="Checkboxes" id="finland" value="finland">
-                フィンランド
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="finland" value="finland">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フィンランド</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="finland" value="finland">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">フィンランド</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="france">
-                <input type="checkbox" name="Checkboxes" id="france" value="france">
-                フランス
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="france" value="france">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フランス</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="france" value="france">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">フランス</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="russia">
-                <input type="checkbox" name="Checkboxes" id="russia" value="russia">
-                ロシア
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="russia" value="russia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ロシア</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="russia" value="russia">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ロシア</label>
               </label><br><br>
             </div>
       </div>
@@ -372,20 +524,32 @@
           <h3>North_America</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="usa">
-                <input type="checkbox" name="Checkboxes" id="usa" value="usa">
-                アメリカ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="usa" value="usa">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アメリカ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="usa" value="usa">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">アメリカ</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="canada">
-                <input type="checkbox" name="Checkboxes" id="canada" value="canada">
-                カナダ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="canada" value="canada">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カナダ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="canada" value="canada">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カナダ</label>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="mexico">
-                <input type="checkbox" name="Checkboxes" id="mexico" value="mexico">
-                メキシコ
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="mexico" value="mexico">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">メキシコ</label>
+                <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="mexico" value="mexico">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">メキシコ</label>
               </label>
             </div>
       </div>
