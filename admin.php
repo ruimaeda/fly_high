@@ -2,6 +2,9 @@
   //セッションを開始
   session_start();
 
+  //DBへ接続
+  require('dbconnect.php');
+
   //ログイン状態をチェックする→強制ログアウトを作る
   //ログインしていると判断できる条件
   // 1.セッションにidが入っていること
@@ -18,10 +21,50 @@
 
   // }
 
+  //セール送信フォームからデータがPOST送信された時の空データと拡張子チェックとエラーがない場合、画像をアップロード
+  if (!empty($_POST)) {
+    //エラー項目の確認
+    //タイトルが入力されていない場合に$error'blank'を代入
+    // if ($_POST['title'] == '') {
+    //   $error['title'] = 'blank';
+    // }
+
+    //本文が入力されていない場合に$error'blank'を代入
+    // if ($_POST['message'] == '') {
+    //   $error['message'] = 'blank';
+    // }
+
+    //画像ファイルの拡張子チェック（$_FILES）
+    // $fileName = $_FILES['picture_path']['name'];
+    // if (!empty($fileName)){
+
+    //   //拡張子を取得
+    //   $ext = substr($fileName, -3);
+    //   $ext = strtolower($ext);
+
+    //   if($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
+    //     $error['picture_path'] = 'type';
+    //   }
+    // }
+
+      //エラーが無い場合
+      if (empty($error)) {
+        // //画像をアップロードする
+        // $picture_path = date('YmdHis') . $_FILES['picture_path']['name'];
+        // move_uploaded_file($_FILES['picture_path']['tmp_name'], 'img/sales' . $picture_path);
+
+        //セッションに値を保存する
+        $_SESSION['admin'] = $_POST;
+        $_SESSION['admin']['picture_path'] = $picture_path;
+
+        header('Location: admin_check.php');
+      }
+    }
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +102,7 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i> FLY HIGH</a> </div>
-    
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -68,11 +111,12 @@
         <li> <a class="page-scroll" href="#about">Style</a> </li>
         <li> <a class="page-scroll" href="#services">Country</a> </li>
         <li> <a class="page-scroll" href="#contact">Form</a> </li>
+        <li> <a class="page-scroll" href="logout.php">Logout</a> </li>
       </ul>
     </div>
-    <!-- /.navbar-collapse --> 
+    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </nav>
 
 <!-- Header -->
@@ -151,7 +195,7 @@
           <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
               <label class="checkbox-inline" for="all">
                 <input type="checkbox" name="Checkboxes" id="all" value="all">
-                運営のおすすめ（全て）
+                全てのスタイルに送る
               </label>
           </div>
       </div>
@@ -401,42 +445,48 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-      <form type="post" action="" name="sentMessage" id="contactForm" novalidate>
+      <form method="post" action="">
         <!-- タイトル -->
         <div class="row">
             <div class="col-md-12">
               <!-- <div class="form-group"> -->
-                <input type="text" id="name" class="form-control" placeholder="Title" required="required">
+                <input type="title" id="title" class="form-control" placeholder="タイトルを入力">
+                <p class="help-block text-danger"></p>
+              <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- 本文 -->
+        <div class="row">
+            <div class="col-md-12">
+              <!-- <div class="form-group"> -->
+                <textarea name="message" id="message" class="form-control" rows="10" placeholder="本文を入力"></textarea>
                 <p class="help-block text-danger"></p>
               <!-- </div> -->
             </div>
         </div>
 
         <!-- 画像 -->
-        <div class="form-group">
-          <!-- <label class="col-sm-4 control-label">画像</label> -->
-          <div class="col-sm-10">
-            <input type="file" name="picture_path" class="form-control">
-            <!-- type="file"が指定されている。 -->
-            <!-- <?php if(isset($error['picture_path']) && $error['picture_path']=='type'){ ?> -->
-            <!-- <p class="error">*写真は「.gif」「.jpg」「.png」の画像を指定してください。</p> -->
-            <!-- <?php } ?> -->
-            <!-- nicknameやemailのように戻っても表示させるのは結構大変なので、もう一度指定してもらうように誘導する -->
-            <!-- <?php if (!empty($error)): ?> -->
-              <!-- <p class="error">* もう一度画像を指定してください。</p> -->
-            <!-- <?php endif; ?> -->
-          </div>
+        <div class="row">
+            <div class="col-md-12">
+              <!-- <div class="form-group"> -->
+                <input type="file" name="picture_path" class="form-control">
+                <!-- type="file"が指定されている。 -->
+                <!-- <?php if(isset($error['picture_path']) && $error['picture_path']=='type'){ ?> -->
+                <!-- <p class="error">*写真は「.gif」「.jpg」「.png」の画像を指定してください。</p> -->
+                <!-- <?php } ?> -->
+                <!-- nicknameやemailのように戻っても表示させるのは結構大変なので、もう一度指定してもらうように誘導する -->
+                <!-- <?php if (!empty($error)): ?> -->
+                  <!-- <p class="error">* もう一度画像を指定してください。</p> -->
+                <!-- <?php endif; ?> -->
+              <!-- </div> -->
+            </div>
         </div>
 
-        <!-- テキスト -->
-        <div class="form-group">
-            <textarea name="message" id="message" class="form-control" rows="10" placeholder="Message" required></textarea>
-            <p class="help-block text-danger"></p>
-        </div>
-
-        <div id="success"></div>
+        <!-- <div id="success"></div> -->
         <!-- <button type="submit" class="btn btn-custom btn-lg">Send Message</button> -->
-        <button type="submit" class="btn btn-custom btn-lg2">LOG OUT</button>
+        <!-- この位置だと間違ってログアウトボタンを押しそうなのでヘッダーに移動-->
+        <!-- <button type="submit" class="btn btn-custom btn-lg2">LOG OUT</button> -->
         <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認</button>
       </form>
 
