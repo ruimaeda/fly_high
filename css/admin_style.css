@@ -332,10 +332,10 @@ label.checkbox.checked {
 
 
 
-#services p {
+/*#services p {
 	color: rgb(255,255,255);
 	font-weight: 600;
-}
+}*/
 
 ul.cat li {
 	display: inline-block;
@@ -364,23 +364,6 @@ ol.type li a:hover {
 #services .columns{
 	 margin-bottom: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -499,7 +482,11 @@ img.img-thumbnail.team-img {
     transition: all 0.5s;
 }
 
-
+/*エラー表示---------------------------------------------------------------*/
+#works .error {
+	color: #00cc99;
+	font-weight: bold;
+}
 
 
 
