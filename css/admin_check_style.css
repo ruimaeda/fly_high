@@ -48,6 +48,10 @@
   padding: 60px 0 0 0;
 }
 
+#about .text {
+  margin: 0;
+  float: left;
+}
 
 /* Services Section -------------------------------------------------------------*/
 
