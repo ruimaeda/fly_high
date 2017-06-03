@@ -1,17 +1,4 @@
 
-<?php
-
-  //データベースに接続する
-  require('dbconnect.php');
-
-  //signup内容をデータベースに記入する
-    //エラー項目の確認
-      //エラーがある場合、エラー内容を表示
-    //エラーがない場合
-      //データベースに記入
-
-
-?>
 
 
 <!DOCTYPE html>
@@ -421,7 +408,8 @@
           </div>
         </div>
       </div>
-      <div class="text-center">
+      <!-- ボタンsectionのdivを作るためにコメントアウト！ -->
+      <!-- <div class="text-center">
         <button type="submit" class="btn btn-default">TOPページに戻る</button>
         <button type="submit" class="btn btn-default">ユーザー登録する</button>
       </div>
@@ -435,10 +423,42 @@
       </div>
       <div class="text-center agree">
         <button type="submit" class="btn btn-default">ログインする</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
+
+
+
+<!-- ボタンsectionのdivを作り、新しくid=buttonを付ける -->
+<div id="button">
+  <div class="container">
+    <div class="text-center">
+      <!-- <button type="submit" class="btn btn-default">TOPページに戻る</button> -->
+      <a href="index.php" type="submit" class="btn btn-default">TOPページに戻る</a>
+      <input type="submit" class="btn btn-default" value="ユーザー登録する">
+      <!-- <button type='submit' name='nick_name' value='send'>送信</button> -->
+      <!-- <button type="submit" class="btn btn-default">ユーザー登録する</button> -->
+      <!-- <a href="check.php" type="submit" class="btn btn-default">ユーザー登録する</a> -->
+    </div>
+    <div class="text-center agree">
+      アカウントを作成することで、Fly Highの<a href="terms.php">利用規約</a>と<a href="policy.php">プライバシーポリシー</a>に同意するものとします。
+    </div>
+    <div class="text-center agree">
+      <div class="clearfix"></div>
+      <hr>
+      もしかして、すでにアカウントをお持ちですか？
+    </div>
+    <div class="text-center agree">
+      <!-- <button type="submit" class="btn btn-default">ログインする</button> -->
+      <a href="login.php" type="submit" class="btn btn-default">ログインする</a>
+    </div>
+  </div>
+</div>
+
+
+
+
 <?php include('footer.php'); ?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
