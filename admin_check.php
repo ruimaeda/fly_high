@@ -5,8 +5,9 @@
   //DBへ接続
   require('dbconnect.php');
 
-  var_dump($_SESSION['admin']);
-  var_dump($_SESSION['admin']['style']);
+  // var_dump($_SESSION['admin']);
+  // var_dump($_SESSION['admin']['style']);
+  var_dump($_SESSION['admin']['country']);
 
   //ログイン状態をチェックする→強制ログアウトを作る
   //ログインしていると判断できる条件
@@ -30,11 +31,73 @@
     exit();
   }
 
+  if(isset($_SESSION['admin']['country'])) {
   //adminで選択された国を使って、国DBから国IDを取得する処理
   //途中です
-  // $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = %s',
-  //   mysqli_real_escape_string($db,$_SESSION['admin']['style'])
-  //   );
+
+    //$_SESSION['admin']['country']が配列なので、文字にする必要があるらしい
+    // $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = "India"');
+    //   //SQL文の実行と変数への代入
+    //   $select_country_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+    //   $select_country_id = mysqli_fetch_assoc($select_country_ids);
+
+    //var_dump($select_country_id);
+
+    //こっちは配列のままのバージョン
+    //繰り返しで$_SESSION['admin']['country']の中身を出して、別の配列に代入する必要がある？
+    $select_country_id_array = array();
+    //多次元の連想配列$_SESSION['admin']['country']から値を取得
+    foreach ($_SESSION['admin']['country'] as $select_countries) {
+
+    $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = "%s"',
+      mysqli_real_escape_string($db,$select_countries)
+      );
+      //SQL文の実行と変数への代入
+      $select_country_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+      $select_country_id = mysqli_fetch_assoc($select_country_ids);
+
+      $select_country_id_array[] = $select_country_id['country_id'];
+    }
+
+    var_dump($select_country_id_array);
+
+    //取得した国IDを使って、ユーザー国テーブルからユーザーIDを取得する処理
+    // $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = 27');
+    //   //SQL文の実行と変数への代入
+    //   $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+    //   $select_user_id = mysqli_fetch_assoc($select_user_ids);
+
+    //var_dump($select_user_id);
+
+    //配列のままだと怒られる（国IDの取得と同じエラー）
+    $select_user_id_array = array();
+    foreach ($select_country_id_array as $select_country_id_value) {
+    $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = "%s"',
+      mysqli_real_escape_string($db,$select_country_id_value)
+      );
+      //SQL文の実行と変数への代入
+      $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+      $select_user_id = mysqli_fetch_assoc($select_user_ids);
+      $select_user_id_array[] = $select_user_id['user_id'];
+    }
+
+    var_dump($select_user_id_array);
+
+    //取得したユーザーIDを使って、ユーザーテーブルからメールアドレスを取得する処理
+    $select_user_email_array = array();
+    foreach ($select_user_id_array as $select_user_id_value) {
+    $sql = sprintf('SELECT `email` FROM `users` WHERE `user_id` = "%s"',
+      mysqli_real_escape_string($db,$select_user_id_value)
+      );
+      //SQL文の実行と変数への代入
+      $select_user_emails = mysqli_query($db,$sql) or die(mysqli_error($db));
+      $select_user_email = mysqli_fetch_assoc($select_user_emails);
+      $select_user_email_array[] = $select_user_email['email'];
+    }
+
+    var_dump($select_user_email_array);
+  }
+
 
   //DB登録処理
   if (!empty($_POST)){
@@ -112,25 +175,12 @@
   <!-- /.container -->
 </nav>
 
-<!-- Headerはなくした -->
-<!-- <div id="intro">
-  <div class="intro-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h1><span class="brand-heading">送信内容に間違いはありませんか？</span></h1>
-          <p class="intro-check">Admin_Check</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <!-- About Section -->
 <!-- <div class="container_all"> -->
 <div id="about">
   <div class="container">
     <h1><span class="brand-heading text-center center">送信内容に間違いはありませんか？</span></h1>
+    <?php if(isset($_SESSION['admin']['style'])) { ?>
     <div class="section-title text-center center">
       <h2>選択したスタイル</h2>
       <hr>
@@ -263,11 +313,13 @@
         </div>
       </div>
     </div>
+    <?php } ?>
   </div>
 </div>
 
 </div>
 
+<?php if(isset($_SESSION['admin']['country'])) { ?>
 <!-- Services Section -->
 <!-- <div id="services" class="text-center"> -->
 <div id="services" class="">
@@ -282,12 +334,15 @@
           <h3>Asia</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="uae">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="uae" value="uae">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アラブ首長国連邦</label>
+                <?php if(in_array("United Arab Emirates", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
-                <input type="hidden" name="Checkboxes" id="uae" value="uae">
+                <input type="hidden" name="Checkboxes" id="uae" value="United Arab Emirates">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">アラブ首長国連邦</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="uae" value="United Arab Emirates">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アラブ首長国連邦</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -616,10 +671,7 @@
     </div>
   </div>
 </div>
-
-
-</div>
-
+<?php } ?>
 
 
 <!-- Contact Section -->
