@@ -5,6 +5,7 @@
   //DBへ接続
   require('dbconnect.php');
 
+  var_dump($_SESSION['admin']);
   var_dump($_SESSION['admin']['style']);
 
   //ログイン状態をチェックする→強制ログアウトを作る
@@ -143,7 +144,7 @@
           <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
-                  <?php if($_SESSION['admin']['style'] = "alone") { ?>
+                  <?php if(in_array("alone", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="alone" value="alone">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ひとり旅</label>
@@ -156,7 +157,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="couple">
-                  <?php if($_SESSION['admin']['style'] = "couple") { ?>
+                  <?php if(in_array("couple", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="couple" value="couple">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カップル・夫婦</label>
@@ -169,7 +170,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="family">
-                  <?php if($_SESSION['admin']['style'] = "family") { ?>
+                  <?php if(in_array("family", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="family" value="family">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">家族旅行</label>
@@ -182,7 +183,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="food">
-                  <?php if($_SESSION['admin']['style'] = "food") { ?>
+                  <?php if(in_array("food", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="food" value="food">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">グルメ</label>
@@ -195,7 +196,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="resort">
-                  <?php if($_SESSION['admin']['style'] = "resort") { ?>
+                  <?php if(in_array("resort", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="resort" value="resort">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">リゾート</label>
@@ -208,7 +209,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="nature">
-                  <?php if($_SESSION['admin']['style'] = "nature") { ?>
+                  <?php if(in_array("nature", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="nature" value="nature">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">自然</label>
@@ -221,7 +222,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="ruins">
-                  <?php if($_SESSION['admin']['style'] = "ruins") { ?>
+                  <?php if(in_array("ruins", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="ruins" value="ruins">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">遺跡</label>
@@ -234,7 +235,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="shopping">
-                  <?php if($_SESSION['admin']['style'] = "shopping") { ?>
+                  <?php if(in_array("shopping", $_SESSION['admin']['style'])) { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="shopping" value="shopping">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ショッピング</label>
