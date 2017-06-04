@@ -9,22 +9,8 @@
 
 
   //ログイン処理
-  //メールアドレスとパスワードが入力されたらまずは空チェック
+  //POST送信されているか確認する
   if (!empty($_POST)) {
-
-    //エラー項目の確認
-    //メールアドレスが無い場合にkey'mail'にvalue'blank'を代入
-    if (empty($_POST['email'])) {
-      $error['login'] = 'blank';
-    }
-
-    //パスワードが無い場合にkey'password'にvalue'blank'を代入
-    if (empty($_POST['password'])) {
-      $error['login'] = 'blank';
-    }
-
-    //エラーがない場合
-    if (empty($error)) {
 
         //ログイン処理を開始
         //入力されたemail,passwordでDBから会員情報を取得できたら、正常ログイン、取得できなかったら、$error['login']にfaildを代入して、
@@ -59,7 +45,6 @@
           //ログイン失敗
           $error['login'] = 'faild';
         }
-      }
   }
 
 ?>
@@ -86,6 +71,7 @@
 <link rel="stylesheet" type="text/css"  href="css/signup.css">
 <link rel="stylesheet" type="text/css"  href="css/thanks.css">
 <link rel="stylesheet" type="text/css"  href="css/login.css">
+<link rel="stylesheet" type="text/css"  href="css/admin_login.css">
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -117,11 +103,8 @@
                           </label>
                       </div>
                       <div class="login-btn-field">
-                        <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信">サインイン</input>
+                        <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信"></input>
                       </div>
-                      <?php if(isset($error['login']) && $error['login'] == 'blank'){ ?>
-                        <p class="error">メールアドレスとパスワードを入力してください(๑•̀ㅂ•́)و✧</p>
-                      <?php } ?>
                       <?php if(isset($error['login']) && $error['login'] == 'faild'){ ?>
                         <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
                       <?php } ?>
