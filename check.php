@@ -1,7 +1,8 @@
 <?php
   session_start();
 
-
+  //DBへ接続
+  require('dbconnect.php');
 
 
 
