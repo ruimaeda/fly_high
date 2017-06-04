@@ -5,18 +5,31 @@
   require('dbconnect.php');
 
 
+  //セッションにデータがなかったらsignup.phpへ遷移（動いた◎）
+  if (!isset($_SESSION['signup'])) {
+    header("Location: signup.php");
+  }
+
+  //セッションの中身をサニタイズして変数に代入する
+  $nick_name = htmlspecialchars($_SESSION['signup']['nick_name'], ENT_QUOTES, 'UTF-8');
+  $email=htmlspecialchars($_SESSION['signup']['email'], ENT_QUOTES, 'UTF-8');
+  $password=htmlspecialchars($_SESSION['signup']['password'], ENT_QUOTES, 'UTF-8');
+  $re_password=htmlspecialchars($_SESSION['signup']['re_password'], ENT_QUOTES, 'UTF-8');
+
+
+
+  // //DB登録処理（パスワードはsha1で暗号化）
+  // if (!empty($_POST)) {$sql = sprintf('INSERT INTO');
 
 
 
 
+  //   //SQL文を実行し、うまくいったら遷移する処理
+  //   mysqli_query($db, $sql) or die(mysqli_error($db));
+  //   header("Location: thanks.php");
+  //   exit();
 
-
-
-
-
-
-
-
+  // }
 
 ?>
 
@@ -38,6 +51,7 @@
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="css/style.css">
+<link rel="stylesheet" type="text/css"  href="css/signup.css">
 <link rel="stylesheet" type="text/css"  href="css/check.css">
 <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
@@ -104,16 +118,14 @@
       <hr>
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <div class="about-text">
-          <h4>名前</h4>
-          <p>フライ・ハイ</p>        
-          </div>
-      </div>
-      <div class="col-md-6">
-        <div class="about-text">
-          <h4>メールアドレス</h4>
-          <p>flyhigh@gmail.com</p>
+      <div class="about-text">
+        <div class="col-md-6">
+          <h4><small>名前</small></h4>
+          <p><?php echo $nick_name; ?></p>
+        </div>
+        <div class="col-md-6">
+          <h4><small>メールアドレス</small></h4>
+          <p><?php echo $email; ?></p>
         </div>
       </div>
     </div>
@@ -433,131 +445,24 @@
           </div>
         </div>
       </div>
-
       </div>
     </div>
   </div>
 </div>
-
-
-
 </div>
 
 
-<!-- Testimonials Section -->
-<!-- <div id="testimonials" class="text-center">
+<!-- ボタンsectionのdivを作り、新しくid=buttonを付ける -->
+<!-- <form method="post" action=""> -->
+<div id="button">
   <div class="container">
-    <div class="section-title center">
-      <h2>What our clients say</h2>
-      <hr>
-    </div>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="row testimonials">
-          <div class="col-sm-4">
-            <blockquote><i class="fa fa-quote-left"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
-              <div class="clients-name">
-                <p><strong>John Doe</strong><br>
-                  <em>CEO, Company Inc.</em></p>
-              </div>
-            </blockquote>
-          </div>
-          <div class="col-sm-4">
-            <blockquote><i class="fa fa-quote-left"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
-              <div class="clients-name">
-                <p><strong>Jane Doe</strong><br>
-                  <em>CEO, Company Inc.</em></p>
-              </div>
-            </blockquote>
-          </div>
-          <div class="col-sm-4">
-            <blockquote><i class="fa fa-quote-left"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
-              <div class="clients-name">
-                <p><strong>Chris Smith</strong><br>
-                  <em>CEO, Company Inc.</em></p>
-              </div>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Contact Section -->
-<div id="contact" class="text-center">
-  <div class="container">
-    <div class="section-title center">
-  <!--     <h2>Contact us</h2>
-      <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
-    </div>
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-4">
-        <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
-          <p>4321 California St,<br>
-            San Francisco, CA 12345</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
-          <p>info@company.com</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
-          <p> +1 123 456 1234<br>
-            +1 321 456 1234</p>
-        </div>
-      </div> -->
-     <!--  <div class="clearfix"></div>
-    </div>
-    <div class="col-md-8 col-md-offset-2">
-      <h3>Leave us a message</h3>
-      <form name="sentMessage" id="contactForm" novalidate>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="form-group">
-          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
-          <p class="help-block text-danger"></p>
-        </div> -->
-       <!--  <div id="success"></div>
-        <button type="submit" class="btn btn-default">Send Message</button>
-      </form> -->
-      <div class="text-center">
-  <button type="submit" class="btn btn-default  ">SIGN UPへ戻る</button>
-  <button type="submit" class="btn btn-default ">OK</button>
-</div>
-     <!--  <div class="social">
-        <h3>Follow us</h3>
-        <ul>
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-          <li><a href="#"><i class="fa fa-github"></i></a></li>
-          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
-      </div> -->
+    <div class="text-center">
+      <a href="signup.php" type="submit" class="btn btn-default">書き直す</a>
+      <!-- <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;書き直す</a> -->
+      <button type="submit" class="btn btn-default">登録する</button>
     </div>
   </div>
 </div>
-
 
 
 <?php include('footer.php'); ?>

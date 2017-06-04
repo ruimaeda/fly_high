@@ -2,13 +2,16 @@
 	padding: 20px 0;
 }
 .btn-default {
-	
 	margin: 0 80px;
 }
 
 #about {
-	padding: 20px 0;
-	background: #fff;
+	padding: 60px 0 0 0;
+	/*background: #fff;*/
+}
+
+#about p {
+	font-size: 25px;
 }
 
 #contact {
@@ -46,3 +49,34 @@ h2 {
 	font-size: 60px;
 	margin-top: 50px;
 }
+
+
+
+#style {
+    padding: 0;
+}
+
+
+
+
+/*buttonのdivを作成-------------------------------------------------*/
+#button .text-center {
+    margin-top: 0;
+}
+
+#button{
+	background: #f6f6f6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
