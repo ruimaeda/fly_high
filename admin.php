@@ -227,32 +227,32 @@
         <div class="col-md-12 columns">
             <h3>Asia</h3>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <label class="checkbox-inline" for="uae">
-                  <input type="checkbox" name="Checkboxes2" id="uae" value="uae">
+                <label class="checkbox-inline" for="United Arab Emirates">
+                  <input type="checkbox" name="country[]" value="United Arab Emirates">
                   アラブ首長国連邦
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <label class="checkbox-inline" for="india">
-                  <input type="checkbox" name="Checkboxes2" id="india" value="india">
+                <label class="checkbox-inline" for="India">
+                  <input type="checkbox" name="country[]" value="India">
                   インド
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <label class="checkbox-inline" for="indonesia">
-                  <input type="checkbox" name="Checkboxes2" id="indonesia" value="indonesia">
+                <label class="checkbox-inline" for="Indonesia">
+                  <input type="checkbox" name="country[]" value="Indonesia">
                   インドネシア
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <label class="checkbox-inline" for="qatar">
-                  <input type="checkbox" name="Checkboxes2" id="qatar" value="qatar">
+                <label class="checkbox-inline" for="Qatar">
+                  <input type="checkbox" name="country[]" value="Qatar">
                   カタール
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <label class="checkbox-inline" for="korea">
-                  <input type="checkbox" name="Checkboxes2" id="korea" value="korea">
+                <label class="checkbox-inline" for="Korea">
+                  <input type="checkbox" name="country[]" value="Korea">
                   韓国
                 </label>
               </div>
