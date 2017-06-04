@@ -7,7 +7,7 @@
 
 #country {
 	padding-top: 30px;
-	padding-bottom: 140px;
+	padding-bottom: 50px;
 	background: #f6f6f6;
 }
 
@@ -147,3 +147,14 @@ fieldset[disabled] .btn-default.active {
 .btn-clear .badge {
   color: #fff;
 }
+
+
+
+/*buttonのdivを作成-------------------------------------------------*/
+#button{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
+

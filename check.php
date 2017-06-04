@@ -1,3 +1,27 @@
+<?php
+  session_start();
+
+  //DBへ接続
+  require('dbconnect.php');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +80,6 @@
 </nav>
 
 <!-- Header -->
-
 <!-- <div id="intro">
   <div class="intro-body">
     <div class="container">
@@ -70,6 +93,8 @@
     </div>
   </div>
 </div> -->
+
+<!-- 登録内容を表示 -->
 <!-- About Section -->
 <div id="about">
   <div class="container">
@@ -94,6 +119,7 @@
     </div>
   </div>
 </div>
+
 <!-- Style Section -->
 <div id="style">
   <div class="container"> <!-- Container -->
@@ -156,6 +182,7 @@
     </div>
   </div>
 </div>
+
 <!-- Country Section -->
 <div id="country">
   <div class="container"> <!-- Container -->
@@ -530,11 +557,10 @@
     </div>
   </div>
 </div>
-<div id="footer">
-  <div class="container">
-    <p>Copyright &copy; Modus. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
-  </div>
-</div>
+
+
+
+<?php include('footer.php'); ?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
