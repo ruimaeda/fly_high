@@ -43,7 +43,6 @@
 
         }else{
           //ログイン失敗
-        	var_dump("ログイン失敗");
           $error['login'] = 'faild';
         }
   }
