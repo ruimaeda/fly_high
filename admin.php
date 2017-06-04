@@ -154,49 +154,49 @@
         <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
-                  <input type="checkbox" name="alone" value="alone">
+                  <input type="checkbox" name="style[]" value="alone">
                   ひとり旅
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="couple">
-                  <input type="checkbox" name="couple" value="couple">
+                  <input type="checkbox" name="style[]" value="couple">
                   カップル・夫婦
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="family">
-                  <input type="checkbox" name="family" value="family">
+                  <input type="checkbox" name="style[]" value="family">
                   家族旅行
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="food">
-                  <input type="checkbox" name="food" id="food" value="food">
+                  <input type="checkbox" name="style[]" id="food" value="food">
                   グルメ
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="resort">
-                  <input type="checkbox" name="resort" id="resort" value="resort">
+                  <input type="checkbox" name="style[]" id="resort" value="resort">
                   リゾート
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="nature">
-                  <input type="checkbox" name="nature" id="nature" value="nature">
+                  <input type="checkbox" name="style[]" id="nature" value="nature">
                   自然
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="ruins">
-                  <input type="checkbox" name="ruins" id="ruins" value="ruins">
+                  <input type="checkbox" name="style[]" id="ruins" value="ruins">
                   遺跡
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="shopping">
-                  <input type="checkbox" name="shopping" id="shopping" value="shopping">
+                  <input type="checkbox" name="style[]" id="shopping" value="shopping">
                   ショッピング
                 </label>
             </div>

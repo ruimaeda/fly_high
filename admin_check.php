@@ -5,6 +5,8 @@
   //DBへ接続
   require('dbconnect.php');
 
+  var_dump($_SESSION['admin']['style']);
+
   //ログイン状態をチェックする→強制ログアウトを作る
   //ログインしていると判断できる条件
   // 1.セッションにidが入っていること
@@ -27,7 +29,13 @@
     exit();
   }
 
-  // //DB登録処理
+  //adminで選択された国を使って、国DBから国IDを取得する処理
+  //途中です
+  // $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = %s',
+  //   mysqli_real_escape_string($db,$_SESSION['admin']['style'])
+  //   );
+
+  //DB登録処理
   if (!empty($_POST)){
     $sql = sprintf('INSERT INTO `sales`(`sale_title`, `sale_text`, `picture_path`, `sale_created`) VALUES ("%s","%s","%s", now());',
       mysqli_real_escape_string($db,$_SESSION['admin']['title']),
@@ -135,7 +143,7 @@
           <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
-                  <?php if(isset($_SESSION['admin']['alone'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "alone") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="alone" value="alone">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ひとり旅</label>
@@ -148,7 +156,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="couple">
-                  <?php if(isset($_SESSION['admin']['couple'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "couple") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="couple" value="couple">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カップル・夫婦</label>
@@ -161,7 +169,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="family">
-                  <?php if(isset($_SESSION['admin']['family'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "family") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="family" value="family">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">家族旅行</label>
@@ -174,7 +182,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="food">
-                  <?php if(isset($_SESSION['admin']['food'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "food") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="food" value="food">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">グルメ</label>
@@ -187,7 +195,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="resort">
-                  <?php if(isset($_SESSION['admin']['resort'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "resort") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="resort" value="resort">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">リゾート</label>
@@ -200,7 +208,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="nature">
-                  <?php if(isset($_SESSION['admin']['nature'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "nature") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="nature" value="nature">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">自然</label>
@@ -213,7 +221,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="ruins">
-                  <?php if(isset($_SESSION['admin']['ruins'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "ruins") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="ruins" value="ruins">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">遺跡</label>
@@ -226,7 +234,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="shopping">
-                  <?php if(isset($_SESSION['admin']['shopping'])) { ?>
+                  <?php if($_SESSION['admin']['style'] = "shopping") { ?>
                   <!-- チェックがあったら表示 -->
                   <input type="hidden" name="Checkboxes" id="shopping" value="shopping">
                   <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ショッピング</label>
