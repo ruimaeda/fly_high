@@ -141,7 +141,8 @@
   </div>
 </div>
 
-<!-- About Section -->
+<!-- Style Section -->
+<form method="post" action="">
 <div id="about">
   <div class="container">
     <div class="section-title text-center center">
@@ -149,66 +150,66 @@
       <hr>
     </div>
     <div class="row">
-      <form method="post" action="">
+      <!-- <form method="post" action=""> -->
         <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
-                  <input type="checkbox" name="style[]" value="alone">
+                  <input type="checkbox" name="alone" value="alone">
                   ひとり旅
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="couple">
-                  <input type="checkbox" name="style[]" value="couple">
+                  <input type="checkbox" name="couple" value="couple">
                   カップル・夫婦
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="family">
-                  <input type="checkbox" name="Checkboxes" id="family" value="family">
+                  <input type="checkbox" name="family" value="family">
                   家族旅行
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="food">
-                  <input type="checkbox" name="Checkboxes" id="food" value="food">
+                  <input type="checkbox" name="food" id="food" value="food">
                   グルメ
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="resort">
-                  <input type="checkbox" name="Checkboxes" id="resort" value="resort">
+                  <input type="checkbox" name="resort" id="resort" value="resort">
                   リゾート
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="nature">
-                  <input type="checkbox" name="Checkboxes" id="nature" value="nature">
+                  <input type="checkbox" name="nature" id="nature" value="nature">
                   自然
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="ruins">
-                  <input type="checkbox" name="Checkboxes" id="ruins" value="ruins">
+                  <input type="checkbox" name="ruins" id="ruins" value="ruins">
                   遺跡
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="shopping">
-                  <input type="checkbox" name="Checkboxes" id="shopping" value="shopping">
+                  <input type="checkbox" name="shopping" id="shopping" value="shopping">
                   ショッピング
                 </label>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+            <!-- スタイルALLを使うか分からないので、コメントアウトしてます -->
+<!--             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="all">
                   <input type="checkbox" name="Checkboxes" id="all" value="all">
                   全てのスタイルに送る
                 </label>
-            </div>
+            </div> -->
         </div>
-      </form>
+      <!-- </form> -->
     </div>
-  </div>
   </div>
 </div>
 
@@ -449,11 +450,10 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-      <form method="post" action="">
+      <!-- <form method="post" action=""> -->
         <!-- タイトル -->
         <div class="row">
             <div class="col-md-12">
-              <!-- <div class="form-group"> -->
               <?php if(isset($_POST['title'])) { ?>
                 <input type="title" id="title" name="title" class="form-control" placeholder="タイトルを入力" value="<?php echo htmlspecialchars($_POST['title'], ENT_QUOTES, 'utf-8'); ?>">
                 <p class="help-block text-danger"></p>
@@ -461,14 +461,12 @@
                 <input type="title" id="title" name="title" class="form-control" placeholder="タイトルを入力">
                 <p class="help-block text-danger"></p>
               <?php } ?>
-              <!-- </div> -->
             </div>
         </div>
 
         <!-- 本文 -->
         <div class="row">
             <div class="col-md-12">
-              <!-- <div class="form-group"> -->
               <?php if(isset($_POST['message'])) { ?>
                 <textarea type="message" id="message" name="message" class="form-control" rows="10" placeholder="本文を入力"><?php echo htmlspecialchars($_POST['message'], ENT_QUOTES, 'utf-8'); ?></textarea>
                 <p class="help-block text-danger"></p>
@@ -476,14 +474,12 @@
                 <textarea type="message" id="message" name="message" class="form-control" rows="10" placeholder="本文を入力"></textarea>
                 <p class="help-block text-danger"></p>
               <?php } ?>
-              <!-- </div> -->
             </div>
         </div>
 
         <!-- 画像 -->
         <div class="row">
             <div class="col-md-12">
-              <!-- <div class="form-group"> -->
                 <input type="file" name="picture_path" class="form-control">
                 <!-- type="file"が指定されている。 -->
                 <!-- <?php if(isset($error['picture_path']) && $error['picture_path']=='type'){ ?> -->
@@ -493,7 +489,6 @@
                 <!-- <?php if (!empty($error)): ?> -->
                   <!-- <p class="error">* もう一度画像を指定してください。</p> -->
                 <!-- <?php endif; ?> -->
-              <!-- </div> -->
             </div>
         </div>
         <?php if(isset($error['title']) && $error['title'] == 'blank'){ ?>
@@ -508,12 +503,11 @@
         <!-- この位置だと間違ってログアウトボタンを押しそうなのでヘッダーに移動-->
         <!-- <button type="submit" class="btn btn-custom btn-lg2">LOG OUT</button> -->
         <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認</button>
-      </form>
-
+      <!-- </form> -->
     </div>
   </div>
 </div>
-
+</form>
 
 
 <!-- フッターの外部読み込みはできたが、字が白くなっている -->
