@@ -2,9 +2,31 @@
   session_start();
 
 
+  //フォームからデータがPOST送信された時の処理
+  if(!empty($_POST)){
+
+    // //contact_me.jsをコメントアウトしたら表示された！
+    // echo('<pre>');
+    // var_dump($_POST);
+    // echo('</pre>');
 
 
 
+    // エラーがない場合セッションに値を保存
+    if(empty($error)){
+      $_SESSION['signup'] = $_POST;
+
+      // //ここも表示された！
+      // echo('<pre>');
+      // var_dump($_POST);
+      // echo('</pre>');
+
+
+      //checkに遷移
+      header('Location: check.php');
+
+    }
+  }
 
 
 
@@ -69,6 +91,7 @@
 </nav>
 
 <!-- Header -->
+<form method="post" action="">
 <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
@@ -77,12 +100,12 @@
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-              <form method="post">
+              <!-- <form method="post" action=""> -->
 
                 <!-- ニックネーム -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="お名前を入力してください" required>
+                    <input type="text" class="form-control" name="validate-email" id="nick_name" placeholder="お名前を入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
@@ -90,7 +113,7 @@
                 <!-- メールアドレス -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="メールアドレスを入力してください" required>
+                    <input type="text" class="form-control" name="validate-email" id="email" placeholder="メールアドレスを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
@@ -98,7 +121,7 @@
                 <!-- パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードを入力してください" required>
+                    <input type="text" class="form-control" name="validate-email" id="password" placeholder="パスワードを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
@@ -106,11 +129,11 @@
                 <!-- 確認用パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="text" class="form-control" name="validate-email" id="re_password" placeholder="パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
-                </form>
+              <!-- </form> -->
             </div>
         </div>
     </div>
@@ -455,15 +478,13 @@
 
 
 <!-- ボタンsectionのdivを作り、新しくid=buttonを付ける -->
+<!-- <form method="post" action=""> -->
 <div id="button">
   <div class="container">
     <div class="text-center">
-      <!-- <button type="submit" class="btn btn-default">TOPページに戻る</button> -->
       <a href="index.php" type="submit" class="btn btn-default">TOPページに戻る</a>
-      <input type="submit" class="btn btn-default" value="ユーザー登録する">
       <!-- <button type='submit' name='nick_name' value='send'>送信</button> -->
-      <!-- <button type="submit" class="btn btn-default">ユーザー登録する</button> -->
-      <!-- <a href="check.php" type="submit" class="btn btn-default">ユーザー登録する</a> -->
+      <button type="submit" class="btn btn-default">ユーザー登録する</button>
     </div>
     <div class="text-center agree">
       アカウントを作成することで、Fly Highの<a href="terms.php">利用規約</a>と<a href="policy.php">プライバシーポリシー</a>に同意するものとします。
@@ -474,11 +495,11 @@
       もしかして、すでにアカウントをお持ちですか？
     </div>
     <div class="text-center agree">
-      <!-- <button type="submit" class="btn btn-default">ログインする</button> -->
       <a href="login.php" type="submit" class="btn btn-default">ログインする</a>
     </div>
   </div>
 </div>
+</form>
 
 
 
@@ -494,7 +515,7 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
 <script type="text/javascript" src="js/signup.js"></script>
 
 <!-- Javascripts
