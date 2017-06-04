@@ -28,7 +28,11 @@
     }
   }
 
-
+  // //書き直しで戻ってきた時の表示処理
+  // if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
+  //   $_POST = $_SESSION['signup'];
+  //   $error['rewrite'] = true;//←これどういう意味やったっけ？
+  // }
 
 
 ?>
@@ -105,7 +109,7 @@
                 <!-- ニックネーム -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="nick_name" placeholder="お名前を入力してください" required>
+                    <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="お名前を入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
@@ -113,7 +117,7 @@
                 <!-- メールアドレス -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="email" placeholder="メールアドレスを入力してください" required>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="メールアドレスを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
@@ -121,7 +125,7 @@
                 <!-- パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="password" placeholder="パスワードを入力してください" required>
+                    <input type="text" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
@@ -129,7 +133,7 @@
                 <!-- 確認用パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="re_password" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="text" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>

@@ -5,18 +5,31 @@
   require('dbconnect.php');
 
 
+  //セッションにデータがなかったらsignup.phpへ遷移（動いた◎）
+  if (!isset($_SESSION['signup'])) {
+    header("Location: signup.php");
+  }
+
+  //セッションの中身をサニタイズして変数に代入する
+  $nick_name = htmlspecialchars($_SESSION['signup']['nick_name'], ENT_QUOTES, 'UTF-8');
+  $email=htmlspecialchars($_SESSION['signup']['email'], ENT_QUOTES, 'UTF-8');
+  $password=htmlspecialchars($_SESSION['signup']['password'], ENT_QUOTES, 'UTF-8');
+  $re_password=htmlspecialchars($_SESSION['signup']['re_password'], ENT_QUOTES, 'UTF-8');
+
+
+
+  // //DB登録処理（パスワードはsha1で暗号化）
+  // if (!empty($_POST)) {$sql = sprintf('INSERT INTO');
 
 
 
 
+  //   //SQL文を実行し、うまくいったら遷移する処理
+  //   mysqli_query($db, $sql) or die(mysqli_error($db));
+  //   header("Location: thanks.php");
+  //   exit();
 
-
-
-
-
-
-
-
+  // }
 
 ?>
 
@@ -105,16 +118,14 @@
       <hr>
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <div class="about-text">
-          <h4>名前</h4>
-          <p>フライ・ハイ</p>
-          </div>
-      </div>
-      <div class="col-md-6">
-        <div class="about-text">
-          <h4>メールアドレス</h4>
-          <p>flyhigh@gmail.com</p>
+      <div class="about-text">
+        <div class="col-md-6">
+          <h4><small>名前</small></h4>
+          <p><?php echo $nick_name; ?></p>
+        </div>
+        <div class="col-md-6">
+          <h4><small>メールアドレス</small></h4>
+          <p><?php echo $email; ?></p>
         </div>
       </div>
     </div>
@@ -446,8 +457,9 @@
 <div id="button">
   <div class="container">
     <div class="text-center">
-      <button type="submit" class="btn btn-default  ">SIGN UPへ戻る</button>
-      <button type="submit" class="btn btn-default ">登録する</button>
+      <a href="signup.php" type="submit" class="btn btn-default">書き直す</a>
+      <!-- <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;書き直す</a> -->
+      <button type="submit" class="btn btn-default">登録する</button>
     </div>
   </div>
 </div>
