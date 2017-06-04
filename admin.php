@@ -146,7 +146,7 @@
 <div id="about">
   <div class="container">
     <div class="section-title text-center center">
-      <h2>Styleを選択</h2>
+      <h2>スタイルを選択</h2>
       <hr>
     </div>
     <div class="row">
@@ -219,7 +219,7 @@
 <div class="overlay">
   <div class="container box">
     <div class="section-title center">
-      <h2>Countryを選択</h2>
+      <h2>国を選択</h2>
       <hr>
     </div>
     <div class="row">

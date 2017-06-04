@@ -123,7 +123,7 @@
   <div class="container">
     <h1><span class="brand-heading text-center center">送信内容に間違いはありませんか？</span></h1>
     <div class="section-title text-center center">
-      <h2>選択したStyle</h2>
+      <h2>選択したスタイル</h2>
       <hr>
     </div>
     <div class="row">
@@ -264,7 +264,7 @@
 <div id="services" class="">
   <div class="container">
     <div class="section-title center box">
-      <h2>選択したCountry</h2>
+      <h2>選択した国</h2>
       <hr>
     </div>
 
