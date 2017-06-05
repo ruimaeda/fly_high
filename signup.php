@@ -2,17 +2,37 @@
   session_start();
 
 
-  //フォームからデータがPOST送信された時の処理
+  //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
 
-    // //contact_me.jsをコメントアウトしたら表示された！
+    // //contact_me.jsをコメントアウトしたら表示された！(ok)
     // echo('<pre>');
     // var_dump($_POST);
     // echo('</pre>');
 
 
+    //エラー項目の確認（nicknameとemailはjsで表示済）
+    //エラー項目の確認:pass(文字長６文字以上)(ok)
+    if (strlen($_POST['password'])<6) {
+      $error['password']='length';
+    }
+    //エラー項目の確認:確認用pass(ok)
+    if ($_POST['re_password'] !== $_POST['password']) {
+      $error['re_password']='not_same';
+    }
 
-    // エラーがない場合セッションに値を保存
+
+    // //エラー項目の確認:style＆国（スタイルか国の何か１つが選ばれていること）？？
+    // //POST送信
+    // if($_POST['style']=='' && $_POST['country']){
+    //   $error['country']='blank';
+    // }
+
+
+
+
+
+    // エラーがない場合セッションに値を保存(ok)
     if(empty($error)){
       $_SESSION['signup'] = $_POST;
 
@@ -22,7 +42,7 @@
       // echo('</pre>');
 
 
-      //checkに遷移
+      //checkに遷移(ok)
       header('Location: check.php');
 
     }
@@ -125,9 +145,13 @@
                 <!-- パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                      <input type="text" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
+                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- 字数エラーの処理(ok) -->
+                  <?php if(isset($error['password']) && $error['password']=='length'){ ?>
+                    <p class="error">* passwordは6文字以上で入力してください</p>
+                  <?php } ?>
                 </div>
 
                 <!-- 確認用パスワード -->
@@ -136,6 +160,10 @@
                     <input type="text" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- パスワード確認の処理(ok) -->
+                  <?php if(isset($error['re_password']) && $error['re_password']=='not_same'){ ?>
+                    <p class="error">* passwordが違います</p>
+                  <?php } ?>
                 </div>
               <!-- </form> -->
             </div>
