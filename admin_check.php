@@ -94,6 +94,7 @@
     //select_user_email_arrayの中身が重複するので、重複を削除
     $select_user_email_uniq = array_unique($select_user_email_array);
     var_dump($select_user_email_uniq);
+    $_SESSION['mail_address'] = $select_user_email_uniq;
   }
 
 
@@ -773,7 +774,7 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-      <form method="post" action="" class="form-horizontal">
+      <form method="post" action="sendmail.php" class="form-horizontal">
         <input type="hidden" name="action" value="submit">
         <table class="table table-striped table-condensed">
           <tbody>

@@ -1,6 +1,12 @@
 <?php
+//セッションを開始
+// session_start();
+
 mb_language("japanese");
 mb_internal_encoding("UTF-8");
+
+//送信先アドレスと送信タイトル、送信内容の変数を用意する
+// $mail_address = $_SESSION['mail_address']
 
 require("PHPMailer/PHPMailerAutoload.php");
 $mailer = new PHPMailer();
@@ -13,7 +19,7 @@ $mailer->From     = 'louis@tabippo.net';  // Fromのメールアドレス
 $mailer->FromName = mb_encode_mimeheader(mb_convert_encoding("チームFLYHIGH","JIS","UTF-8"));
 $mailer->Subject  = mb_encode_mimeheader(mb_convert_encoding("FLYHIGHからのお知らせです","JIS","UTF-8"));
 $mailer->Body     = mb_convert_encoding("ここが文字化けする","JIS","UTF-8");
-$mailer->AddAddress('y.614sato@gmail.com'); // 宛先
+$mailer->AddAddress('ruisu0717@gmai.com'); // 宛先
 
 if( !$mailer->Send() ){
 	echo "Message was not sent<br/ >";
