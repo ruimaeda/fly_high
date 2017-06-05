@@ -317,49 +317,49 @@
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="thailand">
-                  <input type="checkbox" name="country[]" id="thailand" value="thailand">
+                  <input type="checkbox" name="country[]" id="thailand" value="Thailand">
                   タイ：<?php echo $Thailand ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="taiwan">
-                  <input type="checkbox" name="country[]" id="taiwan" value="taiwan">
+                  <input type="checkbox" name="country[]" id="taiwan" value="Taiwan">
                   台湾：<?php echo $Taiwan ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="china">
-                  <input type="checkbox" name="country[]" id="china" value="china">
+                  <input type="checkbox" name="country[]" id="china" value="China">
                   中国：<?php echo $China ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="turkey">
-                  <input type="checkbox" name="Checkboxes2" id="turkey" value="turkey">
+                  <input type="checkbox" name="country[]" id="turkey" value="Turkey">
                   トルコ：<?php echo $Turkey ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="philippines">
-                  <input type="checkbox" name="Checkboxes2" id="philippines" value="philippines">
+                  <input type="checkbox" name="country[]" id="philippines" value="Philippines">
                   フィリピン：<?php echo $Philippines ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="vietnam">
-                  <input type="checkbox" name="Checkboxes2" id="vietnam" value="vietnam">
+                  <input type="checkbox" name="country[]" id="vietnam" value="VietNam">
                   ベトナム：<?php echo $VietNam ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <label class="checkbox-inline" for="hongkong_macao">
-                  <input type="checkbox" name="Checkboxes2" id="hongkong_macao" value="hongkong_macao">
+                <label class="checkbox-inline" for="HongKong">
+                  <input type="checkbox" name="country[]" id="hongkong_macao" value="HongKong">
                   香港・マカオ：<?php echo $HongKong ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="malaysia">
-                  <input type="checkbox" name="Checkboxes2" id="malaysia" value="malaysia">
+                  <input type="checkbox" name="country[]" id="malaysia" value="Malaysia">
                   マレーシア：<?php echo $Malaysia ?>
                 </label><br><br>
               </div>
@@ -371,37 +371,37 @@
             <h3>Oceania</h3>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="austraria">
-                  <input type="checkbox" name="Checkboxes2" id="austraria" value="austraria">
+                  <input type="checkbox" name="country[]" id="austraria" value="Australia">
                   オーストラリア：<?php echo $Australia ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="guam">
-                  <input type="checkbox" name="Checkboxes2" id="guam" value="guam">
+                  <input type="checkbox" name="country[]" id="guam" value="Guam">
                   グアム：<?php echo $Guam ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="saipan">
-                  <input type="checkbox" name="Checkboxes2" id="saipan" value="saipan">
+                  <input type="checkbox" name="country[]" id="saipan" value="Saipan">
                   サイパン：<?php echo $Saipan ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="newcaledonia">
-                  <input type="checkbox" name="Checkboxes2" id="newcaledonia" value="newcaledonia">
+                  <input type="checkbox" name="country[]" id="newcaledonia" value="NewCaledonia">
                   ニューカレドニア：<?php echo $NewCaledonia ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="newzealand">
-                  <input type="checkbox" name="Checkboxes2" id="newzealand" value="newzealand">
+                  <input type="checkbox" name="country[]" id="newzealand" value="NewZealand">
                   ニュージーランド：<?php echo $NewZealand ?>
                 </label><br><br>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="hawaii">
-                  <input type="checkbox" name="Checkboxes2" id="hawaii" value="hawaii">
+                  <input type="checkbox" name="country[]" id="hawaii" value="Hawaii">
                   ハワイ：<?php echo $Hawaii ?>
                 </label><br><br>
               </div>
@@ -413,49 +413,49 @@
             <h3>Europe</h3>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="ireland">
-                  <input type="checkbox" name="Checkboxes2" id="ireland" value="ireland">
+                  <input type="checkbox" name="country[]" id="ireland" value="Ireland">
                   アイルランド：<?php echo $Ireland ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="uk">
-                  <input type="checkbox" name="Checkboxes2" id="uk" value="uk">
+                  <input type="checkbox" name="country[]" id="uk" value="UnitedKingdom">
                   イギリス：<?php echo $UnitedKingdom ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="italy">
-                  <input type="checkbox" name="Checkboxes2" id="italy" value="italy">
+                  <input type="checkbox" name="country[]" id="italy" value="Italy">
                   イタリア：<?php echo $Italy ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="netherland">
-                  <input type="checkbox" name="Checkboxes2" id="netherland" value="netherland">
+                  <input type="checkbox" name="country[]" id="netherland" value="Netherlands">
                   オランダ：<?php echo $Netherlands ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="spain">
-                  <input type="checkbox" name="Checkboxes2" id="spain" value="spain">
+                  <input type="checkbox" name="country[]" id="spain" value="Spain">
                   スペイン：<?php echo $Spain ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="finland">
-                  <input type="checkbox" name="Checkboxes2" id="finland" value="finland">
+                  <input type="checkbox" name="country[]" id="finland" value="Finland">
                   フィンランド：<?php echo $Finland ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="france">
-                  <input type="checkbox" name="Checkboxes2" id="france" value="france">
+                  <input type="checkbox" name="country[]" id="france" value="France">
                   フランス：<?php echo $France ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="russia">
-                  <input type="checkbox" name="Checkboxes2" id="russia" value="russia">
+                  <input type="checkbox" name="country[]" id="russia" value="Russia">
                   ロシア：<?php echo $Russia ?>
                 </label><br><br>
               </div>
@@ -467,13 +467,19 @@
             <h3>North_America</h3>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="usa">
-                  <input type="checkbox" name="Checkboxes2" id="usa" value="usa">
+                  <input type="checkbox" name="country[]" id="usa" value="UnitedStates">
                   アメリカ：<?php echo $UnitedStates ?>
                 </label>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                <label class="checkbox-inline" for="Canada">
+                  <input type="checkbox" name="country[]" id="Canada" value="Canada">
+                  カナダ：<?php echo $Canada ?>
+                </label>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <label class="checkbox-inline" for="mexico">
-                  <input type="checkbox" name="Checkboxes2" id="mexico" value="mexico">
+                  <input type="checkbox" name="country[]" id="mexico" value="Mexico">
                   メキシコ：<?php echo $Mexico ?>
                 </label>
               </div>
