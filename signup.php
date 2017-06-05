@@ -2,17 +2,47 @@
   session_start();
 
 
-  //フォームからデータがPOST送信された時の処理
+  //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
 
-    // //contact_me.jsをコメントアウトしたら表示された！
+    // //contact_me.jsをコメントアウトしたら表示された！(ok)
     // echo('<pre>');
     // var_dump($_POST);
     // echo('</pre>');
 
 
+    //エラー項目の確認（ブランクの場合についてはjsで表示済）
+    //エラー項目の確認：email（＠マークがない場合をエラーにする）(ok)
+    $email=htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
 
-    // エラーがない場合セッションに値を保存
+    if ($email !== "" && strpos($email, "@") === FALSE){
+      $error['email'] = "wrong";
+    }
+
+    //エラー項目の確認：:email（すでに登録されています処理=DBを使う）(まだ)
+
+
+    //エラー項目の確認：pass(文字長６文字以上)(ok)
+    if (strlen($_POST['password'])<6) {
+      $error['password']='length';
+    }
+    //エラー項目の確認：確認用pass(ok)
+    if ($_POST['re_password'] !== $_POST['password']) {
+      $error['re_password']='not_same';
+    }
+
+
+    // //エラー項目の確認:style＆国（スタイルか国の何か１つが選ばれていること）？？
+    // //POST送信
+    // if($_POST['style']=='' && $_POST['country']){
+    //   $error['country']='blank';
+    // }
+
+
+
+
+
+    // エラーがない場合セッションに値を保存(ok)
     if(empty($error)){
       $_SESSION['signup'] = $_POST;
 
@@ -22,17 +52,17 @@
       // echo('</pre>');
 
 
-      //checkに遷移
+      //checkに遷移(ok)
       header('Location: check.php');
 
     }
   }
 
-  // //書き直しで戻ってきた時の表示処理
-  // if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
-  //   $_POST = $_SESSION['signup'];
-  //   $error['rewrite'] = true;//←これどういう意味やったっけ？
-  // }
+  //書き直しで戻ってきた時の表示処理
+  if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
+    $_POST = $_SESSION['signup'];
+    $error['rewrite'] = true;//←これどういう意味やったっけ？
+  }
 
 
 ?>
@@ -106,36 +136,71 @@
             <div class="col-sm-offset-4 col-sm-4">
               <!-- <form method="post" action=""> -->
 
+
                 <!-- ニックネーム -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="お名前を入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+
+                    <!-- 他項目(email)がブランク以外のエラーだった時、
+                    入力していた文字を消えないようにする(ok) -->
+                    <?php if (isset($_POST['nick_name'])): ?>
+                      <input type="text" class="form-control" name="nick_name" id="nick_name" required  value="<?php echo htmlspecialchars($_POST['nick_name'], ENT_QUOTES, 'UTF-8'); ?>">
+                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <?php else: ?>
+                      <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="お名前を入力してください" required>
+                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <?php endif; ?>
+
                   </div>
                 </div>
+
+
 
                 <!-- メールアドレス -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="email" id="email" placeholder="メールアドレスを入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+
+                    <!-- 他項目(password)がブランク以外のエラーだった時、
+                    入力していた文字を消えないようにする(ok) -->
+                    <?php if (isset($_POST['email'])): ?>
+                       <input type="text" class="form-control" name="email" id="email" required value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'); ?>">
+                       <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <?php else: ?>
+                      <input type="text" class="form-control" name="email" id="email" placeholder="メールアドレスを入力してください" required>
+                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <?php endif; ?>
                   </div>
+                  <!-- ＠マークない場合の処理(ok) -->
+                  <?php if(isset($error['email']) && $error['email']=='wrong'){ ?>
+                    <p class="error">* メールアドレスに@が含まれていません。</p>
+                  <?php } ?>
                 </div>
+
+
+
 
                 <!-- パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                      <input type="password" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
+                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- 字数エラーの処理(ok) -->
+                  <?php if(isset($error['password']) && $error['password']=='length'){ ?>
+                    <p class="error">* passwordは6文字以上で入力してください</p>
+                  <?php } ?>
                 </div>
 
                 <!-- 確認用パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="password" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- パスワード確認の処理(ok) -->
+                  <?php if(isset($error['re_password']) && $error['re_password']=='not_same'){ ?>
+                    <p class="error">* passwordが違います</p>
+                  <?php } ?>
                 </div>
               <!-- </form> -->
             </div>
