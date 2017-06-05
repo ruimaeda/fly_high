@@ -34,16 +34,8 @@
   if(isset($_SESSION['admin']['country'])) {
   //adminで選択された国を使って、国テーブルから国IDを取得し、ユーザー国テーブルからユーザーIDを取得し、ユーザーテーブルからメールアドレスを取得する処理
 
-    //$_SESSION['admin']['country']が配列なので、文字にする必要があるらしい
-    // $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = "India"');
-    //   //SQL文の実行と変数への代入
-    //   $select_country_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
-    //   $select_country_id = mysqli_fetch_assoc($select_country_ids);
-
-    //var_dump($select_country_id);
-
     //こっちは配列のままのバージョン
-    //繰り返しで$_SESSION['admin']['country']の中身を出して、別の配列に代入する必要がある？
+    //繰り返しで$_SESSION['admin']['country']の中身を出して、別の配列に代入する必要がある
     $select_country_id_array = array();
     //多次元の連想配列$_SESSION['admin']['country']から値を取得
     foreach ($_SESSION['admin']['country'] as $select_countries) {
@@ -60,18 +52,21 @@
 
     var_dump($select_country_id_array);
 
-    //取得した国IDを使って、ユーザー国テーブルからユーザーIDを取得する処理
-    // $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = 27');
-    //   //SQL文の実行と変数への代入
-    //   $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
-    //   $select_user_id = mysqli_fetch_assoc($select_user_ids);
+    //上記で取得した国IDを展開しながら、user_idを取得する処理
+    // $select_user_id_array = array();
+    // $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = "%s"',
+    //   mysqli_real_escape_string($db,$select_country_id_value)
+    //   );
+    // $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
 
-    //var_dump($select_user_id);
+    // //繰り返し開始
+    // while(true){
+    // }
 
-    //配列のままだと怒られる（国IDの取得と同じエラー）
+    // foreachで展開
     $select_user_id_array = array();
     foreach ($select_country_id_array as $select_country_id_value) {
-    $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = "%s"',
+    $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = %s',
       mysqli_real_escape_string($db,$select_country_id_value)
       );
       //SQL文の実行と変数への代入
@@ -95,6 +90,10 @@
     }
 
     var_dump($select_user_email_array);
+
+    //select_user_email_arrayの中身が重複するので、重複を削除
+    $select_user_email_uniq = array_unique($select_user_email_array);
+    var_dump($select_user_email_uniq);
   }
 
 
