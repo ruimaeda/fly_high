@@ -5,7 +5,7 @@
   require('dbconnect.php');
 
 
-  //セッションにデータがなかったらsignup.phpへ遷移（動いた◎）
+  //セッションにデータがなかったらsignup.phpへ遷移（ok）
   if (!isset($_SESSION['signup'])) {
     header("Location: signup.php");
   }
@@ -456,11 +456,13 @@
 <!-- <form method="post" action=""> -->
 <div id="button">
   <div class="container">
-    <div class="text-center">
-      <a href="signup.php" type="submit" class="btn btn-default">書き直す</a>
-      <!-- <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;書き直す</a> -->
-      <button type="submit" class="btn btn-default">登録する</button>
-    </div>
+    <form method="post" action="" class="form-horizontal" role="form">
+      <div class="text-center">
+        <!-- <a href="signup.php" type="submit" class="btn btn-default">書き直す</a> -->
+        <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;書き直す</a>
+        <button type="submit" class="btn btn-default">登録する</button>
+      </div>
+    </form>
   </div>
 </div>
 
