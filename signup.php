@@ -145,7 +145,7 @@
                 <!-- パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                      <input type="text" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
+                      <input type="password" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
                       <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                   <!-- 字数エラーの処理(ok) -->
@@ -157,7 +157,7 @@
                 <!-- 確認用パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="password" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                   <!-- パスワード確認の処理(ok) -->
