@@ -11,12 +11,18 @@
     // echo('</pre>');
 
 
-    //エラー項目の確認（nicknameとemailはjsで表示済）
-    //エラー項目の確認:pass(文字長６文字以上)(ok)
+    //エラー項目の確認（ブランクの場合についてはjsで表示済）
+    //エラー項目の確認：email（＠マークがない場合をエラーにする）
+    if($_POST['email'] !== '%@%'){
+      $error['email']='blank';
+    }
+
+
+    //エラー項目の確認：pass(文字長６文字以上)(ok)
     if (strlen($_POST['password'])<6) {
       $error['password']='length';
     }
-    //エラー項目の確認:確認用pass(ok)
+    //エラー項目の確認：確認用pass(ok)
     if ($_POST['re_password'] !== $_POST['password']) {
       $error['re_password']='not_same';
     }
@@ -140,6 +146,10 @@
                     <input type="text" class="form-control" name="email" id="email" placeholder="メールアドレスを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- ＠マークない場合の処理(ok) -->
+                  <?php if(isset($error['email']) && $error['email']=='blank'){ ?>
+                    <p class="error">* @マークのあるアドレスを入力してください</p>
+                  <?php } ?>
                 </div>
 
                 <!-- パスワード -->
