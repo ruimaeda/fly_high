@@ -32,19 +32,10 @@
   }
 
   if(isset($_SESSION['admin']['country'])) {
-  //adminで選択された国を使って、国DBから国IDを取得する処理
-  //途中です
-
-    //$_SESSION['admin']['country']が配列なので、文字にする必要があるらしい
-    // $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = "India"');
-    //   //SQL文の実行と変数への代入
-    //   $select_country_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
-    //   $select_country_id = mysqli_fetch_assoc($select_country_ids);
-
-    //var_dump($select_country_id);
+  //adminで選択された国を使って、国テーブルから国IDを取得し、ユーザー国テーブルからユーザーIDを取得し、ユーザーテーブルからメールアドレスを取得する処理
 
     //こっちは配列のままのバージョン
-    //繰り返しで$_SESSION['admin']['country']の中身を出して、別の配列に代入する必要がある？
+    //繰り返しで$_SESSION['admin']['country']の中身を出して、別の配列に代入する必要がある
     $select_country_id_array = array();
     //多次元の連想配列$_SESSION['admin']['country']から値を取得
     foreach ($_SESSION['admin']['country'] as $select_countries) {
@@ -61,18 +52,21 @@
 
     var_dump($select_country_id_array);
 
-    //取得した国IDを使って、ユーザー国テーブルからユーザーIDを取得する処理
-    // $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = 27');
-    //   //SQL文の実行と変数への代入
-    //   $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
-    //   $select_user_id = mysqli_fetch_assoc($select_user_ids);
+    //上記で取得した国IDを展開しながら、user_idを取得する処理
+    // $select_user_id_array = array();
+    // $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = "%s"',
+    //   mysqli_real_escape_string($db,$select_country_id_value)
+    //   );
+    // $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
 
-    //var_dump($select_user_id);
+    // //繰り返し開始
+    // while(true){
+    // }
 
-    //配列のままだと怒られる（国IDの取得と同じエラー）
+    // foreachで展開
     $select_user_id_array = array();
     foreach ($select_country_id_array as $select_country_id_value) {
-    $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = "%s"',
+    $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = %s',
       mysqli_real_escape_string($db,$select_country_id_value)
       );
       //SQL文の実行と変数への代入
@@ -96,6 +90,11 @@
     }
 
     var_dump($select_user_email_array);
+
+    //select_user_email_arrayの中身が重複するので、重複を削除
+    $select_user_email_uniq = array_unique($select_user_email_array);
+    var_dump($select_user_email_uniq);
+    $_SESSION['mail_address'] = $select_user_email_uniq;
   }
 
 
@@ -175,12 +174,12 @@
   <!-- /.container -->
 </nav>
 
-<!-- About Section -->
+<?php if(isset($_SESSION['admin']['style'])) { ?>
+<!-- Style Section -->
 <!-- <div class="container_all"> -->
 <div id="about">
   <div class="container">
     <h1><span class="brand-heading text-center center">送信内容に間違いはありませんか？</span></h1>
-    <?php if(isset($_SESSION['admin']['style'])) { ?>
     <div class="section-title text-center center">
       <h2>選択したスタイル</h2>
       <hr>
@@ -313,15 +312,14 @@
         </div>
       </div>
     </div>
-    <?php } ?>
   </div>
 </div>
-
+<?php } ?>
 </div>
 
-<?php if(isset($_SESSION['admin']['country'])) { ?>
-<!-- Services Section -->
+<!-- Country Section -->
 <!-- <div id="services" class="text-center"> -->
+<?php if(isset($_SESSION['admin']['country'])) { ?>
 <div id="services" class="">
   <div class="container">
     <div class="section-title center box">
@@ -334,155 +332,197 @@
           <h3>Asia</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="uae">
-                <?php if(in_array("United Arab Emirates", $_SESSION['admin']['country'])) { ?>
+                <?php if(in_array("UnitedArabEmirates", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
-                <input type="hidden" name="Checkboxes" id="uae" value="United Arab Emirates">
+                <input type="hidden" name="Checkboxes" id="uae" value="UnitedArabEmirates">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">アラブ首長国連邦</label>
                 <?php }else{ ?>
                 <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="uae" value="United Arab Emirates">
+                <input type="hidden" name="Checkboxes" id="uae" value="UnitedArabEmirates">
                 <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アラブ首長国連邦</label>
                 <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="india">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="india" value="india">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">インド</label>
+                <?php if(in_array("India", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="india" value="india">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">インド</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="india" value="india">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">インド</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="indonesia">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="indonesia" value="indonesia">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">インドネシア</label>
+                <?php if(in_array("Indonesia", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="indonesia" value="indonesia">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">インドネシア</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="indonesia" value="indonesia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">インドネシア</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="qatar">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="qatar" value="qatar">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カタール</label>
+                <?php if(in_array("Qatar", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="qatar" value="qatar">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カタール</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="qatar" value="qatar">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カタール</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="korea">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="korea" value="korea">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">韓国</label>
+                <?php if(in_array("Korea", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="korea" value="korea">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">韓国</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="korea" value="korea">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">韓国</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="cambodia">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="cambodia" value="cambodia">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カンボジア</label>
+                <?php if(in_array("Cambodia", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="cambodia" value="cambodia">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カンボジア</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="cambodia" value="cambodia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カンボジア</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="singapore">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="singapore" value="singapore">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">シンガポール</label>
+                <?php if(in_array("Singapore", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="singapore" value="singapore">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">シンガポール</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="singapore" value="singapore">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">シンガポール</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="thailand">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="thailand" value="thailand">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">タイ</label>
+                <?php if(in_array("Thailand", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="thailand" value="thailand">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">タイ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="thailand" value="thailand">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">タイ</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="taiwan">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="taiwan" value="taiwan">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">台湾</label>
+                <?php if(in_array("Taiwan", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="taiwan" value="taiwan">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">台湾</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="taiwan" value="taiwan">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">台湾</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="china">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="china" value="china">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">中国</label>
+                <?php if(in_array("China", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="china" value="china">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">中国</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="china" value="china">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">中国</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="turkey">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="turkey" value="turkey">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">トルコ</label>
+                <?php if(in_array("Turkey", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="turkey" value="turkey">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">トルコ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="turkey" value="turkey">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">トルコ</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="philippines">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="philippines" value="philippines">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フィリピン</label>
+                <?php if(in_array("Philippines", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="philippines" value="philippines">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">フィリピン</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="philippines" value="philippines">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フィリピン</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="vietnam">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="vietnam" value="vietnam">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ベトナム</label>
+                <?php if(in_array("VietNam", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="vietnam" value="vietnam">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ベトナム</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="vietnam" value="vietnam">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ベトナム</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="hongkong_macao">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">香港・マカオ</label>
+                <?php if(in_array("HongKong", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">香港・マカオ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="hongkong_macao" value="hongkong_macao">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">香港・マカオ</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="malaysia">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="malaysia" value="malaysia">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">マレーシア</label>
+                <?php if(in_array("Malaysia", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="malaysia" value="malaysia">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">マレーシア</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="malaysia" value="malaysia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">マレーシア</label>
+                <?php } ?>
               </label><br><br>
             </div>
       </div>
@@ -490,63 +530,81 @@
       <div class="col-md-12 columns">
           <h3>Oceania</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="austraria">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="austraria" value="austraria">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">オーストラリア</label>
+              <label class="checkbox-inline" for="Australia">
+                <?php if(in_array("Australia", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="austraria" value="austraria">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">オーストラリア</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="austraria" value="austraria">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">オーストラリア</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="guam">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="guam" value="guam">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">グアム</label>
+                <?php if(in_array("Guam", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="guam" value="guam">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">グアム</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="guam" value="guam">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">グアム</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="saipan">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="saipan" value="saipan">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">サイパン</label>
+                <?php if(in_array("Saipan", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="saipan" value="saipan">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">サイパン</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="saipan" value="saipan">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">サイパン</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="newcaledonia">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="newcaledonia" value="newcaledonia">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ニューカレドニア</label>
+                <?php if(in_array("NewCaledonia", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="newcaledonia" value="newcaledonia">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ニューカレドニア</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="newcaledonia" value="newcaledonia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ニューカレドニア</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="newzealand">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="newzealand" value="newzealand">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ニュージーランド</label>
+                <?php if(in_array("NewZealand", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="newzealand" value="newzealand">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ニュージーランド</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="newzealand" value="newzealand">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ニュージーランド</label>
+                <?php } ?>
               </label><br><br>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="hawaii">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="hawaii" value="hawaii">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ハワイ</label>
+                <?php if(in_array("Hawaii", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="hawaii" value="hawaii">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ハワイ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="hawaii" value="hawaii">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ハワイ</label>
+                <?php } ?>
               </label><br><br>
             </div>
       </div>
@@ -555,82 +613,106 @@
           <h3>Europe</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="ireland">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="ireland" value="ireland">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アイルランド</label>
+                <?php if(in_array("Ireland", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="ireland" value="ireland">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">アイルランド</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="ireland" value="ireland">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アイルランド</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="uk">
+                <?php if(in_array("UnitedKingdom", $_SESSION['admin']['country'])) { ?>
+                 <!-- チェックがあったら表示 -->
+                <input type="hidden" name="Checkboxes" id="uk" value="uk">
+                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">イギリス</label>
+                <?php }else{ ?>
                 <!-- チェックがなかったら表示 -->
                 <input type="hidden" name="Checkboxes" id="uk" value="uk">
                 <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">イギリス</label>
-                <!-- チェックがあったら表示 -->
-                <input type="hidden" name="Checkboxes" id="uk" value="uk">
-                <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">イギリス</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="italy">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="italy" value="italy">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">イタリア</label>
+                <?php if(in_array("Italy", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="italy" value="italy">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">イタリア</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="italy" value="italy">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">イタリア</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="netherland">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="netherland" value="netherland">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">オランダ</label>
+              <label class="checkbox-inline" for="Netherlands">
+                <?php if(in_array("Netherlands", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="netherland" value="netherland">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">オランダ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="netherland" value="netherland">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">オランダ</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="spain">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="spain" value="spain">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">スペイン</label>
+                <?php if(in_array("Spain", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="spain" value="spain">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">スペイン</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="spain" value="spain">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">スペイン</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="finland">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="finland" value="finland">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フィンランド</label>
+                <?php if(in_array("Finland", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="finland" value="finland">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">フィンランド</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="finland" value="finland">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フィンランド</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="france">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="france" value="france">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フランス</label>
+                <?php if(in_array("France", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="france" value="france">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">フランス</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="france" value="france">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">フランス</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="russia">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="russia" value="russia">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ロシア</label>
+                <?php if(in_array("Russia", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="russia" value="russia">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">ロシア</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="russia" value="russia">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">ロシア</label>
+                <?php } ?>
               </label><br><br>
             </div>
       </div>
@@ -638,33 +720,42 @@
       <div class="col-md-12 columns">
           <h3>North_America</h3>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-              <label class="checkbox-inline" for="usa">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="usa" value="usa">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アメリカ</label>
+              <label class="checkbox-inline" for="UnitedStates">
+                <?php if(in_array("UnitedStates", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="usa" value="usa">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">アメリカ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="usa" value="usa">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">アメリカ</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="canada">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="canada" value="canada">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カナダ</label>
+                <?php if(in_array("Canada", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="canada" value="canada">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">カナダ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="canada" value="canada">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">カナダ</label>
+                <?php } ?>
               </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
               <label class="checkbox-inline" for="mexico">
-                <!-- チェックがなかったら表示 -->
-                <input type="hidden" name="Checkboxes" id="mexico" value="mexico">
-                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">メキシコ</label>
+                <?php if(in_array("Mexico", $_SESSION['admin']['country'])) { ?>
                 <!-- チェックがあったら表示 -->
                 <input type="hidden" name="Checkboxes" id="mexico" value="mexico">
                 <input type="checkbox" id='checkon' disabled='disabled' checked='checked'> <label for='checkon' class="text">メキシコ</label>
+                <?php }else{ ?>
+                <!-- チェックがなかったら表示 -->
+                <input type="hidden" name="Checkboxes" id="mexico" value="mexico">
+                <input type="checkbox" id='checkoff' disabled='disabled'><label for='checkoff' class="text">メキシコ</label>
+                <?php } ?>
               </label>
             </div>
       </div>
@@ -672,7 +763,6 @@
   </div>
 </div>
 <?php } ?>
-
 
 <!-- Contact Section -->
 <!-- <div id="contact" class="text-center"> -->
@@ -684,7 +774,7 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-      <form method="post" action="" class="form-horizontal">
+      <form method="post" action="sendmail.php" class="form-horizontal">
         <input type="hidden" name="action" value="submit">
         <table class="table table-striped table-condensed">
           <tbody>
@@ -717,35 +807,6 @@
           </tbody>
         </table>
     </div>
-
-<?php /* ?>
-    <div class="col-md-8 col-md-offset-2">
-      <form name="sentMessage" id="contactForm" novalidate>
-        <!-- タイトル -->
-        <div class="row">
-            <div class="col-md-12">
-              <!-- <div class="form-group"> -->
-                <input type="text" id="name" class="form-control" placeholder="Title" required="required">
-                <p class="help-block text-danger"></p>
-              <!-- </div> -->
-            </div>
-        </div>
-
-        <!-- 画像 -->
-        <div class="form-group">
-          <!-- <label class="col-sm-4 control-label">画像</label> -->
-          <div class="col-sm-10">
-            <input type="file" name="picture_path" class="form-control">
-            <!-- <img src="../member_picture/<?php echo $picture_path; ?>"  width="100" height="100"> -->
-          </div>
-        </div>
-
-        <!-- テキスト -->
-        <div class="form-group">
-            <textarea name="message" id="message" class="form-control" rows="10" placeholder="Message" required></textarea>
-            <p class="help-block text-danger"></p>
-        </div>
-<?php */ ?>
 
         <!-- <div id="success"></div> -->
         <a href="admin.php?action=rewrite"><button type="button" class="btn btn-custom btn-lg2" >戻る</button></a>
