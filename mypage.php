@@ -16,16 +16,16 @@ session_start();
 require('dbconnect.php');
 
 //ログインしている人の情報を取得
-$sql = sprintf('SELECT * FROM `users` `user_countries` WHERE `user_id` = %d',
+$sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d',
        mysqli_real_escape_string($db,$_SESSION['login_user_id']));
 
 $record = mysqli_query($db,$sql) or die(mysqli_error($db));
 $user = mysqli_fetch_assoc($record);
 
 //ログインしている人の選択した国情報を取得
-$sql = sprintf('SELECT * FROM `user_countries` INNER JOIN `countries` on `countries`.`country_id` = `user_countries`.`country_id` ');
-$record = mysqli_query($db,$sql) or die(mysqli_error($db));
-$user_country = mysqli_fetch_assoc($record);
+// $sql = sprintf('SELECT * FROM `user_countries` INNER JOIN `countries` on `countries`.`country_id` = `user_countries`.`country_id` ');
+// $record = mysqli_query($db,$sql) or die(mysqli_error($db));
+// $user_country = mysqli_fetch_assoc($record);
 
  ?>
 
