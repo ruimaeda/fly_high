@@ -15,7 +15,7 @@
         //ログイン処理を開始
         //入力されたemail,passwordでDBから会員情報を取得できたら、正常ログイン、取得できなかったら、$error['login']にfaildを代入して、
         //パスワードの下に「ログインに失敗しました。正しくご記入ください」とメッセージを表示する
-        $sql = sprintf('SELECT `email`, `password`, `user_id` FROM `users` WHERE `email` = "%s" AND `password` = "%s"',
+        $sql = sprintf('SELECT `email`, `password`, `user_id` FROM `users` WHERE `email` = "%s" AND `password` = "%s" AND `role` = 1',
         mysqli_real_escape_string($db,$_POST['email']),
         mysqli_real_escape_string($db,sha1($_POST['password']))
         );
