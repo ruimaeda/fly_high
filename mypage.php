@@ -1,3 +1,35 @@
+<?php 
+
+session_start();
+
+//ログイン状態のチェック
+//1.セッションにIDが入っていること
+//2.最後の行動から1時間以内であること
+// if ((isset($_SESSION['login_user_id'])) && ($_SESSION['time'] + 3600 > time() )) {
+//   $_SESSION['time'] = time();
+// }else{
+//   header('Location: login.php')
+//   exit();
+// }
+
+//dbconnect.phpを読み込む
+require('dbconnect.php');
+
+//ログインしている人の情報を取得
+$sql = sprintf('SELECT * FROM `users` `user_countries` WHERE `user_id` = %d',
+       mysqli_real_escape_string($db,$_SESSION['login_user_id']));
+
+$record = mysqli_query($db,$sql) or die(mysqli_error($db));
+$user = mysqli_fetch_assoc($record);
+
+//ログインしている人の選択した国情報を取得
+$sql = sprintf('SELECT * FROM `user_countries` INNER JOIN `countries` on `countries`.`country_id` = `user_countries`.`country_id` ');
+$record = mysqli_query($db,$sql) or die(mysqli_error($db));
+$user_country = mysqli_fetch_assoc($record);
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,13 +115,13 @@
       <div class="col-md-6">
         <div class="about-text">
           <h4>名前</h4>
-          <p>フライ・ハイ</p>        
+          <p><?php echo $user['nick_name']; ?></p>        
           </div>
       </div>
       <div class="col-md-6">
         <div class="about-text">
           <h4>メールアドレス</h4>
-          <p>flyhigh@gmail.com</p>
+          <p><?php echo $user['email']; ?></p>
         </div>
       </div>
     </div>
@@ -99,16 +131,18 @@
 <div id="style">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
-      <h2>Choose Your style</h2>
+      <h2>Your style</h2>
       <hr>
       <div class="clearfix"></div>
-      <p>旅のスタイルを選んでください。</p>
+      <p>あなたが選択した旅のスタイルです。</p>
     </div>
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
+
               <img src="img/style/icon_alone.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">ひとり旅</p>
+              
+              <p id="country-name"><?php echo $user['travel_purpose'] ?></p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -161,10 +195,10 @@
 <div id="country">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
-      <h2>Choose Your Country</h2>
+      <h2>Your Country</h2>
       <hr>
       <div class="clearfix"></div>
-      <p>あなたが行きたい場所を選んでください。</p>
+      <p>あなたが選択した国です。</p>
     </div>
     <div class="categories">
       <ul class="cat">
@@ -186,7 +220,7 @@
           <div class="portfolio-item">
             <div class="hover-bg">
               <img src="img/country/ireland.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
-              <p id="country-name">アイルランド</p>
+              <p id="country-name"><?php echo $user_country['county_name']; ?></p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
@@ -428,29 +462,29 @@
           
           <div class="box30">
           <div class="box-title box1">性別</div>
-          <p>男</p>
+          <p><?php echo $user['gender'] ?></p>
           <p><i class="fa fa-user logo" aria-hidden="true"></i></p>
          <!--  <i class="fa fa-venus-mars logo" aria-hidden="true"></i> -->
           </div>
           <div class="box30">
           <div class="box-title box3">居住地</div>
-          <p>東京</p>
+          <p><?php echo $user['address'] ?></p>
           <p><i class="fa fa-home logo" aria-hidden="true"></i></p>
           </div>
           <div class="box30">
           <div class="box-title box5">料金以外の旅行先の決め手</div>
-          <p>自然 / 歴史的建造物 / リゾート・ビーチ / ショッピング / グルメ</p>
+          <p><?php echo $user['travel_purpose'] ?></p>
           <p><i class="fa fa-university logo" aria-hidden="true"></i></p>
           </div>
           <div class="box30">
           <div class="box-title box7">海外旅行の平均的な期間</div>
-          <p>3日</p>
+          <p><?php echo $user['travel_period'] ?></p>
           <p><i class="fa fa-calendar logo" aria-hidden="true"></i></p>
 
           </div>
           <div class="box30">
           <div class="box-title box9">過去1年間の海外旅行の回数</div>
-          <p>3回</p>
+          <p><?php echo $user['travel_time'] ?></p>
           <p><i class="fa fa-plane logo" aria-hidden="true"></i></p>
           </div>
           
@@ -461,27 +495,27 @@
           <!-- <h4><i class="fa fa-reply" aria-hidden="true"></i> ANSWER</h4> -->
           <div class="box30">
           <div class="box-title box2">年齢</div>
-          <p>22</p>
+          <p><?php echo $user['age']  ?></p>
           <p><i class="fa fa-binoculars logo" aria-hidden="true"></i></p>
           </div>
           <div class="box30 ">
           <div class="box-title box4">年収</div>
-          <p>300万未満</p>
+          <p><?php echo $user['income'] ?></p>
           <p><i class="fa fa-money logo" aria-hidden="true"></i></p>
           </div><div class="box30">
           <div class="box-title box6">海外旅行の平均的な予算</div>
-          <p>5〜10万</p>
+          <p><?php echo $user['travel_budget'] ?></p>
           <p><i class="fa fa-diamond logo" aria-hidden="true"></i></p>
           </div>
           <div class="box30">
           <div class="box-title box8">これまでに訪れた国の数</div>
-          <p>100カ国</p>
+          <p><?php echo $user['travel_country'] ?></p>
           <p><i class="fa fa-globe logo" aria-hidden="true"></i></p>
           </div>
           
           <div class="box30">
           <div class="box-title box10">FLY HIGHを知ったきっかけ</div>
-          <p>友人</p>
+          <p><?php echo $user['know_flyhigh'] ?></p>
           <p><i class="fa fa-comments-o logo" aria-hidden="true"></i></p>
           </div>
 
