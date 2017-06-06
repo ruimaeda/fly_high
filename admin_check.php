@@ -71,8 +71,14 @@
       );
       //SQL文の実行と変数への代入
       $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+
+      while(true){
       $select_user_id = mysqli_fetch_assoc($select_user_ids);
+        if($select_user_id['user_id'] == false){
+        break;
+       }
       $select_user_id_array[] = $select_user_id['user_id'];
+      }
     }
 
     var_dump($select_user_id_array);
