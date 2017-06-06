@@ -18,18 +18,20 @@
 
 
 
-  // //DB登録処理（パスワードはsha1で暗号化）
-  // if (!empty($_POST)) {$sql = sprintf('INSERT INTO');
+  // //DB登録処理(ok)
+  if (!empty($_POST)) {
+    $sql = sprintf('INSERT INTO `users` (`nick_name`, `email`, `password`, `created`, `modified`) VALUES ("%s", "%s", "%s", now(), now());',
+        mysqli_real_escape_string($db,$_SESSION['signup']['nick_name']),
+        mysqli_real_escape_string($db,$_SESSION['signup']['email']),
+        mysqli_real_escape_string($db,sha1($_SESSION['signup']['password']))
+        );
 
+    //SQL文を実行し、うまくいったら遷移(ok)
+    mysqli_query($db, $sql) or die(mysqli_error($db));
+    header("Location: thanks.php");
+    exit();
 
-
-
-  //   //SQL文を実行し、うまくいったら遷移する処理
-  //   mysqli_query($db, $sql) or die(mysqli_error($db));
-  //   header("Location: thanks.php");
-  //   exit();
-
-  // }
+  }
 
 ?>
 
@@ -118,16 +120,19 @@
       <hr>
     </div>
     <div class="row">
-      <div class="about-text">
-        <div class="col-md-6">
-          <h4><small>名前</small></h4>
-          <p><?php echo $nick_name; ?></p>
+      <form id="form_check" method="post" action="">
+        <input type="hidden" name="action" value="submit">
+        <div class="about-text">
+          <div class="col-md-6">
+            <h4><small>名前</small></h4>
+            <p><?php echo $nick_name; ?></p>
+          </div>
+          <div class="col-md-6">
+            <h4><small>メールアドレス</small></h4>
+            <p><?php echo $email; ?></p>
+          </div>
         </div>
-        <div class="col-md-6">
-          <h4><small>メールアドレス</small></h4>
-          <p><?php echo $email; ?></p>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
@@ -451,18 +456,17 @@
 </div>
 </div>
 
-
 <!-- ボタンsectionのdivを作り、新しくid=buttonを付ける -->
 <!-- <form method="post" action=""> -->
 <div id="button">
   <div class="container">
-    <form method="post" action="" class="form-horizontal" role="form">
+    <!-- <form method="post" action="" class="form-horizontal" role="form"> -->
       <div class="text-center">
-        <!-- <a href="signup.php" type="submit" class="btn btn-default">書き直す</a> -->
         <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;書き直す</a>
-        <button type="submit" class="btn btn-default">登録する</button>
+        <!-- <button form="form_check" type="submit" class="btn btn-default">登録する</button> -->
+        <input form="form_check" type="submit" class="btn btn-default" value="会員登録">
       </div>
-    </form>
+    <!-- </form> -->
   </div>
 </div>
 
@@ -478,7 +482,7 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script> 
 <script type="text/javascript" src="js/jquery.parallax.js"></script> 
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="js/contact_me.js"></script> 
+<!-- <script type="text/javascript" src="js/contact_me.js"></script>  -->
 
 <!-- Javascripts
     ================================================== --> 
