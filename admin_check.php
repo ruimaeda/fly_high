@@ -114,7 +114,7 @@
 
     //SQL文を実行する処理
     mysqli_query($db,$sql) or die(mysqli_error($db));
-    header("location: admin.php");
+    header("location: sendmail.php");
     exit();
   }
 
@@ -780,7 +780,7 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-      <form method="post" action="sendmail.php" class="form-horizontal">
+      <form method="post" action="" class="form-horizontal">
         <input type="hidden" name="action" value="submit">
         <table class="table table-striped table-condensed">
           <tbody>

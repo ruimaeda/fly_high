@@ -27,7 +27,7 @@ $smtp_password = "flyhigh0403";
 $to_array = $_SESSION['mail_address'];
 $subject = $_SESSION['admin']['title'];
 $body = $_SESSION['admin']['message'];
-$fromname = "チームFLYHIGH";
+$fromname = "FLYHIGH";
 $fromaddress = "sendflyhigh@gmail.com";
 $ccaddress = "";
 $bccaddress = "louis@tabippo.net";
@@ -64,8 +64,8 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
   $mailer -> Username = $smtp_user;        // Gmailのアカウント名
   $mailer -> Password = $smtp_password;    // Gmailのパスワード
   $mailer -> From     = $fromaddress;      // Fromのメールアドレス
-  $mailer -> FromName = mb_encode_mimeheader ( mb_convert_encoding ( $fromname, "JIS", "UTF-8" ) );
-  $mailer -> Subject  = mb_encode_mimeheader ( mb_convert_encoding ( $subject, "JIS", "UTF-8" ) );
+  $mailer -> FromName = mb_convert_encoding ( $fromname, "JIS", "UTF-8" );
+  $mailer -> Subject  = mb_convert_encoding ( $subject, "JIS", "UTF-8" );
   $mailer -> Body     = mb_convert_encoding ( $body, "JIS", "UTF-8" );
   // $mailer -> AddAddress ( $to );
   foreach ( $to_array as $to ) {
@@ -79,12 +79,19 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
   // }
 
   if( !$mailer -> Send() ){
-    $message  = "Message was not sent<br/ >";
+    $message  = "送信に失敗しました";
     $message .= "Mailer Error: " . $mailer->ErrorInfo;
   } else {
-    $message  = "Message has been sent";
+    $message  = "送信に成功しました";
   }
-  return $message;
+
+  // if( !$mailer -> Send() ){
+  //   $message  = "Message was not sent<br/ >";
+  //   $message .= "Mailer Error: " . $mailer->ErrorInfo;
+  // } else {
+  //   $message  = "Message has been sent";
+  // }
+  // return $message;
 
 }
 
@@ -131,6 +138,7 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
 
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css"  href="css/admin_bootstrap.css">
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
 
 <!-- Stylesheet
@@ -142,6 +150,7 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
 <link rel="stylesheet" type="text/css"  href="css/thanks.css">
 <link rel="stylesheet" type="text/css"  href="css/login.css">
 <link rel="stylesheet" type="text/css"  href="css/admin_login.css">
+<link rel="stylesheet" type="text/css"  href="css/sendmail.css">
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -161,29 +170,12 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
   <div class="intro-body bg">
     <div class="container box">
       <h1>メール送信結果</h1>
-        <h2>送信成功しました</h2>
-<!--         <div class="card card-container">
-                  <img id="profile-img" class="profile-img-card" src="img/flyhigh_logo.png" />
-                  <form method="post" action="" class="form-signin">
-                      <span id="reauth-email" class="reauth-email"></span>
-                      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
-                      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
-                      <div id="remember" class="checkbox">
-                          <label>
-                              <input type="checkbox" name="save" value="remember-me"><span class="auto-login">自動ログインする</span>
-                          </label>
-                      </div>
-                      <div class="login-btn-field">
-                        <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信"></input>
-                      </div>
-                      <?php if(isset($error['login']) && $error['login'] == 'faild'){ ?>
-                        <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
-                      <?php } ?>
-                  </form>
-                  <a href="#" class="forgot-password">
-                      パスワードを忘れましたか？
-                  </a>
-              </div><!-- /card-container --> -->
+        <?php if($message  = "送信に成功しました") { ?>
+        <h2>送信成功です</h2>
+        <?php }else{ ?>
+        <h2>送信失敗です</h2>
+        <?php } ?>
+        <a href="admin.php"><button type="button" class="btn btn-custom btn-lg2">ADMINトップへ戻る</button></a>
     </div>
   </div>
 </div>
@@ -197,9 +189,8 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
-<!-- <script type="text/javascript" src="js/signup.js"></script> -->
-<!-- <script type="text/javascript" src="js/login.js"></script> -->
+<!-- <script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/admin_contact_me.js"></script> -->
 
 <!-- Javascripts
     ================================================== -->
