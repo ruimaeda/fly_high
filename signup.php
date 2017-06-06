@@ -1,6 +1,9 @@
 <?php
   session_start();
 
+  //DBへ接続
+  require('dbconnect.php');
+
 
   //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
@@ -11,15 +14,34 @@
     // echo('</pre>');
 
 
-    //エラー項目の確認（ブランクの場合についてはjsで表示済）
-    //エラー項目の確認：email（＠マークがない場合をエラーにする）(ok)
+    //入力されたemailから会員情報を取得できたら、「すでに登録されています」を表示する
+    $sql = sprintf('SELECT `email` FROM `users` WHERE `email` = "%s"',
+    mysqli_real_escape_string($db,$_POST['email'])
+    );
+
+    //SQLを実行
+    $user_emails = mysqli_query($db,$sql) or die(mysqli_error($db));
+    $user_email = mysqli_fetch_assoc($user_emails);
+
+
+    // データは取れてきている！(ok)
+    // echo('<pre>');
+    // var_dump($user_email);
+    // echo('</pre>');
+
+
     $email=htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
 
+    //エラー項目の確認（ブランクの場合についてはjsで表示済）
+    //エラー項目の確認：email（＠マークがない場合をエラーにする）(ok)
     if ($email !== "" && strpos($email, "@") === FALSE){
       $error['email'] = "wrong";
     }
 
-    //エラー項目の確認：:email（すでに登録されています処理=DBを使う）(まだ)
+    //エラー項目の確認：:email（すでに登録されています処理=DBを使う）(ok)
+    if ($_POST['email'] == $user_email['email']) {
+      $error['email']='already';
+    }
 
 
     //エラー項目の確認：pass(文字長６文字以上)(ok)
@@ -125,7 +147,7 @@
 </nav>
 
 <!-- Header -->
-<form method="post" action="">
+<!-- <form method="post" action=""> -->
 <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
@@ -135,6 +157,7 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
               <!-- <form method="post" action=""> -->
+              <form id="form_signup" method="post" action="">
 
 
                 <!-- ニックネーム -->
@@ -170,9 +193,13 @@
                       <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                     <?php endif; ?>
                   </div>
-                  <!-- ＠マークない場合の処理(ok) -->
+                  <!-- ＠マークない場合の表示(ok) -->
                   <?php if(isset($error['email']) && $error['email']=='wrong'){ ?>
                     <p class="error">* メールアドレスに@が含まれていません。</p>
+                  <?php } ?>
+                  <!-- すでに登録されている時の表示(ok) -->
+                  <?php if(isset($error['email']) && $error['email']=='already'){ ?>
+                    <p class="error">* このメールアドレスはすでに登録されています。</p>
                   <?php } ?>
                 </div>
 
@@ -202,7 +229,7 @@
                     <p class="error">* passwordが違います</p>
                   <?php } ?>
                 </div>
-              <!-- </form> -->
+              </form>
             </div>
         </div>
     </div>
@@ -552,8 +579,8 @@
   <div class="container">
     <div class="text-center">
       <a href="index.php" type="submit" class="btn btn-default">TOPページに戻る</a>
-      <!-- <button type='submit' name='nick_name' value='send'>送信</button> -->
-      <button type="submit" class="btn btn-default">ユーザー登録する</button>
+      <!-- <button type="submit" class="btn btn-default">ユーザー登録する</button> -->
+      <button form="form_signup" type="submit" class="btn btn-default">ユーザー登録する</button>
     </div>
     <div class="text-center agree">
       アカウントを作成することで、Fly Highの<a href="terms.php">利用規約</a>と<a href="policy.php">プライバシーポリシー</a>に同意するものとします。
@@ -568,7 +595,7 @@
     </div>
   </div>
 </div>
-</form>
+<!-- </form> -->
 
 
 
