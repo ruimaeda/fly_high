@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>FLYHIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -55,7 +55,7 @@
 </nav>
 
 <!-- Header -->
-<div id="intro" class=>
+<div id="intro">
   <div class="intro-body bg">
     <div class="container box">
       <h1>お疲れ様でした</h1>
@@ -63,20 +63,9 @@
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-              <form method="post">
-             
-                <!-- <div class="form-group">
-                  <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードを入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
-                  </div>
-                </div> -->
-               
-                </form>
-                <button type="submit" class="btn btn-default btn-unsbscribe">TOPページに戻る</button>
+                <a href="index.php"><button type="button" class="btn btn-custom btn-lg2">TOPページに戻る</button></a>
               <!--    <button type="submit" class="btn btn-default btn-unsbscribe">
                  退会する</button> -->
-
             </div>
         </div>
     </div>
@@ -93,11 +82,11 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
-<script type="text/javascript" src="js/signup.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
+<!-- <script type="text/javascript" src="js/signup.js"></script> -->
 
 <!-- Javascripts
     ================================================== -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>
-</html> -->
+</html>

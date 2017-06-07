@@ -6,7 +6,15 @@
   require('dbconnect.php');
 
   //自動ログイン処理
+  if (isset($_COOKIE['email']) && !empty($_COOKIE['email'])){
 
+    //COOKIEに保存されているログイン情報が入力されてPOST送信されてきたかのように$_POSTに値を代入
+
+    $_POST['email'] = $_COOKIE['email'];
+    $_POST['password'] = $_COOKIE['password'];
+    $_POST['save'] = 'on';
+
+  }
 
   //ログイン処理
   //POST送信されているか確認する
