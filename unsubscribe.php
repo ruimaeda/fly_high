@@ -1,5 +1,46 @@
+<?php
+// var_dump($_SESSION['login_user_id']);
+
+//セッションを開始
+ session_start();
+
+ //DBへ接続
+ require('dbconnect.php');
+
+ //退会処理
+ //POST送信されているか確認する
+ if (!empty($_POST)) {
+  var_dump("POST送信されているか確認する");
+
+       //セッションから取得したユーザーIDと入力されたpasswordでDBから会員情報を取得できたら、退会処理を実行
+       //取得できなかったら、$error['login']にfaildを代入して、エラーメッセージを表示する
+       $sql = sprintf('SELECT `email`, `password`, `user_id` FROM `users` WHERE `user_id` = "%s" AND `password` = "%s"',
+       mysqli_real_escape_string($db,$_SESSION['login_user_id']),
+       mysqli_real_escape_string($db,sha1($_POST['password']))
+       );
+
+       //SQLを実行
+       $record = mysqli_query($db,$sql) or die(mysqli_error($db));
+       //$tableってなんだっけ？
+       if ($table = mysqli_fetch_assoc($record)) {
+         //パスワード確認成功
+         $sql = 'UPDATE `users` SET `delete_flag` = 1 WHERE `user_id` = '.$_SESSION['login_user_id'];
+
+         //ログイン後のadmin.php（トップページ）に遷移
+         header("location: otukare.php");
+         exit();
+
+       }else{
+         //パスワード確認失敗
+         $error['password'] = 'faild';
+       }
+ }
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,25 +99,25 @@
 <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
-      <h1>UNSUBSCRIBE</h1>
-                <p class="lead">登録内容が全て破棄されます。本当に退会しますか？</p>
+      <h1>FLYHIGHを退会する</h1>
+                <p class="lead">登録内容が全て失われます。本当に退会しますか？</p>
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-              <form method="post">
-             
+              <form method="post" action="">
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードを入力してください" required>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="退会する場合はパスワードを入力してください" required>
+                    <!-- <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="退会する場合はパスワードを入力してください" required> -->
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <?php if(isset($error['password']) && $error['password'] == 'faild'){ ?>
+                      <p class="error">パスワードが間違っています</p>
+                    <?php } ?>
                 </div>
-               
+                <button type="button" class="btn btn-default btn-unsbscribe">編集ページに戻る</button>
+                <button type="submit" class="btn btn-default btn-unsbscribe">退会する</button>
                 </form>
-                <button type="submit" class="btn btn-default btn-unsbscribe">編集ページに戻る</button>
-                 <button type="submit" class="btn btn-default btn-unsbscribe">
-                 退会する</button>
-
             </div>
         </div>
     </div>
@@ -91,8 +132,8 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
-<script type="text/javascript" src="js/signup.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/signup.js"></script> -->
 
 <!-- Javascripts
     ================================================== -->
