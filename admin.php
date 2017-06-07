@@ -85,6 +85,14 @@
 
   //セール送信フォームからデータがPOST送信された時の空データと拡張子チェックとエラーがない場合、画像をアップロード
   if (!empty($_POST)) {
+    var_dump("POST送信を確認");
+
+    if (isset($_FILES['picture'])) {
+      var_dump("FILE送信を確認");
+    }else{
+      var_dump("FILE送信を未確認");
+    }
+
     //エラー項目の確認
     //タイトルが入力されていない場合に$error'blank'を代入
     if ($_POST['title'] == '') {
@@ -97,29 +105,29 @@
     }
 
     //画像ファイルの拡張子チェック（$_FILES）
-    // $fileName = $_FILES['picture_path']['name'];
-    // if (!empty($fileName)){
+    $fileName = $_FILES['picture_path']['name'];
+    if (!empty($fileName)){
 
-    //   //拡張子を取得
-    //   $ext = substr($fileName, -3);
-    //   $ext = strtolower($ext);
+      //拡張子を取得
+      $ext = substr($fileName, -3);
+      $ext = strtolower($ext);
 
-    //   if($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
-    //     $error['picture_path'] = 'type';
-    //   }
-    // }
+      if($ext != 'jpg' && $ext != 'gif' && $ext != 'png') {
+        $error['picture_path'] = 'type';
+      }
+    }
 
       //エラーが無い場合
       if (empty($error)) {
-        // //画像をアップロードする
-        // $picture_path = date('YmdHis') . $_FILES['picture_path']['name'];
-        // move_uploaded_file($_FILES['picture_path']['tmp_name'], 'img/sales' . $picture_path);
+        //画像をディレクトリにアップロードする
+        $picture_path = date('YmdHis') . $_FILES['picture_path']['name'];
+        move_uploaded_file($_FILES['picture_path']['tmp_name'], 'img/sales/' . $picture_path);
 
         //セッションに値を保存する
         $_SESSION['admin'] = $_POST;
         $_SESSION['admin']['picture_path'] = $picture_path;
 
-        header('Location: admin_check.php');
+        // header('Location: admin_check.php');
       }
     }
 
@@ -204,7 +212,7 @@
 </div>
 
 <!-- Style Section -->
-<form method="post" action="">
+<form method="post" action="" enctype=”multipart/form-data”>
 <div id="about">
   <div class="container">
     <div class="section-title text-center center">
@@ -212,7 +220,6 @@
       <hr>
     </div>
     <div class="row">
-      <!-- <form method="post" action=""> -->
         <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
@@ -270,7 +277,6 @@
                 </label>
             </div> -->
         </div>
-      <!-- </form> -->
     </div>
   </div>
 </div>
@@ -514,7 +520,6 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-      <!-- <form method="post" action=""> -->
         <!-- タイトル -->
         <div class="row">
             <div class="col-md-12">
@@ -544,15 +549,13 @@
         <!-- 画像 -->
         <div class="row">
             <div class="col-md-12">
-                <input type="file" name="picture_path" class="form-control">
-                <!-- type="file"が指定されている。 -->
-                <!-- <?php if(isset($error['picture_path']) && $error['picture_path']=='type'){ ?> -->
-                <!-- <p class="error">*写真は「.gif」「.jpg」「.png」の画像を指定してください。</p> -->
-                <!-- <?php } ?> -->
-                <!-- nicknameやemailのように戻っても表示させるのは結構大変なので、もう一度指定してもらうように誘導する -->
-                <!-- <?php if (!empty($error)): ?> -->
-                  <!-- <p class="error">* もう一度画像を指定してください。</p> -->
-                <!-- <?php endif; ?> -->
+                <input type="file" name="picture" class="form-control">
+                <?php if(isset($error['picture_path']) && $error['picture_path'] == 'type'): ?>
+                  <p class="error">写真は.gifか.jpgか.pngで指定してください(๑•̀ㅂ•́)و✧</p>
+                <?php endif; ?>
+                <?php if (!empty($error)): ?>
+                  <p class="error">画像を改めて指定してください</p>
+                <?php endif; ?>
             </div>
         </div>
         <?php if(isset($error['title']) && $error['title'] == 'blank'){ ?>
@@ -567,7 +570,6 @@
         <!-- この位置だと間違ってログアウトボタンを押しそうなのでヘッダーに移動-->
         <!-- <button type="submit" class="btn btn-custom btn-lg2">LOG OUT</button> -->
         <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認</button>
-      <!-- </form> -->
     </div>
   </div>
 </div>
