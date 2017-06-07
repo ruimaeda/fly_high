@@ -33,7 +33,6 @@
 
   if(isset($_SESSION['admin']['country'])) {
   //adminで選択された国を使って、国テーブルから国IDを取得し、ユーザー国テーブルからユーザーIDを取得し、ユーザーテーブルからメールアドレスを取得する処理
-
     //こっちは配列のままのバージョン
     //繰り返しで$_SESSION['admin']['country']の中身を出して、別の配列に代入する必要がある
     $select_country_id_array = array();
@@ -51,17 +50,6 @@
     }
 
     var_dump($select_country_id_array);
-
-    //上記で取得した国IDを展開しながら、user_idを取得する処理
-    // $select_user_id_array = array();
-    // $sql = sprintf('SELECT `user_id` FROM `user_countries` WHERE `country_id` = "%s"',
-    //   mysqli_real_escape_string($db,$select_country_id_value)
-    //   );
-    // $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
-
-    // //繰り返し開始
-    // while(true){
-    // }
 
     // foreachで展開
     $select_user_id_array = array();

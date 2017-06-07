@@ -21,10 +21,40 @@
 
   // }
 
-  //国やスタイルを選択している人数を表示する処理
+  //スタイルを選択している人数を表示する処理
+    //style_nameとstyle_idを含む配列$find_style_arrayを作成する
+    $find_style_array = array();
+    $sql = sprintf('SELECT `style_id`, `style_name` FROM `styles`');
+    $find_styles = mysqli_query($db,$sql) or die(mysqli_error($db));
+
+    //繰り返し開始
+    while(true) {
+    $find_style = mysqli_fetch_assoc($find_styles);
+      if($find_style == false){
+        break;
+      }
+    $sql = 'SELECT COUNT(*) as `user_number` FROM `user_styles` WHERE `style_id`='.$find_style['style_id'];
+
+    $count_userstyle_numbers = mysqli_query($db,$sql) or die(mysqli_error($db));
+    $count_userstyle_number = mysqli_fetch_assoc($count_userstyle_numbers);
+    $find_style['user_number'] = $count_userstyle_number['user_number'];
+
+    $find_style_array[] = $find_style;
+    }
+    //繰り返し終了
+
+    //$find_country_arrayに含まれるstyle_nameを使って、user_numberを取得する
+    foreach($find_style_array as $data) {
+      //$$cnameで配列名を成立させるために、$data['country_name']のスペースを詰める処理
+      $sname = str_replace(" ","",$data['style_name']);
+      if ($data['style_name'] == $sname) {
+        $$sname = $data['user_number'];
+      }
+    }
+
+  //国を選択している人数を表示する処理
     //delete_flag=0のcountry_nameとcountry_idを含む配列$find_country_arrayを作成する
     $find_country_array = array();
-
     $sql = sprintf('SELECT `country_id`, `country_name` FROM `countries` WHERE `delete_flag` = 0');
     $find_countries = mysqli_query($db,$sql) or die(mysqli_error($db));
 
@@ -52,19 +82,6 @@
         $$cname = $data['user_number'];
       }
     }
-
-    //ベタに全部書いた処理
-    // foreach($find_country_array as $data) {
-    //   if ($data['country_name'] == "United Arab Emirates") {
-    //     $UnitedArabEmirates = $data['user_number'];
-    //   }
-    // }
-
-    // foreach($find_country_array as $data) {
-    //   if ($data['country_name'] == "India") {
-    //     $India = $data['user_number'];
-    //   }
-    // }
 
   //セール送信フォームからデータがPOST送信された時の空データと拡張子チェックとエラーがない場合、画像をアップロード
   if (!empty($_POST)) {
@@ -200,49 +217,49 @@
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
                   <input type="checkbox" name="style[]" value="alone">
-                  ひとり旅
+                  ひとり旅：<?php echo $alone ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="couple">
                   <input type="checkbox" name="style[]" value="couple">
-                  カップル・夫婦
+                  カップル・夫婦：<?php echo $couple ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="family">
                   <input type="checkbox" name="style[]" value="family">
-                  家族旅行
+                  家族旅行：<?php echo $family ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="food">
                   <input type="checkbox" name="style[]" id="food" value="food">
-                  グルメ
+                  グルメ：<?php echo $food ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="resort">
                   <input type="checkbox" name="style[]" id="resort" value="resort">
-                  リゾート
+                  リゾート：<?php echo $resort ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="nature">
                   <input type="checkbox" name="style[]" id="nature" value="nature">
-                  自然
+                  自然：<?php echo $nature ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="ruins">
                   <input type="checkbox" name="style[]" id="ruins" value="ruins">
-                  遺跡
+                  遺跡：<?php echo $ruins ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="shopping">
                   <input type="checkbox" name="style[]" id="shopping" value="shopping">
-                  ショッピング
+                  ショッピング：<?php echo $shopping ?>
                 </label>
             </div>
             <!-- スタイルALLを使うか分からないので、コメントアウトしてます -->
