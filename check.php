@@ -17,6 +17,16 @@
   $re_password=htmlspecialchars($_SESSION['signup']['re_password'], ENT_QUOTES, 'UTF-8');
 
 
+  //国アイルランドがPOST送信されているかどうかを変数に代入して確認する
+  $ireland = $_SESSION['signup']['ireland'];
+
+  echo('<pre>');
+  var_dump($_SESSION['signup']['ireland']);
+  echo('</pre>');
+
+
+
+
 
   // //DB登録処理(ok)
   if (!empty($_POST)) {
