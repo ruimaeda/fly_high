@@ -1,9 +1,77 @@
+<?php 
+
+session_start();
+
+require('dbconnect.php');
+
+// $_SESSION['login_user_id'] 
+// echo $_POST['name']
+
+
+if (isset($_POST) && !empty($_POST)){
+
+  //エラー項目の確認：pass(文字長６文字以上)(ok)
+  if (strlen($_POST['password'])<6) {
+    $error['password']='length';
+  }
+
+  $sql = sprintf('SELECT `email` FROM `users` WHERE `email` = "%s"',
+    mysqli_real_escape_string($db,$_POST['email'])
+    );
+
+    //SQLを実行
+    $user_emails = mysqli_query($db,$sql) or die(mysqli_error($db));
+    $user_email = mysqli_fetch_assoc($user_emails);
+
+    $email=htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
+
+    //エラー項目の確認（ブランクの場合についてはjsで表示済）
+    //エラー項目の確認：email（＠マークがない場合をエラーにする）(ok)
+    if ($email !== "" && strpos($email, "@") === FALSE){
+      $error['email'] = "wrong";
+    }
+
+    //エラー項目の確認：:email（すでに登録されています処理=DBを使う）(ok)
+    if ($_POST['email'] == $user_email['email']) {
+      $error['email']='already';
+    }
+
+   //エラー項目の確認：確認用pass(ok)
+  if ($_POST['re_password'] !== $_POST['password']) {
+    $error['re_password']='not_same';
+  }
+
+    if(empty($error)){
+
+      $sql = sprintf('UPDATE `users` SET `nick_name`="%s" ,`email` ="%s", `password` ="%s"  WHERE `user_id`= %d',
+      mysqli_real_escape_string($db,$_POST['nick_name']),
+      mysqli_real_escape_string($db,$_POST['email']),
+      mysqli_real_escape_string($db,sha1($_POST['password'])),
+      mysqli_real_escape_string($db,$_SESSION['login_user_id']));
+
+       mysqli_query($db,$sql) or die(mysqli_error($db));
+      
+      //mypageに遷移(ok)
+      header('Location: mypage.php');
+      exit();
+    }
+
+
+    
+     
+  }
+// var_dump($_SESSION['login_user_id']);
+
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>FLYHIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -37,7 +105,7 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i> Modus</a> </div>
+      <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i> FLYHIGH</a> </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -54,7 +122,8 @@
 </nav>
 
 <!-- Header -->
-<div id="intro">
+<form action="" method="post">
+  <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
       <h1>Edit</h1>
@@ -62,32 +131,56 @@
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-              <form method="post">
+              <!-- <form method="post"　action=""> -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="お名前を入力してください" required>
+                    <input type="text" class="form-control" name="nick_name" id="validate-email" placeholder="お名前を入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="メールアドレスを入力してください" required>
+                    <input type="text" class="form-control" name="email" id="validate-email" placeholder="メールアドレスを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+
+                  <!-- すでに登録されている時の表示(ok) -->
+                  <?php if(isset($error['email']) && $error['email']=='already'){ ?>
+                    <p class="error">* このメールアドレスはすでに登録されています。</p>
+                  <?php } ?>
+                  <!-- ＠マークない場合の表示(ok) -->
+                  <?php if(isset($error['email']) && $error['email']=='wrong'){ ?>
+                    <p class="error">* メールアドレスに@が含まれていません。</p>
+                  <?php } ?>
+
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードを入力してください" required>
+                    <input type="text" class="form-control" name="password" id="validate-email" placeholder="パスワードを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+
+                  <!-- 字数エラーの処理(ok) -->
+                  <?php if(isset($error['password']) && $error['password']=='length'){ ?>
+                    <p class="error">* passwordは6文字以上で入力してください</p>
+                  <?php } ?>
+
+
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="text" class="form-control" name="re_password" id="validate-email" placeholder="パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- パスワード確認の処理(ok) -->
+                  <?php if(isset($error['re_password']) && $error['re_password']=='not_same'){ ?>
+                    <p class="error">* passwordが違います</p>
+                  <?php } ?>
+
+
                 </div>
-                </form>
+               <!--  <button type="submit" class="btn btn-default">情報を更新する</button>
+                </form> -->
             </div>
         </div>
     </div>
@@ -105,60 +198,67 @@
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="Project Title">
+
+        <!-- value 選ばれている時1 選ばれてない時0　の実装 -->
+              <input type="image" value="" name="alone" img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">ひとり旅</p>
+              
+
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_couple.png" class="img-responsive" alt="Project Title">
+
+              <input type="image" value="" name='couple'  img src="img/style/icon_couple.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">カップル・夫婦</p>
+          
           </div>
         </div>
        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_family.png" class="img-responsive" alt="Project Title">
+              <input type="image" value="" name="family" img src="img/style/icon_family.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">家族旅行</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_food.png" class="img-responsive" alt="Project Title">
+              <input type="image" value="" name="food" img src="img/style/icon_food.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">グルメ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_resort.png" class="img-responsive" alt="Project Title">
+              <input type="image" value="" name="resort" img src="img/style/icon_resort.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">リゾート</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_nature.png" class="img-responsive" alt="Project Title">
+              <input type="image" value="" name="nature" img src="img/style/icon_nature.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">自然</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_ruins.png" class="img-responsive" alt="Project Title">
+              <input type="image" value="" name="ruins"  img src="img/style/icon_ruins.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">遺跡</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_shopping.png" class="img-responsive" alt="Project Title">
+              <input type="image" value="" name="shopping" img src="img/style/icon_shopping.png" class="img-responsive style-photo check" alt="Project Title">
               <p id="country-name">ショッピング</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->
 <!-- Country Section -->
 <div id="country">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
+
       <h2>Choose Your Country</h2>
       <hr>
       <div class="clearfix"></div>
@@ -178,6 +278,7 @@
       </ul>
       <div class="clearfix"></div>
     </div>
+
     <div class="row">
       <div class="portfolio-items">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
@@ -193,7 +294,7 @@
             <div class="hover-bg">
               <img src="img/country/usa.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
               <p id="country-name">アメリカ</p>
-          </div>
+            </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
@@ -409,6 +510,7 @@
     </div>
   </div>
 </div>
+<!-- </form> -->
 <!-- Additional Question Section -->
 <div id="add-question">
   <div class="container">
@@ -524,7 +626,6 @@
                    </select>
                  </div>
                </div>
-
                <!-- Select Basic -->
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">過去1年間の海外旅行の回数</label>
@@ -554,24 +655,28 @@
                    <textarea class="form-control" id="textarea" name="textarea">要望を入力してください</textarea>
                  </div>
                </div>
-
+               
                </fieldset>
-               </form>
            </div>
        </div>
+
        <br><br><br>
       <div class="text-center">
         <button type="submit" class="btn btn-default">TOPページに戻る</button>
         <button type="submit" class="btn btn-default">情報を更新する</button>
         <button type="submit" class="btn btn-default">マイページに戻る</button>
       </div>
+
       <div class="text-center agree">
       Fly Highを退会する場合は<a hreaf="">こちら</a>をクリック
       </div>
-</div>
+
+  </div>
 
   </div>
 </div>
+</form>
+
 <div id="footer">
   <div class="container">
     <p>Copyright &copy; FlyHigh</p>
@@ -587,7 +692,7 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
 <script type="text/javascript" src="js/signup.js"></script>
 
 <!-- Javascripts
