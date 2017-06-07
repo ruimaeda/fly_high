@@ -87,8 +87,9 @@
   if (!empty($_POST)) {
     var_dump("POST送信を確認");
 
-    if (isset($_FILES['picture_path'])) {
+    if (!empty($_FILES['picture_path'])) {
       var_dump("FILE送信を確認");
+      var_dump($_FILES['picture_path']);
     }else{
       var_dump("FILE送信を未確認");
     }
@@ -212,7 +213,7 @@
 </div>
 
 <!-- Style Section -->
-<form method="post" action="" enctype=”multipart/form-data” id="send_form">
+<form method="post" action="" enctype="multipart/form-data" id="send_form">
 <div id="about">
   <div class="container">
     <div class="section-title text-center center">
@@ -549,19 +550,19 @@
         <!-- 画像 -->
         <div class="row">
             <div class="col-md-12">
-                <input type="file" name="picture_path" class="form-control" form="send_form">
-                <?php if(isset($error['picture_path']) && $error['picture_path'] == 'type'): ?>
+                <input type="file" id="picture_path" name="picture_path" class="form-control">
+                <?php if(isset($error['picture_path']) && $error['picture_path'] == 'type') { ?>
                   <p class="error">写真は.gifか.jpgか.pngで指定してください(๑•̀ㅂ•́)و✧</p>
-                <?php endif; ?>
-                <?php if (!empty($error)): ?>
+                <?php } ?>
+                <?php if (!empty($error)) { ?>
                   <p class="error">画像を改めて指定してください</p>
-                <?php endif; ?>
+                <?php } ?>
             </div>
         </div>
-        <?php if(isset($error['title']) && $error['title'] == 'blank'){ ?>
+        <?php if(isset($error['title']) && $error['title'] == 'blank') { ?>
           <p class="error">タイトルが入力されていません</p>
         <?php } ?>
-        <?php if(isset($error['message']) && $error['message'] == 'blank'){ ?>
+        <?php if(isset($error['message']) && $error['message'] == 'blank') { ?>
           <p class="error">本文が入力されていません</p>
         <?php } ?>
 
