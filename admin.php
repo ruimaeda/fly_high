@@ -217,50 +217,50 @@
 <div id="about">
   <div class="container">
     <div class="section-title text-center center">
-      <h2>配信先のスタイルを選択</h2>
+      <h2>スタイルは選べません、登録人数を見るだけです</h2>
       <hr>
     </div>
     <div class="row">
         <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="alone">
-                  <input type="checkbox" name="style[]" value="alone">
+                  <input type="checkbox" name="style[]" value="alone" disabled='disabled' checked='checked'>
                   ひとり旅：<?php echo $alone ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="couple">
-                  <input type="checkbox" name="style[]" value="couple">
+                  <input type="checkbox" name="style[]" value="couple" disabled='disabled' checked='checked'>
                   カップル・夫婦：<?php echo $couple ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="family">
-                  <input type="checkbox" name="style[]" value="family">
+                  <input type="checkbox" name="style[]" value="family" disabled='disabled' checked='checked'>
                   家族旅行：<?php echo $family ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="food">
-                  <input type="checkbox" name="style[]" id="food" value="food">
+                  <input type="checkbox" name="style[]" id="food" value="food" disabled='disabled' checked='checked'>
                   グルメ：<?php echo $food ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="resort">
-                  <input type="checkbox" name="style[]" id="resort" value="resort">
+                  <input type="checkbox" name="style[]" id="resort" value="resort" disabled='disabled' checked='checked'>
                   リゾート：<?php echo $resort ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="nature">
-                  <input type="checkbox" name="style[]" id="nature" value="nature">
+                  <input type="checkbox" name="style[]" id="nature" value="nature" disabled='disabled' checked='checked'>
                   自然：<?php echo $nature ?>
                 </label>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <label class="checkbox-inline" for="ruins">
-                  <input type="checkbox" name="style[]" id="ruins" value="ruins">
+                  <input type="checkbox" name="style[]" id="ruins" value="ruins" disabled='disabled' checked='checked'>
                   遺跡：<?php echo $ruins ?>
                 </label>
             </div>
@@ -290,7 +290,7 @@
 <div class="overlay">
   <div class="container box">
     <div class="section-title center">
-      <h2>配信先の国を選択</h2>
+      <h2 style="color:white">配信先の国を選択</h2>
       <hr>
     </div>
     <div class="row">

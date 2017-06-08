@@ -21,7 +21,6 @@ $smtp_user = "sendflyhigh@gmail.com";
 $smtp_password = "flyhigh0403";
 
 //配列を設定する
-//SESSIONから取得しているが、これは正しいのか？
 // $to_array = "ruisu0717@gmail.com";
 $to_array = $_SESSION['mail_address'];
 $subject = $_SESSION['admin']['title'];
@@ -31,10 +30,17 @@ $fromaddress = "sendflyhigh@gmail.com";
 $ccaddress = "";
 $bccaddress = "louis@tabippo.net";
 
+//画像が添付されている場合、変数に設定
+if (!empty($_SESSION['admin']['picture_path'])) {
+var_dump("picture_pathが設定されている");
+var_dump($_SESSION['admin']['picture_path']);
+$attachfile = $_SESSION['admin']['picture_path'];
+}
+
 var_dump($to_array);
 
 // Phpmailerを使ってメールを送信する関数の呼び出し
-$res = phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $ccaddress, $bccaddress );
+$res = phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $ccaddress, $bccaddress, $attachfile );
 
 if ( $res == "Message has been sent" ){
   // 正常処理
@@ -44,7 +50,7 @@ if ( $res == "Message has been sent" ){
 
 
 // SMTPを使ってメール送信関数
-function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $ccaddress="", $bccaddress="" ){
+function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $ccaddress="", $bccaddress="", $attachfile ){
 
   global $smtp_host, $smtp_port, $smtp_user, $smtp_password;
 
@@ -66,6 +72,7 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
   $mailer -> FromName = mb_convert_encoding ( $fromname, "JIS", "UTF-8" );
   $mailer -> Subject  = mb_convert_encoding ( $subject, "JIS", "UTF-8" );
   $mailer -> Body     = mb_convert_encoding ( $body, "JIS", "UTF-8" );
+  $mailer->AddAttachment('img/sale/'.$attachfile);
   // $mailer -> AddAddress ( $to );
   foreach ( $to_array as $to ) {
     $mailer -> AddAddress ( $to );         // TO
