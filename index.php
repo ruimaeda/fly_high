@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLY HIGH-Modus</title>
+<title>FLY HIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -75,7 +75,7 @@
 <div id="about">
   <div class="container">
     <div class="section-title text-center center">
-      <h2>About us</h2>
+      <h2>About</h2>
       <hr>
     </div>
     <div class="row">
@@ -95,7 +95,7 @@
 <div class="overlay">
   <div class="container box">
     <div class="section-title center">
-      <h2>Our Merit</h2>
+      <h2>Merit</h2>
       <hr>
     </div>
     <div class="space"></div>
@@ -127,7 +127,7 @@
 </div>
 
 
-<!-- Portfolio Section -->
+<!-- Country Section -->
 <div id="works">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
@@ -152,124 +152,124 @@
     </div>
     <div class="row">
       <div class="portfolio-items">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>Korea</h4>
+                <h4>アメリカ</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="img/country/korea.jpg" class="img-responsive" ></a> </div>
+              <img src="img/country/usa.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>India</h4>
+                <h4>インドネシア</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="img/country/india.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/indonesia.jpg" class="img-responsive country-photo" ></a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 oceania">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4>オーストラリア</h4>
+                <p>¥10,000</p>
+              </div>
+              <img src="img/country/australia.jpg" class="img-responsive country-photo"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 north_america">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4>カナダ</h4>
+                <p>¥10,000</p>
+              </div>
+              <img src="img/country/canada.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>Taiwan</h4>
+                <h4>シンガポール</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="img/country/taiwan.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/singapore.jpg" class="img-responsive country-photo"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 europe">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4>スペイン</h4>
+                <p>¥10,000</p>
+              </div>
+              <img src="img/country/spain.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>Thailand</h4>
+                <h4>タイ</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="img/country/thailand.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/thailand.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>China</h4>
+                <h4>台湾</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="img/country/china.jpg" class="img-responsive"> </a> </div>
+              <img src="img/country/taiwan.jpg" class="img-responsive country-photo"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 oceania">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4>ニュージーランド</h4>
+                <p>¥10,000</p>
+              </div>
+              <img src="img/country/newzealand.jpg" class="img-responsive country-photo"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 oceania">
+          <div class="portfolio-item">
+            <div class="hover-bg">
+              <div class="hover-text">
+                <h4>ハワイ</h4>
+                <p>¥10,000</p>
+              </div>
+              <img src="img/country/hawaii.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>Dubai</h4>
+                <h4>フィリピン</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="img/country/uae.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/elnido.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
               <div class="hover-text">
-                <h4>Indonesia</h4>
+                <h4>フィンランド</h4>
                 <p>¥10,000</p>
               </div>
-              <img src="img/country/indonesia.jpg" class="img-responsive"> </a> </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <div class="hover-text">
-                <h4>Vietnam</h4>
-                <p>¥10,000</p>
-              </div>
-              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <div class="hover-text">
-                <h4>Vietnam</h4>
-                <p>¥10,000</p>
-              </div>
-              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <div class="hover-text">
-                <h4>Vietnam</h4>
-                <p>¥10,000</p>
-              </div>
-              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <div class="hover-text">
-                <h4>Vietnam</h4>
-                <p>¥10,000</p>
-              </div>
-              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <div class="hover-text">
-                <h4>Vietnam</h4>
-                <p>¥10,000</p>
-              </div>
-              <img src="img/country/vietnam.jpg" class="img-responsive""> </a> </div>
+              <img src="img/country/finland.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
         </div>
       </div>
