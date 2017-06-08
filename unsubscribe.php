@@ -25,6 +25,7 @@
        if ($table = mysqli_fetch_assoc($record)) {
          //パスワード確認成功
          $sql = 'UPDATE `users` SET `delete_flag` = 1 WHERE `user_id` = '.$_SESSION['login_user_id'];
+         mysqli_query($db,$sql) or die(mysqli_error($db));
 
          //ログイン後のadmin.php（トップページ）に遷移
          header("location: otukare.php");
