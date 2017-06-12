@@ -1,3 +1,14 @@
+<?php
+  unset($_SESSION['signup']);
+
+
+  //ユーザーIDをDBから取ってきて、mypageへ繋ぐ処理
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

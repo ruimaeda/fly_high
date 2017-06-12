@@ -18,20 +18,230 @@
 
 
 
-  // //DB登録処理(ok)
-  if (!empty($_POST)) {
+  //テスト用
+  $kuni_array = array('Ireland', 'UnitedStates', 'UnitedArabEmirates');
+  $style_array = array('alone', 'family', 'shopping');
+
+  // // （ここはok！）
+  // echo('<pre>');
+  // var_dump($nick_name);
+  // var_dump($email);
+  // var_dump($password);
+  // var_dump($kuni_array);
+  // var_dump($style_array);
+  // echo('</pre>');
+
+
+
+  // //DB登録処理(ok、ただし国とスタイル除く)--------------------------
+  if (!empty($_POST)) {//「hiddenでPOST送信があったら」だから国スタイルには今のところ使えない。
     $sql = sprintf('INSERT INTO `users` (`nick_name`, `email`, `password`, `created`, `modified`) VALUES ("%s", "%s", "%s", now(), now());',
         mysqli_real_escape_string($db,$_SESSION['signup']['nick_name']),
         mysqli_real_escape_string($db,$_SESSION['signup']['email']),
         mysqli_real_escape_string($db,sha1($_SESSION['signup']['password']))
         );
 
+
     //SQL文を実行し、うまくいったら遷移(ok)
     mysqli_query($db, $sql) or die(mysqli_error($db));
-    header("Location: thanks.php");
-    exit();
+    // header("Location: thanks.php");
+    // exit();
 
   }
+
+  //---------------------------------------------------------------
+  //ユーザーIDと国IDを国ユーザーテーブルに登録する（手書きでテスト用）
+  //1.ユーザーIDを取ってくる（ユーザーテーブル）(ok)
+  $sql = sprintf('SELECT `user_id` FROM `users` WHERE `email` = "%s"',
+    mysqli_real_escape_string($db,$email)
+    );
+    //SQL文の実行と変数への代入
+    $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+    $select_user_id = mysqli_fetch_assoc($select_user_ids);
+
+          // // ここ(ok)！
+          // echo('<pre>');
+          // var_dump($select_user_id);
+          // echo('</pre>');
+
+  //2.国の名前($kuni_array)からそれぞれの国IDを取ってくる（国テーブル）
+  $select_country_id_array = array();//←foreachの外で使うため？
+  foreach ($kuni_array as $select_countries) {
+    $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = "%s"',
+      mysqli_real_escape_string($db,$select_countries)
+      );
+      //SQL文の実行と変数への代入
+      $select_country_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+      $select_country_id = mysqli_fetch_assoc($select_country_ids);
+    // }
+      // $select_country_id_array[] = $select_country_id['country_id'];
+            // ここも(ok)
+            // echo('<pre>');
+            // var_dump($select_country_id);
+            // echo('</pre>');
+    // }
+
+            // ここも(ok)
+            // echo('<pre>');
+            // var_dump($select_user_id);
+            // var_dump($select_country_id_array);
+            // echo('</pre>');
+
+
+    //3.国IDとユーザーIDをINSERTする（ユーザー国テーブル）
+    // while(true) {
+    $sql = sprintf('INSERT INTO `user_countries` (`user_id`, `country_id`) VALUES ("%s", "%s");',
+        mysqli_real_escape_string($db,$select_user_id['user_id']),
+        mysqli_real_escape_string($db,$select_country_id['country_id'])
+        );
+      if($select_country_id['country_id'] == false){
+        break;
+      }
+      mysqli_query($db, $sql) or die(mysqli_error($db));
+      // }
+
+          // // ここも(ok)？
+          // echo('<pre>');
+          // var_dump($select_user_id);
+          // // var_dump($select_user_id['user_id']);
+          // var_dump($select_country_id);
+          // // var_dump($select_country_id['country_id']);
+          // echo('</pre>');
+
+  }//foreach文ここ！
+
+
+  //---------------------------------------------------------------
+  //ユーザーIDとスタイルIDをユーザースタイルテーブルに登録する
+  //1.スタイル名($style_array)からそれぞれのスタイルIDを取ってくる（スタイルテーブル）
+  $select_style_id_array = array();//←foreachの外で使うため？
+  foreach ($style_array as $select_styles) {
+    $sql = sprintf('SELECT `style_id` FROM `styles` WHERE `style_name` = "%s"',
+      mysqli_real_escape_string($db,$select_styles)
+      );
+      //SQL文の実行と変数への代入
+      $select_style_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+      $select_style_id = mysqli_fetch_assoc($select_style_ids);
+      // $select_style_id_array[] = $select_style_id['style_id'];
+
+    //         // ここ(ok)
+    //         echo('<pre>');
+    //         var_dump($select_user_id);
+    //         var_dump($select_style_id);//1,3,8が取れる
+    //         echo('</pre>');
+    // }
+
+      // //1, 13, 138の値が取れる...要る？
+      // $select_style_id_array[] = $select_style_id['style_id'];
+      //       // ここも(ok)？
+      //       echo('<pre>');
+      //       var_dump($select_user_id);
+      //       var_dump($select_style_id_array);
+      //       echo('</pre>');
+      // }
+
+    //2.スタイルIDとユーザーIDをINSERTする（ユーザースタイルテーブル）
+    // while(true) {
+    $sql = sprintf('INSERT INTO `user_styles` (`user_id`, `style_id`) VALUES ("%s", "%s");',
+        mysqli_real_escape_string($db,$select_user_id['user_id']),
+        mysqli_real_escape_string($db,$select_style_id['style_id'])
+        );
+      if($select_style_id['style_id'] == false){
+        break;
+      }
+      mysqli_query($db, $sql) or die(mysqli_error($db));
+    // }
+
+          // // ここも(ok)
+          // echo('<pre>');
+          // var_dump($select_user_id);
+          // // var_dump($select_user_id['user_id']);
+          // var_dump($select_style_id);
+          // // var_dump($select_style_id['style_id']);
+          // echo('</pre>');
+
+    //     // header("Location: thanks.php");
+    //     // exit();
+  }//foreach文ここ！
+
+
+  //---------------------------------------------------------------
+  // //選んだスタイルからユーザーIDと国IDを登録する
+  
+  // // //スタイルIDから国IDを取ってくる（国スタイルテーブル）
+  // // // $select_country_id_array = array();
+  // // foreach ($select_style_id_array as $select_countries2) {
+  // //   $sql = sprintf('SELECT `country_id` FROM `country_styles` WHERE `style_id` = "%s"',
+  // //     // mysqli_real_escape_string($db,$select_style_id['style_id'])
+  // //     mysqli_real_escape_string($db,$select_countries2)
+  // //     // mysqli_real_escape_string($db,$select_style_id_array['select_style_id']['style_id'])
+  // //     );
+  // //     //SQL文の実行と変数への代入
+  // //     $select_country_ids2 = mysqli_query($db,$sql) or die(mysqli_error($db));
+  // //     // $select_country_id2 = mysqli_fetch_assoc($select_country_ids2);
+
+
+  //   // //繰り返し開始
+  //   // while(true) {
+  //   //   $select_style_id_array[] = $select_style_id['style_id'];
+  //   //     if($select_style_id_array == false){
+  //   //       break;
+  //   //     }
+
+  //     //スタイルIDから国IDを取ってくる（国スタイルテーブル）
+  //     $select_country_id_array2 = array();
+  //     foreach ($select_style_id_array as $select_countries2) {
+  //       $sql = sprintf('SELECT `country_id` FROM `country_styles` WHERE `style_id` = "%s"',
+  //         // mysqli_real_escape_string($db,$select_style_id['style_id'])
+  //         mysqli_real_escape_string($db,$select_countries2)
+  //         // mysqli_real_escape_string($db,$select_style_id_array['select_style_id']['style_id'])
+  //         );
+  //         //SQL文の実行と変数への代入
+  //         $select_country_ids2 = mysqli_query($db,$sql) or die(mysqli_error($db));
+  //         // $select_country_id2 = mysqli_fetch_assoc($select_country_ids2);
+
+
+  //     $select_country_id2 = mysqli_fetch_assoc($select_country_ids2);
+
+
+  //     // $select_country_id2 = mysqli_fetch_assoc($select_country_ids2);
+  //     //   if($select_country_id2 == false){
+  //     //     break;
+  //     //   }
+
+
+
+  //     // $sql = 'SELECT COUNT(*) as `user_number` FROM `user_countries` WHERE `country_id`='.$find_country['country_id'];
+
+  //     // $count_user_numbers = mysqli_query($db,$sql) or die(mysqli_error($db));
+  //     // $count_user_number = mysqli_fetch_assoc($count_user_numbers);
+  //     // $find_country['user_number'] = $count_user_number['user_number'];
+
+  //     // $find_country_array[] = $find_country;
+
+
+  //   // }//繰り返し終了
+
+
+
+
+
+  //         // ここ(ok)？
+  //         echo('<pre>');
+  //         var_dump($select_country_id2);
+  //         echo('</pre>');
+
+  // }
+
+
+  // //国IDとユーザーIDをINSERT（ユーザー国テーブル）
+  // //もし同じ組合せがなかったら！！
+
+
+
+
+
+
 
 ?>
 
