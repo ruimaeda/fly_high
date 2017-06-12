@@ -16,11 +16,12 @@
   $password=htmlspecialchars($_SESSION['signup']['password'], ENT_QUOTES, 'UTF-8');
   $re_password=htmlspecialchars($_SESSION['signup']['re_password'], ENT_QUOTES, 'UTF-8');
 
+  $country = $_SESSION['signup']['country'];
+  $style = $_SESSION['signup']['style'];
 
-
-  //テスト用
-  $kuni_array = array('Ireland', 'UnitedStates', 'UnitedArabEmirates');
-  $style_array = array('alone', 'family', 'shopping');
+  // //テスト用
+  // $kuni_array = array('Ireland', 'UnitedStates', 'UnitedArabEmirates');
+  // $style_array = array('alone', 'family', 'shopping');
 
   // // （ここはok！）
   echo('<pre>');
@@ -30,6 +31,8 @@
   // var_dump($kuni_array);
   var_dump($_SESSION['signup']);
   // var_dump($style_array);
+  // var_dump($country);
+  var_dump($style);
   echo('</pre>');
 
 
@@ -48,7 +51,7 @@
     // header("Location: thanks.php");
     // exit();
 
-  }
+  // }
 
   //---------------------------------------------------------------
   //ユーザーIDと国IDを国ユーザーテーブルに登録する（手書きでテスト用）
@@ -65,9 +68,9 @@
           // var_dump($select_user_id);
           // echo('</pre>');
 
-  //2.国の名前($kuni_array)からそれぞれの国IDを取ってくる（国テーブル）
+  //2.国の名前($country)からそれぞれの国IDを取ってくる（国テーブル）
   $select_country_id_array = array();//←foreachの外で使うため？
-  foreach ($kuni_array as $select_countries) {
+  foreach ($country as $select_countries) {
     $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = "%s"',
       mysqli_real_escape_string($db,$select_countries)
       );
@@ -114,9 +117,9 @@
 
   //---------------------------------------------------------------
   //ユーザーIDとスタイルIDをユーザースタイルテーブルに登録する
-  //1.スタイル名($style_array)からそれぞれのスタイルIDを取ってくる（スタイルテーブル）
+  //1.スタイル名($style)からそれぞれのスタイルIDを取ってくる（スタイルテーブル）
   $select_style_id_array = array();//←foreachの外で使うため？
-  foreach ($style_array as $select_styles) {
+  foreach ($style as $select_styles) {
     $sql = sprintf('SELECT `style_id` FROM `styles` WHERE `style_name` = "%s"',
       mysqli_real_escape_string($db,$select_styles)
       );
@@ -165,6 +168,7 @@
     //     // exit();
   }//foreach文ここ！
 
+}//POST送信があったら。
 
   //---------------------------------------------------------------
   // //選んだスタイルからユーザーIDと国IDを登録する
