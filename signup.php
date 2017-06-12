@@ -4,6 +4,7 @@
   //DBへ接続
   require('dbconnect.php');
 
+  var_dump($_POST['country']);//送信ボタンを押したら表示される
 
   //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
@@ -146,6 +147,8 @@
   <!-- /.container -->
 </nav>
 
+
+<form id="form_signup" method="post" action="">
 <!-- Header -->
 <!-- <form method="post" action=""> -->
 <div id="intro">
@@ -157,7 +160,7 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
               <!-- <form method="post" action=""> -->
-              <form id="form_signup" method="post" action="">
+              <!-- <form id="form_signup" method="post" action=""> -->
 
 
                 <!-- ニックネーム -->
@@ -229,7 +232,7 @@
                     <p class="error">* passwordが違います</p>
                   <?php } ?>
                 </div>
-              </form>
+              <!-- </form> -->
             </div>
         </div>
     </div>
@@ -327,7 +330,10 @@
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/ireland.jpg" class="img-responsive country-photo check" alt="アイルランド">
+              <label>
+                <input type="checkbox" name="country[]" value="Ireland">
+                <img src="img/country/ireland.jpg" class="img-responsive country-photo check" alt="アイルランド">
+              </label>
             </div>
               <p id="country-name">アイルランド</p>
           </div>
@@ -335,7 +341,10 @@
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/usa.jpg" class="img-responsive country-photo check" alt="アメリカ"> </a>
+              <label>
+                <input type="checkbox" name="country[]" value="UnitedStates">
+                <img src="img/country/usa.jpg" class="img-responsive country-photo check" alt="アメリカ"> </a>
+              </label>
             </div>
               <p id="country-name">アメリカ</p>
           </div>
@@ -595,7 +604,7 @@
     </div>
   </div>
 </div>
-<!-- </form> -->
+</form>
 
 
 

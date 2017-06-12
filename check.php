@@ -23,13 +23,14 @@
   $style_array = array('alone', 'family', 'shopping');
 
   // // （ここはok！）
-  // echo('<pre>');
+  echo('<pre>');
   // var_dump($nick_name);
   // var_dump($email);
   // var_dump($password);
   // var_dump($kuni_array);
+  var_dump($_SESSION['signup']);
   // var_dump($style_array);
-  // echo('</pre>');
+  echo('</pre>');
 
 
 

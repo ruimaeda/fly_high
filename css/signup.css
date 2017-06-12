@@ -156,5 +156,10 @@ fieldset[disabled] .btn-default.active {
   padding-bottom: 80px;
 }
 
+/*スタイルと国画像のチェックboxを消す-----------------------------------*/
+  input {
+    display: none;
+  }
+
 
 
