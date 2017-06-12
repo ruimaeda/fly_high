@@ -4,13 +4,17 @@ session_start();
 
 require('dbconnect.php');
 
-// $_SESSION['login_user_id'] 
-// echo $_POST['name']
+//ログインしているユーザー情報の取得
+$sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d',
+       mysqli_real_escape_string($db,$_SESSION['login_user_id']));
+
+$record = mysqli_query($db,$sql) or die(mysqli_error($db));
+$user = mysqli_fetch_assoc($record);
 
 
 if (isset($_POST) && !empty($_POST)){
 
-  //エラー項目の確認：pass(文字長６文字以上)(ok)
+  //エラー項目の確認：pass(文字長６文字以上)
   if (strlen($_POST['password'])<6) {
     $error['password']='length';
   }
@@ -26,44 +30,82 @@ if (isset($_POST) && !empty($_POST)){
     $email=htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
 
     //エラー項目の確認（ブランクの場合についてはjsで表示済）
-    //エラー項目の確認：email（＠マークがない場合をエラーにする）(ok)
+    //エラー項目の確認：email（＠マークがない場合をエラーにする）
     if ($email !== "" && strpos($email, "@") === FALSE){
       $error['email'] = "wrong";
     }
 
-    //エラー項目の確認：:email（すでに登録されています処理=DBを使う）(ok)
-    if ($_POST['email'] == $user_email['email']) {
-      $error['email']='already';
-    }
+    //エラー項目の確認：:email（すでに登録されています処理=DBを使う）
+    // if ($_POST['email'] == $user_email['email']) {
+    //   $error['email']='already';
+    // }
 
-   //エラー項目の確認：確認用pass(ok)
+   //エラー項目の確認：確認用pass
   if ($_POST['re_password'] !== $_POST['password']) {
     $error['re_password']='not_same';
   }
 
-    if(empty($error)){
+  //ニックネーム、メール、パスワードのアップデート 
+if(empty($error)){
 
-      $sql = sprintf('UPDATE `users` SET `nick_name`="%s" ,`email` ="%s", `password` ="%s"  WHERE `user_id`= %d',
-      mysqli_real_escape_string($db,$_POST['nick_name']),
-      mysqli_real_escape_string($db,$_POST['email']),
-      mysqli_real_escape_string($db,sha1($_POST['password'])),
-      mysqli_real_escape_string($db,$_SESSION['login_user_id']));
+  $sql = sprintf('UPDATE `users` SET `nick_name`="%s" ,`email` ="%s", `password` ="%s"  WHERE `user_id`= %d',
+  mysqli_real_escape_string($db,$_POST['nick_name']),
+  mysqli_real_escape_string($db,$_POST['email']),
+  mysqli_real_escape_string($db,sha1($_POST['password'])),
+  mysqli_real_escape_string($db,$_SESSION['login_user_id']));
 
-       mysqli_query($db,$sql) or die(mysqli_error($db));
-      
-      //mypageに遷移(ok)
-      header('Location: mypage.php');
-      exit();
+
+   mysqli_query($db,$sql) or die(mysqli_error($db));
     }
+
+    //追加の質問、チェックボックス（旅の目的）のアップデート
+if (isset($_POST['travel_purpose']) && is_array($_POST['travel_purpose'])) {
+  $travel_purpose = implode("、", $_POST["travel_purpose"]);
+
+  $sql = sprintf('UPDATE `users` SET `travel_purpose` ="%s"
+  WHERE `user_id`= %d',
+  mysqli_real_escape_string($db,$travel_purpose),
+  mysqli_real_escape_string($db,$_SESSION['login_user_id']));
+
+  mysqli_query($db,$sql) or die(mysqli_error($db));
+}
+
+
+//追加の質問のアップデート
+if(empty($error)){
+
+
+  $sql = sprintf('UPDATE `users` SET `age` ="%s" ,`address`  ="%s" ,`income` ="%s" ,`travel_budget` ="%s" ,`travel_period` ="%s" ,`travel_country` ="%s"  ,`travel_time`="%s" ,`know_flyhigh`="%s",`demand`="%s" ,`gender`="%s"
+    WHERE `user_id`= %d',
+
+  mysqli_real_escape_string($db,$_POST['age']),
+  mysqli_real_escape_string($db,$_POST['address']),
+  mysqli_real_escape_string($db,$_POST['income']),
+  mysqli_real_escape_string($db,$_POST['travel_budget']),
+  mysqli_real_escape_string($db,$_POST['travel_period']),
+  mysqli_real_escape_string($db,$_POST['travel_country']),
+  mysqli_real_escape_string($db,$_POST['travel_time']),
+  mysqli_real_escape_string($db,$_POST['know_flyhigh']),
+  mysqli_real_escape_string($db,$_POST['demand']),
+  mysqli_real_escape_string($db,$_POST['gender']),
+  mysqli_real_escape_string($db,$_SESSION['login_user_id']));
+ 
+  mysqli_query($db,$sql) or die(mysqli_error($db));
+
+ header('Location: mypage.php');
+ exit();
+}
+
 
 
     
      
   }
-// var_dump($_SESSION['login_user_id']);
 
+// var_dump($travel_purpose);
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -134,20 +176,20 @@ if (isset($_POST) && !empty($_POST)){
               <!-- <form method="post"　action=""> -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="nick_name" id="validate-email" placeholder="お名前を入力してください" required>
+                    <input type="text" class="form-control" name="nick_name" id="validate-email" value="<?php echo $user['nick_name'] ?>" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="email" id="validate-email" placeholder="メールアドレスを入力してください" required>
+                    <input type="text" class="form-control" name="email" id="validate-email" value="<?php echo $user['email'] ?>" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
 
                   <!-- すでに登録されている時の表示(ok) -->
-                  <?php if(isset($error['email']) && $error['email']=='already'){ ?>
+                <!--   <?php if(isset($error['email']) && $error['email']=='already'){ ?>
                     <p class="error">* このメールアドレスはすでに登録されています。</p>
-                  <?php } ?>
+                  <?php } ?> -->
                   <!-- ＠マークない場合の表示(ok) -->
                   <?php if(isset($error['email']) && $error['email']=='wrong'){ ?>
                     <p class="error">* メールアドレスに@が含まれていません。</p>
@@ -156,7 +198,7 @@ if (isset($_POST) && !empty($_POST)){
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="password" id="validate-email" placeholder="パスワードを入力してください" required>
+                    <input type="password" class="form-control" name="password" id="validate-email" value="<?php echo $user['password'] ?>" email your-email "example@example.com" 　required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
 
@@ -169,14 +211,13 @@ if (isset($_POST) && !empty($_POST)){
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="re_password" id="validate-email" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="text" class="form-control" name="re_password" id="validate-email" value="<?php echo $user['password'] ?>" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                   <!-- パスワード確認の処理(ok) -->
                   <?php if(isset($error['re_password']) && $error['re_password']=='not_same'){ ?>
                     <p class="error">* passwordが違います</p>
                   <?php } ?>
-
 
                 </div>
                <!--  <button type="submit" class="btn btn-default">情報を更新する</button>
@@ -520,7 +561,7 @@ if (isset($_POST) && !empty($_POST)){
        <p>もしよければ、あなたの情報をもっと教えてください</p>
     </div>
        <div class="row">
-               <form class="form-horizontal">
+               <!-- <form class="form-horizontal"> -->
                <fieldset class="questions">
 
                <!-- Multiple Radios -->
@@ -529,13 +570,13 @@ if (isset($_POST) && !empty($_POST)){
                  <div class="col-md-4">
                  <div class="radio">
                    <label for="radios-0">
-                     <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                     <input type="radio" name="gender" id="radios-0" value="男性" checked="checked">
                      男性
                    </label>
                  </div>
                  <div class="radio">
                    <label for="radios-1">
-                     <input type="radio" name="radios" id="radios-1" value="2">
+                     <input type="radio" name="gender" id="radios-1" value="女性">
                      女性
                    </label>
                  </div>
@@ -546,9 +587,13 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">年齢</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">10代</option>
-                     <option value="2">20代</option>
+                   <select id="selectbasic" name="age" class="form-control">
+                     <option value="10代">10代</option>
+                     <option value="20代">20代</option>
+                     <option value="30代">30代</option>
+                     <option value="40代">40代</option>
+                     <option value="50代">50代</option>
+                     <option value="60代以上">60代以上</option>
                    </select>
                  </div>
                </div>
@@ -557,9 +602,16 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">居住地</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">北海道</option>
-                     <option value="2">青森</option>
+                   <select id="selectbasic" name="address" class="form-control">
+                     <option value="北海道">北海道</option>
+                     <option value="関東">関東</option>
+                     <option value="甲信越">甲信越</option>
+                     <option value="北陸">北陸</option>
+                     <option value="中部">中部</option>
+                     <option value="関西">関西</option>
+                     <option value="中国">中国</option>
+                     <option value="九州・沖縄">九州・沖縄</option>
+                     <option value="海外">海外</option>
                    </select>
                  </div>
                </div>
@@ -568,9 +620,12 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">年収</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">300万円未満</option>
-                     <option value="2">300万円〜500万円</option>
+                   <select id="selectbasic" name="income" class="form-control">
+                     <option value="300万円未満">300万円未満</option>
+                     <option value="300万円〜500万円">300万円〜500万円</option>
+                     <option value="500万円〜700万円">500万円〜700万円未満</option>
+                     <option value="700万円〜1000万円">700万円〜1000万円</option>
+                     <option value="1000万円以上">1000万円以上</option>
                    </select>
                  </div>
                </div>
@@ -581,15 +636,69 @@ if (isset($_POST) && !empty($_POST)){
                  <div class="col-md-4">
                  <div class="checkbox">
                    <label for="checkboxes-0">
-                     <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="自然">
                      自然
                    </label>
                  </div>
                  <div class="checkbox">
                    <label for="checkboxes-1">
-                     <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-1" value="歴史的建造物">
                      歴史的建造物
                    </label>
+                 </div>
+                 <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="リゾート・ビーチ">
+                     リゾート・ビーチ
+                   </label>
+                 </div>
+                 <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="ショッピング">
+                     ショッピング
+                   </label>
+                 </div>
+                 <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="グルメ">
+                     グルメ
+                   </label>
+                 </div>
+                  <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="異文化体験">
+                     異文化体験
+                   </label>
+                   <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="イベント">
+                     イベント
+                   </label>
+                 </div>
+                 <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="テーマパーク">
+                     テーマパーク
+                   </label>
+                 </div>
+                  <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="スポーツやアクティビティ">
+                     スポーツやアクティビティ
+                   </label>
+                 </div>
+                  <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="現地の人との交流">
+                     現地の人との交流
+                   </label>
+                 </div>
+                  <div class="checkbox">
+                   <label for="checkboxes-2">
+                     <input type="checkbox" name="travel_purpose[]" id="checkboxes-0" value="エステ・美容">
+                     エステ・美容
+                   </label>
+                 </div>
                  </div>
                  </div>
                </div>
@@ -598,9 +707,13 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">海外旅行の平均的な予算</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">〜5万円</option>
-                     <option value="2">5万円〜10万円</option>
+                   <select id="selectbasic" name="travel_budget" class="form-control">
+                     <option value="〜5万円">〜5万円</option>
+                     <option value="5万円〜10万円">5万円〜10万円</option>
+                     <option value="10万円〜20万円">10万円〜20万円</option>
+                     <option value="20万円〜30万円">20万円〜30万円</option>
+                     <option value="30万円〜40万円">30万円〜40万円</option>
+                     <option value="40万円〜">40万円〜</option>
                    </select>
                  </div>
                </div>
@@ -609,9 +722,12 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">海外旅行の平均的な期間</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">3日以内</option>
-                     <option value="2">3~5日間</option>
+                   <select id="selectbasic" name="travel_period" class="form-control">
+                     <option value="3日以内">3日以内</option>
+                     <option value="3~5日以内">3~5日間</option>
+                     <option value="5~7日以内">5日~7日</option>
+                     <option value="7~9日以内">7~9日間</option>
+                     <option value="9日~">9日~</option>
                    </select>
                  </div>
                </div>
@@ -620,9 +736,13 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">これまでに訪れた国の数</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">0ヶ国</option>
-                     <option value="2">1ヶ国</option>
+                   <select id="selectbasic" name="travel_country" class="form-control">
+                     <option value="0カ国">0ヶ国</option>
+                     <option value="1~5カ国">1~5ヶ国</option>
+                     <option value="6~10カ国">6~10ヶ国</option>
+                     <option value="11~20カ国">11~20ヶ国</option>
+                     <option value="21~30カ国">21~30ヶ国</option>
+                     <option value="31カ国~">31ヶ国~</option>
                    </select>
                  </div>
                </div>
@@ -630,9 +750,13 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">過去1年間の海外旅行の回数</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">0回</option>
-                     <option value="2">1回</option>
+                   <select id="selectbasic" name="travel_time" class="form-control">
+                     <option value="0回">0回</option>
+                     <option value="1回">1回</option>
+                     <option value="2回">2回</option>
+                     <option value="3~5回">3~5回</option>
+                     <option value="6~10回以上">6~10回</option>
+                     <option value="11回~">11回~</option>
                    </select>
                  </div>
                </div>
@@ -641,9 +765,12 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">Fly Highを知ったキッカケ</label>
                  <div class="col-md-4">
-                   <select id="selectbasic" name="selectbasic" class="form-control">
-                     <option value="1">検索サイト</option>
-                     <option value="2">ソーシャルメディア</option>
+                   <select id="selectbasic" name="know_flyhigh" class="form-control">
+                     <option value="友人・知人">友人・知人</option>
+                     <option value="開発メンバー">開発メンバー</option>
+                     <option value="検索サイト">検索サイト</option>
+                     <option value="他サイトでの紹介">他サイトでの紹介</option>
+                     <option value="その他">その他</option>
                    </select>
                  </div>
                </div>
@@ -652,7 +779,7 @@ if (isset($_POST) && !empty($_POST)){
                <div class="form-group">
                  <label class="col-md-4 control-label" for="textarea">サイトへのご要望</label>
                  <div class="col-md-4">
-                   <textarea class="form-control" id="textarea" name="textarea">要望を入力してください</textarea>
+                   <textarea class="form-control" id="textarea" name="demand">要望を入力してください</textarea>
                  </div>
                </div>
                
@@ -662,9 +789,9 @@ if (isset($_POST) && !empty($_POST)){
 
        <br><br><br>
       <div class="text-center">
-        <button type="submit" class="btn btn-default">TOPページに戻る</button>
+        <button type="" class="btn btn-default">TOPページに戻る</button>
         <button type="submit" class="btn btn-default">情報を更新する</button>
-        <button type="submit" class="btn btn-default">マイページに戻る</button>
+        <button type="" class="btn btn-default">マイページに戻る</button>
       </div>
 
       <div class="text-center agree">
