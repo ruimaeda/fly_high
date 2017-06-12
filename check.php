@@ -16,8 +16,6 @@
   $password=htmlspecialchars($_SESSION['signup']['password'], ENT_QUOTES, 'UTF-8');
   $re_password=htmlspecialchars($_SESSION['signup']['re_password'], ENT_QUOTES, 'UTF-8');
 
-
-
   // //DB登録処理(ok)
   if (!empty($_POST)) {
     $sql = sprintf('INSERT INTO `users` (`nick_name`, `email`, `password`, `created`, `modified`) VALUES ("%s", "%s", "%s", now(), now());',
