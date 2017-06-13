@@ -740,6 +740,7 @@
     </div>
   </div>
 </div>
+</div>
 
 <div id="works" class="text-center">
   <div class="container">
@@ -803,16 +804,11 @@
 </form>
 
 
-<!-- フッターの外部読み込みはできたが、字が白くなっている -->
+<!-- フッターの外部読み込み-->
 <?php include('footer.php'); ?>
 
 <!-- フローティングボタンの外部読み込み-->
 <?php include('to-top.php'); ?>
-
-  <!-- to-topのフローティングボタンを付け加える -->
-<!--   <a id="to-top" href="#top" class="btn btn-dark btn-lg">
-    <i class="fa fa-chevron-up fa-fw fa-1x"></i>
-  </a> -->
 
 </div>
 
