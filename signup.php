@@ -4,6 +4,8 @@
   //DBへ接続
   require('dbconnect.php');
 
+  var_dump($_POST['country']);//送信ボタンを押したら表示される
+  var_dump($_POST['style']);//送信ボタンを押したら表示される
 
   //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
@@ -146,6 +148,8 @@
   <!-- /.container -->
 </nav>
 
+
+<form id="form_signup" method="post" action="">
 <!-- Header -->
 <!-- <form method="post" action=""> -->
 <div id="intro">
@@ -157,7 +161,7 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
               <!-- <form method="post" action=""> -->
-              <form id="form_signup" method="post" action="">
+              <!-- <form id="form_signup" method="post" action=""> -->
 
 
                 <!-- ニックネーム -->
@@ -229,7 +233,7 @@
                     <p class="error">* passwordが違います</p>
                   <?php } ?>
                 </div>
-              </form>
+              <!-- </form> -->
             </div>
         </div>
     </div>
@@ -248,7 +252,10 @@
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="ひとり旅">
+              <label>
+                <input type="checkbox" name="style[]" value="alone">
+                <img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="ひとり旅">
+              </label>
               <p id="country-name">ひとり旅</p>
           </div>
         </div>
@@ -260,7 +267,10 @@
         </div>
        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_family.png" class="img-responsive style-photo check" alt="家族旅行">
+              <label>
+                <input type="checkbox" name="style[]" value="family">
+                <img src="img/style/icon_family.png" class="img-responsive style-photo check" alt="家族旅行">
+              </label>
               <p id="country-name">家族旅行</p>
           </div>
         </div>
@@ -290,7 +300,10 @@
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_shopping.png" class="img-responsive style-photo check" alt="ショッピング">
+              <label>
+                <input type="checkbox" name="style[]" value="shopping">
+                <img src="img/style/icon_shopping.png" class="img-responsive style-photo check" alt="ショッピング">
+              </label>
               <p id="country-name">ショッピング</p>
           </div>
         </div>
@@ -327,24 +340,34 @@
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/ireland.jpg" class="img-responsive country-photo check" alt="アイルランド">
+              <label>
+                <input type="checkbox" name="country[]" value="Ireland">
+                <img src="img/country/ireland.jpg" class="img-responsive country-photo check" alt="アイルランド">
+              </label>
             </div>
-              <p id="country-name">アイルランド</p>
+            <p id="country-name">アイルランド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/usa.jpg" class="img-responsive country-photo check" alt="アメリカ"> </a>
+              <label>
+                <input type="checkbox" name="country[]" value="UnitedStates">
+                <img src="img/country/usa.jpg" class="img-responsive country-photo check" alt="アメリカ"> </a>
+              </label>
             </div>
-              <p id="country-name">アメリカ</p>
+            <p id="country-name">アメリカ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/uae.jpg" class="img-responsive country-photo check" alt="アラブ首長国連邦"> </a> </div>
-              <p id="country-name">アラブ首長国連邦</p>
+              <label>
+                <input type="checkbox" name="country[]" value="UnitedArabEmirates">
+                <img src="img/country/uae.jpg" class="img-responsive country-photo check" alt="アラブ首長国連邦"> </a>
+              </label>
+            </div>
+            <p id="country-name">アラブ首長国連邦</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
@@ -595,7 +618,7 @@
     </div>
   </div>
 </div>
-<!-- </form> -->
+</form>
 
 
 
