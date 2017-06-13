@@ -384,8 +384,7 @@
         <div class="thumbnail"> <img src="img/team/louis.jpg" alt="..." class="img-thumbnail team-img">
           <div class="caption">
             <h3>LOUIS</h3>
-            <!-- <p>Founder / CEO</p> -->
-            <p>大阪ガス、オプトを経て<br>TABIPPOを立ち上げました。<br>サーバー、コード、コンテンツ、<br>マネタイズまでを担当する<br>（器用貧乏）テクニカル編集長です。<br>ツイートは旅行と技術と宇宙が多め。<br>「ワークライフカオス」な<br>混沌とした毎日を送ってます。</p>
+            <p>大阪ガス、オプトを経てTABIPPOを立ち上げました。サーバー、コード、コンテンツ、マネタイズまでを担当するテクニカル編集長です。ツイートは旅行と技術と宇宙が多め。「ワークライフカオス」な混沌とした毎日を送ってます。</p>
           </div>
         </div>
       </div>
@@ -394,8 +393,7 @@
         <div class="thumbnail"> <img src="img/team/yuuki.jpg" alt="..." class="img-thumbnail team-img">
           <div class="caption">
             <h3>YUUKI</h3>
-            <!-- <p>Web Designer</p> -->
-            <p>アジア中心に<br>約20カ国を訪れた旅行好き。<br>旅スタイルは基本ゲストハウスの安宿。<br>最近は都市観光が好き。<br>元銀行員→→<br>現在セブでエンジニア留学中→→<br>3ヶ月後バンクーバーにワーホリ予定。<br>気持ちはいつも24歳、<br>人生賭けに出たアラサー女子。</p>
+            <p>アジア中心に約20カ国を訪れた旅行好き。旅スタイルは基本ゲストハウスの安宿。最近は都市観光が好き。元銀行員→→現在セブでエンジニア留学中→→3ヶ月後バンクーバーにワーホリ予定。気持ちはいつも24歳、人生賭けに出たアラサー女子。</p>
           </div>
         </div>
       </div>
@@ -404,8 +402,7 @@
         <div class="thumbnail"> <img src="img/team/manato.jpg" alt="..." class="img-thumbnail team-img">
           <div class="caption">
             <h3>MANATO</h3>
-            <!-- <p>Creative Director</p> -->
-            <p>元商社マン</p>
+            <p>海外の魅力にハマりつつある旅行ビギナー。今行きたい国は、タイ、ドイツ、ドバイ。思い立ったらすぐ行動。商社を退職し一念発起して気付けばWebエンジニアになるべくセブ島へ。マイブームは、ブログの運営とズバリ海外旅行の元商社マンです。</p>
           </div>
         </div>
       </div>

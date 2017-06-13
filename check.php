@@ -16,6 +16,7 @@
   $password=htmlspecialchars($_SESSION['signup']['password'], ENT_QUOTES, 'UTF-8');
   $re_password=htmlspecialchars($_SESSION['signup']['re_password'], ENT_QUOTES, 'UTF-8');
 
+
   $country = $_SESSION['signup']['country'];
   $style = $_SESSION['signup']['style'];
 
@@ -39,6 +40,7 @@
 
   // //１.DB登録処理(ok、ただし国とスタイル除く)--------------------------
   if (!empty($_POST)) {//hiddenのポスト!
+
     $sql = sprintf('INSERT INTO `users` (`nick_name`, `email`, `password`, `created`, `modified`) VALUES ("%s", "%s", "%s", now(), now());',
         mysqli_real_escape_string($db,$_SESSION['signup']['nick_name']),
         mysqli_real_escape_string($db,$_SESSION['signup']['email']),
