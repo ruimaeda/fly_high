@@ -1,4 +1,11 @@
 <?php
+  session_start();
+
+  echo('<pre>');
+  var_dump($_SESSION['signup']['country']);
+  var_dump($_SESSION['signup']['style']);
+  echo('</pre>');
+
   unset($_SESSION['signup']);
 
 

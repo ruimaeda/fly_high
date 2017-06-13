@@ -37,8 +37,8 @@
 
 
 
-  // //DB登録処理(ok、ただし国とスタイル除く)--------------------------
-  if (!empty($_POST)) {
+  // //１.DB登録処理(ok、ただし国とスタイル除く)--------------------------
+  if (!empty($_POST)) {//hiddenのポスト!
     $sql = sprintf('INSERT INTO `users` (`nick_name`, `email`, `password`, `created`, `modified`) VALUES ("%s", "%s", "%s", now(), now());',
         mysqli_real_escape_string($db,$_SESSION['signup']['nick_name']),
         mysqli_real_escape_string($db,$_SESSION['signup']['email']),
@@ -54,8 +54,9 @@
   // }
 
     //---------------------------------------------------------------
-    //ユーザーIDと国IDを国ユーザーテーブルに登録する
-    //1.ユーザーIDを取ってくる（ユーザーテーブル）(ok)
+    //２.ユーザーIDと国IDを国ユーザーテーブルに登録する
+    //2-1.ユーザーIDを取ってくる（ユーザーテーブル）(ok)
+  // if (!empty($_POST['country'])) {
     $sql = sprintf('SELECT `user_id` FROM `users` WHERE `email` = "%s"',
       mysqli_real_escape_string($db,$email)
       );
@@ -68,7 +69,7 @@
             // var_dump($select_user_id);
             // echo('</pre>');
 
-    //2.国の名前($country)からそれぞれの国IDを取ってくる（国テーブル）
+    //2-2.国の名前($country)からそれぞれの国IDを取ってくる（国テーブル）
     $select_country_id_array = array();//←foreachの外で使うため？
     foreach ($country as $select_countries) {
       $sql = sprintf('SELECT `country_id` FROM `countries` WHERE `country_name` = "%s"',
@@ -92,7 +93,7 @@
               // echo('</pre>');
 
 
-      //3.国IDとユーザーIDをINSERTする（ユーザー国テーブル）
+      //2-3.国IDとユーザーIDをINSERTする（ユーザー国テーブル）
       // while(true) {
       $sql = sprintf('INSERT INTO `user_countries` (`user_id`, `country_id`) VALUES ("%s", "%s");',
           mysqli_real_escape_string($db,$select_user_id['user_id']),
@@ -113,11 +114,14 @@
             // echo('</pre>');
 
     }//foreach文ここ！
-
+  // }//POST['country']があったら？
 
     //---------------------------------------------------------------
-    //ユーザーIDとスタイルIDをユーザースタイルテーブルに登録する
-    //1.スタイル名($style)からそれぞれのスタイルIDを取ってくる（スタイルテーブル）
+    //３.ユーザーIDとスタイルIDをユーザースタイルテーブルに登録し、
+    //４.スタイルIDから国IDを取ってきてユーザー国テーブルに登録する。
+
+    //3-1.スタイル名($style)からそれぞれのスタイルIDを取ってくる（スタイルテーブル）
+  // if (!empty($_POST['style'])) {
     $select_style_id_array = array();//←foreachの外で使うため？
     foreach ($style as $select_styles) {
       $sql = sprintf('SELECT `style_id` FROM `styles` WHERE `style_name` = "%s"',
@@ -144,7 +148,7 @@
         //       echo('</pre>');
         // }
 
-      //2.スタイルIDとユーザーIDをINSERTする（ユーザースタイルテーブル）
+      //3-2.スタイルIDとユーザーIDをINSERTする（ユーザースタイルテーブル）
       // while(true) {
       $sql = sprintf('INSERT INTO `user_styles` (`user_id`, `style_id`) VALUES ("%s", "%s");',
           mysqli_real_escape_string($db,$select_user_id['user_id']),
@@ -173,27 +177,7 @@
   //---------------------------------------------------------------
     //選んだスタイルからユーザーIDと国IDを登録する
 
-    // //スタイルIDから国IDを取ってくる（国スタイルテーブル）
-    // // $select_country_id_array = array();
-    // foreach ($select_style_id_array as $select_countries2) {
-    //   $sql = sprintf('SELECT `country_id` FROM `country_styles` WHERE `style_id` = "%s"',
-    //     // mysqli_real_escape_string($db,$select_style_id['style_id'])
-    //     mysqli_real_escape_string($db,$select_countries2)
-    //     // mysqli_real_escape_string($db,$select_style_id_array['select_style_id']['style_id'])
-    //     );
-    //     //SQL文の実行と変数への代入
-    //     $select_country_ids2 = mysqli_query($db,$sql) or die(mysqli_error($db));
-    //     // $select_country_id2 = mysqli_fetch_assoc($select_country_ids2);
-
-
-    // //繰り返し開始
-    // while(true) {
-    //   $select_style_id_array[] = $select_style_id['style_id'];
-    //     if($select_style_id_array == false){
-    //       break;
-    //     }
-
-      //1.スタイルIDから国IDを取ってくる（国スタイルテーブル）
+      //4-1.スタイルIDから国IDを取ってくる（国スタイルテーブル）
       $select_country_id_array2 = array();
       foreach ($select_style_id as $select_styles2) {
       //   while(true) {
@@ -202,9 +186,7 @@
       //     break;
       //   }
         $sql = sprintf('SELECT `country_id` FROM `country_styles` WHERE `style_id` = "%s"',
-          // mysqli_real_escape_string($db,$select_style_id['style_id'])
           mysqli_real_escape_string($db,$select_styles2)
-          // mysqli_real_escape_string($db,$select_style_id_array['select_style_id']['style_id'])
           );
           //SQL文の実行と変数への代入
           $select_country_ids2 = mysqli_query($db,$sql) or die(mysqli_error($db));
@@ -220,8 +202,6 @@
               // echo('<pre>');
               // var_dump($select_country_id2);//会員登録ボタン押下後に表示される
               // echo('</pre>');
-
-
 
 
               // $select_country_id_array2[] = $select_country_id2['country_id'];
@@ -248,13 +228,6 @@
 
           // }//while文
 
-      // $select_country_id2 = mysqli_fetch_assoc($select_country_ids2);
-      //   if($select_country_id2 == false){
-      //     break;
-      //   }
-
-    // }//繰り返し終了
-
 
           // // ここ(ok)？
           // echo('<pre>');
@@ -266,9 +239,9 @@
 
    // }//ユーザースタイルテーブルのforeach文ここ？
 
-  //2.国IDとユーザーIDをINSERT（ユーザー国テーブル）
-  //もし同じ組合せがなかったら！！
-    // if (!empty($_POST)) {
+
+
+  //4-2.国IDとユーザーIDをINSERT（ユーザー国テーブル）
       $sql = sprintf('INSERT INTO `user_countries` (`user_id`, `country_id`) VALUES ("%s", "%s");',
           mysqli_real_escape_string($db,$select_user_id['user_id']),
           mysqli_real_escape_string($db,$select_country_id2['country_id'])
@@ -296,7 +269,21 @@
 
     }//ユーザースタイルテーブルのforeach文ここ？
 
-  }//POST送信があったら？
+  // }//POST['style']があったら？
+
+
+
+    //５.全てのINSERT終了後、ユーザー国テーブルの重複を削除する
+
+    $sql = sprintf('DELETE FROM `user_countries` WHERE `user_country_id` NOT IN (SELECT Max_id FROM (SELECT MAX(`user_country_id`) Max_id FROM `user_countries` GROUP BY `user_id`, `country_id`) tmp)');
+
+    mysqli_query($db, $sql) or die(mysqli_error($db));
+
+    header("Location: thanks.php");
+    exit();
+
+
+  }//全体のPOST送信があったら？
 
 
 
