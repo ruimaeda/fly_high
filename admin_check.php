@@ -158,7 +158,6 @@
       <ul class="nav navbar-nav">
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"> <a href="#page-top"></a> </li>
-        <li> <a class="page-scroll" href="#about">選択したStyle</a> </li>
         <li> <a class="page-scroll" href="#services">選択したCountry</a> </li>
         <li> <a class="page-scroll" href="#mail">Form</a> </li>
         <li> <a class="page-scroll" href="logout.php">Logout</a> </li>

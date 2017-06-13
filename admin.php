@@ -85,14 +85,6 @@
 
   //セール送信フォームからデータがPOST送信された時の空データと拡張子チェックとエラーがない場合、画像をアップロード
   if (!empty($_POST)) {
-    var_dump("POST送信を確認");
-
-    if (!empty($_FILES['picture_path'])) {
-      var_dump("FILE送信を確認");
-      var_dump($_FILES['picture_path']);
-    }else{
-      var_dump("FILE送信を未確認");
-    }
 
     //エラー項目の確認
     //タイトルが入力されていない場合に$error'blank'を代入
@@ -136,9 +128,9 @@
   $select_country = array();
   if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
     $_POST = $_SESSION['admin'];
-    var_dump($_SESSION['admin']['country']);
+    // var_dump($_SESSION['admin']['country']);
     $select_country = $_SESSION['admin']['country'];
-    var_dump($select_country);
+    // var_dump($select_country);
     $error['rewrite'] = true;
   }
 
@@ -182,7 +174,7 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i> FLY HIGH</a> </div>
+      <a class="navbar-brand page-scroll" href="#page-top"> <img class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High</a> </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
