@@ -76,8 +76,8 @@
 <link rel="stylesheet" type="text/css"  href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css"  href="css/signup.css">
-<link rel="stylesheet" type="text/css"  href="css/thanks.css">
+<!-- <link rel="stylesheet" type="text/css"  href="css/signup.css"> -->
+<!-- <link rel="stylesheet" type="text/css"  href="css/thanks.css"> -->
 <link rel="stylesheet" type="text/css"  href="css/login.css">
 <link rel="stylesheet" type="text/css"  href="css/admin_login.css">
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
@@ -99,6 +99,7 @@
   <div class="intro-body bg">
     <div class="container box">
       <h1>admin login</h1>
+        <p class="lead">管理者用ページです</p>
         <div class="card card-container">
                   <img id="profile-img" class="profile-img-card" src="img/flyhigh_logo.png" />
                   <form method="post" action="" class="form-signin">

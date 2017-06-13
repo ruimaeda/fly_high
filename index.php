@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,9 +51,9 @@
         <li> <a class="page-scroll" href="#team">Team</a> </li>
       </ul>
     </div>
-    <!-- /.navbar-collapse --> 
+    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </nav>
 
 <!-- Header -->
@@ -65,8 +65,8 @@
           <img src="img/flyhigh_logo_white.png" alt="..." class="" width="180px" height="180px">
           <h1><span class="brand-heading">FLY HIGH</span></h1>
           <p class="intro-text">There’s no better way to fly.</p>
-          <a href="#" class="btn btn-default page-scroll">sign up</a>
-          <a href="#" class="btn btn-default page-scroll">log in</a> </div>
+          <a href="signup.php" class="btn btn-default page-scroll">sign up</a>
+          <a href="login.php" class="btn btn-default page-scroll">log in</a> </div>
       </div>
     </div>
   </div>
@@ -276,27 +276,6 @@
     </div>
   </div>
 </div>
-
-
-<!-- 4STEP三角ありバージョン -->
-<!-- <ul class="msr_flow02">
-  <li id="short"><span>STEP1</span><br>
-      <i class="fa fa-globe" aria-hidden="true"></i><br>
-      <p>登録画面から<br>行きたい国と<br>旅のスタイルを選択</p></li>
-  <li><span>STEP2</span><br>
-      <i class="fa fa-envelope-open" aria-hidden="true"></i><br>
-      <p>メールにて<br>セール情報を受け取る</p></li>
-  <li><span>STEP3</span><br>
-      <i class="fa fa-calendar-check-o" aria-hidden="true"></i><br>
-      <p>セールで<br>格安航空券を予約</p></li>
-  <li class="active"><span>STEP4</span><br>
-      <i class="fa fa-plane" aria-hidden="true"></i><br>
-      <p>航空券を握りしめて<br>海外旅行へ</p></li>
-</ul> -->
-
-
-
-
 </div>
 
 
@@ -376,12 +355,11 @@
     <div class="section-title center">
       <h2>Team</h2>
       <hr>
-      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p> -->
     </div>
     <div id="row">
       <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <div class="thumbnail"> <img src="img/team/louis.jpg" alt="..." class="img-thumbnail team-img">
+        <div class="thumbnail"> <img src="img/team/louis.jpg" alt="louis" class="img-thumbnail team-img">
           <div class="caption">
             <h3>LOUIS</h3>
             <p>大阪ガス、オプトを経てTABIPPOを立ち上げました。サーバー、コード、コンテンツ、マネタイズまでを担当するテクニカル編集長です。ツイートは旅行と技術と宇宙が多め。「ワークライフカオス」な混沌とした毎日を送ってます。</p>
@@ -390,7 +368,7 @@
       </div>
       <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <div class="thumbnail"> <img src="img/team/yuuki.jpg" alt="..." class="img-thumbnail team-img">
+        <div class="thumbnail"> <img src="img/team/yuuki.jpg" alt="yuuki" class="img-thumbnail team-img">
           <div class="caption">
             <h3>YUUKI</h3>
             <p>アジア中心に約20カ国を訪れた旅行好き。旅スタイルは基本ゲストハウスの安宿。最近は都市観光が好き。元銀行員→→現在セブでエンジニア留学中→→3ヶ月後バンクーバーにワーホリ予定。気持ちはいつも24歳、人生賭けに出たアラサー女子。</p>
@@ -399,7 +377,7 @@
       </div>
       <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <div class="thumbnail"> <img src="img/team/manato.jpg" alt="..." class="img-thumbnail team-img">
+        <div class="thumbnail"> <img src="img/team/manato.jpg" alt="manato" class="img-thumbnail team-img">
           <div class="caption">
             <h3>MANATO</h3>
             <p>海外の魅力にハマりつつある旅行ビギナー。今行きたい国は、タイ、ドイツ、ドバイ。思い立ったらすぐ行動。商社を退職し一念発起して気付けばWebエンジニアになるべくセブ島へ。マイブームは、ブログの運営とズバリ海外旅行の元商社マンです。</p>
@@ -414,33 +392,33 @@
 
 <!-- Contact Section -->
 
-<div id="footer">
-  <div class="container">
-    <p>Copyright &copy; FLY HIGH. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
-  </div>
+<!-- フッターの外部読み込み-->
+<?php include('footer.php'); ?>
 
+<!-- フローティングボタンの外部読み込み-->
+<?php include('to-top.php'); ?>
   <!-- to-topのフローティングボタンを付け加える -->
-  <a id="to-top" href="#top" class="btn btn-dark btn-lg">
+<!--   <a id="to-top" href="#top" class="btn btn-dark btn-lg">
     <i class="fa fa-chevron-up fa-fw fa-1x"></i>
-  </a>
+  </a> -->
 
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script type="text/javascript" src="js/bootstrap.js"></script> 
-<script type="text/javascript" src="js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="js/contact_me.js"></script> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
 
 
 
 <!-- Javascripts
-    ================================================== --> 
+    ================================================== -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
