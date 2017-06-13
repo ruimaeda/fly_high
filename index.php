@@ -65,8 +65,8 @@
           <img src="img/flyhigh_logo_white.png" alt="..." class="" width="180px" height="180px">
           <h1><span class="brand-heading">FLY HIGH</span></h1>
           <p class="intro-text">There’s no better way to fly.</p>
-          <a href="#" class="btn btn-default page-scroll">sign up</a>
-          <a href="#" class="btn btn-default page-scroll">log in</a> </div>
+          <a href="signup.php" class="btn btn-default page-scroll">sign up</a>
+          <a href="login.php" class="btn btn-default page-scroll">log in</a> </div>
       </div>
     </div>
   </div>

@@ -3,3 +3,32 @@
 	font-weight: bold;
 	margin-top: 10px;
 }
+
+.bg{
+  background: url(../img/country/uae.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  height:100%;
+}
+
+.bg::before{
+  /* 透過した黒を重ねる */
+  background-color: rgba(0,0,0,0.5);
+  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+.box{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.login-btn-field {
+    margin-top: 38px;
+}
