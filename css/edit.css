@@ -22,3 +22,12 @@ label.add-question-text{
     padding: 140px 0;
     background: #e6e6e6;
 }
+
+#country-name {
+	text-align: center;
+	padding-top: 10px;
+}
+
+input {
+	display: inline;
+}
