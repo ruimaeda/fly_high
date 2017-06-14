@@ -56,11 +56,12 @@
     }
 
 
-    // //エラー項目の確認:style＆国（スタイルか国の何か１つが選ばれていること）？？
-    // //POST送信
-    // if($_POST['style']=='' && $_POST['country']){
-    //   $error['country']='blank';
-    // }
+    // エラー項目の確認:style＆国（スタイルか国の何か１つが選ばれていること）-----------------------------------？？
+    // POST送信
+    if(!isset($_POST['style']) && !isset($_POST['country'])){
+      $error['style_country']='blank';
+    }
+
 
 
 
@@ -233,6 +234,15 @@
                     <p class="error">* passwordが違います</p>
                   <?php } ?>
                 </div>
+
+
+                <!-- スタイルと国の選択が一つもない場合のエラー処理 -->
+                <div class="form-group">
+                  <?php if(isset($error['style_country']) && $error['style_country']=='blank'){ ?>
+                    <p class="error style_country">* スタイル、国の中からお一つお選びください</p>
+                  <?php } ?>
+                </div>
+
               <!-- </form> -->
             </div>
         </div>
@@ -705,22 +715,6 @@
           </div>
         </div>
       </div>
-      <!-- ボタンsectionのdivを作るためにコメントアウト！ -->
-      <!-- <div class="text-center">
-        <button type="submit" class="btn btn-default">TOPページに戻る</button>
-        <button type="submit" class="btn btn-default">ユーザー登録する</button>
-      </div>
-      <div class="text-center agree">
-      アカウントを作成することで、Fly Highの<a hreaf="">利用規約</a>と<a hreaf="">プライバシーポリシー</a>に同意するものとします。
-      </div>
-      <div class="text-center agree">
-      <div class="clearfix"></div>
-      <hr>
-      もしかして、すでにアカウントをお持ちですか？
-      </div>
-      <div class="text-center agree">
-        <button type="submit" class="btn btn-default">ログインする</button>
-      </div> -->
     </div>
   </div>
 </div>
@@ -733,7 +727,6 @@
   <div class="container">
     <div class="text-center">
       <a href="index.php" type="submit" class="btn btn-default">TOPページに戻る</a>
-      <!-- <button type="submit" class="btn btn-default">ユーザー登録する</button> -->
       <button form="form_signup" type="submit" class="btn btn-default">ユーザー登録する</button>
     </div>
     <div class="text-center agree">

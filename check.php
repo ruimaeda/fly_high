@@ -20,21 +20,18 @@
   $country = $_SESSION['signup']['country'];
   $style = $_SESSION['signup']['style'];
 
-  // //テスト用
-  // $kuni_array = array('Ireland', 'UnitedStates', 'UnitedArabEmirates');
-  // $style_array = array('alone', 'family', 'shopping');
 
   // // （ここはok！）
-  // echo('<pre>');
-  // var_dump($nick_name);
-  // var_dump($email);
-  // var_dump($password);
-  // var_dump($kuni_array);
-  // var_dump($_SESSION['signup']);
-  // var_dump($style_array);
-  // var_dump($country);
-  // var_dump($style);
-  // echo('</pre>');
+    // echo('<pre>');
+    // var_dump($nick_name);
+    // var_dump($email);
+    // var_dump($password);
+    // var_dump($kuni_array);
+    // var_dump($_SESSION['signup']);
+    // var_dump($style_array);
+    // var_dump($country);
+    // var_dump($style);
+    // echo('</pre>');
 
 
 
@@ -46,12 +43,8 @@
         mysqli_real_escape_string($db,$_SESSION['signup']['email']),
         mysqli_real_escape_string($db,sha1($_SESSION['signup']['password']))
         );
-
-
-    //SQL文を実行し、うまくいったら遷移(ok)
+    //SQL文を実行
     mysqli_query($db, $sql) or die(mysqli_error($db));
-    // header("Location: thanks.php");
-    // exit();
 
   // }
 
@@ -66,10 +59,6 @@
       $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
       $select_user_id = mysqli_fetch_assoc($select_user_ids);
 
-            // // ここ(ok)！
-            // echo('<pre>');
-            // var_dump($select_user_id);
-            // echo('</pre>');
 
     //2-2.国の名前($country)からそれぞれの国IDを取ってくる（国テーブル）
     $select_country_id_array = array();//←foreachの外で使うため？
@@ -82,13 +71,13 @@
         $select_country_id = mysqli_fetch_assoc($select_country_ids);
       // }
         // $select_country_id_array[] = $select_country_id['country_id'];
-              // ここも(ok)
+            // ここも(ok)
               // echo('<pre>');
               // var_dump($select_country_id);
               // echo('</pre>');
       // }
 
-              // ここも(ok)
+            // ここも(ok)
               // echo('<pre>');
               // var_dump($select_user_id);
               // var_dump($select_country_id_array);
@@ -107,7 +96,7 @@
         mysqli_query($db, $sql) or die(mysqli_error($db));
         // }
 
-            // // ここも(ok)？
+          // // ここも(ok)？
             // echo('<pre>');
             // var_dump($select_user_id);
             // // var_dump($select_user_id['user_id']);
@@ -124,7 +113,7 @@
 
     //3-1.スタイル名($style)からそれぞれのスタイルIDを取ってくる（スタイルテーブル）
   // if (!empty($_POST['style'])) {
-    $select_style_id_array = array();//←foreachの外で使うため？
+    $select_style_id_array = array();
     foreach ($style as $select_styles) {
       $sql = sprintf('SELECT `style_id` FROM `styles` WHERE `style_name` = "%s"',
         mysqli_real_escape_string($db,$select_styles)
@@ -134,24 +123,23 @@
         $select_style_id = mysqli_fetch_assoc($select_style_ids);
         // $select_style_id_array[] = $select_style_id['style_id'];
 
-      //         // ここ(ok)
-      //         echo('<pre>');
-      //         var_dump($select_user_id);
-      //         var_dump($select_style_id);//1,3,8が取れる
-      //         echo('</pre>');
-      // }
+        //       // ここ(ok)
+          //       echo('<pre>');
+          //       var_dump($select_user_id);
+          //       var_dump($select_style_id);//1,3,8が取れる
+          //       echo('</pre>');
+          // }
 
-        // //1, 13, 138の値が取れる...要る？
-        // $select_style_id_array[] = $select_style_id['style_id'];
-        //       // ここも(ok)？
-        //       echo('<pre>');
-        //       var_dump($select_user_id);
-        //       var_dump($select_style_id_array);
-        //       echo('</pre>');
-        // }
+          // //1, 13, 138の値が取れる...要る？
+            // $select_style_id_array[] = $select_style_id['style_id'];
+            //       // ここも(ok)？
+            //       echo('<pre>');
+            //       var_dump($select_user_id);
+            //       var_dump($select_style_id_array);
+            //       echo('</pre>');
+            // }
 
       //3-2.スタイルIDとユーザーIDをINSERTする（ユーザースタイルテーブル）
-      // while(true) {
       $sql = sprintf('INSERT INTO `user_styles` (`user_id`, `style_id`) VALUES ("%s", "%s");',
           mysqli_real_escape_string($db,$select_user_id['user_id']),
           mysqli_real_escape_string($db,$select_style_id['style_id'])
@@ -160,9 +148,8 @@
           break;
         }
         mysqli_query($db, $sql) or die(mysqli_error($db));
-      // }
 
-            // // ここも(ok)
+          // // ここも(ok)
             // echo('<pre>');
             // var_dump($select_user_id);
             // // var_dump($select_user_id['user_id']);
@@ -170,8 +157,6 @@
             // // var_dump($select_style_id['style_id']);
             // echo('</pre>');
 
-      //     // header("Location: thanks.php");
-      //     // exit();
   //   }//foreach文ここ！
 
   // }//POST送信があったら。
@@ -181,14 +166,8 @@
 
       //4-1.スタイルIDから国IDを取ってくる（国スタイルテーブル）
       $select_country_id_array2 = array();
-      foreach ($select_style_id as $select_styles2) {
-      //   while(true) {
-      // // $select_style_id_array[] = $select_style_id['style_id'];
-      //   if('country_id' == false){
-      //     break;
-      //   }
         $sql = sprintf('SELECT `country_id` FROM `country_styles` WHERE `style_id` = "%s"',
-          mysqli_real_escape_string($db,$select_styles2)
+          mysqli_real_escape_string($db,$select_style_id['style_id'])
           );
           //SQL文の実行と変数への代入
           $select_country_ids2 = mysqli_query($db,$sql) or die(mysqli_error($db));
@@ -200,41 +179,21 @@
                 break;
               }
 
-              // // それぞれのスタイルが持つ国IDを取得できた(ok)
-              // echo('<pre>');
-              // var_dump($select_country_id2);//会員登録ボタン押下後に表示される
-              // echo('</pre>');
+              // それぞれのスタイルが持つ国IDを取得できた(ok)
+              echo('<pre>');
+              var_dump($select_user_id);
+              var_dump($select_country_id);
+              var_dump($select_country_id2);//会員登録ボタン押下後に表示される
+              echo('</pre>');
 
-
-              // $select_country_id_array2[] = $select_country_id2['country_id'];
-
-
-          // while ($select_country_id2 = mysqli_fetch_assoc($select_country_ids2)) {
-          //     // $select_country_id_array2[] = $select_country_id2;
-          //     $select_all_country_id = $select_country_id2;//whileの条件と同じ。。。
-          //     // print($row['country_id']);
-          // // }
 
             // }//while文
 
-              // // それぞれのスタイルが持つ国IDを取得できた(ok)
+            // // それぞれのスタイルが持つ国IDを取得できた(ok)
               // echo('<pre>');//会員登録ボタン押下後に表示される
               // var_dump($select_country_id2);//array挿入処理したらnullになる。
               // var_dump($select_country_id_array2);//
               // echo('</pre>');
-
-                // //1つ飛ばしで抽出される
-                // foreach ($select_country_ids2 as $select_all_countries) {
-                // $select_country_id_array2[] = mysqli_fetch_assoc($select_country_ids2);
-                // }
-
-          // }//while文
-
-
-          // // ここ(ok)？
-          // echo('<pre>');
-          // var_dump($select_country_id_array2);//会員登録ボタン押下後に表示される
-          // echo('</pre>');
 
 
       // }//スタイルからのforeachここ？
@@ -248,26 +207,19 @@
           mysqli_real_escape_string($db,$select_user_id['user_id']),
           mysqli_real_escape_string($db,$select_country_id2['country_id'])
           );
-              // if($select_country_id2['country_id'] == false){
-              //   break;
-              // }
 
-              // (ok)？
-              echo('<pre>');
-              var_dump($select_user_id);//会員登録ボタン押下後に表示される
-              var_dump($select_country_id);//会員登録ボタン押下後に表示される
-              var_dump($select_country_id2['country_id']);//会員登録ボタン押下後に表示される
-              echo('</pre>');
+            // // (ok)？
+              // echo('<pre>');
+              // var_dump($select_user_id);//会員登録ボタン押下後に表示される
+              // var_dump($select_country_id);//会員登録ボタン押下後に表示される
+              // var_dump($select_country_id2['country_id']);
+              // echo('</pre>');
 
 
         mysqli_query($db, $sql) or die(mysqli_error($db));
 
 
           }//while文
-
-
-        }//スタイルからのforeachここ？
-
 
     }//ユーザースタイルテーブルのforeach文ここ？
 
@@ -281,8 +233,8 @@
 
     mysqli_query($db, $sql) or die(mysqli_error($db));
 
-    header("Location: thanks.php");
-    exit();
+    // header("Location: thanks.php");
+    // exit();
 
 
   }//全体のPOST送信があったら？
