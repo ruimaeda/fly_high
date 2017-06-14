@@ -1,9 +1,49 @@
+<?php
+//セッションスタート
+session_start();
+
+//DBへ接続
+require('dbconnect.php');
+
+
+var_dump($_POST['validate-email']);
+
+//入力されたメールアドレスを使って、ユーザーを特定し、ハッシュ化された文字列をテーブルへUPDATEする
+  //メールアドレスの入力でスタート
+  if($_POST['validate-email']){
+    var_dump("スタート");
+    $hash_text = uniqid(rand());
+
+    $sql = sprintf('UPDATE `users` SET `hash` = "%s" WHERE `email` = "%s" ',
+    mysqli_real_escape_string($db,$hash_text),
+    mysqli_real_escape_string($db,$_POST['validate-email'])
+    );
+    mysqli_query($db,$sql) or die(mysqli_error($db));
+    //sqlでUPDATEが実行できたら、次の処理に進む（未実装）
+    $_SESSION['email'] = $_POST['validate-email'];
+    var_dump($_SESSION['email']);
+
+    //作成したハッシュを元にURLを作成して、変数に代入する
+    $_SESSION['hashurl'] = 'http://localhost/flyhigh/new_pass.php?hash='.$hash_text;
+    var_dump($_SESSION['hashurl']);
+
+    header("location: sendmail_pass.php");
+    exit();
+
+  // }else{
+  //   var_dump("失敗");
+  //   $error['pass_forgot'] = 'faild';
+  }
+
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>FLYHIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -14,7 +54,6 @@
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="css/style.css">
-
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/pass_forgot.css">
@@ -59,24 +98,26 @@
   <div class="intro-body bg">
     <div class="container box">
       <h1>INSERT MAIL</h1>
-                <p class="lead">メールアドレスを入力してください</p>
+                <p class="lead">登録したメールアドレスを入力してください</p>
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-              <form method="post">
-             
+              <form method="post" action="">
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードを入力してください" required>
+                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="登録したメールアドレスを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
                 </div>
-               
+                <a href="login.php"><button type="button" class="btn btn-default btn-pass">LOGINに戻る</button></a>
+                <button type="submit" class="btn btn-default btn-pass">送信</button>
+                <?php if(isset($_SESSION['error']) && $_SESSION['error'] == 'nohash'){ ?>
+                  <p class="error">再度、メールアドレスを入力してください(๑•̀ㅂ•́)و✧</p>
+                <?php } ?>
+                <?php if(isset($error['pass_forgot']) && $error['pass_forgot'] == 'faild'){ ?>
+                  <p class="error">メールアドレスが間違っています(๑•̀ㅂ•́)و✧</p>
+                <?php } ?>
                 </form>
-                <button type="submit" class="btn btn-default btn-pass">LOGINに戻る</button>
-                 <button type="submit" class="btn btn-default btn-pass">
-                 送信</button>
-
             </div>
         </div>
     </div>
@@ -93,8 +134,8 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
-<script type="text/javascript" src="js/signup.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/signup.js"></script> -->
 
 <!-- Javascripts
     ================================================== -->

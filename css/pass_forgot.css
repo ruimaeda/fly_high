@@ -135,8 +135,12 @@ fieldset[disabled] .btn-default.active {
 }
 
 /*背景透過*/
+/*#intro {
+  background: url(../img/elnido.jpg) no-repeat center center fixed;
+}*/
+
 .bg{
-  background: url(../img/intro-bg.jpg) no-repeat center;
+  background: url(../img/country/uae.jpg) no-repeat center;
   background-size: cover;
   position: relative;
   height:100%;

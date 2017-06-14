@@ -1,9 +1,65 @@
+<?php
+//セッションスタート
+session_start();
+
+//DBへ接続
+require('dbconnect.php');
+
+//$_GETからハッシュタグの値を取得して、どのユーザーのパスを更新するのか探す
+//$_GETの値がないユーザーはリジェクトする
+//$_GETのハッシュデータを元にユーザーIDをSELECTする
+if(isset($_GET['hash'])){
+  var_dump("GETがある");
+  var_dump($_GET);
+
+  $sql = sprintf('SELECT `user_id` FROM `users` WHERE `hash` ="%s" ',
+  mysqli_real_escape_string($db,$_GET['hash']));
+  $record = mysqli_query($db,$sql) or die(mysqli_error($db));
+  $user_id = mysqli_fetch_assoc($record);
+  var_dump($user_id);
+
+  if(!empty($_POST)){
+    //入力されたパスワードのエラー処理（パスワードが6文字未満）
+    if (strlen($_POST['password'])<6) {
+      $error['password']='length';
+    }
+
+    //入力されたパスワードのエラー処理（入力したパスワードが一致しない）
+    if ($_POST['re_password'] !== $_POST['password']) {
+      $error['re_password']='not_same';
+    }
+
+    //エラーがなかった場合
+    if(empty($error)){
+
+    //特定したuser_idを元に、パスワードを更新する
+    $sql = sprintf('UPDATE `users` SET `password` = "%s" WHERE `user_id` = "%s" ',
+    mysqli_real_escape_string($db,sha1($_POST['password'])),
+    mysqli_real_escape_string($db,$user_id['user_id'])
+    );
+    mysqli_query($db,$sql) or die(mysqli_error($db));
+    $success['password'] = 'success';
+    }
+  }
+
+}else{
+  var_dump("GETがない");
+  //なんらかのエラー変数をSESSIONに代入して、pass_forgotに飛ばして、エラーを表示する（未実装）
+  $_SESSION['error'] = 'nohash';
+  header("location: pass_forgot.php");
+  exit();
+
+}
+
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>FLYHIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -63,22 +119,33 @@
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-              <form method="post">
-             
+              <form method="post" action="">
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードを入力してください" required>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- 字数エラーの処理(ok) -->
+                  <?php if(isset($error['password']) && $error['password']=='length'){ ?>
+                    <p class="error">* passwordは6文字以上で入力してください</p>
+                  <?php } ?>
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="password" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                   </div>
+                  <!-- パスワード確認の処理(ok) -->
+                  <?php if(isset($error['re_password']) && $error['re_password']=='not_same'){ ?>
+                    <p class="error">* 入力された2つのpasswordが異なります</p>
+                  <?php } ?>
                 </div>
+                <a href="login.php"><button style="display:inline" type="button" class="btn btn-default btn-pass">LOGINページへ</button></a>
+                <button type="submit" style="display:inline" class="btn btn-default btn-forgot">更新する</button>
+                <?php if(isset($success['password']) && $success['password'] == 'success'){ ?>
+                  <p class="error">新しいパスワードへの変更が完了しました(๑•̀ㅂ•́)و✧</p>
+                <?php } ?>
                 </form>
-                <button type="submit" class="btn btn-default btn-forgot">更新する</button>
             </div>
         </div>
     </div>
@@ -94,8 +161,8 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
-<script type="text/javascript" src="js/signup.js"></script>
+<!-- <script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/signup.js"></script> -->
 
 <!-- Javascripts
     ================================================== -->
