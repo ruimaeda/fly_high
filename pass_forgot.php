@@ -106,10 +106,10 @@ var_dump($_POST['validate-email']);
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="登録したメールアドレスを入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon danger"></span>
                   </div>
                 </div>
-                <a href="login.php"><button type="button" class="btn btn-default btn-pass">LOGINに戻る</button></a>
+                <a href="login.php"><button type="button" class="btn btn-default btn-pass">LOGINへ</button></a>
                 <button type="submit" class="btn btn-default btn-pass">送信</button>
                 <?php if(isset($_SESSION['error']) && $_SESSION['error'] == 'nohash'){ ?>
                   <p class="error">再度、メールアドレスを入力してください(๑•̀ㅂ•́)و✧</p>

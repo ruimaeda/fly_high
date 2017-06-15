@@ -126,7 +126,7 @@ if(isset($_GET['hash'])){
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="password" class="form-control" name="password" id="password" placeholder="パスワードを入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon danger"></span>
                   </div>
                   <!-- 字数エラーの処理(ok) -->
                   <?php if(isset($error['password']) && $error['password']=='length'){ ?>
@@ -136,14 +136,14 @@ if(isset($_GET['hash'])){
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="password" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon danger"></span>
                   </div>
                   <!-- パスワード確認の処理(ok) -->
                   <?php if(isset($error['re_password']) && $error['re_password']=='not_same'){ ?>
                     <p class="error">* 入力された2つのpasswordが異なります</p>
                   <?php } ?>
                 </div>
-                <button type="submit" style="display:inline" class="btn btn-default btn-forgot">更新する</button>
+                <button type="submit" class="btn btn-default btn-forgot">更新する</button>
                 </form>
             </div>
         </div>

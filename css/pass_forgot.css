@@ -26,30 +26,11 @@
 	padding: 5px 0;
 }
 
-.input-group-addon.primary {
-    color: rgb(255, 255, 255);
-    background-color: rgb(50, 118, 177);
-    border-color: rgb(40, 94, 142);
-}
-.input-group-addon.success {
-    color: rgb(255, 255, 255);
-    background-color: rgb(92, 184, 92);
-    border-color: rgb(76, 174, 76);
-}
-.input-group-addon.info {
-    color: rgb(255, 255, 255);
-    background-color: rgb(57, 179, 215);
-    border-color: rgb(38, 154, 188);
-}
-.input-group-addon.warning {
-    color: rgb(255, 255, 255);
-    background-color: rgb(240, 173, 78);
-    border-color: rgb(238, 162, 54);
-}
+/*フォームの右側を明るい緑に変更*/
 .input-group-addon.danger {
     color: rgb(255, 255, 255);
-    background-color: rgb(217, 83, 79);
-    border-color: rgb(212, 63, 58);
+    background-color: #00cc99;
+    border-color: #00cc99;
 }
 
 .agree {
@@ -166,4 +147,22 @@ fieldset[disabled] .btn-default.active {
 h1,p{
   color: #fff;
 
+}
+
+/*ボタンの色を緑に変更*/
+.btn-default {
+  color: #f6f6f6;
+  background: #00cc99;
+  border: 0;
+  padding: 12px 24px;
+  margin: 0 15px;
+  font-size: 18px;
+  transition: all 0.5s;
+  width: 110px;
+  text-align: center;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+  color: #f6f6f6;
+  background-color: #00947a;
 }
