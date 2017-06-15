@@ -4,6 +4,8 @@
   //DBへ接続
   require('dbconnect.php');
 
+  var_dump($_POST['country']);//送信ボタンを押したら表示される
+  var_dump($_POST['style']);//送信ボタンを押したら表示される
 
   //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
@@ -146,6 +148,8 @@
   <!-- /.container -->
 </nav>
 
+
+<form id="form_signup" method="post" action="">
 <!-- Header -->
 <!-- <form method="post" action=""> -->
 <div id="intro">
@@ -157,7 +161,7 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
               <!-- <form method="post" action=""> -->
-              <form id="form_signup" method="post" action="">
+              <!-- <form id="form_signup" method="post" action=""> -->
 
 
                 <!-- ニックネーム -->
@@ -229,7 +233,7 @@
                     <p class="error">* passwordが違います</p>
                   <?php } ?>
                 </div>
-              </form>
+              <!-- </form> -->
             </div>
         </div>
     </div>
@@ -248,49 +252,73 @@
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="ひとり旅">
+              <label>
+                <input type="checkbox" name="style[]" value="alone">
+                <img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="ひとり旅">
+              </label>
               <p id="country-name">ひとり旅</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_couple.png" class="img-responsive style-photo check" alt="カップル">
+              <label>
+                <input type="checkbox" name="style[]" value="couple">
+                <img src="img/style/icon_couple.png" class="img-responsive style-photo check" alt="カップル">
+              </label>
               <p id="country-name">カップル・夫婦</p>
           </div>
         </div>
        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_family.png" class="img-responsive style-photo check" alt="家族旅行">
+              <label>
+                <input type="checkbox" name="style[]" value="family">
+                <img src="img/style/icon_family.png" class="img-responsive style-photo check" alt="家族旅行">
+              </label>
               <p id="country-name">家族旅行</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_food.png" class="img-responsive style-photo check" alt="グルメ">
+              <label>
+                <input type="checkbox" name="style[]" value="food">
+                <img src="img/style/icon_food.png" class="img-responsive style-photo check" alt="グルメ">
+              </label>
               <p id="country-name">グルメ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_resort.png" class="img-responsive style-photo check" alt="リゾート">
+              <label>
+                <input type="checkbox" name="style[]" value="resort">
+                <img src="img/style/icon_resort.png" class="img-responsive style-photo check" alt="リゾート">
+              </label>
               <p id="country-name">リゾート</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_nature.png" class="img-responsive style-photo check" alt="自然">
+              <label>
+                <input type="checkbox" name="style[]" value="nature">
+                <img src="img/style/icon_nature.png" class="img-responsive style-photo check" alt="自然">
+              </label>
               <p id="country-name">自然</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_ruins.png" class="img-responsive style-photo check" alt="遺跡">
+              <label>
+                <input type="checkbox" name="style[]" value="ruins">
+                <img src="img/style/icon_ruins.png" class="img-responsive style-photo check" alt="遺跡">
+              </label>
               <p id="country-name">遺跡</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
-              <img src="img/style/icon_shopping.png" class="img-responsive style-photo check" alt="ショッピング">
+              <label>
+                <input type="checkbox" name="style[]" value="shopping">
+                <img src="img/style/icon_shopping.png" class="img-responsive style-photo check" alt="ショッピング">
+              </label>
               <p id="country-name">ショッピング</p>
           </div>
         </div>
@@ -327,227 +355,353 @@
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/ireland.jpg" class="img-responsive country-photo check" alt="アイルランド">
+              <label>
+                <input type="checkbox" name="country[]" value="Ireland">
+                <img src="img/country/ireland.jpg" class="img-responsive country-photo check" alt="アイルランド">
+              </label>
             </div>
-              <p id="country-name">アイルランド</p>
+            <p id="country-name">アイルランド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/usa.jpg" class="img-responsive country-photo check" alt="アメリカ"> </a>
+              <label>
+                <input type="checkbox" name="country[]" value="UnitedStates">
+                <img src="img/country/usa.jpg" class="img-responsive country-photo check" alt="アメリカ">
+              </label>
             </div>
-              <p id="country-name">アメリカ</p>
+            <p id="country-name">アメリカ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/uae.jpg" class="img-responsive country-photo check" alt="アラブ首長国連邦"> </a> </div>
-              <p id="country-name">アラブ首長国連邦</p>
+              <label>
+                <input type="checkbox" name="country[]" value="UnitedArabEmirates">
+                <img src="img/country/uae.jpg" class="img-responsive country-photo check" alt="アラブ首長国連邦">
+              </label>
+            </div>
+            <p id="country-name">アラブ首長国連邦</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/uk.jpg" class="img-responsive country-photo check" alt="イギリス"> </a> </div>
-              <p id="country-name">イギリス</p>
+              <label>
+                <input type="checkbox" name="country[]" value="UnitedKingdom">
+                <img src="img/country/uk.jpg" class="img-responsive country-photo check" alt="イギリス">
+              </label>
+            </div>
+            <p id="country-name">イギリス</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/italy.jpg" class="img-responsive country-photo check" alt="イタリア"> </a> </div>
-              <p id="country-name">イタリア</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Italy">
+                <img src="img/country/italy.jpg" class="img-responsive country-photo check" alt="イタリア">
+              </label>
+            </div>
+            <p id="country-name">イタリア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/india.jpg" class="img-responsive country-photo check" alt="インド"> </a> </div>
-              <p id="country-name">インド</p>
+              <label>
+                <input type="checkbox" name="country[]" value="India">
+                <img src="img/country/india.jpg" class="img-responsive country-photo check" alt="インド">
+              </label>
+            </div>
+            <p id="country-name">インド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/indonesia.jpg" class="img-responsive country-photo check" alt="インドネシア"> </a> </div>
+              <label>
+                <input type="checkbox" name="country[]" value="Indonesia">
+                <img src="img/country/indonesia.jpg" class="img-responsive country-photo check" alt="インドネシア">
+              </label>
+              </div>
               <p id="country-name">インドネシア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/australia.jpg" class="img-responsive country-photo check" alt="オーストラリア"> </a> </div>
-              <p id="country-name">オーストラリア</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Australia">
+                <img src="img/country/australia.jpg" class="img-responsive country-photo check" alt="オーストラリア">
+              </label>
+            </div>
+            <p id="country-name">オーストラリア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/netherland.jpg" class="img-responsive country-photo check" alt="オランダ"> </a> </div>
-              <p id="country-name">オランダ</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Netherlands">
+                <img src="img/country/netherland.jpg" class="img-responsive country-photo check" alt="オランダ">
+              </label>
+            </div>
+            <p id="country-name">オランダ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/qatar.jpg" class="img-responsive country-photo check" alt="カタール"> </a> </div>
-              <p id="country-name">カタール</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Qatar">
+                <img src="img/country/qatar.jpg" class="img-responsive country-photo check" alt="カタール">
+              </label>
+            </div>
+            <p id="country-name">カタール</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/canada.jpg" class="img-responsive country-photo check" alt="カナダ"> </a> </div>
-              <p id="country-name">カナダ</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Canada">
+                <img src="img/country/canada.jpg" class="img-responsive country-photo check" alt="カナダ">
+              </label>
+            </div>
+            <p id="country-name">カナダ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/korea.jpg" class="img-responsive country-photo check" alt="韓国"> </a> </div>
-              <p id="country-name">韓国</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Korea">
+                <img src="img/country/korea.jpg" class="img-responsive country-photo check" alt="韓国">
+              </label>
+            </div>
+            <p id="country-name">韓国</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/cambodia.jpg" class="img-responsive country-photo check" alt="カンボジア"> </a> </div>
-              <p id="country-name">カンボジア</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Cambodia">
+                <img src="img/country/cambodia.jpg" class="img-responsive country-photo check" alt="カンボジア">
+              </label>
+            </div>
+            <p id="country-name">カンボジア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/guam.jpg" class="img-responsive country-photo check" alt="グアム"> </a> </div>
-              <p id="country-name">グアム</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Guam">
+                <img src="img/country/guam.jpg" class="img-responsive country-photo check" alt="グアム">
+              </label>
+            </div>
+            <p id="country-name">グアム</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/saipan.jpg" class="img-responsive country-photo check" alt="サイパン"> </a> </div>
-              <p id="country-name">サイパン</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Saipan">
+                <img src="img/country/saipan.jpg" class="img-responsive country-photo check" alt="サイパン">
+              </label>
+            </div>
+            <p id="country-name">サイパン</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/singapore.jpg" class="img-responsive country-photo check" alt="シンガポール"> </a> </div>
-              <p id="country-name">シンガポール</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Singapore">
+                <img src="img/country/singapore.jpg" class="img-responsive country-photo check" alt="シンガポール">
+              </label>
+            </div>
+            <p id="country-name">シンガポール</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/spain.jpg" class="img-responsive country-photo check" alt="スペイン"> </a> </div>
-              <p id="country-name">スペイン</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Spain">
+                <img src="img/country/spain.jpg" class="img-responsive country-photo check" alt="スペイン">
+              </label>
+            </div>
+            <p id="country-name">スペイン</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/thailand.jpg" class="img-responsive country-photo check" alt="タイ"> </a> </div>
-              <p id="country-name">タイ</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Thailand">
+                <img src="img/country/thailand.jpg" class="img-responsive country-photo check" alt="タイ">
+              </label>
+            </div>
+            <p id="country-name">タイ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/taiwan.jpg" class="img-responsive country-photo check" alt="台湾"> </a> </div>
-              <p id="country-name">台湾</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Taiwan">
+                <img src="img/country/taiwan.jpg" class="img-responsive country-photo check" alt="台湾">
+              </label>
+            </div>
+            <p id="country-name">台湾</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/china.jpg" class="img-responsive country-photo check" alt="中国"> </a> </div>
-              <p id="country-name">中国</p>
+              <label>
+                <input type="checkbox" name="country[]" value="China">
+                <img src="img/country/china.jpg" class="img-responsive country-photo check" alt="中国">
+              </label>
+            </div>
+            <p id="country-name">中国</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/turkey.jpg" class="img-responsive country-photo check" alt="トルコ"> </a> </div>
-              <p id="country-name">トルコ</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Turkey">
+                <img src="img/country/turkey.jpg" class="img-responsive country-photo check" alt="トルコ">
+              </label>
+            </div>
+            <p id="country-name">トルコ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/newcaledonia.jpg" class="img-responsive country-photo check" alt="ニューカレドニア"> </a> </div>
-              <p id="country-name">ニューカレドニア</p>
+              <label>
+                <input type="checkbox" name="country[]" value="NewCaledonia">
+                <img src="img/country/newcaledonia.jpg" class="img-responsive country-photo check" alt="ニューカレドニア">
+              </label>
+            </div>
+            <p id="country-name">ニューカレドニア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/newzealand.jpg" class="img-responsive country-photo check" alt="ニュージーランド"> </a> </div>
-              <p id="country-name">ニュージーランド</p>
+              <label>
+                <input type="checkbox" name="country[]" value="NewZealand">
+                <img src="img/country/newzealand.jpg" class="img-responsive country-photo check" alt="ニュージーランド">
+              </label>
+            </div>
+            <p id="country-name">ニュージーランド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/hawaii.jpg" class="img-responsive country-photo check" alt="ハワイ"> </a> </div>
-              <p id="country-name">ハワイ</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Hawaii">
+                <img src="img/country/hawaii.jpg" class="img-responsive country-photo check" alt="ハワイ">
+              </label>
+            </div>
+            <p id="country-name">ハワイ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/elnido.jpg" class="img-responsive country-photo check" alt="フィリピン"> </a> </div>
-              <p id="country-name">フィリピン</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Philippines">
+                <img src="img/country/elnido.jpg" class="img-responsive country-photo check" alt="フィリピン">
+              </label>
+            </div>
+            <p id="country-name">フィリピン</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/finland.jpg" class="img-responsive country-photo check" alt="フィンランド"> </a> </div>
-              <p id="country-name">フィンランド</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Finland">
+                <img src="img/country/finland.jpg" class="img-responsive country-photo check" alt="フィンランド">
+              </label>
+            </div>
+            <p id="country-name">フィンランド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/france.jpg" class="img-responsive country-photo check" alt="フランス"> </a> </div>
-              <p id="country-name">フランス</p>
+              <label>
+                <input type="checkbox" name="country[]" value="France">
+                <img src="img/country/france.jpg" class="img-responsive country-photo check" alt="フランス">
+              </label>
+            </div>
+            <p id="country-name">フランス</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/vietnam.jpg" class="img-responsive country-photo check" alt="ベトナム"> </a> </div>
-              <p id="country-name">ベトナム</p>
+              <label>
+                <input type="checkbox" name="country[]" value="VietNam">
+                <img src="img/country/vietnam.jpg" class="img-responsive country-photo check" alt="ベトナム">
+              </label>
+            </div>
+            <p id="country-name">ベトナム</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/hongkong.jpg" class="img-responsive country-photo check" alt="香港"> </a> </div>
-              <p id="country-name">香港・マカオ</p>
+              <label>
+                <input type="checkbox" name="country[]" value="HongKong">
+                <img src="img/country/hongkong.jpg" class="img-responsive country-photo check" alt="香港">
+              </label>
+            </div>
+            <p id="country-name">香港・マカオ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/malaysia.jpg" class="img-responsive country-photo check" alt="マレーシア"> </a> </div>
-              <p id="country-name">マレーシア</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Malaysia">
+                <img src="img/country/malaysia.jpg" class="img-responsive country-photo check" alt="マレーシア">
+              </label>
+            </div>
+            <p id="country-name">マレーシア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/mexico.jpg" class="img-responsive country-photo check" alt="メキシコ"> </a> </div>
-              <p id="country-name">メキシコ</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Mexico">
+                <img src="img/country/mexico.jpg" class="img-responsive country-photo check" alt="メキシコ">
+              </label>
+            </div>
+            <p id="country-name">メキシコ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/russia.jpg" class="img-responsive country-photo check" alt="ロシア"> </a> </div>
-              <p id="country-name">ロシア</p>
+              <label>
+                <input type="checkbox" name="country[]" value="Russia">
+                <img src="img/country/russia.jpg" class="img-responsive country-photo check" alt="ロシア">
+              </label>
+            </div>
+            <p id="country-name">ロシア</p>
           </div>
         </div>
       </div>
@@ -595,7 +749,7 @@
     </div>
   </div>
 </div>
-<!-- </form> -->
+</form>
 
 
 

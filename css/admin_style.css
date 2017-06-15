@@ -488,7 +488,11 @@ img.img-thumbnail.team-img {
 	font-weight: bold;
 }
 
-
+/* ヘッダーメニューのロゴ位置調整*/
+.navbar-brand img {
+    display: inline;
+    padding-bottom: 5px;
+}
 
 
 

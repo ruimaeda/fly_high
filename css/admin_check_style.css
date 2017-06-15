@@ -127,10 +127,6 @@
 
 
 
-
-
-
-
 /*Sendボタン-----------------------------------------------------------------------*/
 .btn-lg2{
 	margin: 50px 60px;
@@ -157,6 +153,12 @@
     text-shadow: 0 1px 0 #fff;
     filter: alpha(opacity=20);
     opacity: .2;
+}
+
+/* ヘッダーメニューのロゴ位置調整*/
+.navbar-brand img {
+    display: inline;
+    padding-bottom: 5px;
 }
 
 

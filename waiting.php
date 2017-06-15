@@ -104,19 +104,13 @@
 <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
-      <h1>login</h1>
-        <p class="lead">ログイン情報を登録してください</p>
+      <h1>waiting list</h1>
+        <p class="lead">現在、FLYHIGHはキャンセル待ちです。フォームからメールアドレスをご登録ください、順次ご案内いたします。</p>
         <div class="card card-container">
               <img id="profile-img" class="profile-img-card" src="img/flyhigh_logo.png" />
               <form method="post" action="" class="form-signin">
                   <span id="reauth-email" class="reauth-email"></span>
                   <input type="email" name="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
-                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
-                  <div id="remember" class="checkbox">
-                      <label>
-                          <input type="checkbox" name="save" value="remember-me"><span class="auto-login">自動ログインする</span>
-                      </label>
-                  </div>
                   <div class="login-btn-field">
                     <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信">サインイン</input>
                   </div>
@@ -127,9 +121,6 @@
                     <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
                   <?php } ?>
               </form>
-              <a href="#" class="forgot-password">
-                  パスワードを忘れましたか？
-              </a>
               </div><!-- /card-container -->
     </div>
   </div>

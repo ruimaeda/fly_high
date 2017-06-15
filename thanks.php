@@ -1,3 +1,21 @@
+<?php
+  session_start();
+
+  echo('<pre>');
+  var_dump($_SESSION['signup']['country']);
+  var_dump($_SESSION['signup']['style']);
+  echo('</pre>');
+
+  unset($_SESSION['signup']);
+
+
+  //ユーザーIDをDBから取ってきて、mypageへ繋ぐ処理
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
