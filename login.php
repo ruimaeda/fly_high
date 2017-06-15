@@ -8,6 +8,12 @@
   //自動ログイン処理
 
 
+  //パスワードの再設定からジャンプしてきた場合
+  if(isset($_SESSION['new_password']) && $_SESSION['new_password'] == 'success') {
+    $_SESSION['new_password'] = '';
+    $error['login'] = 'newpass';
+  }
+
   //ログイン処理
   //メールアドレスとパスワードが入力されたらまずは空チェック
   if (!empty($_POST)) {
@@ -118,8 +124,11 @@
                       </label>
                   </div>
                   <div class="login-btn-field">
-                    <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信">サインイン</input>
+                    <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信"></input>
                   </div>
+                  <?php if(isset($error['login']) && $error['login'] == 'newpass') { ?>
+                    <p class="error">新しいパスワードへの変更が完了しました</p>
+                  <?php } ?>
                   <?php if(isset($error['login']) && $error['login'] == 'blank'){ ?>
                     <p class="error">メールアドレスとパスワードを入力してください(๑•̀ㅂ•́)و✧</p>
                   <?php } ?>
@@ -127,7 +136,7 @@
                     <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
                   <?php } ?>
               </form>
-              <a href="#" class="forgot-password">
+              <a href="pass_forgot.php" class="forgot-password">
                   パスワードを忘れましたか？
               </a>
               </div><!-- /card-container -->

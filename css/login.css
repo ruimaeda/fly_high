@@ -149,3 +149,7 @@ body, html {
 .login-btn-field {
   margin-top: 38px;
 }
+
+.error {
+  color: red;
+}

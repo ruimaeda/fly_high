@@ -118,9 +118,6 @@
                         <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
                       <?php } ?>
                   </form>
-                  <a href="#" class="forgot-password">
-                      パスワードを忘れましたか？
-                  </a>
               </div><!-- /card-container -->
     </div>
   </div>
