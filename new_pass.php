@@ -38,7 +38,10 @@ if(isset($_GET['hash'])){
     mysqli_real_escape_string($db,$user_id['user_id'])
     );
     mysqli_query($db,$sql) or die(mysqli_error($db));
-    $success['password'] = 'success';
+    $_SESSION['new_password'] = 'success';
+    header("location: login.php");
+    exit();
+
     }
   }
 
@@ -46,8 +49,8 @@ if(isset($_GET['hash'])){
   var_dump("GETがない");
   //なんらかのエラー変数をSESSIONに代入して、pass_forgotに飛ばして、エラーを表示する（未実装）
   $_SESSION['error'] = 'nohash';
-  header("location: pass_forgot.php");
-  exit();
+  // header("location: pass_forgot.php");
+  // exit();
 
 }
 
@@ -140,11 +143,7 @@ if(isset($_GET['hash'])){
                     <p class="error">* 入力された2つのpasswordが異なります</p>
                   <?php } ?>
                 </div>
-                <a href="login.php"><button style="display:inline" type="button" class="btn btn-default btn-pass">LOGINページへ</button></a>
                 <button type="submit" style="display:inline" class="btn btn-default btn-forgot">更新する</button>
-                <?php if(isset($success['password']) && $success['password'] == 'success'){ ?>
-                  <p class="error">新しいパスワードへの変更が完了しました(๑•̀ㅂ•́)و✧</p>
-                <?php } ?>
                 </form>
             </div>
         </div>
