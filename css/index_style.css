@@ -330,13 +330,6 @@ ol.type li a:hover {
     margin-left: 5px;
 }
 
-
-
-
-
-
-
-
 /* Team Section ------------------------------------------------------------------------*/
 #team {
 	/*padding: 140px 0;*/
@@ -511,4 +504,10 @@ img.img-thumbnail.team-img {
 #intro .intro-body H1 {
 	font-size: 5em;
 }
+}
+
+/* ヘッダーメニューのロゴ位置調整*/
+.navbar-brand img {
+    display: inline;
+    padding-bottom: 5px;
 }

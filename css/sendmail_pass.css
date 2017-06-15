@@ -1,3 +1,8 @@
+h2 {
+	padding-top: 50px;
+	color: rgba(255,255,255,0.8);
+}
+
 
 #style {
 	padding: 100px 0;
@@ -111,17 +116,11 @@ fieldset[disabled] .btn-default.active {
 }
 
 /*追加*/
-.btn-unsbscribe {
-    margin: 10px;
+.btn-forgot {
+    margin: 50px;
 }
 
-/*文字透過*/
-h1,p{
-  color: #fff;
 
-}
-
-/*トップ画像をエルニドに変更*/
 .bg{
   background: url(../img/elnido.jpg) no-repeat center;
   background-size: cover;
@@ -146,12 +145,41 @@ h1,p{
   text-align: center;
   margin-bottom: 50px;
 }
+h1,p{
+  color: #fff;
+}
+
+#intro .intro-body .brand-heading {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+#intro .intro-body .intro-text {
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: 80px;
+  color: rgba(255,255,255,0.9);
+}
 
 /*ボタンの色を緑に変更*/
 .btn-default {
+  color: #f6f6f6;
   background: #00cc99;
+  border: 0;
+  padding: 7px 24px;
+  margin: 0 15px;
+  font-size: 18px;
+  transition: all 0.5s;
+  width: 180px;
+  text-align: center;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+  color: #f6f6f6;
   background-color: #00947a;
+}
+
+/*追加*/
+.btn-sendmail {
+    margin-top: 50px;
 }

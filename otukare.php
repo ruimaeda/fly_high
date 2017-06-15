@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLYHIGH</title>
+<title>FLY HIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -14,7 +14,6 @@
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="css/style.css">
-
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/otukare.css">
@@ -63,9 +62,7 @@
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-                <a href="index.php"><button type="button" class="btn btn-custom btn-lg2">TOPページに戻る</button></a>
-              <!--    <button type="submit" class="btn btn-default btn-unsbscribe">
-                 退会する</button> -->
+                <a href="index.php"><button type="button" class="btn btn-default">TOPページに戻る</button></a>
             </div>
         </div>
     </div>

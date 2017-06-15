@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>FLYHIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -80,11 +80,9 @@
     </div>
   </div>
 </div>
-<div id="footer">
-  <div class="container">
-    <p>Copyright &copy; FlyHigh</p>
-  </div>
-</div>
+
+<!-- フッターの外部読み込み-->
+<?php include('footer.php'); ?>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script>

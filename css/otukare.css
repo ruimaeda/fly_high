@@ -26,32 +26,6 @@
 	padding: 5px 0;
 }
 
-.input-group-addon.primary {
-    color: rgb(255, 255, 255);
-    background-color: rgb(50, 118, 177);
-    border-color: rgb(40, 94, 142);
-}
-.input-group-addon.success {
-    color: rgb(255, 255, 255);
-    background-color: rgb(92, 184, 92);
-    border-color: rgb(76, 174, 76);
-}
-.input-group-addon.info {
-    color: rgb(255, 255, 255);
-    background-color: rgb(57, 179, 215);
-    border-color: rgb(38, 154, 188);
-}
-.input-group-addon.warning {
-    color: rgb(255, 255, 255);
-    background-color: rgb(240, 173, 78);
-    border-color: rgb(238, 162, 54);
-}
-.input-group-addon.danger {
-    color: rgb(255, 255, 255);
-    background-color: rgb(217, 83, 79);
-    border-color: rgb(212, 63, 58);
-}
-
 .agree {
 	padding-top: 30px;
 }
@@ -62,25 +36,6 @@
 
 hr .account-have {
 	margin: 0;
-}
-
-/* 選択したスタイルや国のCSS変更用 */
-.portfolio-items ul li{
-    width:200px;
-        /* リストマーカー画像切れ防止。最低高さを確保 */
-    min-height:20px;
-    height:auto!important;
-    height:20px;
-    padding:0 0 0 25px;
-    margin:5px 0 0 0;
-    cursor:pointer;
-}
-.portfolio-items .check{
-    background:transparent url('img/maru.gif') no-repeat left 0.1em scroll;
-}
-.portfolio-items .checked{
-	padding-top: 10px;
-    /*background:transparent url('img/batu.gif') no-repeat left 0.1em scroll;*/
 }
 
 /* boostrap.cssへの変更*/
@@ -129,11 +84,10 @@ fieldset[disabled] .btn-default.active {
   color: #fff;
 }
 
-/*追加*/
 
-
+/*トップ画像をエルニドに変更*/
 .bg{
-  background: url(../img/intro-bg.jpg) no-repeat center;
+  background: url(../img/elnido.jpg) no-repeat center;
   background-size: cover;
   position: relative;
   height:100%;
@@ -156,7 +110,17 @@ fieldset[disabled] .btn-default.active {
   text-align: center;
   margin-bottom: 50px;
 }
+
 h1,p{
   color: #fff;
 
+}
+
+/*ボタンの色を緑に変更*/
+.btn-default {
+  background: #00cc99;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+  background-color: #00947a;
 }
