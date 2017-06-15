@@ -16,6 +16,12 @@
     // echo('</pre>');
 
 
+
+    // $style = $_POST['style'];
+
+
+
+
     //入力されたemailから会員情報を取得できたら、「すでに登録されています」を表示する
     $sql = sprintf('SELECT `email` FROM `users` WHERE `email` = "%s"',
     mysqli_real_escape_string($db,$_POST['email'])
@@ -45,7 +51,6 @@
       $error['email']='already';
     }
 
-
     //エラー項目の確認：pass(文字長６文字以上)(ok)
     if (strlen($_POST['password'])<6) {
       $error['password']='length';
@@ -55,16 +60,10 @@
       $error['re_password']='not_same';
     }
 
-
-    // エラー項目の確認:style＆国（スタイルか国の何か１つが選ばれていること）-----------------------------------？？
-    // POST送信
-    if(!isset($_POST['style']) && !isset($_POST['country'])){
+    // エラー項目の確認:styleか国のうち何か１つが選ばれていること()--------------------！！
+    if(empty($_POST['style']) && empty($_POST['country'])){
       $error['style_country']='blank';
     }
-
-
-
-
 
 
     // エラーがない場合セッションに値を保存(ok)
@@ -262,20 +261,39 @@
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
+
+
               <label>
                 <input type="checkbox" name="style[]" value="alone">
                 <img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="ひとり旅">
               </label>
+
+
+              
+
+
+
+
+
               <p id="country-name">ひとり旅</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
+
+
               <label>
                 <input type="checkbox" name="style[]" value="couple">
                 <img src="img/style/icon_couple.png" class="img-responsive style-photo check" alt="カップル">
               </label>
               <p id="country-name">カップル・夫婦</p>
+
+
+
+
+
+
+
           </div>
         </div>
        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
