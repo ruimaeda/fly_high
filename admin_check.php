@@ -103,7 +103,7 @@
 
     //SQL文を実行する処理
     mysqli_query($db,$sql) or die(mysqli_error($db));
-    header("location: sendmail_pass.php");
+    header("location: sendmail.php");
     exit();
   }
 
