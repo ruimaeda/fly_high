@@ -17,6 +17,7 @@ $sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d',
 $record = mysqli_query($db,$sql) or die(mysqli_error($db));
 $user = mysqli_fetch_assoc($record);
 var_dump($_SESSION['login_user_id']);
+
 //ログインしている人の選択したスタイル情報を取得
 $sql = sprintf('SELECT `style_name`,`style_name_ja` FROM `styles` INNER JOIN `user_styles` on `styles`.`style_id` = `user_styles`.`style_id` WHERE `user_id` = %d',
   mysqli_real_escape_string($db,$_SESSION['login_user_id'])
