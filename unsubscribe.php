@@ -45,7 +45,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>FLY HIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -56,7 +56,6 @@
 <!-- Stylesheet
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="css/style.css">
-
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/unsubscribe.css">
@@ -110,7 +109,7 @@
                   <div class="input-group" data-validate="email">
                     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="退会する場合はパスワードを入力してください" required>
                     <!-- <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="退会する場合はパスワードを入力してください" required> -->
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon danger"></span>
                   </div>
                   <?php if(isset($error['password']) && $error['password'] == 'faild'){ ?>
                       <p class="error">パスワードが間違っています</p>

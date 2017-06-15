@@ -2,7 +2,7 @@
 	padding: 20px 0;
 }
 .btn-default {
-	margin: 0 80px;
+	margin: 0 20px;
 }
 
 #about {
@@ -129,4 +129,43 @@ h2 {
 #country-name {
 	text-align: center;
 	padding-top: 10px;
+}
+
+/*ボタンの色を緑に変更*/
+.btn-default {
+  color: #f6f6f6;
+  background: #00cc99;
+  border: 0;
+  padding: 12px 14px;
+  margin: 40px 20px;
+  font-size: 18px;
+  transition: all 0.5s;
+  width: 140px;
+  text-align: center;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+  color: #f6f6f6;
+  background-color: #00947a;
+}
+
+hr {
+	background: #00cc99;
+}
+
+ul.cat li {
+	/*display: inline-block;*/
+	/*ALL,Asia..ボタンが重ならないように追加*/
+	height: 50px;
+}
+
+ol.type li a.active {
+	color: #f6f6f6;
+	border: 1px solid #00cc99;
+	background: #00cc99;
+}
+ol.type li a:hover {
+	color: #f6f6f6;
+	border: 1px solid #00947a;
+	background: #00947a;
 }

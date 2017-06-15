@@ -120,7 +120,7 @@ function phpmailersend ( $to, $subject, $body, $fromname, $fromaddress, $ccaddre
 <link rel="stylesheet" type="text/css"  href="css/thanks.css">
 <link rel="stylesheet" type="text/css"  href="css/login.css">
 <link rel="stylesheet" type="text/css"  href="css/admin_login.css">
-<link rel="stylesheet" type="text/css"  href="css/sendmail.css">
+<link rel="stylesheet" type="text/css"  href="css/sendmail_pass.css">
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -145,7 +145,7 @@ function phpmailersend ( $to, $subject, $body, $fromname, $fromaddress, $ccaddre
         <?php }else{ ?>
         <h2>入力いただいたメールアドレスにメールが送信できませんでした</h2>
         <?php } ?>
-        <a href="index.php"><button type="button" class="btn btn-custom btn-lg2">FLYHIGHトップへ戻る</button></a>
+        <a href="login.php"><button type="button" class="btn btn-default btn-sendmail">ログインへ</button></a>
     </div>
   </div>
 </div>
