@@ -1,7 +1,5 @@
-<?php
-
+<?php 
 session_start();
-
 //ログイン状態のチェック
 //1.セッションにIDが入っていること
 //2.最後の行動から1時間以内であること
@@ -11,45 +9,35 @@ session_start();
 //   header('Location: login.php')
 //   exit();
 // }
-
 //dbconnect.phpを読み込む
 require('dbconnect.php');
-
 //ログインしている人の情報を取得
 $sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d',
        mysqli_real_escape_string($db,$_SESSION['login_user_id']));
-
 $record = mysqli_query($db,$sql) or die(mysqli_error($db));
 $user = mysqli_fetch_assoc($record);
-
 var_dump($_SESSION['login_user_id']);
-
 //ログインしている人の選択したスタイル情報を取得
-$sql = sprintf('SELECT `style_name` FROM `styles` INNER JOIN `user_styles` on `styles`.`style_id` = `user_styles`.`style_id` WHERE `user_id` = %d',
+$sql = sprintf('SELECT `style_name`,`style_name_ja` FROM `styles` INNER JOIN `user_styles` on `styles`.`style_id` = `user_styles`.`style_id` WHERE `user_id` = %d',
   mysqli_real_escape_string($db,$_SESSION['login_user_id'])
   );
 $record2 = mysqli_query($db,$sql) or die(mysqli_error($db));
-
 //取り出したstyle_nameを$user_styleに繰り返し入れる処理
 while(true) {
-	 $style_record = mysqli_fetch_assoc($record2);
-
-	 if($style_record == false){
+   $style_record = mysqli_fetch_assoc($record2);
+   if($style_record == false){
         break;
       }
     $user_style[] = $style_record;
 }
-
-$sql = sprintf('SELECT `country_name`,`country_area` FROM `countries` INNER JOIN `user_countries` on `countries`.`country_id` = `user_countries`.`country_id` WHERE `user_id` = %d',
+$sql = sprintf('SELECT `country_name`,`country_area`,`country_name_ja` FROM `countries` INNER JOIN `user_countries` on `countries`.`country_id` = `user_countries`.`country_id` WHERE `user_id` = %d',
   mysqli_real_escape_string($db,$_SESSION['login_user_id'])
   );
 $record3 = mysqli_query($db,$sql) or die(mysqli_error($db));
-
 //取り出したstyle_nameを$user_styleに繰り返し入れる処理
 while(true) {
-	 $country_record = mysqli_fetch_assoc($record3);
-
-	 if($country_record == false){
+   $country_record = mysqli_fetch_assoc($record3);
+   if($country_record == false){
         break;
       }
     $user_country[] = $country_record;
@@ -58,7 +46,6 @@ while(true) {
  var_dump($user_country);
 echo "<br>";
  var_dump($user_style);
-
  ?>
 
 
@@ -100,6 +87,7 @@ echo "<br>";
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i>FLY HIGH</a> </div>
+    
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -113,9 +101,9 @@ echo "<br>";
         <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
       </ul>
     </div>
-    <!-- /.navbar-collapse -->
+    <!-- /.navbar-collapse --> 
   </div>
-  <!-- /.container -->
+  <!-- /.container --> 
 </nav>
 
 <!-- Header -->
@@ -123,7 +111,6 @@ echo "<br>";
 <!-- <div id="intro">
   <div class="intro-body">
     <div class="container">
-
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1>Welcom to <span class="brand-heading">My page</span></h1>
@@ -146,7 +133,7 @@ echo "<br>";
       <div class="col-md-6">
         <div class="about-text">
           <h4>名前</h4>
-          <p><?php echo $user['nick_name']; ?></p>
+          <p><?php echo $user['nick_name']; ?></p>        
           </div>
       </div>
       <div class="col-md-6">
@@ -168,21 +155,19 @@ echo "<br>";
       <p>あなたが選択した旅のスタイルです。</p>
     </div>
     <div class="row">
+    
+    <!-- 選択したスタイルを繰り返し表示 -->
+    <?php foreach ($user_style as $style) { ?>
 
-		
-		<!-- 選択したスタイルを繰り返し表示 -->
-		<?php foreach ($user_style as $style) { ?>
-
-			 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
         
-
           <div class="portfolio-item">
 
               <img src="img/style/icon_<?php echo $style['style_name']; ?>.png" class="img-responsive" alt="Project Title">
-              <p id="country-name"><?php echo $style['style_name']; ?></p>
+              <p id="country-name"><?php echo $style['style_name_ja']; ?></p>
           </div>
         </div>
-		<?php } ?>
+    <?php } ?>
 
       </div>
     </div>
@@ -213,19 +198,17 @@ echo "<br>";
     </div>
     <div class="row">
       <div class="portfolio-items">
-
       <!-- 選択した国を繰り返し表示 -->
       <?php foreach ($user_country as $country) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 <?php echo $country['country_area']; ?>">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/<?php echo $country['country_name'];?>.jpg" class="img-responsive country-photo check" alt="Project Title"> </a> </div>
-              <p id="country-name"><?php echo $country['country_name']; ?></p>
+              <img src="img/country/<?php echo $country['country_name'];?>.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
+              <p id="country-name"><?php echo $country['country_name_ja']; ?></p>
           </div>
         </div>
 
         <?php } ?>
-
 
       </div>
     </div>
@@ -242,8 +225,9 @@ echo "<br>";
       <div class="col-md-3">
       </div>
       <div class="col-md-3">
-        <div class="about-question">
+        <div class="about-question　">
           <!-- <h4><i class="fa fa-question" aria-hidden="true"></i> QUESTION</h4> -->
+          
           <div class="box30">
           <div class="box-title box1">性別</div>
           <p><?php echo $user['gender'] ?></p>
@@ -271,7 +255,7 @@ echo "<br>";
           <p><?php echo $user['travel_time'] ?></p>
           <p><i class="fa fa-plane logo" aria-hidden="true"></i></p>
           </div>
-
+          
           </div>
       </div>
       <div class="col-md-3">
@@ -296,18 +280,23 @@ echo "<br>";
           <p><?php echo $user['travel_country'] ?></p>
           <p><i class="fa fa-globe logo" aria-hidden="true"></i></p>
           </div>
-
+          
           <div class="box30">
           <div class="box-title box10">FLY HIGHを知ったきっかけ</div>
           <p><?php echo $user['know_flyhigh'] ?></p>
           <p><i class="fa fa-comments-o logo" aria-hidden="true"></i></p>
           </div>
+
+         
+        
         </div>
         <div class="col-md-3">
         </div>
       </div>
     </div>
   </div>
+  
+  
 </div>
 
 
@@ -380,19 +369,19 @@ echo "<br>";
   </div>
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.js"></script>
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="js/jquery.isotope.js"></script>
-<script type="text/javascript" src="js/jquery.parallax.js"></script>
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="js/jquery.parallax.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
 
 <!-- Javascripts
-    ================================================== -->
+    ================================================== --> 
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
