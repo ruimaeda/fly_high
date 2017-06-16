@@ -31,3 +31,24 @@ label.add-question-text{
 input {
 	display: inline;
 }
+
+hr {
+	background: #00cc99;
+}
+
+ul.cat li {
+	/*display: inline-block;*/
+	/*ALL,Asia..ボタンが重ならないように追加*/
+	height: 50px;
+}
+
+ol.type li a.active {
+	color: #f6f6f6;
+	border: 1px solid #00cc99;
+	background: #00cc99;
+}
+ol.type li a:hover {
+	color: #f6f6f6;
+	border: 1px solid #00947a;
+	background: #00947a;
+}

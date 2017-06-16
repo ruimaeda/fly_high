@@ -470,6 +470,7 @@ img.img-thumbnail.team-img {
 	bottom: 7px;
 	right: 7px;
 	background-color: rgba(0,0,0,0.4);
+	color: white;
 }
 
 #footer .btn-dark {
