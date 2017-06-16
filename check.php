@@ -394,6 +394,7 @@
 </div>
 
 <!-- Style Section -->
+<?php if(isset($_SESSION['signup']['style'])) { ?>
 <div id="style">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
@@ -403,60 +404,78 @@
       <p>旅のスタイルは下記で間違いないですか？</p>
     </div>
     <div class="row">
+        <?php if(in_array("alone", $_SESSION['signup']['style'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_alone.png" class="img-responsive" alt="Project Title">
               <p id="country-name">ひとり旅</p>
           </div>
         </div>
+        <? } ?>
+        <?php if(in_array("couple", $_SESSION['signup']['style'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_couple.png" class="img-responsive" alt="Project Title">
               <p id="country-name">カップル・夫婦</p>
           </div>
         </div>
-       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <? } ?>
+        <?php if(in_array("family", $_SESSION['signup']['style'])) { ?>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_family.png" class="img-responsive" alt="Project Title">
               <p id="country-name">家族旅行</p>
           </div>
         </div>
+        <? } ?>
+        <?php if(in_array("food", $_SESSION['signup']['style'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_food.png" class="img-responsive" alt="Project Title">
               <p id="country-name">グルメ</p>
           </div>
         </div>
+        <? } ?>
+        <?php if(in_array("resort", $_SESSION['signup']['style'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_resort.png" class="img-responsive" alt="Project Title">
               <p id="country-name">リゾート</p>
           </div>
         </div>
+        <? } ?>
+        <?php if(in_array("nature", $_SESSION['signup']['style'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_nature.png" class="img-responsive" alt="Project Title">
               <p id="country-name">自然</p>
           </div>
         </div>
+        <? } ?>
+        <?php if(in_array("ruins", $_SESSION['signup']['style'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_ruins.png" class="img-responsive" alt="Project Title">
               <p id="country-name">遺跡</p>
           </div>
         </div>
+        <? } ?>
+        <?php if(in_array("shopping", $_SESSION['signup']['style'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
               <img src="img/style/icon_shopping.png" class="img-responsive" alt="Project Title">
               <p id="country-name">ショッピング</p>
           </div>
         </div>
+        <? } ?>
       </div>
     </div>
   </div>
 </div>
+<?php } ?>
 
 <!-- Country Section -->
+<?php if(isset($_SESSION['signup']['country'])) { ?>
 <div id="country">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
@@ -481,6 +500,7 @@
     </div>
     <div class="row">
       <div class="portfolio-items">
+        <?php if(in_array("Ireland", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -488,6 +508,8 @@
               <p id="country-name">アイルランド</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("UnitedStates", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -495,6 +517,8 @@
               <p id="country-name">アメリカ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("UnitedArabEmirates", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -502,6 +526,8 @@
               <p id="country-name">アラブ首長国連邦</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("UnitedKingdom", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -509,6 +535,8 @@
               <p id="country-name">イギリス</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Italy", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -516,6 +544,8 @@
               <p id="country-name">イタリア</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("India", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -523,6 +553,8 @@
               <p id="country-name">インド</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Indonesia", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -530,6 +562,8 @@
               <p id="country-name">インドネシア</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Australia", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -537,6 +571,8 @@
               <p id="country-name">オーストラリア</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Netherlands", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -544,6 +580,8 @@
               <p id="country-name">オランダ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Qatar", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -551,6 +589,8 @@
               <p id="country-name">カタール</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Canada", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -558,6 +598,8 @@
               <p id="country-name">カナダ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Korea", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -565,6 +607,8 @@
               <p id="country-name">韓国</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Cambodia", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -572,6 +616,8 @@
               <p id="country-name">カンボジア</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Guam", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -579,6 +625,8 @@
               <p id="country-name">グアム</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Saipan", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -586,6 +634,8 @@
               <p id="country-name">サイパン</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Singapore", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -593,6 +643,8 @@
               <p id="country-name">シンガポール</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Spain", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -600,6 +652,8 @@
               <p id="country-name">スペイン</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Thailand", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -607,6 +661,8 @@
               <p id="country-name">タイ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Taiwan", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -614,6 +670,8 @@
               <p id="country-name">台湾</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("China", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -621,6 +679,8 @@
               <p id="country-name">中国</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Turkey", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -628,6 +688,8 @@
               <p id="country-name">トルコ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Newcaledonia", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -635,6 +697,8 @@
               <p id="country-name">ニューカレドニア</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Newzealand", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -642,6 +706,8 @@
               <p id="country-name">ニュージーランド</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Hawaii", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -649,6 +715,8 @@
               <p id="country-name">ハワイ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Philippines", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -656,6 +724,8 @@
               <p id="country-name">フィリピン</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Finland", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -663,6 +733,8 @@
               <p id="country-name">フィンランド</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("France", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -670,6 +742,8 @@
               <p id="country-name">フランス</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("VietNam", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -677,6 +751,8 @@
               <p id="country-name">ベトナム</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("HongKong", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -684,6 +760,8 @@
               <p id="country-name">香港・マカオ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Malaysia", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -691,6 +769,8 @@
               <p id="country-name">マレーシア</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Mexico", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -698,6 +778,8 @@
               <p id="country-name">メキシコ</p>
           </div>
         </div>
+        <?php } ?>
+        <?php if(in_array("Russia", $_SESSION['signup']['country'])) { ?>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
@@ -705,12 +787,14 @@
               <p id="country-name">ロシア</p>
           </div>
         </div>
+        <?php } ?>
       </div>
       </div>
     </div>
   </div>
 </div>
 </div>
+<?php } ?>
 
 <!-- ボタンsectionのdivを作り、新しくid=buttonを付ける -->
 <!-- <form method="post" action=""> -->
