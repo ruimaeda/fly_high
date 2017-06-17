@@ -176,10 +176,10 @@
                     入力していた文字を消えないようにする(ok) -->
                     <?php if (isset($_POST['nick_name'])): ?>
                       <input type="text" class="form-control" name="nick_name" id="nick_name" required  value="<?php echo htmlspecialchars($_POST['nick_name'], ENT_QUOTES, 'UTF-8'); ?>">
-                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                      <span class="input-group-addon danger"></span>
                     <?php else: ?>
                       <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="お名前を入力してください" required>
-                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                      <span class="input-group-addon danger"></span>
                     <?php endif; ?>
 
                   </div>
@@ -195,10 +195,10 @@
                     入力していた文字を消えないようにする(ok) -->
                     <?php if (isset($_POST['email'])): ?>
                        <input type="text" class="form-control" name="email" id="email" required value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'); ?>">
-                       <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                       <span class="input-group-addon danger"></span>
                     <?php else: ?>
                       <input type="text" class="form-control" name="email" id="email" placeholder="メールアドレスを入力してください" required>
-                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                      <span class="input-group-addon danger"></span>
                     <?php endif; ?>
                   </div>
                   <!-- ＠マークない場合の表示(ok) -->
@@ -230,7 +230,7 @@
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
                     <input type="password" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
-                    <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon danger"></span>
                   </div>
                   <!-- パスワード確認の処理(ok) -->
                   <?php if(isset($error['re_password']) && $error['re_password']=='not_same'){ ?>

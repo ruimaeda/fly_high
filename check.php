@@ -285,7 +285,6 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i>FLY HIGH</a> </div>
-    
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -299,9 +298,9 @@
         <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
       </ul>
     </div>
-    <!-- /.navbar-collapse --> 
+    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </nav>
 
 <!-- Header -->
@@ -437,224 +436,224 @@
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/ireland.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
+              <img src="img/country/ireland.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">アイルランド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/usa.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
+              <img src="img/country/usa.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">アメリカ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/uae.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/uae.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">アラブ首長国連邦</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/uk.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/uk.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">イギリス</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/italy.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/italy.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">イタリア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/india.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/india.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">インド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/indonesia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/indonesia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">インドネシア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/australia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/australia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">オーストラリア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/netherland.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/netherland.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">オランダ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/qatar.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/qatar.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">カタール</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/canada.jpg" width="165" height="110"  class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/canada.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">カナダ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/korea.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/korea.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">韓国</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/cambodia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/cambodia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">カンボジア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/guam.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/guam.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">グアム</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/saipan.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/saipan.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">サイパン</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/singapore.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/singapore.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">シンガポール</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/spain.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/spain.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">スペイン</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/thailand.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/thailand.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">タイ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/taiwan.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/taiwan.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">台湾</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/china.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/china.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">中国</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/turkey.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/turkey.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">トルコ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/newcaledonia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/newcaledonia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">ニューカレドニア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/newzealand.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/newzealand.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">ニュージーランド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/hawaii.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/hawaii.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">ハワイ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/elnido.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/elnido.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">フィリピン</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/finland.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/finland.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">フィンランド</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/france.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/france.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">フランス</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/vietnam.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/vietnam.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">ベトナム</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/hongkong.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/hongkong.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">香港・マカオ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/malaysia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/malaysia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">マレーシア</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/mexico.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/mexico.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">メキシコ</p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/russia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="img/country/russia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
               <p id="country-name">ロシア</p>
           </div>
         </div>

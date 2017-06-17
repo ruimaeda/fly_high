@@ -1,7 +1,5 @@
 <?php 
-
 session_start();
-
 //ログイン状態のチェック
 //1.セッションにIDが入っていること
 //2.最後の行動から1時間以内であること
@@ -11,27 +9,49 @@ session_start();
 //   header('Location: login.php')
 //   exit();
 // }
-
 //dbconnect.phpを読み込む
 require('dbconnect.php');
-
 //ログインしている人の情報を取得
 $sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d',
        mysqli_real_escape_string($db,$_SESSION['login_user_id']));
-
 $record = mysqli_query($db,$sql) or die(mysqli_error($db));
 $user = mysqli_fetch_assoc($record);
+var_dump($_SESSION['login_user_id']);
 
-//ログインしている人の選択した国情報を取得
-// $sql = sprintf('SELECT * FROM `user_countries` INNER JOIN `countries` on `countries`.`country_id` = `user_countries`.`country_id` ');
-// $record = mysqli_query($db,$sql) or die(mysqli_error($db));
-// $user_country = mysqli_fetch_assoc($record);
+//ログインしている人の選択したスタイル情報を取得
+$sql = sprintf('SELECT `style_name`,`style_name_ja` FROM `styles` INNER JOIN `user_styles` on `styles`.`style_id` = `user_styles`.`style_id` WHERE `user_id` = %d',
+  mysqli_real_escape_string($db,$_SESSION['login_user_id'])
+  );
+$record2 = mysqli_query($db,$sql) or die(mysqli_error($db));
+//取り出したstyle_nameを$user_styleに繰り返し入れる処理
+while(true) {
+   $style_record = mysqli_fetch_assoc($record2);
+   if($style_record == false){
+        break;
+      }
+    $user_style[] = $style_record;
+}
+$sql = sprintf('SELECT `country_name`,`country_area`,`country_name_ja` FROM `countries` INNER JOIN `user_countries` on `countries`.`country_id` = `user_countries`.`country_id` WHERE `user_id` = %d',
+  mysqli_real_escape_string($db,$_SESSION['login_user_id'])
+  );
+$record3 = mysqli_query($db,$sql) or die(mysqli_error($db));
+//取り出したstyle_nameを$user_styleに繰り返し入れる処理
+while(true) {
+   $country_record = mysqli_fetch_assoc($record3);
+   if($country_record == false){
+        break;
+      }
+    $user_country[] = $country_record;
+      }
 
+ var_dump($user_country);
+echo "<br>";
+ var_dump($user_style);
  ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,7 +112,6 @@ $user = mysqli_fetch_assoc($record);
 <!-- <div id="intro">
   <div class="intro-body">
     <div class="container">
-
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1>Welcom to <span class="brand-heading">My page</span></h1>
@@ -137,56 +156,18 @@ $user = mysqli_fetch_assoc($record);
       <p>あなたが選択した旅のスタイルです。</p>
     </div>
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+    
+    <!-- 選択したスタイルを繰り返し表示 -->
+    <?php foreach ($user_style as $style) { ?>
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
           <div class="portfolio-item">
 
-              <img src="img/style/icon_alone.png" class="img-responsive" alt="Project Title">
-              
-              <p id="country-name"><?php echo $user['travel_purpose'] ?></p>
+              <img src="img/style/icon_<?php echo $style['style_name']; ?>.png" class="img-responsive" alt="Project Title">
+              <p id="country-name"><?php echo $style['style_name_ja']; ?></p>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_couple.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">カップル・夫婦</p>
-          </div>
-        </div>
-       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_family.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">家族旅行</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_food.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">グルメ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_resort.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">リゾート</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_nature.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">自然</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_ruins.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">遺跡</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_shopping.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">ショッピング</p>
-          </div>
-        </div>
+    <?php } ?>
+
       </div>
     </div>
   </div>
@@ -216,231 +197,17 @@ $user = mysqli_fetch_assoc($record);
     </div>
     <div class="row">
       <div class="portfolio-items">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
+      <!-- 選択した国を繰り返し表示 -->
+      <?php foreach ($user_country as $country) { ?>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 <?php echo $country['country_area']; ?>">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/ireland.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
-              <p id="country-name"><?php echo $user_country['county_name']; ?></p>
+              <img src="img/country/<?php echo $country['country_name'];?>.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
+              <p id="country-name"><?php echo $country['country_name_ja']; ?></p>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/usa.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
-              <p id="country-name">アメリカ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/uae.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">アラブ首長国連邦</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/uk.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">イギリス</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/italy.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">イタリア</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/india.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">インド</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/indonesia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">インドネシア</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/australia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">オーストラリア</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/netherland.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">オランダ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/qatar.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">カタール</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/canada.jpg" width="165" height="110"  class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">カナダ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/korea.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">韓国</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/cambodia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">カンボジア</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/guam.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">グアム</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/saipan.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">サイパン</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/singapore.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">シンガポール</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/spain.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">スペイン</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/thailand.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">タイ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/taiwan.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">台湾</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/china.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">中国</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/turkey.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">トルコ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/newcaledonia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">ニューカレドニア</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/newzealand.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">ニュージーランド</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/hawaii.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">ハワイ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/elnido.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">フィリピン</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/finland.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">フィンランド</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/france.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">フランス</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/vietnam.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">ベトナム</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/hongkong.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">香港・マカオ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/malaysia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">マレーシア</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/mexico.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">メキシコ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
-          <div class="portfolio-item">
-            <div class="hover-bg">
-              <img src="img/country/russia.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-              <p id="country-name">ロシア</p>
-          </div>
-        </div>
-      </div>
+
+        <?php } ?>
 
       </div>
     </div>
@@ -527,90 +294,26 @@ $user = mysqli_fetch_assoc($record);
       </div>
     </div>
   </div>
-  
-  
-</div>
-
-
-</div>
-
-<!-- Contact Section -->
-<div id="contact" class="text-center">
-  <div class="container">
-    <div class="section-title center">
-  <!--     <h2>Contact us</h2>
-      <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
-    </div>
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-4">
-        <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
-          <p>4321 California St,<br>
-            San Francisco, CA 12345</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
-          <p>info@company.com</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
-          <p> +1 123 456 1234<br>
-            +1 321 456 1234</p>
-        </div>
-      </div> -->
-     <!--  <div class="clearfix"></div>
-    </div>
-    <div class="col-md-8 col-md-offset-2">
-      <h3>Leave us a message</h3>
-      <form name="sentMessage" id="contactForm" novalidate>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="form-group">
-          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
-          <p class="help-block text-danger"></p>
-        </div> -->
-       <!--  <div id="success"></div>
-        <button type="submit" class="btn btn-default">Send Message</button>
-      </form> -->
-      <div class="text-center">
-  <button type="submit" class="btn btn-default  ">TOPへ戻る</button>
-  <button type="submit" class="btn btn-default ">LOG OUT</button>
-  <button type="submit" class="btn btn-default ">編集する</button>
-</div>
-
-    </div>
-  </div>
-</div>
-<div id="footer">
-  <div class="container">
-    <p>Copyright &copy; Modus. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+  <div class="text-center">
+    <a href="index.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
+    <a href="logout.php"><button type="button" class="btn btn-default">LOG OUT</button></a>
+    <button type="submit" class="btn btn-default">編集する</button>
   </div>
 </div>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script type="text/javascript" src="js/bootstrap.js"></script> 
-<script type="text/javascript" src="js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="js/contact_me.js"></script> 
+<!-- フッターの外部読み込み-->
+<?php include('footer.php'); ?>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
 
 <!-- Javascripts
     ================================================== --> 
