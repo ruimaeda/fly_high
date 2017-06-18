@@ -29,7 +29,11 @@ label.add-question-text{
 }
 
 input {
-	display: inline;
+	display: none;
+}
+
+#add-question input{
+	display: inline
 }
 
 hr {
@@ -51,4 +55,18 @@ ol.type li a:hover {
 	color: #f6f6f6;
 	border: 1px solid #00947a;
 	background: #00947a;
+}
+
+/* 選択したスタイルや国のCSS変更用 */
+.check{
+}
+.checked{
+  border: 5px solid #00cc99;
+}
+
+.selected{
+  border: 5px solid #00cc99;
+}
+.select{
+  border: none;
 }
