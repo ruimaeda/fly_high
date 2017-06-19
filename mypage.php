@@ -31,7 +31,7 @@ while(true) {
       }
     $user_style[] = $style_record;
 }
-$sql = sprintf('SELECT `country_name`,`country_area`,`country_name_ja` FROM `countries` INNER JOIN `user_countries` on `countries`.`country_id` = `user_countries`.`country_id` WHERE `user_id` = %d',
+$sql = sprintf('SELECT `country_name`,`country_area`,`country_name_ja` FROM `countries` INNER JOIN `user_countries` on `countries`.`country_id` = `user_countries`.`country_id` WHERE `user_id` = %d AND `style_flag` = 0',
   mysqli_real_escape_string($db,$_SESSION['login_user_id'])
   );
 $record3 = mysqli_query($db,$sql) or die(mysqli_error($db));
@@ -88,7 +88,6 @@ echo "<br>";
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i>FLY HIGH</a> </div>
-    
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -102,9 +101,9 @@ echo "<br>";
         <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
       </ul>
     </div>
-    <!-- /.navbar-collapse --> 
+    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container --> 
+  <!-- /.container -->
 </nav>
 
 <!-- Header -->
@@ -125,7 +124,6 @@ echo "<br>";
 <a href="edit.php" class="btn btn-default page-scroll btn2">編集する</a>
 <div id="about">
 <h2 class='mypage'>MY PAGE</h2>
-
   <div class="container">
       <div class="section-title text-center center">
       <h2>About You</h2>
@@ -135,7 +133,7 @@ echo "<br>";
       <div class="col-md-6">
         <div class="about-text">
           <h4>名前</h4>
-          <p><?php echo $user['nick_name']; ?></p>        
+          <p><?php echo $user['nick_name']; ?></p>
           </div>
       </div>
       <div class="col-md-6">
@@ -157,7 +155,7 @@ echo "<br>";
       <p>あなたが選択した旅のスタイルです。</p>
     </div>
     <div class="row">
-    
+
     <!-- 選択したスタイルを繰り返し表示 -->
     <?php foreach ($user_style as $style) { ?>
       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -280,15 +278,11 @@ echo "<br>";
           <p><?php echo $user['travel_country'] ?></p>
           <p><i class="fa fa-globe logo" aria-hidden="true"></i></p>
           </div>
-          
           <div class="box30">
           <div class="box-title box10">FLY HIGHを知ったきっかけ</div>
           <p><?php echo $user['know_flyhigh'] ?></p>
           <p><i class="fa fa-comments-o logo" aria-hidden="true"></i></p>
           </div>
-
-         
-        
         </div>
         <div class="col-md-3">
         </div>
