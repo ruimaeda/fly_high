@@ -110,7 +110,7 @@ if(isset($_POST) && !empty($_POST)) {
             if($select_country_id == false){
               break;
             }
-          $sql = sprintf('INSERT INTO `user_countries` (`user_id`, `country_id`) VALUES ("%s", "%s");',
+          $sql = sprintf('INSERT INTO `user_countries` (`user_id`, `country_id`, `style_flag`) VALUES ("%s", "%s", 1)',
           mysqli_real_escape_string($db,$_SESSION['login_user_id']),
           mysqli_real_escape_string($db,$select_country_id['country_id'])
           );
@@ -133,7 +133,7 @@ if(isset($_POST) && !empty($_POST)) {
       $select_country_id = mysqli_fetch_assoc($select_country_ids);
       // $select_country_id_array[] = $select_country_id['country_id'];
 
-      $sql = sprintf('INSERT INTO `user_countries` (`user_id`, `country_id`) VALUES ("%s", "%s");',
+      $sql = sprintf('INSERT INTO `user_countries` (`user_id`, `country_id`, `style_flag`) VALUES ("%s", "%s", 0)',
           mysqli_real_escape_string($db,$_SESSION['login_user_id']),
           mysqli_real_escape_string($db,$select_country_id['country_id'])
           );
@@ -230,7 +230,7 @@ if(isset($_POST) && !empty($_POST)) {
   $country_check = array();
   //user_idの一致を元に、user_countriesテーブルから、country_idを取得する
   $country_id_array = array();
-  $sql = sprintf('SELECT `country_id` FROM `user_countries` WHERE `user_id` = "%s"',
+  $sql = sprintf('SELECT `country_id` FROM `user_countries` WHERE `user_id` = "%s" AND `style_flag` = 0',
   mysqli_real_escape_string($db,$_SESSION['login_user_id'])
   );
 
