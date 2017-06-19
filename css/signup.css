@@ -173,3 +173,50 @@ fieldset[disabled] .btn-default.active {
     background: #00947a;
   }
 
+
+.box {
+    position: relative;
+    margin: 180px 0;
+}
+
+
+/*ヘッダーロゴのクリック時の色----------------------------------*/
+/* Navigation */
+.navbar-custom .navbar-brand i.fa {
+  color: #00cc99;
+}
+.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
+  background-color: #00cc99;
+  color: #ffffff;
+}
+.navbar-custom .nav li a:hover {
+  outline: 0;
+  color: #00cc99;
+  background-color: transparent;
+}
+.navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
+  outline: 0;
+  background-color: transparent;
+  color: #00cc99;
+}
+.navbar-custom .navbar-brand:focus {
+  outline: 0;
+  color: #00cc99;
+}
+.navbar-custom .navbar-brand .navbar-toggle:focus, .navbar-custom .navbar-brand .navbar-toggle:active {
+  outline: 0;
+  color: #00cc99;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

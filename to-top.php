@@ -1,4 +1,4 @@
-<a id="to-top" href="#top" class="btn btn-dark btn-lg">
+<a id="to-top" href="#page-top" class="btn btn-dark btn-lg navbar-brand page-scroll">
   <i class="fa fa-chevron-up fa-fw fa-1x"></i>
 </a>
 

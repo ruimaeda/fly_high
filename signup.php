@@ -4,57 +4,31 @@
   //DBへ接続
   require('dbconnect.php');
 
-  var_dump($_POST['country']);//送信ボタンを押したら表示される
-  var_dump($_POST['style']);//送信ボタンを押したら表示される
-  // var_dump($_POST);//??
-  var_dump($_REQUEST['action']);//rewriteの時
-  // var_dump($_REQUEST['action']['rewrite']);//Illegal string offset 'rewrite' in /Applications/XAMPP/xamppfiles/htdocs/FLY_HIGH/signup.php on line 10 で string(1) "r" と表示される
-  // var_dump($_SESSION['signup']);//unsetしない限り出続ける？
-
-
+  // var_dump($_POST['country']);//送信ボタンを押したら表示される
+  // var_dump($_POST['style']);//送信ボタンを押したら表示される
+  // var_dump($_REQUEST['action']);//rewriteの時
 
   $style = array();
   $country = array();
 
 
-
-  //書き直しで戻ってきた時の表示処理(ここ：スタイルと国もok)
-  if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
-    $_POST = $_SESSION['signup'];
-    $error['rewrite'] = true;//←これどういう意味やったっけ？：これで枠がうまく表示された！
-  }
-
   //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
 
-    // //contact_me.jsをコメントアウトしたら表示された！(ok)
-    // echo('<pre>');
-    // var_dump($_POST);
-    // echo('</pre>');
-
-
     $style = $_POST['style'];
     $country = $_POST['country'];
-
-
 
     //入力されたemailから会員情報を取得できたら、「すでに登録されています」を表示する
     $sql = sprintf('SELECT `email` FROM `users` WHERE `email` = "%s"',
     mysqli_real_escape_string($db,$_POST['email'])
     );
-
-    //SQLを実行
+    //SQL実行
     $user_emails = mysqli_query($db,$sql) or die(mysqli_error($db));
     $user_email = mysqli_fetch_assoc($user_emails);
 
 
-    // データは取れてきている！(ok)
-    // echo('<pre>');
-    // var_dump($user_email);
-    // echo('</pre>');
-
-
     $email=htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
+
 
     //エラー項目の確認（ブランクの場合についてはjsで表示済）
     //エラー項目の確認：email（＠マークがない場合をエラーにする）(ok)
@@ -76,7 +50,7 @@
       $error['re_password']='not_same';
     }
 
-    // エラー項目の確認:styleか国のうち何か１つが選ばれていること()--------------------！！
+    // エラー項目の確認:styleか国のうち何か１つが選ばれていること(ok)
     if(empty($_POST['style']) && empty($_POST['country'])){
       $error['style_country']='nothing';
     }
@@ -86,23 +60,21 @@
     if(empty($error)){
       $_SESSION['signup'] = $_POST;
 
-      // //ここも表示された！
-      // echo('<pre>');
-      // var_dump($_POST);
-      // echo('</pre>');
-
-
       //checkに遷移(ok)
       header('Location: check.php');
 
     }
   }
 
-  // //書き直しで戻ってきた時の表示処理
-  // if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
-  //   $_POST = $_SESSION['signup'];
-  //   $error['rewrite'] = true;//←これどういう意味やったっけ？
-  // }
+  //書き直しで戻ってきた時の表示処理
+  if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
+    $_POST = $_SESSION['signup'];
+
+    $style = $_POST['style'];
+    $country = $_POST['country'];
+
+    $error['rewrite'] = true;
+  }
 
 
 ?>
@@ -128,8 +100,9 @@
 <link rel="stylesheet" type="text/css"  href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css"  href="css/signup.css">
 <link rel="stylesheet" type="text/css"  href="css/thanks.css">
+<link rel="stylesheet" type="text/css"  href="css/signup.css">
+<!-- <link rel="stylesheet" type="text/css"  href="css/thanks.css"> -->
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -149,7 +122,9 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"> <img class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High</a> </div>
+      <!-- <a class="navbar-brand page-scroll" href="#page-top"> -->
+      <a href="index.php" class="navbar-brand page-scroll">
+      <img class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High</a> </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -258,9 +233,14 @@
                   <?php } ?>
                 </div>
 
+
               <!-- </form> -->
             </div>
         </div>
+        <!-- 空箱 -->
+                <div><span><img src=""></span></div>
+                <div><span><img src=""></span></div>
+                <div><span><img src=""></span></div>
     </div>
   </div>
 </div>
@@ -1067,7 +1047,7 @@
       <button form="form_signup" type="submit" class="btn btn-default">ユーザー登録する</button>
     </div>
     <div class="text-center agree">
-      アカウントを作成することで、Fly Highの<a href="terms.php">利用規約</a>と<a href="policy.php">プライバシーポリシー</a>に同意するものとします。
+      アカウントを作成することで、Fly Highの<a href="terms.php" target="_blank">利用規約</a>と<a href="policy.php" target="_blank">プライバシーポリシー</a>に同意するものとします。
     </div>
     <div class="text-center agree">
       <div class="clearfix"></div>
@@ -1080,7 +1060,6 @@
   </div>
 </div>
 </form>
-
 
 
 <!-- フッターの外部読み込み-->
