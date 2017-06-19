@@ -95,9 +95,9 @@ echo "<br>";
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"> <a href="#page-top"></a> </li>
         <li> <a class="page-scroll" href="#about">About</a> </li>
-        <li> <a class="page-scroll" href="#services">STYLE</a> </li>
-        <li> <a class="page-scroll" href="#works">COUNTRY</a></li>
-        <li> <a class="page-scroll" href="#team">QUESTION</a> </li>
+        <li> <a class="page-scroll" href="#style">STYLE</a> </li>
+        <li> <a class="page-scroll" href="#country">COUNTRY</a></li>
+        <li> <a class="page-scroll" href="#question">QUESTION</a> </li>
        <!--  <li> <a class="page-scroll" href="#testimonials">Testimonials</a> </li>
         <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
       </ul>
@@ -122,9 +122,10 @@ echo "<br>";
   </div>
 </div> -->
 <!-- About Section -->
+<a href="edit.php" class="btn btn-default page-scroll btn2">編集する</a>
 <div id="about">
 <h2 class='mypage'>MY PAGE</h2>
-<a href="#about" class="btn btn-default page-scroll btn2">編集する</a>
+
   <div class="container">
       <div class="section-title text-center center">
       <h2>About You</h2>
@@ -297,7 +298,7 @@ echo "<br>";
   <div class="text-center">
     <a href="index.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
     <a href="logout.php"><button type="button" class="btn btn-default">LOG OUT</button></a>
-    <button type="submit" class="btn btn-default">編集する</button>
+    <a href="edit.php"><button type="button" class="btn btn-default">編集する</button></a>
   </div>
 </div>
 
