@@ -6,11 +6,23 @@
 
   var_dump($_POST['country']);//送信ボタンを押したら表示される
   var_dump($_POST['style']);//送信ボタンを押したら表示される
+  // var_dump($_POST);//??
+  var_dump($_REQUEST['action']);//rewriteの時
+  // var_dump($_REQUEST['action']['rewrite']);//Illegal string offset 'rewrite' in /Applications/XAMPP/xamppfiles/htdocs/FLY_HIGH/signup.php on line 10 で string(1) "r" と表示される
+  // var_dump($_SESSION['signup']);//unsetしない限り出続ける？
 
 
 
   $style = array();
   $country = array();
+
+
+
+  //書き直しで戻ってきた時の表示処理(ここ：スタイルと国もok)
+  if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
+    $_POST = $_SESSION['signup'];
+    $error['rewrite'] = true;//←これどういう意味やったっけ？：これで枠がうまく表示された！
+  }
 
   //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
@@ -86,11 +98,11 @@
     }
   }
 
-  //書き直しで戻ってきた時の表示処理
-  if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
-    $_POST = $_SESSION['signup'];
-    $error['rewrite'] = true;//←これどういう意味やったっけ？
-  }
+  // //書き直しで戻ってきた時の表示処理
+  // if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
+  //   $_POST = $_SESSION['signup'];
+  //   $error['rewrite'] = true;//←これどういう意味やったっけ？
+  // }
 
 
 ?>
@@ -178,7 +190,7 @@
                       <input type="text" class="form-control" name="nick_name" id="nick_name" required  value="<?php echo htmlspecialchars($_POST['nick_name'], ENT_QUOTES, 'UTF-8'); ?>">
                       <span class="input-group-addon danger"></span>
                     <?php else: ?>
-                      <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="お名前を入力してください" required>
+                      <input type="text" class="form-control" name="nick_name" id="nick_name" placeholder="*お名前を入力してください" required>
                       <span class="input-group-addon danger"></span>
                     <?php endif; ?>
 
@@ -197,7 +209,7 @@
                        <input type="text" class="form-control" name="email" id="email" required value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'); ?>">
                        <span class="input-group-addon danger"></span>
                     <?php else: ?>
-                      <input type="text" class="form-control" name="email" id="email" placeholder="メールアドレスを入力してください" required>
+                      <input type="text" class="form-control" name="email" id="email" placeholder="*メールアドレスを入力してください" required>
                       <span class="input-group-addon danger"></span>
                     <?php endif; ?>
                   </div>
@@ -217,8 +229,8 @@
                 <!-- パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                      <input type="password" class="form-control" name="password" id="password" placeholder="パスワードを６文字以上で入力してください" required>
-                      <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                      <input type="password" class="form-control" name="password" id="password" placeholder="*パスワードを６文字以上で入力してください" required>
+                      <span class="input-group-addon danger"></span>
                   </div>
                   <!-- 字数エラーの処理(ok) -->
                   <?php if(isset($error['password']) && $error['password']=='length'){ ?>
@@ -229,7 +241,7 @@
                 <!-- 確認用パスワード -->
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="password" class="form-control" name="re_password" id="re_password" placeholder="パスワードをもう一度入力してください" required>
+                    <input type="password" class="form-control" name="re_password" id="re_password" placeholder="*パスワードをもう一度入力してください" required>
                     <span class="input-group-addon danger"></span>
                   </div>
                   <!-- パスワード確認の処理(ok) -->

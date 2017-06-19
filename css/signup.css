@@ -80,11 +80,10 @@ hr .account-have {
 	/*border: 5px solid #888;*/
 }
 .checked{
-    border: 5px solid #00cc99;
+  border: 5px solid #00cc99;
 }
 
 .selected{
- /*border: 5px solid red;*/
  border: 5px solid #00cc99;
 }
 .select{

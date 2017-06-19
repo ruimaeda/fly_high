@@ -4,7 +4,6 @@
   //DBへ接続
   require('dbconnect.php');
 
-
   //セッションにデータがなかったらsignup.phpへ遷移（ok）
   if (!isset($_SESSION['signup'])) {
     header("Location: signup.php");
@@ -22,16 +21,16 @@
 
 
   // // （ここはok！）
-    // echo('<pre>');
+    echo('<pre>');
     // var_dump($nick_name);
     // var_dump($email);
     // var_dump($password);
     // var_dump($kuni_array);
     // var_dump($_SESSION['signup']);
     // var_dump($style_array);
-    // var_dump($country);
-    // var_dump($style);
-    // echo('</pre>');
+    var_dump($country);
+    var_dump($style);
+    echo('</pre>');
 
 
 
@@ -285,6 +284,7 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
       <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i>FLY HIGH</a> </div>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -318,6 +318,11 @@
   </div>
 </div> -->
 
+
+<!-- 全ての入力項目をformで囲み、hiddenで値を受け渡しする -->
+<form id="form_check" method="post" action="">
+<input type="hidden" name="action" value="submit">
+
 <!-- 登録内容を表示 -->
 <!-- About Section -->
 <div id="about">
@@ -328,8 +333,8 @@
       <hr>
     </div>
     <div class="row">
-      <form id="form_check" method="post" action="">
-        <input type="hidden" name="action" value="submit">
+      <!-- <form id="form_check" method="post" action="">
+        <input type="hidden" name="action" value="submit"> -->
         <div class="about-text">
           <div class="col-md-6">
             <h4><small>名前</small></h4>
@@ -340,7 +345,7 @@
             <p><?php echo $email; ?></p>
           </div>
         </div>
-      </form>
+      <!-- </form> -->
     </div>
   </div>
 </div>
@@ -355,55 +360,95 @@
       <p>旅のスタイルは下記で間違いないですか？</p>
     </div>
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_alone.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">ひとり旅</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_couple.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">カップル・夫婦</p>
-          </div>
-        </div>
-       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_family.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">家族旅行</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_food.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">グルメ</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_resort.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">リゾート</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_nature.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">自然</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_ruins.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">遺跡</p>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-          <div class="portfolio-item">
-              <img src="img/style/icon_shopping.png" class="img-responsive" alt="Project Title">
-              <p id="country-name">ショッピング</p>
-          </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("alone", (array)$style)) { ?>
+              <img src="img/style/icon_alone.png" class="img-responsive style-photo selected" alt="ひとり旅">
+          <?php }else{ ?>
+              <img src="img/style/icon_alone.png" class="img-responsive style-photo check" alt="ひとり旅">
+          <?php } ?>
+          <p id="country-name">ひとり旅</p>
         </div>
       </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("couple", (array)$style)) { ?>
+              <img src="img/style/icon_couple.png" class="img-responsive style-photo selected" alt="カップル">
+          <?php }else{ ?>
+              <img src="img/style/icon_couple.png" class="img-responsive style-photo check" alt="カップル">
+          <?php } ?>
+          <p id="country-name">カップル・夫婦</p>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("family", (array)$style)) { ?>
+              <img src="img/style/icon_family.png" class="img-responsive style-photo selected" alt="家族旅行">
+          <?php }else{ ?>
+                <img src="img/style/icon_family.png" class="img-responsive style-photo check" alt="家族旅行">
+          <?php } ?>
+          <p id="country-name">家族旅行</p>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("food", (array)$style)) { ?>
+              <img src="img/style/icon_food.png" class="img-responsive style-photo selected" alt="グルメ">
+          <?php }else{ ?>
+              <img src="img/style/icon_food.png" class="img-responsive style-photo check" alt="グルメ">
+          <?php } ?>
+          <p id="country-name">グルメ</p>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("resort", (array)$style)) { ?>
+              <img src="img/style/icon_resort.png" class="img-responsive style-photo selected" alt="リゾート">
+          <?php }else{ ?>
+              <img src="img/style/icon_resort.png" class="img-responsive style-photo check" alt="リゾート">
+          <?php } ?>
+          <p id="country-name">リゾート</p>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("nature", (array)$style)) { ?>
+              <img src="img/style/icon_nature.png" class="img-responsive style-photo selected" alt="自然">
+          <?php }else{ ?>
+              <img src="img/style/icon_nature.png" class="img-responsive style-photo check" alt="自然">
+          <?php } ?>
+          <p id="country-name">自然</p>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("ruins", (array)$style)) { ?>
+              <img src="img/style/icon_ruins.png" class="img-responsive style-photo selected" alt="遺跡">
+          <?php }else{ ?>
+              <img src="img/style/icon_ruins.png" class="img-responsive style-photo check" alt="遺跡">
+          <?php } ?>
+          <p id="country-name">遺跡</p>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <div class="portfolio-item">
+          <?php if(in_array("shopping", (array)$style)) { ?>
+              <img src="img/style/icon_shopping.png" class="img-responsive style-photo selected" alt="ショッピング">
+          <?php }else{ ?>
+              <img src="img/style/icon_shopping.png" class="img-responsive style-photo check" alt="ショッピング">
+          <?php } ?>
+          <p id="country-name">ショッピング</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -433,230 +478,423 @@
     </div>
     <div class="row">
       <div class="portfolio-items">
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/ireland.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">アイルランド</p>
+              <?php if(in_array("Ireland", (array)$country)) { ?>
+                  <img src="img/country/ireland.jpg" class="img-responsive country-photo selected" alt="アイルランド">
+              <?php }else{ ?>
+                  <img src="img/country/ireland.jpg" class="img-responsive country-photo check" alt="アイルランド">
+              <?php } ?>
+            </div>
+            <p id="country-name">アイルランド</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/usa.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">アメリカ</p>
+              <?php if(in_array("UnitedStates", (array)$country)) { ?>
+                  <img src="img/country/usa.jpg" class="img-responsive country-photo selected" alt="アメリカ">
+              <?php }else{ ?>
+                  <img src="img/country/usa.jpg" class="img-responsive country-photo check" alt="アメリカ">
+              <?php } ?>
+            </div>
+            <p id="country-name">アメリカ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/uae.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">アラブ首長国連邦</p>
+              <?php if(in_array("UnitedArabEmirates", (array)$country)) { ?>
+                  <img src="img/country/uae.jpg" class="img-responsive country-photo selected" alt="アラブ首長国連邦">
+              <?php }else{ ?>
+                  <img src="img/country/uae.jpg" class="img-responsive country-photo check" alt="アラブ首長国連邦">
+              <?php } ?>
+            </div>
+            <p id="country-name">アラブ首長国連邦</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/uk.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">イギリス</p>
+              <?php if(in_array("UnitedKingdom", (array)$country)) { ?>
+                  <img src="img/country/uk.jpg" class="img-responsive country-photo selected" alt="イギリス">
+              <?php }else{ ?>
+                  <img src="img/country/uk.jpg" class="img-responsive country-photo check" alt="イギリス">
+              <?php } ?>
+            </div>
+            <p id="country-name">イギリス</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/italy.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">イタリア</p>
+              <?php if(in_array("Italy", (array)$country)) { ?>
+                  <img src="img/country/italy.jpg" class="img-responsive country-photo selected" alt="イタリア">
+              <?php }else{ ?>
+                  <img src="img/country/italy.jpg" class="img-responsive country-photo check" alt="イタリア">
+              <?php } ?>
+            </div>
+            <p id="country-name">イタリア</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/india.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">インド</p>
+              <?php if(in_array("India", (array)$country)) { ?>
+                  <img src="img/country/india.jpg" class="img-responsive country-photo selected" alt="インド">
+              <?php }else{ ?>
+                  <img src="img/country/india.jpg" class="img-responsive country-photo check" alt="インド">
+              <?php } ?>
+            </div>
+            <p id="country-name">インド</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/indonesia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">インドネシア</p>
+              <?php if(in_array("Indonesia", (array)$country)) { ?>
+                  <img src="img/country/indonesia.jpg" class="img-responsive country-photo selected" alt="インドネシア">
+              <?php }else{ ?>
+                  <img src="img/country/indonesia.jpg" class="img-responsive country-photo check" alt="インドネシア">
+              <?php } ?>
+            </div>
+            <p id="country-name">インドネシア</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/australia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">オーストラリア</p>
+              <?php if(in_array("Australia", (array)$country)) { ?>
+                  <img src="img/country/australia.jpg" class="img-responsive country-photo selected" alt="オーストラリア">
+              <?php }else{ ?>
+                  <img src="img/country/australia.jpg" class="img-responsive country-photo check" alt="オーストラリア">
+              <?php } ?>
+            </div>
+            <p id="country-name">オーストラリア</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/netherland.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">オランダ</p>
+              <?php if(in_array("Netherlands", (array)$country)) { ?>
+                  <img src="img/country/netherland.jpg" class="img-responsive country-photo selected" alt="オランダ">
+              <?php }else{ ?>
+                  <img src="img/country/netherland.jpg" class="img-responsive country-photo check" alt="オランダ">
+              <?php } ?>
+            </div>
+            <p id="country-name">オランダ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/qatar.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">カタール</p>
+              <?php if(in_array("Qatar", (array)$country)) { ?>
+                  <img src="img/country/qatar.jpg" class="img-responsive country-photo selected" alt="カタール">
+              <?php }else{ ?>
+                  <img src="img/country/qatar.jpg" class="img-responsive country-photo check" alt="カタール">
+              <?php } ?>
+            </div>
+            <p id="country-name">カタール</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/canada.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">カナダ</p>
+              <?php if(in_array("Canada", (array)$country)) { ?>
+                  <img src="img/country/canada.jpg" class="img-responsive country-photo selected" alt="カナダ">
+              <?php }else{ ?>
+                  <img src="img/country/canada.jpg" class="img-responsive country-photo check" alt="カナダ">
+              <?php } ?>
+            </div>
+            <p id="country-name">カナダ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/korea.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">韓国</p>
+              <?php if(in_array("Korea", (array)$country)) { ?>
+                  <img src="img/country/korea.jpg" class="img-responsive country-photo selected" alt="韓国">
+              <?php }else{ ?>
+                  <img src="img/country/korea.jpg" class="img-responsive country-photo check" alt="韓国">
+              <?php } ?>
+            </div>
+            <p id="country-name">韓国</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/cambodia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">カンボジア</p>
+              <?php if(in_array("Cambodia", (array)$country)) { ?>
+                  <img src="img/country/cambodia.jpg" class="img-responsive country-photo selected" alt="カンボジア">
+              <?php }else{ ?>
+                  <img src="img/country/cambodia.jpg" class="img-responsive country-photo check" alt="カンボジア">
+              <?php } ?>
+            </div>
+            <p id="country-name">カンボジア</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/guam.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">グアム</p>
+              <?php if(in_array("Guam", (array)$country)) { ?>
+                  <img src="img/country/guam.jpg" class="img-responsive country-photo selected" alt="グアム">
+              <?php }else{ ?>
+                  <img src="img/country/guam.jpg" class="img-responsive country-photo check" alt="グアム">
+              <?php } ?>
+            </div>
+            <p id="country-name">グアム</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/saipan.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">サイパン</p>
+              <?php if(in_array("Saipan", (array)$country)) { ?>
+                  <img src="img/country/saipan.jpg" class="img-responsive country-photo selected" alt="サイパン">
+              <?php }else{ ?>
+                  <img src="img/country/saipan.jpg" class="img-responsive country-photo check" alt="サイパン">
+              <?php } ?>
+            </div>
+            <p id="country-name">サイパン</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/singapore.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">シンガポール</p>
+              <?php if(in_array("Singapore", (array)$country)) { ?>
+                  <img src="img/country/singapore.jpg" class="img-responsive country-photo selected" alt="シンガポール">
+              <?php }else{ ?>
+                  <img src="img/country/singapore.jpg" class="img-responsive country-photo check" alt="シンガポール">
+              <?php } ?>
+            </div>
+            <p id="country-name">シンガポール</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/spain.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">スペイン</p>
+              <?php if(in_array("Spain", (array)$country)) { ?>
+                  <img src="img/country/spain.jpg" class="img-responsive country-photo selected" alt="スペイン">
+              <?php }else{ ?>
+                  <img src="img/country/spain.jpg" class="img-responsive country-photo check" alt="スペイン">
+              <?php } ?>
+            </div>
+            <p id="country-name">スペイン</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/thailand.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">タイ</p>
+              <?php if(in_array("Thailand", (array)$country)) { ?>
+                  <img src="img/country/thailand.jpg" class="img-responsive country-photo selected" alt="タイ">
+              <?php }else{ ?>
+                  <img src="img/country/thailand.jpg" class="img-responsive country-photo check" alt="タイ">
+              <?php } ?>
+            </div>
+            <p id="country-name">タイ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/taiwan.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">台湾</p>
+              <?php if(in_array("Taiwan", (array)$country)) { ?>
+                  <img src="img/country/taiwan.jpg" class="img-responsive country-photo selected" alt="台湾">
+              <?php }else{ ?>
+                  <img src="img/country/taiwan.jpg" class="img-responsive country-photo check" alt="台湾">
+              <?php } ?>
+            </div>
+            <p id="country-name">台湾</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/china.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">中国</p>
+              <?php if(in_array("China", (array)$country)) { ?>
+                  <img src="img/country/china.jpg" class="img-responsive country-photo selected" alt="中国">
+              <?php }else{ ?>
+                  <img src="img/country/china.jpg" class="img-responsive country-photo check" alt="中国">
+              <?php } ?>
+            </div>
+            <p id="country-name">中国</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/turkey.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">トルコ</p>
+              <?php if(in_array("Turkey", (array)$country)) { ?>
+                  <img src="img/country/turkey.jpg" class="img-responsive country-photo selected" alt="トルコ">
+              <?php }else{ ?>
+                  <img src="img/country/turkey.jpg" class="img-responsive country-photo check" alt="トルコ">
+              <?php } ?>
+            </div>
+            <p id="country-name">トルコ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/newcaledonia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">ニューカレドニア</p>
+              <?php if(in_array("NewCaledonia", (array)$country)) { ?>
+                  <img src="img/country/newcaledonia.jpg" class="img-responsive country-photo selected" alt="ニューカレドニア">
+              <?php }else{ ?>
+                  <img src="img/country/newcaledonia.jpg" class="img-responsive country-photo check" alt="ニューカレドニア">
+              <?php } ?>
+            </div>
+            <p id="country-name">ニューカレドニア</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/newzealand.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">ニュージーランド</p>
+              <?php if(in_array("NewZealand", (array)$country)) { ?>
+                  <img src="img/country/newzealand.jpg" class="img-responsive country-photo selected" alt="ニュージーランド">
+              <?php }else{ ?>
+                  <img src="img/country/newzealand.jpg" class="img-responsive country-photo check" alt="ニュージーランド">
+              <?php } ?>
+            </div>
+            <p id="country-name">ニュージーランド</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 oceania">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/hawaii.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">ハワイ</p>
+              <?php if(in_array("Hawaii", (array)$country)) { ?>
+                  <img src="img/country/hawaii.jpg" class="img-responsive country-photo selected" alt="ハワイ">
+              <?php }else{ ?>
+                  <img src="img/country/hawaii.jpg" class="img-responsive country-photo check" alt="ハワイ">
+              <?php } ?>
+            </div>
+            <p id="country-name">ハワイ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/elnido.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">フィリピン</p>
+              <?php if(in_array("Philippines", (array)$country)) { ?>
+                  <img src="img/country/elnido.jpg" class="img-responsive country-photo selected" alt="フィリピン">
+              <?php }else{ ?>
+                  <img src="img/country/elnido.jpg" class="img-responsive country-photo check" alt="フィリピン">
+              <?php } ?>
+            </div>
+            <p id="country-name">フィリピン</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/finland.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">フィンランド</p>
+              <?php if(in_array("Finland", (array)$country)) { ?>
+                  <img src="img/country/finland.jpg" class="img-responsive country-photo selected" alt="フィンランド">
+              <?php }else{ ?>
+                  <img src="img/country/finland.jpg" class="img-responsive country-photo check" alt="フィンランド">
+              <?php } ?>
+            </div>
+            <p id="country-name">フィンランド</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/france.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">フランス</p>
+              <?php if(in_array("France", (array)$country)) { ?>
+                  <img src="img/country/france.jpg" class="img-responsive country-photo selected" alt="フランス">
+              <?php }else{ ?>
+                  <img src="img/country/france.jpg" class="img-responsive country-photo check" alt="フランス">
+              <?php } ?>
+            </div>
+            <p id="country-name">フランス</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/vietnam.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">ベトナム</p>
+              <?php if(in_array("VietNam", (array)$country)) { ?>
+                  <img src="img/country/vietnam.jpg" class="img-responsive country-photo selected" alt="ベトナム">
+              <?php }else{ ?>
+                  <img src="img/country/vietnam.jpg" class="img-responsive country-photo check" alt="ベトナム">
+              <?php } ?>
+            </div>
+            <p id="country-name">ベトナム</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/hongkong.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">香港・マカオ</p>
+              <?php if(in_array("HongKong", (array)$country)) { ?>
+                  <img src="img/country/hongkong.jpg" class="img-responsive country-photo selected" alt="香港">
+              <?php }else{ ?>
+                  <img src="img/country/hongkong.jpg" class="img-responsive country-photo check" alt="香港">
+              <?php } ?>
+            </div>
+            <p id="country-name">香港・マカオ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 asia">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/malaysia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">マレーシア</p>
+              <?php if(in_array("Malaysia", (array)$country)) { ?>
+                  <img src="img/country/malaysia.jpg" class="img-responsive country-photo selected" alt="マレーシア">
+              <?php }else{ ?>
+                  <img src="img/country/malaysia.jpg" class="img-responsive country-photo check" alt="マレーシア">
+              <?php } ?>
+            </div>
+            <p id="country-name">マレーシア</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 north_america">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/mexico.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">メキシコ</p>
+              <?php if(in_array("Mexico", (array)$country)) { ?>
+                  <img src="img/country/mexico.jpg" class="img-responsive country-photo selected" alt="メキシコ">
+              <?php }else{ ?>
+                  <img src="img/country/mexico.jpg" class="img-responsive country-photo check" alt="メキシコ">
+              <?php } ?>
+            </div>
+            <p id="country-name">メキシコ</p>
           </div>
         </div>
+
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 europe">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/russia.jpg" class="img-responsive country-photo" alt="Project Title"> </a> </div>
-              <p id="country-name">ロシア</p>
+              <?php if(in_array("Russia", (array)$country)) { ?>
+                  <img src="img/country/russia.jpg" class="img-responsive country-photo selected" alt="ロシア">
+              <?php }else{ ?>
+                  <img src="img/country/russia.jpg" class="img-responsive country-photo check" alt="ロシア">
+              <?php } ?>
+            </div>
+            <p id="country-name">ロシア</p>
           </div>
         </div>
+
       </div>
       </div>
     </div>
@@ -677,6 +915,7 @@
     <!-- </form> -->
   </div>
 </div>
+</form>
 
 
 <?php include('footer.php'); ?>
