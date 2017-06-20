@@ -1,5 +1,7 @@
 /* style.cssへの変更*/
-
+#intro {
+    padding: 0 0;
+}
 #style {
 	padding: 100px 0;
 	background: #f6f6f6;
