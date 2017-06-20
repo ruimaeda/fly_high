@@ -116,10 +116,10 @@ hr {
 	background: #00cc99;
 	border: 0;
 	padding: 12px 24px;
-	margin: 0 15px;
+	margin: 0 20px;
 	font-size: 18px;
 	transition: all 0.5s;
-	width: 110px;
+	width: 150px;
 }
 
 /*#intro .btn {
@@ -511,3 +511,5 @@ img.img-thumbnail.team-img {
     display: inline;
     padding-bottom: 5px;
 }
+
+

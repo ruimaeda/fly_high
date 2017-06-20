@@ -171,7 +171,8 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i>FLY HIGH</a> </div>
+      <a href="index.php" class="navbar-brand page-scroll">
+      <img class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> FLY HIGH</a> </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -179,9 +180,8 @@
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"> <a href="#page-top"></a> </li>
         <li> <a class="page-scroll" href="#about">About</a> </li>
-        <li> <a class="page-scroll" href="#services">STYLE</a> </li>
-        <li> <a class="page-scroll" href="#works">COUNTRY</a></li>
-        <li> <a class="page-scroll" href="#team">QUESTION</a> </li>
+        <li> <a class="page-scroll" href="#style">STYLE</a> </li>
+        <li> <a class="page-scroll" href="#country">COUNTRY</a></li>
        <!--  <li> <a class="page-scroll" href="#testimonials">Testimonials</a> </li>
         <li> <a class="page-scroll" href="#contact">Contact</a> </li> -->
       </ul>
@@ -798,7 +798,7 @@
       <div class="text-center">
         <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;書き直す</a>
         <!-- <button form="form_check" type="submit" class="btn btn-default">登録する</button> -->
-        <input form="form_check" type="submit" class="btn btn-default" value="会員登録">
+        <input form="form_check" type="submit" class="btn btn-default" value="会員登録&nbsp;&raquo;">
       </div>
     <!-- </form> -->
   </div>
@@ -806,21 +806,26 @@
 </form>
 
 
+<!-- フッターの外部読み込み-->
 <?php include('footer.php'); ?>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script type="text/javascript" src="js/bootstrap.js"></script> 
-<script type="text/javascript" src="js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<!-- フローティングボタンの外部読み込み-->
+<?php include('to-top.php'); ?>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
 <!-- <script type="text/javascript" src="js/contact_me.js"></script>  -->
 
 <!-- Javascripts
-    ================================================== --> 
+    ================================================== -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

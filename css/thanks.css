@@ -20,7 +20,7 @@
   position: relative;
   width: 100%;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 150px 0 50px 0;
 }
 
 /*ボタンの色を緑に変更*/
@@ -32,7 +32,7 @@
   margin: 0 15px;
   font-size: 18px;
   transition: all 0.5s;
-  width: 200px;
+  width: 150px;
   text-align: center;
 }
 

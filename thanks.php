@@ -108,7 +108,7 @@
             <div class="col-sm-offset-4 col-sm-4">
               <div class="text-center">
                 <!-- <button href="signup.php" type="submit" class="btn btn-default"> -->
-                <a href="mypage.php" type="button" class="btn btn-default">MyPageに進む</a>
+                <a href="mypage.php" type="button" class="btn btn-default">my pageへ<span class="angle">&nbsp;&raquo;</span></a>
                 <!-- </button> -->
               </div>
             </div>

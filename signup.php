@@ -143,7 +143,6 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <!-- <a class="navbar-brand page-scroll" href="#page-top"> -->
       <a href="index.php" class="navbar-brand page-scroll">
       <img class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High</a> </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -1063,20 +1062,20 @@
 <!-- <form method="post" action=""> -->
 <div id="button">
   <div class="container">
-    <div class="text-center">
-      <a href="index.php" type="submit" class="btn btn-default">TOPページに戻る</a>
-      <button form="form_signup" type="submit" class="btn btn-default">ユーザー登録する</button>
+    <div class="text-center agree">
+      アカウントを作成することで、Fly Highの<a href="terms.php" target="_blank" class="link">利用規約</a>と<a href="policy.php" target="_blank" class="link">プライバシーポリシー</a>に同意するものとします。<br>
     </div>
     <div class="text-center agree">
-      アカウントを作成することで、Fly Highの<a href="terms.php" target="_blank">利用規約</a>と<a href="policy.php" target="_blank">プライバシーポリシー</a>に同意するものとします。
+      <a href="index.php" type="submit" class="btn btn-default"><span class="angle">&laquo;&nbsp;</span>戻る</a>
+      <!-- <input type="button" name="戻る" href="index.php" class="btn btn-default"><span class="angle">&laquo;&nbsp;</span> -->
+      <button form="form_signup" type="submit" class="btn btn-default">確認する<span class="angle">&nbsp;&raquo;</span> </button>
     </div>
     <div class="text-center agree">
       <div class="clearfix"></div>
-      <hr>
-      もしかして、すでにアカウントをお持ちですか？
+      <hr>もしかして、すでにアカウントをお持ちですか？
     </div>
     <div class="text-center agree">
-      <a href="login.php" type="submit" class="btn btn-default">ログインする</a>
+      <a href="login.php" type="submit" class="btn btn-default">log in</a>
     </div>
   </div>
 </div>
