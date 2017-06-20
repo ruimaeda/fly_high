@@ -7,8 +7,8 @@
 
   // var_dump($_SESSION['admin']);
   // var_dump($_SESSION['admin']['style']);
-  var_dump($_SESSION['admin']['picture_path']);
-  var_dump($_SESSION['admin']['country']);
+  // var_dump($_SESSION['admin']['picture_path']);
+  // var_dump($_SESSION['admin']['country']);
 
   //ログイン状態をチェックする→強制ログアウトを作る
   //ログインしていると判断できる条件
@@ -808,16 +808,6 @@
 
 
   </div>
-</div>
-
-
-<?php include('footer.php'); ?>
-
-  <!-- to-topのフローティングボタンを付け加える -->
-  <a id="to-top" href="#top" class="btn btn-dark btn-lg">
-    <i class="fa fa-chevron-up fa-fw fa-1x"></i>
-  </a>
-
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

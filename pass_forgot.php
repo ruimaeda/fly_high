@@ -5,13 +5,9 @@ session_start();
 //DBへ接続
 require('dbconnect.php');
 
-
-var_dump($_POST['validate-email']);
-
 //入力されたメールアドレスを使って、ユーザーを特定し、ハッシュ化された文字列をテーブルへUPDATEする
   //メールアドレスの入力でスタート
-  if($_POST['validate-email']){
-    var_dump("スタート");
+  if(isset($_POST['validate-email']) && $_POST['validate-email']){
     $hash_text = uniqid(rand());
 
     $sql = sprintf('UPDATE `users` SET `hash` = "%s" WHERE `email` = "%s" ',
