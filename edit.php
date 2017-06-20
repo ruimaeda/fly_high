@@ -361,7 +361,7 @@ if(isset($_POST) && !empty($_POST)) {
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="password" class="form-control" name="password" id="validate-email" value="<?php echo $user['password'] ?>" placeholder="パスワードを変更する場合はここに入力" >
+                    <input type="password" class="form-control" name="password" id="validate-email" value="" placeholder="パスワードを変更する場合はここに入力" >
                     <span class="input-group-addon danger"></span>
                   </div>
 
@@ -374,7 +374,7 @@ if(isset($_POST) && !empty($_POST)) {
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="password" class="form-control" name="re_password" id="validate-email" value="<?php echo $user['password'] ?>" placeholder="パスワードを変更する場合はここに入力" >
+                    <input type="password" class="form-control" name="re_password" id="validate-email" value="" placeholder="パスワードを変更する場合はここに入力" >
                     <span class="input-group-addon danger"></span>
                   </div>
                   <!-- パスワード確認の処理(ok) -->

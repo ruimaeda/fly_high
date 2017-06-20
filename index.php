@@ -157,7 +157,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>アメリカ</h4>
-                <p>¥10,000</p>
+                <p>¥34,800〜</p>
               </div>
               <img src="img/country/usa.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
