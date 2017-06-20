@@ -136,9 +136,8 @@
                     <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
                   <?php } ?>
               </form>
-              <a href="pass_forgot.php" class="forgot-password">
-                  パスワードを忘れましたか？
-              </a>
+              <p class="login-text"><a href="pass_forgot.php" class="forgot-password">パスワードを忘れましたか？</a></p>
+              <p class="login-text"><a href="index.php" class="forgot-password">TOPに戻る</a></p>
               </div><!-- /card-container -->
     </div>
   </div>

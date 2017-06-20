@@ -153,3 +153,7 @@ body, html {
 .error {
   color: red;
 }
+
+p .login-text {
+    margin-top: 10px;
+}

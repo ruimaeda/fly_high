@@ -179,10 +179,8 @@
       <hr>
     </div>
     <div class="row">
-
       <div class="form-group col-md-12 columns">
               <!-- <label class="col-md-2 control-label" for="Checkboxes">Checkboxes</label>   -->
-
         <div class="row">
           <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
@@ -759,14 +757,12 @@
 <?php } ?>
 
 <!-- Contact Section -->
-<!-- <div id="contact" class="text-center"> -->
 <div id="works" class="text-center">
   <div class="container">
     <div class="section-title center">
       <h2>送信内容に間違いはありませんか？</h2>
       <hr>
     </div>
-
     <div class="col-md-8 col-md-offset-2">
       <form method="post" action="" class="form-horizontal">
         <input type="hidden" name="action" value="submit">
@@ -798,15 +794,10 @@
             </tr>
           </tbody>
         </table>
-    </div>
-
-        <!-- <div id="success"></div> -->
         <a href="admin.php?action=rewrite"><button type="button" class="btn btn-custom btn-lg2" >戻る</button></a>
         <button type="submit" class="btn btn-custom btn-lg2">送信する</button>
       </form>
     </div>
-
-
   </div>
 </div>
 
@@ -823,7 +814,6 @@
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
 <!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
 <!-- <script type="text/javascript" src="js/admin_contact_me.js"></script> -->
-
 
 
 <!-- Javascripts

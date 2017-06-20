@@ -212,9 +212,12 @@ echo "<br>";
     </div>
   </div>
 </div>
+
+
 <!-- question Section -->
 <div id="question">
   <div class="container">
+    <?php if(isset($user['gender']) OR isset($user['address']) OR isset($user['travel_purpose']) OR isset($user['travel_period']) OR isset($user['travel_time']) OR isset($user['age']) OR isset($user['income']) OR isset($user['travel_budget']) OR isset($user['travel_country']) OR isset($user['know_flyhigh'])) { ?> <!-- 追加の質問に対して、1つ以上回答があった場合表示する-->
     <div class="section-title text-center center">
       <h2>Additional questions</h2>
       <hr>
@@ -287,6 +290,7 @@ echo "<br>";
       </div>
     </div>
   </div>
+  <?php } ?>
   <div class="text-center">
     <a href="index.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
     <a href="logout.php"><button type="button" class="btn btn-default">LOG OUT</button></a>
