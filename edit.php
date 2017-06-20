@@ -310,7 +310,7 @@ if(isset($_POST) && !empty($_POST)) {
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i> FLYHIGH</a> </div>
+      <a class="navbar-brand page-scroll" href="index.php"> <img class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High</a> </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -1073,9 +1073,9 @@ if(isset($_POST) && !empty($_POST)) {
                <fieldset class="questions">
 
                <!-- Multiple Radios -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="radios">性別</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                  <?php if(!($user['travel_purpose'] == NULL)){ ?>
                    <div class="radio">
                      <label for="radios-0">
@@ -1111,9 +1111,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Select Basic -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="selectbasic">年齢</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="age" class="form-control">
                      <?php if(($user['age'] == NULL)){ ?>
                      <option value="" >年齢を選択してください</option>
@@ -1132,9 +1132,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Select Basic -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="selectbasic">居住地</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="address" class="form-control">
                      <?php if(($user['address'] == NULL)){ ?>
                      <option value="">居住地を選択してください</option>
@@ -1156,9 +1156,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Select Basic -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="selectbasic">年収</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="income" class="form-control">
                      <?php if(($user['income'] == NULL)){ ?>
                      <option value="">年収を選択してください</option>
@@ -1176,9 +1176,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Multiple Checkboxes -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="checkboxes">海外旅行先の決め手</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <?php if(!($user['travel_purpose'] == NULL)){ ?> <!-- 過去に旅行の決め手を選んでいる場合の処理-->
                    <div class="checkbox">
                      <label for="checkboxes-0">
@@ -1339,9 +1339,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Select Basic -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="selectbasic">海外旅行の平均的な予算</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="travel_budget" class="form-control">
                      <?php if(($user['travel_budget'] == NULL)){ ?>
                      <option value="">海外旅行の予算を選択してください</option>
@@ -1360,9 +1360,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Select Basic -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="selectbasic">海外旅行の平均的な期間</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="travel_period" class="form-control">
                      <?php if(($user['travel_period'] == NULL)){ ?>
                      <option value="">海外旅行の期間を選択してください</option>
@@ -1380,9 +1380,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Select Basic -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="selectbasic">これまでに訪れた国の数</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="travel_country" class="form-control">
                      <?php if(($user['travel_country'] == NULL)){ ?>
                      <option value="">これまでに訪れた国の数を選択してください</option>
@@ -1402,7 +1402,7 @@ if(isset($_POST) && !empty($_POST)) {
                <!-- Select Basic -->
                <div class="form-group">
                  <label class="col-md-4 control-label" for="selectbasic">過去1年間の海外旅行の回数</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="travel_time" class="form-control">
                      <?php if(($user['travel_time'] == NULL)){ ?>
                      <option value="">過去1年間の海外旅行の回数を選択してください</option>
@@ -1421,9 +1421,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Select Basic -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="selectbasic">Fly Highを知ったキッカケ</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <select id="selectbasic" name="know_flyhigh" class="form-control">
                      <?php if(($user['know_flyhigh'] == NULL)){ ?>
                      <option value="">Fly Highを知ったキッカケを選択してください</option>
@@ -1441,9 +1441,9 @@ if(isset($_POST) && !empty($_POST)) {
                </div>
 
                <!-- Textarea -->
-               <div class="form-group">
+               <div class="form-group padding">
                  <label class="col-md-4 control-label" for="textarea">サイトへのご要望</label>
-                 <div class="col-md-4">
+                 <div class="col-md-6">
                    <textarea class="form-control" id="textarea" name="demand" placeholder="要望を入力してください"></textarea>
                  </div>
                </div>
