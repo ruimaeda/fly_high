@@ -8,10 +8,12 @@ label.add-question-text{
 
 .form-group{
 	display: block;
+	/*padding-top: 30px;*/
 }
 
 .questions {
 	padding-top: 30px;
+	text-align: end;
 }
 
 .each-quetion {
@@ -69,4 +71,12 @@ ol.type li a:hover {
 }
 .select{
   border: none;
+}
+
+.col-md-6 {
+	padding-top: 10px;
+}
+
+.col-md-4 {
+	padding-top: 12px;
 }
