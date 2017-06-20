@@ -183,7 +183,7 @@
         <li class="hidden"> <a href="#page-top"></a> </li>
         <li> <a class="page-scroll" href="#about">Style</a> </li>
         <li> <a class="page-scroll" href="#services">Country</a> </li>
-        <li> <a class="page-scroll" href="#contact">Form</a> </li>
+        <li> <a class="page-scroll" href="#works">Form</a> </li>
         <li> <a class="page-scroll" href="logout.php">Logout</a> </li>
       </ul>
     </div>

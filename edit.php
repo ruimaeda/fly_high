@@ -361,7 +361,7 @@ if(isset($_POST) && !empty($_POST)) {
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="password" class="form-control" name="password" id="validate-email" value="<?php echo sha1($user['password']) ?>" placeholder="パスワードを変更する場合はここに入力" >
+                    <input type="password" class="form-control" name="password" id="validate-email" value="" placeholder="パスワードを変更する場合はここに入力" >
                     <span class="input-group-addon danger"></span>
                   </div>
 
@@ -374,7 +374,7 @@ if(isset($_POST) && !empty($_POST)) {
                 </div>
                 <div class="form-group">
                   <div class="input-group" data-validate="email">
-                    <input type="password" class="form-control" name="re_password" id="validate-email" value="<?php echo sha1($user['password']) ?>" placeholder="パスワードを変更する場合はここに入力" >
+                    <input type="password" class="form-control" name="re_password" id="validate-email" value="" placeholder="パスワードを変更する場合はここに入力" >
                     <span class="input-group-addon danger"></span>
                   </div>
                   <!-- パスワード確認の処理(ok) -->
@@ -1115,6 +1115,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">年齢</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="age" class="form-control">
+                     <?php if(($user['age'] == NULL)){ ?>
+                     <option value="" >年齢を選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['age'] == NULL)){ ?>
                      <option value="<?php echo $user['age'] ?>"><?php echo $user['age'] ?>(選択済み)</option>
                      <?php } ?>
@@ -1133,6 +1136,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">居住地</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="address" class="form-control">
+                     <?php if(($user['address'] == NULL)){ ?>
+                     <option value="">居住地を選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['address'] == NULL)){ ?>
                      <option value="<?php echo $user['address'] ?>"><?php echo $user['address'] ?>(選択済み)</option>
                      <?php } ?>
@@ -1154,6 +1160,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">年収</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="income" class="form-control">
+                     <?php if(($user['income'] == NULL)){ ?>
+                     <option value="">年収を選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['income'] == NULL)){ ?>
                      <option value="<?php echo $user['income'] ?>"><?php echo $user['income'] ?>(選択済み)</option>
                      <?php } ?>
@@ -1334,6 +1343,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">海外旅行の平均的な予算</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="travel_budget" class="form-control">
+                     <?php if(($user['travel_budget'] == NULL)){ ?>
+                     <option value="">海外旅行の予算を選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['travel_budget'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_budget'] ?>"><?php echo $user['travel_budget'] ?>(選択済み)</option>
                      <?php } ?>
@@ -1352,6 +1364,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">海外旅行の平均的な期間</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="travel_period" class="form-control">
+                     <?php if(($user['travel_period'] == NULL)){ ?>
+                     <option value="">海外旅行の期間を選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['travel_period'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_period'] ?>"><?php echo $user['travel_period'] ?>(選択済み)</option>
                      <?php } ?>
@@ -1369,6 +1384,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">これまでに訪れた国の数</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="travel_country" class="form-control">
+                     <?php if(($user['travel_country'] == NULL)){ ?>
+                     <option value="">これまでに訪れた国の数を選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['travel_country'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_country'] ?>"><?php echo $user['travel_country'] ?>(選択済み)</option>
                      <?php } ?>
@@ -1386,6 +1404,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">過去1年間の海外旅行の回数</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="travel_time" class="form-control">
+                     <?php if(($user['travel_time'] == NULL)){ ?>
+                     <option value="">過去1年間の海外旅行の回数を選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['travel_time'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_time'] ?>"><?php echo $user['travel_time'] ?>(選択済み)</option>
                      <?php } ?>
@@ -1404,6 +1425,9 @@ if(isset($_POST) && !empty($_POST)) {
                  <label class="col-md-4 control-label" for="selectbasic">Fly Highを知ったキッカケ</label>
                  <div class="col-md-4">
                    <select id="selectbasic" name="know_flyhigh" class="form-control">
+                     <?php if(($user['know_flyhigh'] == NULL)){ ?>
+                     <option value="">Fly Highを知ったキッカケを選択してください</option>
+                     <?php } ?>
                      <?php if(!($user['know_flyhigh'] == NULL)){ ?>
                      <option value="<?php echo $user['know_flyhigh'] ?>"><?php echo $user['know_flyhigh'] ?>(選択済み)</option>
                      <?php } ?>

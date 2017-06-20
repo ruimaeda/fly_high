@@ -169,3 +169,8 @@ ol.type li a:hover {
 	border: 1px solid #00947a;
 	background: #00947a;
 }
+
+.style-photo {
+  height: 110px;
+  width: 260px;
+}
