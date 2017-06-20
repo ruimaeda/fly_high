@@ -97,6 +97,11 @@
       $error['message'] = 'blank';
     }
 
+    //国が1つも選ばれていない時、$error'blank'を代入
+    if ($_POST['country'] == '') {
+      $error['country'] = 'blank';
+    }
+
     //画像ファイルの拡張子チェック（$_FILES）
     $fileName = $_FILES['picture_path']['name'];
     if (!empty($fileName)){
@@ -279,9 +284,6 @@
 </div>
 
 <!-- Services Section -->
-<!-- <div id="services" class="text-center"> -->
-
-
 <div id="services" class="">
 <div class="overlay">
   <div class="container box">
@@ -786,6 +788,9 @@
         <?php if(isset($error['message']) && $error['message'] == 'blank') { ?>
           <p class="error">本文が入力されていません</p>
         <?php } ?>
+        <?php if(isset($error['country']) && $error['country'] == 'blank') { ?>
+          <p class="error">配信先の国が選ばれていません</p>
+        <?php } ?>
 
         <!-- <div id="success"></div> -->
         <!-- この位置だと間違ってログアウトボタンを押しそうなのでヘッダーに移動-->
@@ -815,10 +820,6 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jquery.parallax.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<!-- contact_me.jsはメールが送信されました表示の分。これはadmin_checkで表示するため一旦コメントアウト。 -->
-<!-- <script type="text/javascript" src="js/contact_me.js"></script>  -->
-
-
 
 <!-- Javascripts
     ================================================== -->
