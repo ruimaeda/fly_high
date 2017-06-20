@@ -167,7 +167,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>インドネシア</h4>
-                <p>¥10,000</p>
+                <p>¥14,900〜</p>
               </div>
               <img src="img/country/indonesia.jpg" class="img-responsive country-photo" ></a> </div>
           </div>
@@ -177,7 +177,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>オーストラリア</h4>
-                <p>¥10,000</p>
+                <p>¥23,000〜</p>
               </div>
               <img src="img/country/australia.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -187,7 +187,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>カナダ</h4>
-                <p>¥10,000</p>
+                <p>¥64,000〜</p>
               </div>
               <img src="img/country/canada.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -197,7 +197,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>シンガポール</h4>
-                <p>¥10,000</p>
+                <p>¥9,900〜</p>
               </div>
               <img src="img/country/singapore.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -207,7 +207,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>スペイン</h4>
-                <p>¥10,000</p>
+                <p>¥76,350〜</p>
               </div>
               <img src="img/country/spain.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -217,7 +217,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>タイ</h4>
-                <p>¥10,000</p>
+                <p>¥19,000〜</p>
               </div>
               <img src="img/country/thailand.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -227,7 +227,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>台湾</h4>
-                <p>¥10,000</p>
+                <p>¥6,900〜</p>
               </div>
               <img src="img/country/taiwan.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -237,7 +237,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>ニュージーランド</h4>
-                <p>¥10,000</p>
+                <p>¥79,000〜</p>
               </div>
               <img src="img/country/newzealand.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -247,7 +247,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>ハワイ</h4>
-                <p>¥10,000</p>
+                <p>¥39,000〜</p>
               </div>
               <img src="img/country/hawaii.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -257,7 +257,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>フィリピン</h4>
-                <p>¥10,000</p>
+                <p>¥100〜</p>
               </div>
               <img src="img/country/elnido.jpg" class="img-responsive country-photo"> </a> </div>
           </div>
@@ -267,7 +267,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>フィンランド</h4>
-                <p>¥10,000</p>
+                <p>¥39,800</p>
               </div>
               <img src="img/country/finland.jpg" class="img-responsive country-photo"> </a> </div>
           </div>

@@ -17,7 +17,7 @@
     setcookie('password', '', time() - 3600);
 
 
-    header("location: login.php");
+    header("location: admin_login.php");
     exit();
 
 ?>

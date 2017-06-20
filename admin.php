@@ -184,7 +184,7 @@
         <li> <a class="page-scroll" href="#about">Style</a> </li>
         <li> <a class="page-scroll" href="#services">Country</a> </li>
         <li> <a class="page-scroll" href="#works">Form</a> </li>
-        <li> <a class="page-scroll" href="logout.php">Logout</a> </li>
+        <li> <a class="page-scroll" href="admin_logout.php">Logout</a> </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
