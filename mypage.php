@@ -201,7 +201,7 @@ echo "<br>";
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 <?php echo $country['country_area']; ?>">
           <div class="portfolio-item">
             <div class="hover-bg">
-              <img src="img/country/<?php echo $country['country_name'];?>.jpg" class="img-responsive check" alt="Project Title"> </a> </div>
+              <img src="img/country/<?php echo $country['country_name'];?>.jpg" class="img-responsive check style-photo" alt="Project Title"> </a> </div>
               <p id="country-name"><?php echo $country['country_name_ja']; ?></p>
           </div>
         </div>
@@ -223,9 +223,8 @@ echo "<br>";
       <div class="col-md-3">
       </div>
       <div class="col-md-3">
-        <div class="about-question　">
+        <div class="about-question">
           <!-- <h4><i class="fa fa-question" aria-hidden="true"></i> QUESTION</h4> -->
-          
           <div class="box30">
           <div class="box-title box1">性別</div>
           <p><?php echo $user['gender'] ?></p>
@@ -253,7 +252,6 @@ echo "<br>";
           <p><?php echo $user['travel_time'] ?></p>
           <p><i class="fa fa-plane logo" aria-hidden="true"></i></p>
           </div>
-          
           </div>
       </div>
       <div class="col-md-3">
@@ -311,7 +309,7 @@ echo "<br>";
 <script type="text/javascript" src="js/contact_me.js"></script>
 
 <!-- Javascripts
-    ================================================== --> 
+    ================================================== -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
