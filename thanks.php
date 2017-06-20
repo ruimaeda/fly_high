@@ -36,9 +36,9 @@
 
   unset($_SESSION['signup']);
 
-  var_dump($select_user_id);
+  // var_dump($select_user_id['user_id']);
 
-  $_SESSION['login_user_id'] = $select_user_id
+  $_SESSION['login_user_id'] = $select_user_id['user_id'];
 
 
 ?>
