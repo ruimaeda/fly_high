@@ -179,10 +179,8 @@
       <hr>
     </div>
     <div class="row">
-
       <div class="form-group col-md-12 columns">
               <!-- <label class="col-md-2 control-label" for="Checkboxes">Checkboxes</label>   -->
-
         <div class="row">
           <div class="col-md-12 columns">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
