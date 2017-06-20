@@ -15,8 +15,22 @@
   //フォームからデータがPOST送信された時の処理（ok）
   if(!empty($_POST)){
 
-    $style = $_POST['style'];
-    $country = $_POST['country'];
+    if (isset($_POST['style'])) {
+      $style = $_POST['style'];
+    }
+    if (isset($_POST['country'])) {
+      $country = $_POST['country'];
+    }
+
+    // $style = $_POST['style'];
+    // $country = $_POST['country'];
+
+
+
+
+
+
+
 
     //入力されたemailから会員情報を取得できたら、「すでに登録されています」を表示する
     $sql = sprintf('SELECT `email` FROM `users` WHERE `email` = "%s"',
@@ -70,8 +84,15 @@
   if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
     $_POST = $_SESSION['signup'];
 
-    $style = $_POST['style'];
-    $country = $_POST['country'];
+
+    if (isset($_POST['style'])) {
+      $style = $_POST['style'];
+    }
+    if (isset($_POST['country'])) {
+      $country = $_POST['country'];
+    }
+    // $style = $_POST['style'];
+    // $country = $_POST['country'];
 
     $error['rewrite'] = true;
   }
