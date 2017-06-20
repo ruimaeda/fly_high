@@ -14,8 +14,20 @@
   $email=htmlspecialchars($_SESSION['signup']['email'], ENT_QUOTES, 'UTF-8');
   $password=htmlspecialchars($_SESSION['signup']['password'], ENT_QUOTES, 'UTF-8');
   $re_password=htmlspecialchars($_SESSION['signup']['re_password'], ENT_QUOTES, 'UTF-8');
-  $country = $_SESSION['signup']['country'];
-  $style = $_SESSION['signup']['style'];
+
+  if (isset($_SESSION['signup']['style'])) {
+    $style = $_SESSION['signup']['style'];
+  }else{
+    $style = null;
+  }
+  if (isset($_SESSION['signup']['country'])) {
+    $country = $_SESSION['signup']['country'];
+  }else{
+    $country = null;
+  }
+
+  // $country = $_SESSION['signup']['country'];
+  // $style = $_SESSION['signup']['style'];
 
   //1.DB登録処理(ok、ただし国とスタイル除く)--------------------------
   if (!empty($_POST)) {//hiddenのポスト!
@@ -114,8 +126,8 @@
 
     mysqli_query($db, $sql) or die(mysqli_error($db));
 
-    // header("Location: thanks.php");
-    // exit();
+    header("Location: thanks.php");
+    exit();
 
   }//全体のPOST送信があったら？
 
