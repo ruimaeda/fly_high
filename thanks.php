@@ -1,27 +1,55 @@
 <?php
   session_start();
 
-  echo('<pre>');
-  var_dump($_SESSION['signup']['country']);
-  var_dump($_SESSION['signup']['style']);
-  echo('</pre>');
+  // echo('<pre>');
+  // var_dump($_SESSION['signup']['country']);
+  // var_dump($_SESSION['signup']['style']);
+  // echo('</pre>');
 
-  unset($_SESSION['signup']);
+  // unset($_SESSION['signup']);
 
 
   //ユーザーIDをDBから取ってきて、mypageへ繋ぐ処理
+  //DBへ接続
+  require('dbconnect.php');
 
+  // //セッションにデータがなかったらsignup.phpへ遷移（ok）
+  // if (!isset($_SESSION['signup'])) {
+  //   header("Location: signup.php");
+  // }
+
+
+  $email=htmlspecialchars($_SESSION['signup']['email'], ENT_QUOTES, 'UTF-8');
+
+  // var_dump($email);
+
+  if (!empty($_SESSION)) {
+  $sql = sprintf('SELECT `user_id` FROM `users` WHERE `email` = "%s"',
+      mysqli_real_escape_string($db,$email)
+      );
+      //SQL文の実行と変数への代入
+      $select_user_ids = mysqli_query($db,$sql) or die(mysqli_error($db));
+      $select_user_id = mysqli_fetch_assoc($select_user_ids);
+  }
+
+  // var_dump($select_user_id);
+
+  unset($_SESSION['signup']);
+
+  var_dump($select_user_id);
+
+  $_SESSION['login_user_id'] = $select_user_id
 
 
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modus</title>
+<title>FLY HIGH</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -79,7 +107,9 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
               <div class="text-center">
-                <button type="submit" class="btn btn-default">MyPageに進む</button>
+                <!-- <button href="signup.php" type="submit" class="btn btn-default"> -->
+                <a href="mypage.php" type="button" class="btn btn-default">MyPageに進む</a>
+                <!-- </button> -->
               </div>
             </div>
         </div>

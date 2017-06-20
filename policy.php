@@ -75,7 +75,7 @@
       </div>
     </div>
       <div class="text-center button-section">
-        <button type="submit" class="btn btn-default">登録ページに戻る</button>
+        <a href="signup.php" onclick="window.close()"><button type="button" class="btn btn-default">閉じる</button></a>
       </div>
     </div>
   </div>
