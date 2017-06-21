@@ -1452,10 +1452,14 @@ if(isset($_POST) && !empty($_POST)) {
        </div>
 
        <br><br><br>
-      <div class="text-center">
-        <a href="index.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
+      <div class="text-center update">
+        
         <button type="submit" class="btn btn-default">情報を更新する</button>
-        <a href="mypage.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
+        
+      </div>
+      <div class="text-center">
+      <a href="index.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
+      <a href="mypage.php"><button type="button" class="btn btn-default">マイページへ戻る</button></a>
       </div>
 
       <div class="text-center agree">

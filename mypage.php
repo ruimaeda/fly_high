@@ -16,7 +16,7 @@ $sql = sprintf('SELECT * FROM `users` WHERE `user_id` = %d',
        mysqli_real_escape_string($db,$_SESSION['login_user_id']));
 $record = mysqli_query($db,$sql) or die(mysqli_error($db));
 $user = mysqli_fetch_assoc($record);
-var_dump($_SESSION['login_user_id']);
+// var_dump($_SESSION['login_user_id']);
 
 //ログインしている人の選択したスタイル情報を取得
 $sql = sprintf('SELECT `style_name`,`style_name_ja` FROM `styles` INNER JOIN `user_styles` on `styles`.`style_id` = `user_styles`.`style_id` WHERE `user_id` = %d',
@@ -44,9 +44,9 @@ while(true) {
     $user_country[] = $country_record;
       }
 
- var_dump($user_country);
-echo "<br>";
- var_dump($user_style);
+//  var_dump($user_country);
+// echo "<br>";
+//  var_dump($user_style);
  ?>
 
 
@@ -121,7 +121,7 @@ echo "<br>";
   </div>
 </div> -->
 <!-- About Section -->
-<a href="edit.php" class="btn btn-default page-scroll btn2">編集する</a>
+<!-- <a href="edit.php" class="btn btn-default page-scroll btn2">編集する</a> -->
 <div id="about">
 <h2 class='mypage'>MY PAGE</h2>
   <div class="container">
@@ -221,6 +221,7 @@ echo "<br>";
     <div class="section-title text-center center">
       <h2>Additional questions</h2>
       <hr>
+      <p>あなたの回答です。</p>
     </div>
     <div class="row">
       <div class="col-md-3">
@@ -293,9 +294,13 @@ echo "<br>";
   <?php } ?>
   <div class="text-center">
     <a href="index.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
-    <a href="logout.php"><button type="button" class="btn btn-default">LOG OUT</button></a>
+    
     <a href="edit.php"><button type="button" class="btn btn-default">編集する</button></a>
   </div>
+  <div class="text-center logout">
+    <a href="logout.php"><button type="button" class="btn btn-default">LOG OUT</button></a>
+  </div>
+
 </div>
 
 <!-- フッターの外部読み込み-->
