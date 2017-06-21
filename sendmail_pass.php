@@ -145,7 +145,7 @@ function phpmailersend ( $to, $subject, $body, $fromname, $fromaddress, $ccaddre
         <?php }else{ ?>
         <h2>入力いただいたメールアドレスにメールが送信できませんでした</h2>
         <?php } ?>
-        <a href="login.php"><button type="button" class="btn btn-default btn-sendmail">ログインへ</button></a>
+        <a href="login.php"><button type="button" class="btn btn-default btn-sendmail">log in<span class="angle">&nbsp;&raquo;</span></button></a>
     </div>
   </div>
 </div>

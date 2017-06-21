@@ -12,7 +12,7 @@ body, html {
 
 .card-container.card {
     max-width: 350px;
-    padding: 40px 40px;
+    padding: 20px 40px 30px 40px;
 }
 
 .btn {
@@ -32,7 +32,7 @@ body, html {
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
-    margin-top: 50px;
+    margin-top: 40px;
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -99,18 +99,24 @@ body, html {
     box-sizing: border-box;
 }
 
+.checkbox label {
+    padding-left: 30px;
+}
+
 .form-signin .form-control:focus {
-    border-color: rgb(104, 145, 162);
+    border-color: #00cc99;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.form-control:focus {
+    border-color: #00cc99;
 }
 
 .btn.btn-signin {
-    /*background-color: #4d90fe; */
-    background-color: rgb(104, 145, 162);
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    background-color: #00cc99;
     padding: 0px;
+    margin: 0 0 20px 0;
     font-weight: 700;
     font-size: 14px;
     height: 36px;
@@ -127,27 +133,37 @@ body, html {
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
+    background-color: #00947a;
 }
 
 .forgot-password {
-    color: rgb(104, 145, 162);
+    color: #00cc99;
 }
 
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
-    color: rgb(12, 97, 33);
+    color: #00947a;
 }
 
 /* ここからはオリジナルCSS */
 
 .auto-login {
-  color: #000;
+  color: #777;
 }
 
 .login-btn-field {
   margin-top: 38px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: none;
+    border-color: none;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: none;
+    border-color: none;
 }
 
 .error {
@@ -155,5 +171,20 @@ body, html {
 }
 
 p .login-text {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
+p {
+    margin: 10px 0 0 0;
+}
+
+h1{
+    margin-top: 75px;
+}
+
+
+
+
+
+
+
+

@@ -13,10 +13,10 @@
   //DBへ接続
   require('dbconnect.php');
 
-  // //セッションにデータがなかったらsignup.phpへ遷移（ok）
-  // if (!isset($_SESSION['signup'])) {
-  //   header("Location: signup.php");
-  // }
+  //セッションにデータがなかったらsignup.phpへ遷移（ok）
+  if (!isset($_SESSION['signup'])) {
+    header("Location: signup.php");
+  }
 
 
   $email=htmlspecialchars($_SESSION['signup']['email'], ENT_QUOTES, 'UTF-8');

@@ -123,7 +123,7 @@ while(true) {
 <!-- About Section -->
 <!-- <a href="edit.php" class="btn btn-default page-scroll btn2">編集する</a> -->
 <div id="about">
-<h2 class='mypage'>MY PAGE</h2>
+<h1 class='mypage'>MY PAGE</h1>
   <div class="container">
       <div class="section-title text-center center">
       <h2>About You</h2>
@@ -290,12 +290,12 @@ while(true) {
   </div>
   <?php } ?>
   <div class="text-center">
-    <a href="index.php"><button type="button" class="btn btn-default">TOPへ戻る</button></a>
+    <a href="index.php"><button type="button" class="btn btn-default"><span class="angle">&laquo;&nbsp;</span>TOPへ</button></a>
     
-    <a href="edit.php"><button type="button" class="btn btn-default">編集する</button></a>
+    <a href="edit.php"><button type="button" class="btn btn-default">編集する<span class="angle">&nbsp;&raquo;</span></button></a>
   </div>
   <div class="text-center logout">
-    <a href="logout.php"><button type="button" class="btn btn-default">LOG OUT</button></a>
+    <a href="logout.php"><button type="button" class="btn btn-default"><span class="angle">&laquo;&nbsp;</span>log out</button></a>
   </div>
 
 </div>

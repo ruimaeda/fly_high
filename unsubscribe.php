@@ -115,8 +115,8 @@
                       <p class="error">パスワードが間違っています</p>
                     <?php } ?>
                 </div>
-                <a href="edit.php"><button type="button" class="btn btn-default btn-unsbscribe">編集ページに戻る</button></a>
-                <button type="submit" class="btn btn-default btn-unsbscribe">退会する</button>
+                <a href="edit.php"><button type="button" class="btn btn-default btn-unsbscribe"><span class="angle">&laquo;&nbsp;</span>編集ページに戻る</button></a>
+                <button type="submit" class="btn btn-default btn-unsbscribe">退会する<span class="angle">&nbsp;&raquo;</span></button>
                 </form>
             </div>
         </div>

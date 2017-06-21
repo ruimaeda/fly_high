@@ -257,10 +257,6 @@
               <!-- </form> -->
             </div>
         </div>
-        <!-- 空箱 -->
-                <div><span><img src=""></span></div>
-                <div><span><img src=""></span></div>
-                <div><span><img src=""></span></div>
     </div>
   </div>
 </div>
@@ -1075,7 +1071,7 @@
       <hr>もしかして、すでにアカウントをお持ちですか？
     </div>
     <div class="text-center agree">
-      <a href="login.php" type="submit" class="btn btn-default">log in</a>
+      <a href="login.php" type="submit" class="btn btn-default">log in<span class="angle">&nbsp;&raquo;</span></a>
     </div>
   </div>
 </div>
