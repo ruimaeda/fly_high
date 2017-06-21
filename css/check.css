@@ -2,9 +2,13 @@
 	padding: 20px 0;
 }
 .btn-default {
-	margin: 0 80px;
+    background: #00cc99;
+    width: 150px;
 }
-
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+	color: #f6f6f6;
+	background-color: #00947a;
+}
 #about {
 	padding: 60px 0 0 0;
 	/*background: #fff;*/
@@ -55,6 +59,12 @@ h2 {
 #style {
     padding: 0;
 }
+
+#country {
+    padding-top: 0px;
+}
+
+
 
 
 /* 国画像のサイズ */

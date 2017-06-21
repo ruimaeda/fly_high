@@ -1,5 +1,7 @@
 /* style.cssへの変更*/
-
+#intro {
+    padding: 0 0;
+}
 #style {
 	padding: 100px 0;
 	background: #f6f6f6;
@@ -7,7 +9,7 @@
 
 #country {
 	padding-top: 30px;
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 	background: #f6f6f6;
 }
 
@@ -45,7 +47,14 @@
 }
 
 .agree {
-	padding-top: 30px;
+	padding: 15px 0;
+}
+
+.top{
+  padding: 12px 24px;
+  margin: 0 8px;
+  font-size: 18px;
+  transition: all 0.5s;
 }
 
 img .header-logo {
@@ -143,8 +152,8 @@ fieldset[disabled] .btn-default.active {
 
 /*buttonのdivを作成-------------------------------------------------*/
 #button{
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 20px 0 80px 0;
+  background: #f6f6f6;
 }
 
 /*スタイルと国画像のチェックboxを消す-----------------------------------*/
@@ -209,14 +218,21 @@ fieldset[disabled] .btn-default.active {
 }
 
 
+/*「<<」と「>>」の表記---------*/
+.angle{
+  font-size: 20px;
+}
 
+.btn-default{
+  margin: 0 20px;
+}
 
-
-
-
-
-
-
-
-
+/*規約とポリシー---------------*/
+.link {
+    color: #00cc99;
+}
+.link:hover, .link:focus, .link:visited{
+  color: #00947a;
+  text-decoration: none;
+}
 
