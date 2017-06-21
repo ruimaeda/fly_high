@@ -21,6 +21,8 @@
 
   // }
 
+  //エラーで送信ができないときに、countryが消えないための処理
+
   //スタイルを選択している人数を表示する処理
     //style_nameとstyle_idを含む配列$find_style_arrayを作成する
     $find_style_array = array();
@@ -86,19 +88,30 @@
   //セール送信フォームからデータがPOST送信された時の空データと拡張子チェックとエラーがない場合、画像をアップロード
   if (!empty($_POST)) {
 
+    //エラーチェックに使う変数を定義する
+    $check_title = $_POST['title'];
+    $check_message = $_POST['message'];
+
+    if(isset($_POST['country'])) {
+      $select_country = $_POST['country'];
+      var_dump($select_country);
+    }else{
+      $select_country = '';
+    }
+
     //エラー項目の確認
     //タイトルが入力されていない場合に$error'blank'を代入
-    if ($_POST['title'] == '') {
+    if ($check_title == '') {
       $error['title'] = 'blank';
     }
 
     //本文が入力されていない場合に$error'blank'を代入
-    if ($_POST['message'] == '') {
+    if ($check_message == '') {
       $error['message'] = 'blank';
     }
 
     //国が1つも選ばれていない時、$error'blank'を代入
-    if ($_POST['country'] == '') {
+    if ($select_country == '') {
       $error['country'] = 'blank';
     }
 
@@ -130,7 +143,6 @@
     }
 
   //書き直しの処理
-  $select_country = array();
   if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
     $_POST = $_SESSION['admin'];
     // var_dump($_SESSION['admin']['country']);
@@ -204,9 +216,6 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1><span class="brand-heading">Admin</span></h1>
-          <!-- <p class="intro-text">There’s no better way to fly.</p>
-          <a href="#" class="btn btn-default page-scroll">sign up</a>
-          <a href="#" class="btn btn-default page-scroll">log in</a> -->
         </div>
       </div>
     </div>
@@ -296,7 +305,7 @@
         <div class="col-md-12 columns">
             <h3>Asia</h3>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <?php if(in_array("UnitedArabEmirates", $select_country)) { ?>
+                <?php if(in_array("UnitedArabEmirates", (array)$select_country)) { ?>
                 <label class="checkbox-inline" for="UnitedArabEmirates">
                   <input type="checkbox" name="country[]" value="UnitedArabEmirates" checked='checked'>
                   アラブ首長国連邦：<?php echo $UnitedArabEmirates ?>
@@ -309,7 +318,7 @@
                 <?php } ?>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                <?php if(in_array("India", $select_country)) { ?>
+                <?php if(in_array("India", (array)$select_country)) { ?>
                 <label class="checkbox-inline" for="India">
                   <input type="checkbox" name="country[]" value="India" checked='checked'>
                   インド：<?php echo $India ?>
@@ -791,9 +800,6 @@
         <?php if(isset($error['country']) && $error['country'] == 'blank') { ?>
           <p class="error">配信先の国が選ばれていません</p>
         <?php } ?>
-
-        <!-- <div id="success"></div> -->
-        <!-- この位置だと間違ってログアウトボタンを押しそうなのでヘッダーに移動-->
         <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認</button>
     </div>
   </div>

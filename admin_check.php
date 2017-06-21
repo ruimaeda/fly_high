@@ -50,7 +50,7 @@
       $select_country_id_array[] = $select_country_id['country_id'];
     }
 
-    var_dump($select_country_id_array);
+    // var_dump($select_country_id_array);
 
     // foreachで展開
     $select_user_id_array = array();
@@ -70,7 +70,7 @@
       }
     }
 
-    var_dump($select_user_id_array);
+    // var_dump($select_user_id_array);
 
     //取得したユーザーIDを使って、ユーザーテーブルからメールアドレスを取得する処理
     $select_user_email_array = array();
@@ -84,11 +84,11 @@
       $select_user_email_array[] = $select_user_email['email'];
     }
 
-    var_dump($select_user_email_array);
+    // var_dump($select_user_email_array);
 
     //select_user_email_arrayの中身が重複するので、重複を削除
     $select_user_email_uniq = array_unique($select_user_email_array);
-    var_dump($select_user_email_uniq);
+    // var_dump($select_user_email_uniq);
     $_SESSION['mail_address'] = $select_user_email_uniq;
   }
 

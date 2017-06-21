@@ -1121,6 +1121,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['age'] == NULL)){ ?>
                      <option value="<?php echo $user['age'] ?>"><?php echo $user['age'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="10代">10代</option>
                      <option value="20代">20代</option>
                      <option value="30代">30代</option>
@@ -1142,6 +1143,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['address'] == NULL)){ ?>
                      <option value="<?php echo $user['address'] ?>"><?php echo $user['address'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="北海道">北海道</option>
                      <option value="関東">関東</option>
                      <option value="甲信越">甲信越</option>
@@ -1166,6 +1168,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['income'] == NULL)){ ?>
                      <option value="<?php echo $user['income'] ?>"><?php echo $user['income'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="300万円未満">300万円未満</option>
                      <option value="300万円〜500万円">300万円〜500万円</option>
                      <option value="500万円〜700万円">500万円〜700万円未満</option>
@@ -1349,6 +1352,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['travel_budget'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_budget'] ?>"><?php echo $user['travel_budget'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="〜5万円">〜5万円</option>
                      <option value="5万円〜10万円">5万円〜10万円</option>
                      <option value="10万円〜20万円">10万円〜20万円</option>
@@ -1370,6 +1374,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['travel_period'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_period'] ?>"><?php echo $user['travel_period'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="3日以内">3日以内</option>
                      <option value="3~5日以内">3~5日間</option>
                      <option value="5~7日以内">5日~7日</option>
@@ -1390,6 +1395,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['travel_country'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_country'] ?>"><?php echo $user['travel_country'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="0カ国">0ヶ国</option>
                      <option value="1~5カ国">1~5ヶ国</option>
                      <option value="6~10カ国">6~10ヶ国</option>
@@ -1410,6 +1416,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['travel_time'] == NULL)){ ?>
                      <option value="<?php echo $user['travel_time'] ?>"><?php echo $user['travel_time'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="0回">0回</option>
                      <option value="1回">1回</option>
                      <option value="2回">2回</option>
@@ -1431,6 +1438,7 @@ if(isset($_POST) && !empty($_POST)) {
                      <?php if(!($user['know_flyhigh'] == NULL)){ ?>
                      <option value="<?php echo $user['know_flyhigh'] ?>"><?php echo $user['know_flyhigh'] ?>(選択済み)</option>
                      <?php } ?>
+                     <option value="">-</option>
                      <option value="友人・知人">友人・知人</option>
                      <option value="開発メンバー">開発メンバー</option>
                      <option value="検索サイト">検索サイト</option>
