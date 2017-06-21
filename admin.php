@@ -93,10 +93,10 @@
     $check_message = $_POST['message'];
 
     if(isset($_POST['country'])) {
-      $select_country = $_POST['country'];
-      var_dump($select_country);
+      $check_country = $_POST['country'];
+      var_dump($check_country);
     }else{
-      $select_country = '';
+      $check_country = '';
     }
 
     //エラー項目の確認
@@ -111,7 +111,7 @@
     }
 
     //国が1つも選ばれていない時、$error'blank'を代入
-    if ($select_country == '') {
+    if ($check_country == '') {
       $error['country'] = 'blank';
     }
 
@@ -143,6 +143,7 @@
     }
 
   //書き直しの処理
+    $select_country = array();
   if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'rewrite'){
     $_POST = $_SESSION['admin'];
     // var_dump($_SESSION['admin']['country']);
