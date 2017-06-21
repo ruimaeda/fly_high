@@ -111,7 +111,7 @@
   <div class="intro-body bg">
     <div class="container box">
       <h1>login</h1>
-        <p class="lead">ログイン情報を登録してください</p>
+        <p class="lead">ログイン情報を入力してください</p>
         <div class="card card-container">
               <img id="profile-img" class="profile-img-card" src="img/flyhigh_logo.png" />
               <form method="post" action="" class="form-signin">

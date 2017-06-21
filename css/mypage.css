@@ -174,3 +174,8 @@ ol.type li a:hover {
   height: 110px;
   width: 260px;
 }
+
+.logout{
+	margin-top: -18px;
+    margin-bottom: 10px;
+}
