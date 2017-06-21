@@ -212,11 +212,20 @@
 
 <!-- Header -->
 <div id="intro">
-  <div class="intro-body">
-    <div class="container">
+  <div class="intro-body bg">
+    <div class="container box">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1><span class="brand-heading">Admin</span></h1>
+          <?php if(isset($error['title']) && $error['title'] == 'blank') { ?>
+            <p class="error">タイトルが入力されていません</p>
+          <?php } ?>
+          <?php if(isset($error['message']) && $error['message'] == 'blank') { ?>
+            <p class="error">本文が入力されていません</p>
+          <?php } ?>
+          <?php if(isset($error['country']) && $error['country'] == 'blank') { ?>
+            <p class="error">配信先の国が選ばれていません</p>
+          <?php } ?>
         </div>
       </div>
     </div>
@@ -792,15 +801,6 @@
                 <?php } ?>
             </div>
         </div>
-        <?php if(isset($error['title']) && $error['title'] == 'blank') { ?>
-          <p class="error">タイトルが入力されていません</p>
-        <?php } ?>
-        <?php if(isset($error['message']) && $error['message'] == 'blank') { ?>
-          <p class="error">本文が入力されていません</p>
-        <?php } ?>
-        <?php if(isset($error['country']) && $error['country'] == 'blank') { ?>
-          <p class="error">配信先の国が選ばれていません</p>
-        <?php } ?>
         <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認</button>
     </div>
   </div>

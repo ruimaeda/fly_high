@@ -90,6 +90,31 @@ hr {
 	-o-background-size: cover;
 }
 
+.bg{
+  background: url(../img/uae.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  height:100%;
+}
+
+.bg::before{
+  /* 透過した黒を重ねる */
+  background-color: rgba(0,0,0,0.5);
+  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+.box{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 150px 0 50px 0;
+}
+
 #intro .intro-body H1 {
 	font-size: 76px;
 	font-weight: 700;
@@ -133,9 +158,6 @@ hr {
 .section-title h2, .section-title.center h2 {
 	margin-bottom: 30px;
 }
-
-
-
 
 
 /*Styleのチェックボックス------------------------------------------------------------------------*/
@@ -215,15 +237,6 @@ label.checkbox.checked {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* About Section ----------------------------------------------------------------*/
 #about .about-text {
 	margin-left: 10px;
@@ -237,38 +250,6 @@ label.checkbox.checked {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	font-size: 23px;
-}
-
-
-
-
-
-
-/* Services Section -------------------------------------------------------------*/
-/*#services {
-	padding: 140px 0 90px 0;
-	background: url(../../img/aus.jpg);
-	background-size: cover;
-	background-attachment: fixed;
-}*/
-#services {
-	/*display: table;
-	width: 100%;
-	height: auto;
-	padding: 100px 0;*/
-	/*text-align: center;*/
-	/*color: #fff;*/
-	/*background: url(../img/country/hawaii.jpg) no-repeat center center fixed;
-	background-color: #000;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;*/
-	/*padding: 140px 0 90px 0;*/
-	/*background-attachment: fixed;*/
-    /*position: relative;*/
-    /*height:100%;*/
-    /*z-index:-5;*/
 }
 
 #services {
@@ -307,35 +288,14 @@ label.checkbox.checked {
 }
 
 
-/*#services h2{
-	line-height: 30px;
-	margin-bottom: 20px;
-	color: #ffffff;
-	z-index:50;
-}*/
-
-
 #services h2 {
 	color: #555;
 }
-/*#services blockquote {
-	position: relative;
-	margin-top: 20px;
-	border: 0;
-	text-align: center;
-	color: #ffffff;
-}*/
 
 #services ul{
   display: inline-block;
 }
 
-
-
-/*#services p {
-	color: rgb(255,255,255);
-	font-weight: 600;
-}*/
 
 ul.cat li {
 	display: inline-block;
@@ -495,7 +455,10 @@ img.img-thumbnail.team-img {
     padding-bottom: 5px;
 }
 
-
+.error {
+	font-weight: bold;
+	font-size: 18px;
+}
 
 
 
