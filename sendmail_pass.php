@@ -29,7 +29,7 @@ $fromaddress = "sendflyhigh@gmail.com";
 $ccaddress = "";
 $bccaddress = "louis@tabippo.net";
 
-var_dump($to);
+// var_dump($to);
 
 // Phpmailerを使ってメールを送信する関数の呼び出し
 $res = phpmailersend ( $to, $subject, $body, $fromname, $fromaddress, $ccaddress, $bccaddress);
