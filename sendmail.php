@@ -32,12 +32,12 @@ $bccaddress = "louis@tabippo.net";
 
 //画像が添付されている場合、変数に設定
 if (!empty($_SESSION['admin']['picture_path'])) {
-var_dump("picture_pathが設定されている");
-var_dump($_SESSION['admin']['picture_path']);
+// var_dump("picture_pathが設定されている");
+// var_dump($_SESSION['admin']['picture_path']);
 $attachfile = $_SESSION['admin']['picture_path'];
 }
 
-var_dump($to_array);
+// var_dump($to_array);
 
 // Phpmailerを使ってメールを送信する関数の呼び出し
 $res = phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $ccaddress, $bccaddress, $attachfile );
@@ -127,7 +127,6 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css"  href="css/signup.css">
 <link rel="stylesheet" type="text/css"  href="css/thanks.css">
-<link rel="stylesheet" type="text/css"  href="css/login.css">
 <link rel="stylesheet" type="text/css"  href="css/admin_login.css">
 <link rel="stylesheet" type="text/css"  href="css/sendmail.css">
 <script type="text/javascript" src="js/modernizr.custom.js"></script>

@@ -93,7 +93,7 @@ require('dbconnect.php');
 <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
-      <h1>INSERT MAIL</h1>
+      <h1>ENTER EMAIL</h1>
                 <p class="lead">登録したメールアドレスを入力してください</p>
                 <br><br><br>
         <div class="row">

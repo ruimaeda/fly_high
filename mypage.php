@@ -205,19 +205,16 @@ while(true) {
               <p id="country-name"><?php echo $country['country_name_ja']; ?></p>
           </div>
         </div>
-
         <?php } ?>
-
       </div>
     </div>
   </div>
 </div>
 
-
 <!-- question Section -->
 <div id="question">
   <div class="container">
-    <?php if(isset($user['gender']) OR isset($user['address']) OR isset($user['travel_purpose']) OR isset($user['travel_period']) OR isset($user['travel_time']) OR isset($user['age']) OR isset($user['income']) OR isset($user['travel_budget']) OR isset($user['travel_country']) OR isset($user['know_flyhigh'])) { ?> <!-- 追加の質問に対して、1つ以上回答があった場合表示する-->
+    <?php if(($user['gender'] != NULL) OR ($user['address'] != NULL) OR ($user['travel_purpose'] != NULL) OR ($user['travel_period'] != NULL) OR ($user['travel_time'] != NULL) OR ($user['age'] != NULL) OR ($user['income'] != NULL) OR ($user['travel_budget'] != NULL) OR ($user['travel_country'] != NULL) OR ($user['know_flyhigh'] != NULL)) { ?>
     <div class="section-title text-center center">
       <h2>Additional questions</h2>
       <hr>
