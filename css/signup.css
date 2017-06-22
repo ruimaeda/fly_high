@@ -86,7 +86,6 @@ hr .account-have {
 
 /* 選択したスタイルや国のCSS変更用 */
 .check{
-	/*border: 5px solid #888;*/
 }
 .checked{
   border: 5px solid #00cc99;
@@ -166,7 +165,6 @@ fieldset[disabled] .btn-default.active {
   }
 
   ul.cat li {
-    /*display: inline-block;*/
     /*ALL,Asia..ボタンが重ならないように追加*/
     height: 50px;
   }
@@ -181,7 +179,6 @@ fieldset[disabled] .btn-default.active {
     border: 1px solid #00947a;
     background: #00947a;
   }
-
 
 .box {
     position: relative;

@@ -6,8 +6,6 @@
   // var_dump($_SESSION['signup']['style']);
   // echo('</pre>');
 
-  // unset($_SESSION['signup']);
-
 
   //ユーザーIDをDBから取ってきて、mypageへ繋ぐ処理
   //DBへ接続
@@ -107,9 +105,7 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
               <div class="text-center">
-                <!-- <button href="signup.php" type="submit" class="btn btn-default"> -->
                 <a href="mypage.php" type="button" class="btn btn-default">my pageへ<span class="angle">&nbsp;&raquo;</span></a>
-                <!-- </button> -->
               </div>
             </div>
         </div>
