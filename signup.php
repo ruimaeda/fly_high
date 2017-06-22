@@ -167,7 +167,7 @@
   <div class="intro-body bg">
     <div class="container box">
       <h1>Sign up</h1>
-                <p class="lead">ユーザー情報を登録してください</p>
+                <p class="lead">旅のスタイルか行きたい国のうち1つ以上を選択し、登録してください</p>
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
