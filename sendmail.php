@@ -125,7 +125,7 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
 <link rel="stylesheet" type="text/css"  href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css"  href="css/signup.css">
+<!-- <link rel="stylesheet" type="text/css"  href="css/signup.css"> -->
 <link rel="stylesheet" type="text/css"  href="css/thanks.css">
 <link rel="stylesheet" type="text/css"  href="css/admin_login.css">
 <link rel="stylesheet" type="text/css"  href="css/sendmail.css">
@@ -153,7 +153,7 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
         <?php }else{ ?>
         <h2>送信失敗です</h2>
         <?php } ?>
-        <a href="admin.php"><button type="button" class="btn btn-custom btn-lg2">adminトップへ</button></a>
+        <a href="admin.php"><button type="button" class="btn btn-default btn-lg2">adminトップへ</button></a>
     </div>
   </div>
 </div>

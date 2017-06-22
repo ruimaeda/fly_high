@@ -2,3 +2,19 @@ h2 {
 	padding-top: 50px;
 	color: rgba(255,255,255,0.8);
 }
+
+.btn-default {
+	color: #f6f6f6;
+	background: #00cc99;
+	border: 0;
+	padding: 8px 24px;
+	margin: 0 15px;
+	margin-top: 35px;
+	font-size: 18px;
+	transition: all 0.5s;
+	width: 180px;
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+	color: #f6f6f6;
+	background-color: #00947a;
+}
