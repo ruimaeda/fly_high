@@ -115,10 +115,10 @@ blockquote {
   padding-right: 19px;
 }
 
-
 #success {
   margin-top: 30px;
 }
+
 /*クラス名変更*/
 .btn-lg2{
   background-color: #00cc99;
@@ -129,16 +129,6 @@ blockquote {
   margin: 50px 30px 0 30px;
 }
 
-
-
-
-
-
-
-
-
-
-
 /*フローティングボタン-----------------------------------------------------*/
 .btn-lg,
 .btn-group-lg > .btn {
@@ -148,6 +138,3 @@ blockquote {
   /*border-radius: 6px;*/
   border-radius: 0px;
 }
-
-
-
