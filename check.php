@@ -26,8 +26,6 @@
     $country = null;
   }
 
-  // $country = $_SESSION['signup']['country'];
-  // $style = $_SESSION['signup']['style'];
 
   //1.DB登録処理(ok、ただし国とスタイル除く)--------------------------
   if (!empty($_POST)) {//hiddenのポスト!
@@ -97,7 +95,7 @@
               );
             mysqli_query($db, $sql) or die(mysqli_error($db));
               }//while文
-        }//ユーザースタイルテーブルのforeach文ここ？
+        }//ユーザースタイルテーブルのforeach文
 
     //2-2.国の名前($country)からそれぞれの国IDを取ってくる（国テーブル）
     $select_country_id_array = array();//←foreachの外で使うため？
@@ -129,7 +127,7 @@
     header("Location: thanks.php");
     exit();
 
-  }//全体のPOST送信があったら？
+  }//全体のPOST送信があったら。
 
 ?>
 
@@ -191,21 +189,6 @@
   <!-- /.container -->
 </nav>
 
-<!-- Header -->
-<!-- <div id="intro">
-  <div class="intro-body">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h1>Welcom to <span class="brand-heading">My page</span></h1>
-          <p class="intro-text"></p>
-          </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 
 <!-- 全ての入力項目をformで囲み、hiddenで値を受け渡しする -->
 <form id="form_check" method="post" action="">
@@ -221,8 +204,6 @@
       <hr>
     </div>
     <div class="row">
-      <!-- <form id="form_check" method="post" action="">
-        <input type="hidden" name="action" value="submit"> -->
         <div class="about-text">
           <div class="col-md-6">
             <h4><small>お名前</small></h4>
@@ -233,7 +214,6 @@
             <p><?php echo $email; ?></p>
           </div>
         </div>
-      <!-- </form> -->
     </div>
   </div>
 </div>
@@ -351,7 +331,7 @@
       <p>あなたが行きたい国は、下記で間違いないですか？</p>
     </div>
     <div class="categories">
-      <!-- <ul class="cat">
+      <ul class="cat">
         <li>
           <ol class="type">
             <li><a href="#" data-filter="*" class="active">全て</a></li>
@@ -361,7 +341,7 @@
             <li><a href="#" data-filter=".north_america">北米</a></li>
           </ol>
         </li>
-      </ul> -->
+      </ul>
       <div class="clearfix"></div>
     </div>
     <div class="row">
@@ -791,16 +771,12 @@
 </div>
 
 <!-- ボタンsectionのdivを作り、新しくid=buttonを付ける -->
-<!-- <form method="post" action=""> -->
 <div id="button">
   <div class="container">
-    <!-- <form method="post" action="" class="form-horizontal" role="form"> -->
       <div class="text-center">
         <a href="signup.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;書き直す</a>
-        <!-- <button form="form_check" type="submit" class="btn btn-default">登録する</button> -->
         <input form="form_check" type="submit" class="btn btn-default" value="会員登録&nbsp;&raquo;">
       </div>
-    <!-- </form> -->
   </div>
 </div>
 </form>

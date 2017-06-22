@@ -11,7 +11,6 @@
 }
 #about {
 	padding: 100px 0 0 0;
-	/*background: #fff;*/
 }
 
 #about p {
@@ -26,14 +25,11 @@
 	float: right;
 }
 
-
-
 #question p {
 	margin-top: 20px;
 	margin-bottom: 30px;
 	text-align: left;
 }
-
 #question p{
     border: 3px solid #82636b;
     border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
@@ -44,36 +40,25 @@
 h2 {
 	padding-top: 50px;
 }
-
 .row {
 	text-align: center;
 }
-
 .text-center {
 	font-size: 65px;
 	margin-top: 50px;
 }
-
-
-
 #style {
     padding: 0;
 }
-
 #country {
     padding-top: 0px;
 }
-
-
-
 
 /* 国画像のサイズ */
 .country-photo {
   height: 110px;
   width: 165px;
 }
-
-
 
 /*buttonのdivを作成-------------------------------------------------*/
 #button .text-center {

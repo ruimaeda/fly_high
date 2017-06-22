@@ -22,15 +22,6 @@
       $country = $_POST['country'];
     }
 
-    // $style = $_POST['style'];
-    // $country = $_POST['country'];
-
-
-
-
-
-
-
 
     //入力されたemailから会員情報を取得できたら、「すでに登録されています」を表示する
     $sql = sprintf('SELECT `email` FROM `users` WHERE `email` = "%s"',
@@ -126,12 +117,7 @@
 <!-- <link rel="stylesheet" type="text/css"  href="css/thanks.css"> -->
 <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 <div id="preloader">
@@ -162,7 +148,6 @@
 
 <form id="form_signup" method="post" action="">
 <!-- Header -->
-<!-- <form method="post" action=""> -->
 <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
@@ -171,8 +156,6 @@
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-              <!-- <form method="post" action=""> -->
-              <!-- <form id="form_signup" method="post" action=""> -->
 
 
                 <!-- ニックネーム -->
@@ -254,7 +237,6 @@
                 </div>
 
 
-              <!-- </form> -->
             </div>
         </div>
     </div>

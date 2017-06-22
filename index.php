@@ -71,6 +71,7 @@
     </div>
   </div>
 </div>
+
 <!-- About Section -->
 <div id="about">
   <div class="container">
@@ -79,7 +80,6 @@
       <hr>
     </div>
     <div class="row">
-      <!-- <div class="col-md-4"><img src="img/about.jpg" class="img-responsive"></div> -->
       <div class="col-md-12">
         <div class="about-text">
           <p>Flyhigh [フライハイ] は海外航空券のセール情報を配信するサービスです。<br>旅のスタイルや行き先に合わせて、セール開始前にメールにてご連絡します。</p>
@@ -134,7 +134,6 @@
       <h2>Sample</h2>
       <hr>
       <div class="clearfix"></div>
-      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p> -->
     </div>
     <div class="categories">
       <ul class="cat">
@@ -289,29 +288,6 @@
       <hr>
     </div>
     <div class="row">
-
-    <!-- 三角ありの3STEPバージョン -->
-      <!-- <div>
-        <ul class="msr_flow05">
-          <div class="col-md-4 col-sm-6">
-              <li class="active"><span>STEP1</span><br>
-                <i class="fa fa-globe" aria-hidden="true"></i><br>
-                <p>登録画面から<br>行きたい国と<br>旅のスタイルを選択</p></li>
-          </div>
-          <div class="col-md-4 col-sm-6">
-              <li class="active"><span>STEP2</span><br>
-                <i class="fa fa-envelope-open" aria-hidden="true"></i><br>
-                <p>メールにて<br>セール情報を受け取る</p></li>
-          </div>
-          <div class="col-md-4 col-sm-6 none">
-              <li class="active none"><span>STEP3</span><br>
-                <i class="fa fa-plane" aria-hidden="true"></i><br>
-                <p>セールで<br>格安航空券を予約</p></li>
-          </div>
-        </ul>
-      </div> -->
-
-
       <div>
         <ul class="msr_flow04">
           <div class="col-md-3 col-sm-6">
@@ -336,14 +312,9 @@
           </div>
         </ul>
       </div>
-
-
     </div>
   </div>
 </div>
-
-
-
 </div>
 
 
@@ -357,7 +328,6 @@
       <hr>
     </div>
     <div id="row">
-      <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
         <div class="thumbnail"> <img src="img/team/louis.jpg" alt="louis" class="img-thumbnail team-img">
           <div class="caption">
@@ -366,7 +336,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
         <div class="thumbnail"> <img src="img/team/yuuki.jpg" alt="yuuki" class="img-thumbnail team-img">
           <div class="caption">
@@ -375,7 +344,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-xs-6 col-md-4 col-sm-6"> -->
       <div class="col-xs-12 col-md-4 col-sm-6">
         <div class="thumbnail"> <img src="img/team/manato.jpg" alt="manato" class="img-thumbnail team-img">
           <div class="caption">
@@ -397,10 +365,6 @@
 
 <!-- フローティングボタンの外部読み込み-->
 <?php include('to-top.php'); ?>
-  <!-- to-topのフローティングボタンを付け加える -->
-<!--   <a id="to-top" href="#top" class="btn btn-dark btn-lg">
-    <i class="fa fa-chevron-up fa-fw fa-1x"></i>
-  </a> -->
 
 </div>
 

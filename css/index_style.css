@@ -1,34 +1,18 @@
 /*背景画像固定用*/
 body, html, body {
-    /* important */
     height: 100%;
 }
-
-/*nav .container{
-    box-sizing: border-box;
-}
-
-nav{
-  box-sizing: border-box;
-}
-*/
 
 /*メリットの下の文*/
 p {
 	font-size: 15px;
 }
 
-/*.testimonials p{
-	font-size: 25px;
-	font-weight: 600;
-}*/
-
 hr {
 	height: 4px;
 	width: 70px;
 	text-align: center;
 	position: relative;
-	/*background: #E75926;*/
 	background: #00cc99;
 	margin: 0 auto;
 	margin-bottom: 30px;
@@ -38,11 +22,6 @@ hr {
 .navbar-custom .navbar-brand i.fa {
 	color: #00cc99;
 }
-
-/*.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
-	background-color: #00cc99;
-	color: #ffffff;
-}*/
 
 .navbar-custom .nav li a:hover {
 	outline: 0;
@@ -89,10 +68,8 @@ hr {
 
 
 #intro .intro-body H1 {
-	/*font-size: 76px;*/
 	font-size: 90px;
 	font-weight: 700;
-	/*color: rgba(255,255,255,0.8);*/
 	color: #ffffff;
 	text-transform: uppercase;
 	margin-top: -25px;
@@ -122,10 +99,6 @@ hr {
 	width: 150px;
 }
 
-/*#intro .btn {
-	background: #00cc99;
-}*/
-
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
 	color: #f6f6f6;
 	background-color: #00947a;
@@ -139,9 +112,6 @@ hr {
 	margin-left: 10px;
 	text-align: center;
 }
-/*#about H4 {
-	font-size: 30px;
-}*/
 
 #about p {
 	margin-top: 0px;
@@ -150,19 +120,7 @@ hr {
 }
 
 /* Services Section ------------------------------------------------------------------*/
-
-/*背景一緒に動くver*/
-/*#services {
-	padding: 140px 0 90px 0;
-	background: url(../../img/aus.jpg) no-repeat center;
-	background-size: cover;
-	background-attachment: fixed;
-    position: relative;
-    height:100%;
-}*/
-
 #services {
-  /*background: none;*/
   padding: 0 0 0 0;
 }
 /*背景を固定させた*/
@@ -176,7 +134,6 @@ hr {
   height:100%;
 }
 
-/*#services::before{*/
 .overlay::before{
   /* 透過した黒を重ねる */
   background-color: rgba(0,0,0,0.5);
@@ -190,14 +147,9 @@ hr {
 }
 .box{
   position: relative;
-  /*width: 100%;*/
   text-align: center;
   margin-bottom: 50px;
 }
-/*h1,p{
-  color: #fff;
-
-}*/
 
 h3{
 	line-height: 30px;
@@ -216,11 +168,7 @@ h3{
     border-radius: 50%;
     /*position: relative;*/
 }
-/*#services .fa {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-}*/
+
 #services p {
 	color: rgb(255,255,255);
 	font-weight: 600;
@@ -228,7 +176,6 @@ h3{
 }
 
 ul.cat li {
-	/*display: inline-block;*/
 	/*ALL,Asia..ボタンが重ならないように追加*/
 	height: 50px;
 }
@@ -252,11 +199,8 @@ ol.type li a:hover {
 
 /*ご利用の流れ4STEP（四角い箱のみバージョン）----------------------------------------------------*/
 .msr_flow04 {
-  /*color: #333333;*/
   color: #777;
   counter-reset: section;
-  /*list-style: none;
-  overflow: hidden;*/
   margin: 0 auto;
 }
 .msr_flow04 li {
@@ -267,7 +211,6 @@ ol.type li a:hover {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  /*color: #333333;*/
   color: #777;
   display: inline-block;
   font-size: 18px;
@@ -315,7 +258,6 @@ ol.type li a:hover {
     width: 100px;
     height: 100px;
     padding: 30px 0;
-    /*background: #00cc99;*/
     border-radius: 50%;
 }
 
@@ -332,7 +274,6 @@ ol.type li a:hover {
 
 /* Team Section ------------------------------------------------------------------------*/
 #team {
-	/*padding: 140px 0;*/
 	padding: 130px 0 80px 0;
 	background: #e6e6e6;
 }
@@ -345,20 +286,7 @@ img.img-thumbnail.team-img {
 }
 
 /* Testimonials Section -----------------------------------------------------------------*/
-
-/*背景一緒に動くver*/
-/*#testimonials {
-  background: url(../../img/newzealand.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  color: #ddd;
-  padding: 140px 0 90px 0;
-  position: relative;
-  height:100%;
-}*/
-
 #testimonials {
-  /*background: none;*/
   padding: 0 0 0 0;
 }
 /*背景を固定させた*/
@@ -371,7 +299,6 @@ img.img-thumbnail.team-img {
 	position: relative;
   height:100%;
 }
-/*#testimonials::before{*/
 .overlay::before{
   /* 透過した黒を重ねる */
   background-color: rgba(0,0,0,0.5);
@@ -385,15 +312,9 @@ img.img-thumbnail.team-img {
 }
 .box{
   position: relative;
-  /*width: 100%;*/
   text-align: center;
   margin-bottom: 50px;
 }
-/*h1,p{
-  color: #fff;
-
-}*/
-
 
 #testimonials h2 {
 	color: #f6f6f6;
@@ -413,7 +334,6 @@ img.img-thumbnail.team-img {
 
 /* Contact Section ----------------------------------------------------*/
 #contact {
-	/*padding: 120px 0 40px 0;*/
 	background: #f6f6f6;
 }
 #contact i.fa {
