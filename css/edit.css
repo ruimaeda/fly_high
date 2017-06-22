@@ -21,7 +21,7 @@ label.add-question-text{
 }
 
 #add-question {
-    padding: 90px 0;
+    padding: 60px 0;
     background: #e6e6e6;
 }
 
@@ -83,4 +83,18 @@ ol.type li a:hover {
 
 .update {
 	margin-bottom: 25px;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+	color: #00947a;
+}
+
+.green {
+	color: #00cc99;
+}
+.agree {
+	padding-top: 36px;
+    padding-bottom: 0px;
+}
 }

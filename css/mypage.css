@@ -28,19 +28,7 @@
 
 
 
-/*#question p {
-	margin-top: 20px;
-	margin-bottom: 30px;
-	text-align: left;
-}
 
-#question p{
-    border: 3px solid #82636b;
-    border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
-    margin: 2em 0;
-    padding: 1.5em;
-}
-*/
 h2 {
 	padding-top: 50px;
 }
@@ -66,56 +54,12 @@ h2 {
     padding: 15px 20px;
     margin: 0;
 }
-/*
-.box1 {
-	background-color: #40e0d0;
-}
-.box2 {
-	background-color: #ff6347;
-}
-.box3 {
-	background-color: #4169e1;
-}
-.box4 {
-	background-color:#ffc0cb;
-}
-.box5 {
-	background-color: #7cfc00;
-}
-.box6 {
-	background-color: #1e90ff;
-}
-.box7 {
-	background-color: #ff0000;
-}
-.box8 {
-	background-color:#ffc0cb;
-}
-*/
+
 .logo {
 	font-size: 100px;
 	color: #20b2aa
 }
 
-/*.money {
-	font-size: 100px;
-    color: #20b2aa;
-}
-
-.home {
-	font-size: 100px;
-    color: #20b2aa;
-}
-
-.diamond {
-	font-size: 100px;
-    color: #20b2aa;
-}
-
-.diamond {
-	font-size: 100px;
-    color: #20b2aa;
-}*/
 
 .row {
 	text-align: center;
@@ -193,3 +137,36 @@ ol.type li a:hover {
 	margin-top: -18px;
     margin-bottom: 10px;
 }
+
+.navbar-brand img {
+  display: inline;
+}
+
+/*ヘッダーロゴのクリック時の色----------------------------------*/
+/* Navigation */
+.navbar-custom .navbar-brand i.fa {
+  color: #00cc99;
+}
+.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
+  background-color: #00cc99;
+  color: #ffffff;
+}
+.navbar-custom .nav li a:hover {
+  outline: 0;
+  color: #00cc99;
+  background-color: transparent;
+}
+.navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
+  outline: 0;
+  background-color: transparent;
+  color: #00cc99;
+}
+.navbar-custom .navbar-brand:focus {
+  outline: 0;
+  color: #00cc99;
+}
+.navbar-custom .navbar-brand .navbar-toggle:focus, .navbar-custom .navbar-brand .navbar-toggle:active {
+  outline: 0;
+  color: #00cc99;
+}
+
