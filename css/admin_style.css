@@ -90,7 +90,7 @@ hr {
 	-o-background-size: cover;
 }
 
-/*.bg{
+.bg{
   background: url(../img/uae.jpg) no-repeat center;
   background-size: cover;
   position: relative;
@@ -106,12 +106,12 @@ hr {
   left: 0;
   content: ' ';
 }
-.box{
+.bg-box{
   position: relative;
   width: 100%;
   text-align: center;
   margin-bottom: 150px 0 50px 0;
-}*/
+}
 
 #intro .intro-body H1 {
 	font-size: 76px;
