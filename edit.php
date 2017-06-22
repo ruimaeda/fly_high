@@ -1471,7 +1471,7 @@ if(isset($_POST) && !empty($_POST)) {
       </div>
 
       <div class="text-center agree">
-      Fly Highを退会する場合は<a href="unsubscribe.php">こちら</a>をクリック
+      Fly Highを退会する場合は<a class="green" href="unsubscribe.php">こちら</a>をクリック
       </div>
 
   </div>

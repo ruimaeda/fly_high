@@ -87,7 +87,8 @@ while(true) {
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"> <i class="fa fa-paper-plane-o"></i>FLY HIGH</a> </div>
+      <a href="index.php" class="navbar-brand page-scroll">
+      <img class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High </a></div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -106,22 +107,8 @@ while(true) {
   <!-- /.container -->
 </nav>
 
-<!-- Header -->
 
-<!-- <div id="intro">
-  <div class="intro-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h1>Welcom to <span class="brand-heading">My page</span></h1>
-          <p class="intro-text"></p>
-          </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 <!-- About Section -->
-<!-- <a href="edit.php" class="btn btn-default page-scroll btn2">編集する</a> -->
 <div id="about">
 <h2 class='mypage'>MY PAGE</h2>
   <div class="container">
@@ -225,7 +212,6 @@ while(true) {
       </div>
       <div class="col-md-3">
         <div class="about-question">
-          <!-- <h4><i class="fa fa-question" aria-hidden="true"></i> QUESTION</h4> -->
           <div class="box30">
           <div class="box-title box1">性別</div>
           <p><?php echo $user['gender'] ?></p>
