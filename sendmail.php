@@ -153,7 +153,7 @@ function phpmailersend ( $to_array, $subject, $body, $fromname, $fromaddress, $c
         <?php }else{ ?>
         <h2>送信失敗です</h2>
         <?php } ?>
-        <a href="admin.php"><button type="button" class="btn btn-custom btn-lg2">ADMINトップへ戻る</button></a>
+        <a href="admin.php"><button type="button" class="btn btn-custom btn-lg2">adminトップへ</button></a>
     </div>
   </div>
 </div>

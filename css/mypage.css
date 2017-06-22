@@ -6,12 +6,20 @@
 }
 
 #about {
-	padding: 20px 0;
-	background: #fff;
+	padding: 100px 0 20px 0;
+	background:#f6f6f6;
 }
-
 #contact {
-	background:#fff;
+	background:#f6f6f6;
+}
+#style {
+	background:#f6f6f6;
+}
+#country {
+	background:#f6f6f6;
+}
+#question {
+	background:#f6f6f6;
 }
 
 .btn2 {
@@ -119,6 +127,12 @@ h2 {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
+h1.mypage{
+    font-size: 76px;
+    font-weight: 700;
+    color: #777;
+    text-transform: uppercase;
+}
 
 /* 国画像のサイズ */
 .country-photo {
@@ -140,7 +154,7 @@ h2 {
   margin: 40px 20px;
   font-size: 18px;
   transition: all 0.5s;
-  width: 140px;
+  width: 150px;
   text-align: center;
 }
 

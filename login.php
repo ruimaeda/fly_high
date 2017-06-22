@@ -110,7 +110,7 @@
 <div id="intro">
   <div class="intro-body bg">
     <div class="container box">
-      <h1>login</h1>
+      <h1>log in</h1>
         <p class="lead">ログイン情報を入力してください</p>
         <div class="card card-container">
               <img id="profile-img" class="profile-img-card" src="img/flyhigh_logo.png" />
@@ -124,7 +124,7 @@
                       </label>
                   </div>
                   <div class="login-btn-field">
-                    <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信"></input>
+                    <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="log in&nbsp;&raquo;"></input>
                   </div>
                   <?php if(isset($error['login']) && $error['login'] == 'newpass') { ?>
                     <p class="error">新しいパスワードへの変更が完了しました</p>
@@ -136,8 +136,8 @@
                     <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>
                   <?php } ?>
               </form>
-              <p class="login-text"><a href="pass_forgot.php" class="forgot-password">パスワードを忘れましたか？</a></p>
-              <p class="login-text"><a href="index.php" class="forgot-password">TOPに戻る</a></p>
+              <p class="login-text"><a href="pass_forgot.php" class="forgot-password">パスワードを忘れましたか？&nbsp;&raquo;</a></p>
+              <p class="login-text"><a href="index.php" class="forgot-password">&laquo;&nbsp;TOPに戻る</a></p>
               </div><!-- /card-container -->
     </div>
   </div>

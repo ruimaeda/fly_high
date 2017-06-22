@@ -62,7 +62,7 @@
                 <br><br><br>
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
-                <a href="index.php"><button type="button" class="btn btn-default">TOPページに戻る</button></a>
+                <a href="index.php"><button type="button" class="btn btn-default">TOPページへ<span class="angle">&nbsp;&raquo;</span></button></a>
             </div>
         </div>
     </div>

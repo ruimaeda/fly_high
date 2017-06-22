@@ -119,6 +119,7 @@ h1,p{
 /*ボタンの色を緑に変更*/
 .btn-default {
   background: #00cc99;
+  width: 150px;
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {

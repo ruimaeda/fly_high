@@ -167,10 +167,11 @@ h1,p{
   background: #00cc99;
   border: 0;
   padding: 7px 24px;
-  margin: 0 15px;
+  margin: 0 20px;
   font-size: 18px;
   transition: all 0.5s;
-  width: 180px;
+  width: 160px;
+  height: 50px;
   text-align: center;
 }
 
@@ -183,3 +184,14 @@ h1,p{
 .btn-sendmail {
     margin-top: 50px;
 }
+
+.box {
+    margin: 0;
+}
+
+#intro .intro-body H1 {
+    font-size: 65px;
+}
+
+
+

@@ -215,7 +215,7 @@
 <!-- About Section -->
 <div id="about">
   <div class="container">
-  <h2 class="text-center">ご登録の確認</h2>
+  <h1 class="text-center">ご登録の確認</h1>
     <div class="section-title text-center center">
       <h2>About You</h2>
       <hr>
@@ -225,7 +225,7 @@
         <input type="hidden" name="action" value="submit"> -->
         <div class="about-text">
           <div class="col-md-6">
-            <h4><small>名前</small></h4>
+            <h4><small>お名前</small></h4>
             <p><?php echo $nick_name; ?></p>
           </div>
           <div class="col-md-6">
@@ -245,7 +245,7 @@
       <h2>Your style</h2>
       <hr>
       <div class="clearfix"></div>
-      <p>旅のスタイルは下記で間違いないですか？</p>
+      <p>旅のスタイルは、下記で間違いないですか？</p>
     </div>
     <div class="row">
 

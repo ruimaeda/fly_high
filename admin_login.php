@@ -112,7 +112,7 @@
                           </label>
                       </div>
                       <div class="login-btn-field">
-                        <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="送信"></input>
+                        <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="log in&nbsp;&raquo;"></input>
                       </div>
                       <?php if(isset($error['login']) && $error['login'] == 'faild'){ ?>
                         <p class="error">ログイン失敗(๑•̀ㅂ•́)و✧</p>

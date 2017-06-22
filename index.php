@@ -37,7 +37,7 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
-      <a class="navbar-brand page-scroll" href="index.php"> <img style="display: inline" class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High</a> </div>
+      <a class="navbar-brand page-scroll" href="#page-top"> <img style="display: inline" class="header-logo" src="img/flyhigh_logo_white.png" width="27px" height="27px"> Fly High</a> </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -65,8 +65,8 @@
           <img src="img/flyhigh_logo_white.png" alt="..." class="" width="180px" height="180px">
           <h1><span class="brand-heading">FLY HIGH</span></h1>
           <p class="intro-text">There’s no better way to fly.</p>
-          <a href="signup.php" class="btn btn-default page-scroll">sign up</a>
-          <a href="login.php" class="btn btn-default page-scroll">log in</a> </div>
+          <a href="signup.php" class="btn btn-default page-scroll">sign up<span class="angle">&nbsp;&raquo;</span></a>
+          <a href="login.php" class="btn btn-default page-scroll">log in<span class="angle">&nbsp;&raquo;</span></a> </div>
       </div>
     </div>
   </div>
@@ -131,7 +131,7 @@
 <div id="works">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
-      <h2>Country</h2>
+      <h2>Sample</h2>
       <hr>
       <div class="clearfix"></div>
       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p> -->
@@ -267,7 +267,7 @@
             <div class="hover-bg">
               <div class="hover-text">
                 <h4>フィンランド</h4>
-                <p>¥39,800</p>
+                <p>¥39,800〜</p>
               </div>
               <img src="img/country/finland.jpg" class="img-responsive country-photo"> </a> </div>
           </div>

@@ -105,8 +105,8 @@ require('dbconnect.php');
                     <span class="input-group-addon danger"></span>
                   </div>
                 </div>
-                <a href="login.php"><button type="button" class="btn btn-default btn-pass">LOGINへ</button></a>
-                <button type="submit" class="btn btn-default btn-pass">送信</button>
+                <a href="login.php"><button type="button" class="btn btn-default btn-pass"><span class="angle">&laquo;&nbsp;</span>log in</button></a>
+                <button type="submit" class="btn btn-default btn-pass">送信<span class="angle">&nbsp;&raquo;</span></button>
                 <?php if(isset($_SESSION['error']) && $_SESSION['error'] == 'nohash'){ ?>
                   <p class="error">再度、メールアドレスを入力してください(๑•̀ㅂ•́)و✧</p>
                 <?php } ?>

@@ -801,7 +801,7 @@
                 <?php } ?>
             </div>
         </div>
-        <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認</button>
+        <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認<span class="angle">&nbsp;&raquo;</span></button>
     </div>
   </div>
 </div>
