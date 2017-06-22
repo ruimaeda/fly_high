@@ -106,9 +106,9 @@ hr {
   left: 0;
   content: ' ';
 }
-.bg-box{
+.top-box{
   position: relative;
-  width: 100%;
+  /*width: 100%;*/
   text-align: center;
   margin-bottom: 150px 0 50px 0;
 }
@@ -140,16 +140,18 @@ hr {
 	color: #f6f6f6;
 	background: #00cc99;
 	border: 0;
-	padding: 12px 24px;
+	padding: 8px 24px;
 	margin: 0 15px;
+	margin-top: 20px;
 	font-size: 18px;
 	transition: all 0.5s;
-	width: 110px;
+	width: 180px;
 }
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
 	color: #f6f6f6;
 	background-color: #00947a;
 }
+
 .section-title.center {
 	padding: 0 0;
 }

@@ -794,8 +794,8 @@
             </tr>
           </tbody>
         </table>
-        <a href="admin.php?action=rewrite"><button type="button" class="btn btn-custom btn-lg2"><span class="angle">&laquo;&nbsp;</span>戻る</button></a>
-        <button type="submit" class="btn btn-custom btn-lg2">送信する<span class="angle">&nbsp;&raquo;</span></button>
+        <a href="admin.php?action=rewrite"><button type="button" class="btn btn-default btn-lg2"><span class="angle">&laquo;&nbsp;</span>戻る</button></a>
+        <button type="submit" class="btn btn-default btn-lg2">送信する<span class="angle">&nbsp;&raquo;</span></button>
       </form>
     </div>
   </div>

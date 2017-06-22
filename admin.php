@@ -213,7 +213,7 @@
 <!-- Header -->
 <div id="intro">
   <div class="intro-body bg">
-    <div class="container box">
+    <div class="container top-box">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1><span class="brand-heading">Admin</span></h1>
@@ -801,7 +801,7 @@
                 <?php } ?>
             </div>
         </div>
-        <button type="submit" class="btn btn-custom btn-lg2">送信内容を確認<span class="angle">&nbsp;&raquo;</span></button>
+        <button type="submit" class="btn btn-default btn-lg2">送信内容を確認<span class="angle">&nbsp;&raquo;</span></button>
     </div>
   </div>
 </div>
