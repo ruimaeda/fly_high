@@ -90,6 +90,29 @@ hr {
 	-o-background-size: cover;
 }
 
+.bg{
+  background: url(../img/uae.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  height:100%;
+}
+
+.bg::before{
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+.bg-box{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 150px 0 50px 0;
+}
+
 #intro .intro-body H1 {
 	font-size: 76px;
 	font-weight: 700;
@@ -133,9 +156,6 @@ hr {
 .section-title h2, .section-title.center h2 {
 	margin-bottom: 30px;
 }
-
-
-
 
 
 /*Styleのチェックボックス------------------------------------------------------------------------*/
@@ -215,15 +235,6 @@ label.checkbox.checked {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* About Section ----------------------------------------------------------------*/
 #about .about-text {
 	margin-left: 10px;
@@ -237,38 +248,6 @@ label.checkbox.checked {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	font-size: 23px;
-}
-
-
-
-
-
-
-/* Services Section -------------------------------------------------------------*/
-/*#services {
-	padding: 140px 0 90px 0;
-	background: url(../../img/aus.jpg);
-	background-size: cover;
-	background-attachment: fixed;
-}*/
-#services {
-	/*display: table;
-	width: 100%;
-	height: auto;
-	padding: 100px 0;*/
-	/*text-align: center;*/
-	/*color: #fff;*/
-	/*background: url(../img/country/hawaii.jpg) no-repeat center center fixed;
-	background-color: #000;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;*/
-	/*padding: 140px 0 90px 0;*/
-	/*background-attachment: fixed;*/
-    /*position: relative;*/
-    /*height:100%;*/
-    /*z-index:-5;*/
 }
 
 #services {
@@ -307,35 +286,14 @@ label.checkbox.checked {
 }
 
 
-/*#services h2{
-	line-height: 30px;
-	margin-bottom: 20px;
-	color: #ffffff;
-	z-index:50;
-}*/
-
-
 #services h2 {
 	color: #555;
 }
-/*#services blockquote {
-	position: relative;
-	margin-top: 20px;
-	border: 0;
-	text-align: center;
-	color: #ffffff;
-}*/
 
 #services ul{
   display: inline-block;
 }
 
-
-
-/*#services p {
-	color: rgb(255,255,255);
-	font-weight: 600;
-}*/
 
 ul.cat li {
 	display: inline-block;
@@ -365,86 +323,6 @@ ol.type li a:hover {
 	 margin-bottom: 20px;
 }
 
-
-
-/* Team Section -----------------------------------------------------------------*/
-#team {
-	/*padding: 140px 0;*/
-	padding: 130px 0 80px 0;
-	background: #e6e6e6;
-}
-img.img-thumbnail.team-img {
-	width: 200px;
-	height: 200px;
-	border: 0;
-	border-radius: 50%;
-	background-color: #f6f6f6;
-}
-
-
-
-/* Testimonials Section ---------------------------------------------------------------*/
-#testimonials {
-	background: url(../../img/newzealand.jpg);
-	background-size: cover;
-	background-attachment: fixed;
-	color: #ddd;
-	padding: 140px 0 90px 0;
-}
-#testimonials h2 {
-	color: #f6f6f6;
-}
-#testimonials blockquote {
-	position: relative;
-	margin-top: 20px;
-	border: 0;
-	text-align: center;
-	color: #ffffff;
-}
-
-
-
-/* Contact Section -----------------------------------------------------------------------*/
-#contact {
-	padding: 120px 0 0 0;
-	background: #f6f6f6;
-}
-
-#contact i.fa {
-	font-size: 22px;
-	color: #ffffff;
-	margin-bottom: 5px;
-}
-
-#contact .btn-default {
-	background: #00cc99;
-	border: 0;
-	border-radius: 4px;
-	padding: 10px 20px;
-	color: #f6f6f6;
-	margin-top: 15px;
-	font-size: 15px;
-}
-#contact .btn-default:hover, #contact .btn-default:focus {
-	color: #f6f6f6;
-	background: #00947a;
-}
-
-#contact .social ul {
-	margin-top: 80px;
-}
-
-#contact .social i.fa {
-	font-size: 24px;
-	padding-top: 8px;
-	color: #00cc99;
-	border-radius: 4px;
-	transition: all 0.3s;
-}
-#contact .social i.fa:hover {
-	color: #00947a;
-}
-
 #works {
     padding: 120px 0 100px 0;
     /*background: #f6f6f6;*/
@@ -460,9 +338,6 @@ img.img-thumbnail.team-img {
 #footer a:hover, a:focus {
 	color: #00cc99;
 }
-
-
-
 
 /*to-topのフローティングボタン---------------------------------------------------------------*/
 #to-top{
@@ -495,7 +370,7 @@ img.img-thumbnail.team-img {
     padding-bottom: 5px;
 }
 
-
-
-
-
+.error {
+	font-weight: bold;
+	font-size: 18px;
+}
